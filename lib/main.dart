@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 void main() {
   runApp(MyApp());
@@ -28,6 +29,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
+  TextEditingController loginController = TextEditingController(), passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,8 +55,8 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Container(
-              margin: EdgeInsets.only(top: 5, bottom: 40),
-              padding: EdgeInsets.only(bottom: 50),
+              margin: EdgeInsets.only(top: 5, bottom: 20),
+              padding: EdgeInsets.only(bottom: 20),
               child: Text(
                 "Авторизация",
                 style: TextStyle(fontWeight: FontWeight.w400, fontSize: 24.0),
@@ -62,13 +66,15 @@ class _MyHomePageState extends State<MyHomePage> {
               width: 270,
               decoration: BoxDecoration(
                 color: const Color(0xFFEFEFEF),
-                borderRadius: BorderRadius.all(Radius.circular(5)),
+                borderRadius: BorderRadius.only(topLeft: Radius.circular(4),topRight: Radius.circular(4), bottomRight: Radius.circular(1),bottomLeft: Radius.circular(1)),
               ),
               child: TextField(
+                controller: loginController,
                   decoration: InputDecoration(
-                border: InputBorder.none,
-                focusedBorder: InputBorder.none,
-                enabledBorder: InputBorder.none,
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.blue),
+                    ),
+                    border: InputBorder.none,
                 errorBorder: InputBorder.none,
                 disabledBorder: InputBorder.none,
                 contentPadding:
@@ -81,12 +87,16 @@ class _MyHomePageState extends State<MyHomePage> {
               margin: EdgeInsets.only(top: 20,bottom: 20),
               decoration: BoxDecoration(
                 color: const Color(0xFFEFEFEF),
-                borderRadius: BorderRadius.all(Radius.circular(5)),
+                borderRadius: BorderRadius.only(topLeft: Radius.circular(4),topRight: Radius.circular(4), bottomRight: Radius.circular(1),bottomLeft: Radius.circular(1)),
               ),
               child: TextField(
+                controller: passwordController,
+                obscureText: true,
                   decoration: InputDecoration(
                 border: InputBorder.none,
-                enabledBorder: InputBorder.none,
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.blue),
+                    ),
                 errorBorder: InputBorder.none,
                 disabledBorder: InputBorder.none,
                 contentPadding:
@@ -97,7 +107,9 @@ class _MyHomePageState extends State<MyHomePage> {
             Container(
               margin: EdgeInsets.only(top:16),
                 child: MaterialButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      _checkInputOnNull();
+                    },
                     textColor: Colors.white,
                     color: Colors.blue,
                     child: Container(
@@ -112,5 +124,22 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       )),
     );
+  }
+
+  void _checkInputOnNull(){
+    String login = loginController.text;
+    String password = passwordController.text;
+    if(login == '' || password == ''){
+      Fluttertoast.showToast(
+          msg: "Заполните все поля",
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.TOP,
+          timeInSecForIosWeb: 1,
+          backgroundColor: Colors.red,
+          textColor: Colors.white,
+          fontSize: 16.0
+      );
+    }
+
   }
 }
