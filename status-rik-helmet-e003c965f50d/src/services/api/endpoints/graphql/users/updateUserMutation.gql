@@ -1,0 +1,14 @@
+mutation updateUserMutation($id: Int!, $username: String, $email: String, $password: String, $roleIds: [Int]) {
+    updateUser(input: { id: $id, username: $username, email: $email, password: $password, roleIds: $roleIds }) {
+        user {
+            rowId
+            email
+            username
+            roles {
+                rowId
+                name
+                description
+            }
+        }
+    }
+}

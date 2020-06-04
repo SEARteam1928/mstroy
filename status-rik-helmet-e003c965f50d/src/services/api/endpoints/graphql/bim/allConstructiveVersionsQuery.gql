@@ -1,0 +1,28 @@
+query allConstructiveVersionsQuery($appId: String!) {
+    allConstructiveVersions(filters: { appIdEq: $appId }) {
+        id
+        rowId
+        appId
+        volume
+        cost
+        versionStart
+        versionFinish
+        constructiveId
+        constructive {
+            rowId
+            name
+            code
+            projectId
+            isComplete
+            parentElementId
+            measureUnit {
+                name
+                shortName
+            }
+            constructiveType {
+                rowId
+                name
+            }
+        }
+    }
+}

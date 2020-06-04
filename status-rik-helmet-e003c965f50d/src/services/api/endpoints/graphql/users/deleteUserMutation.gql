@@ -1,0 +1,7 @@
+mutation deleteUserMutation($id: Int!) {
+    deleteUser(input: { id: $id }) {
+        user {
+            rowId
+        }
+    }
+}

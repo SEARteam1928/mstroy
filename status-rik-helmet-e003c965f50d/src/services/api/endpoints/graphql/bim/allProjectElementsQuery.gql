@@ -1,0 +1,10 @@
+query allProjectElementsQuery($filters: ProjectElementFilter) {
+    allProjectElements(filters: $filters) {
+        rowId
+        name
+        code
+        measureUnitId
+        parentElementId
+        projectId
+    }
+}

@@ -1,0 +1,26 @@
+query allWorksQuery($projectIdEq: Int!, $parentElementIdEq: Int) {
+    allWorks(filters: { projectIdEq: $projectIdEq, parentElementIdEq: $parentElementIdEq }) {
+        rowId
+        name
+        description
+        code
+        workType
+        factVolume
+        dayPlan
+        start
+        duration
+        progress
+        # workVersions {
+        #     rowId
+        #     volume
+        #     cost
+        #     versionStart
+        #     versionFinish
+        #     appId
+        # }
+        measureUnit {
+            name
+            shortName
+        }
+    }
+}

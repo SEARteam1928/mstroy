@@ -1,0 +1,18 @@
+query getUserQuery($id: Int) {
+    allUsers(rowId: $id) {
+        rowId
+        email
+        username
+        roles {
+            rowId
+            name
+            description
+            scenarios {
+                rowId
+                name
+                rootName
+                description
+            }
+        }
+    }
+}

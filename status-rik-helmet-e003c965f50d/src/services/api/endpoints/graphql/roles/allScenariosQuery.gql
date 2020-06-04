@@ -1,0 +1,8 @@
+query allScenariosQuery {
+    allScenarios {
+        rowId
+        name
+        rootName
+        description
+    }
+}

@@ -1,0 +1,117 @@
+// sticky-хедер и нижнюю строку(Итого) для таблицы
+.sticky-header,
+.sticky-bottom
+    height: 100%
+    .q-table__container
+        height: 100%
+        display: flex
+        flex-direction: column
+
+.sticky-header
+    th
+        position: sticky
+        top: 0
+        z-index: 1
+        opacity: 1
+        background-color: #fff
+
+.sticky-bottom
+    tbody
+        tr:last-of-type
+            td
+                position: sticky
+                bottom: 0
+                z-index: 1
+                opacity: 1
+
+// Компактные ячейки таблицы
+.compact
+    .q-table--dense .q-table thead tr,
+    .q-table--dense .q-table tbody tr,
+    .q-table--dense .q-table tbody td
+        height: 22px
+        line-height: 14px
+    .q-table--dense .q-table th,
+    .q-table--dense .q-table td
+        padding: 2px 4px
+
+// Для адаптивной высоты строк таблицы
+.table-auto-row-height
+    .q-table tbody tr,
+    .q-table tbody td
+        height: var(--row-height) !important
+        line-height: var(--row-height) !important
+    .q-table tbody tr
+        transition: height 500ms ease
+    .q-table tbody td
+        padding: 0 4px !important
+
+// Оформление шапок всех таблиц
+.table-blue-header
+    .q-table
+        thead
+            background-color: #006eaa
+            color: #fff
+            th
+                background-color: #006eaa
+                font-weight: normal
+    .q-linear-progress__model--indeterminate:before, 
+    .q-linear-progress__model--query:before, 
+    .q-linear-progress__model--indeterminate:after, 
+    .q-linear-progress__model--query:after
+        background-color: rgb(217, 234, 242)
+
+// Синяя сетка для ячеек таблиц
+.table-blue-grid
+    .q-table__container
+        .q-table__top
+            border-color: rgba(0, 110, 170, 0.3)
+        .q-table
+            border-color: rgba(0, 110, 170, 0.3)
+            // border-bottom: 1px solid rgba(0, 110, 170, 0.3)
+            thead
+                th
+                    border-color: rgba(255, 255, 255, 0.1)
+            tbody
+                tr, td, th
+                    border-color: rgba(0, 110, 170, 0.3)
+            .table-row-total
+                background-color: rgb(217, 234, 242)
+
+// Убирает скругление краев таблиц
+.table-no-border-radius
+    .q-table__container > div:last-child
+        border-bottom-left-radius: 0
+        border-bottom-right-radius: 0
+    .q-table__container > div:first-child
+        border-top-left-radius: 0
+        border-top-right-radius: 0
+
+// Раскрывающиеся строки таблицы
+.table-row-expandable
+    cursor: pointer
+    .table-expand-icon, .table-expand-spinner
+        width: 14px
+        height: 10px
+        display: inline-flex
+        align-items: center
+        justify-content: center
+        font-size: 24px
+        color: rgba(0, 0, 0, 0.4)
+        transition: transform 250ms ease
+        will-change: transform
+    &.table-row-expanded
+        .table-expand-icon
+            transform: rotate(-180deg)
+
+// Разрешает новые строки в заголовках таблицы
+.table-header-pre
+    .q-table
+        th
+            white-space: pre
+
+// Выравнивает текст заголовков таблицы по центру
+.table-header-center
+    .q-table
+        th
+            text-align: center

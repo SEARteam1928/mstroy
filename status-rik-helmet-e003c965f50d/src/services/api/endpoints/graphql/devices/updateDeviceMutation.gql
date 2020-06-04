@@ -1,0 +1,31 @@
+mutation updateDeviceMutation(
+    $id: Int!
+    $name: String
+    $loraKey: String!
+    $assetsNumber: Int
+    $sendPeriod: Int = 300
+    $ethalon: Boolean = false
+    $rfidValue: String
+) {
+    updateDevice(
+        input: {
+            id: $id
+            name: $name
+            loraKey: $loraKey
+            assetsNumber: $assetsNumber
+            sendPeriod: $sendPeriod
+            ethalon: $ethalon
+            rfidValue: $rfidValue
+        }
+    ) {
+        device {
+            rowId
+            name
+            loraKey
+            assetsNumber
+            sendPeriod
+            ethalon
+            rfidValue
+        }
+    }
+}

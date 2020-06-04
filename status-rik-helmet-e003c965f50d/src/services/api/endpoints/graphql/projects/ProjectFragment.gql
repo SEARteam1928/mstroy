@@ -1,0 +1,15 @@
+fragment ProjectFragment on ProjectNode {
+    rowId
+    name
+    shortName
+    characteristics
+    longitude
+    latitude
+    dateBegin
+    dateComplete
+    wasChanged
+    cost
+    timeZoneOffset
+    repoId
+    actualProjectTransactionId
+}

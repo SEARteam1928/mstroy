@@ -1,0 +1,11 @@
+mutation updateConstructiveVersionMutation($id: Int!, $appId: String) {
+    updateConstructiveVersion(input: { id: $id, appId: $appId }) {
+        constructiveversion {
+            rowId
+            volume
+            cost
+            appId
+        }
+        ok
+    }
+}

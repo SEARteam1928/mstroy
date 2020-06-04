@@ -1,0 +1,12 @@
+query allUsersQuery {
+    allUsers {
+        rowId
+        email
+        username
+        roles {
+            rowId
+            name
+            description
+        }
+    }
+}

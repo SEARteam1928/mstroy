@@ -1,0 +1,35 @@
+mutation updateWorkSessionMutation(
+    $id: Int!
+    $startDate: DateTime
+    $finishDate: DateTime
+    $deviceId: Int
+    $timeResourceId: Int
+) {
+    updateWorkSession(
+        input: {
+            id: $id
+            startDate: $startDate
+            finishDate: $finishDate
+            deviceId: $deviceId
+            timeResourceId: $timeResourceId
+        }
+    ) {
+        worksession {
+            rowId
+            startDate
+            finishDate
+            deviceId
+            timeResourceId
+            device {
+                rowId
+                name
+            }
+            workers {
+                rowId
+                lastName
+                firstName
+                surname
+            }
+        }
+    }
+}

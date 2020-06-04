@@ -1,0 +1,21 @@
+fragment AccessGroupsFragment on AccessGroupNode {
+    rowId
+    name
+    isUserGroup
+    parentAccessGroupId
+    ruleIds
+    userIds
+    associationAccessRules {
+        accessRule {
+            rowId
+            name
+        }
+    }
+    associationUsers {
+        user {
+            rowId
+            username
+            email
+        }
+    }
+}

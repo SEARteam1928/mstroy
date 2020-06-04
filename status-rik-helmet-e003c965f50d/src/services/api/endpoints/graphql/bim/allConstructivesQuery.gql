@@ -1,0 +1,26 @@
+query allConstructivesQuery($projectIdEq: Int!, $projectTransactionIdEq: Int!) {
+    allConstructives(filters: { projectIdEq: $projectIdEq }) {
+        rowId
+        name
+        code
+        projectId
+        isComplete
+        parentElementId
+        measureUnit {
+            name
+            shortName
+        }
+        constructiveType {
+            rowId
+            name
+        }
+        constructiveVersions(filters: { projectTransactionIdEq: $projectTransactionIdEq }) {
+            rowId
+            appId
+            volume
+            cost
+            versionStart
+            versionFinish
+        }
+    }
+}

@@ -1,0 +1,7 @@
+#import "./AccessRuleFragment.gql"
+
+query allAccessRulesQuery($filters: AccessRuleFilter) {
+    allAccessRules(filters: $filters) {
+        ...AccessRuleFragment
+    }
+}

@@ -1,0 +1,20 @@
+mutation createUserMutation($email: String!, $username: String!, $password: String!, $workerId: Int) {
+    createUser(input: { email: $email, username: $username, password: $password, workerId: $workerId }) {
+        user {
+            rowId
+            username
+            email
+            roles {
+                rowId
+                name
+                description
+                scenarios {
+                    rowId
+                    name
+                    rootName
+                    description
+                }
+            }
+        }
+    }
+}

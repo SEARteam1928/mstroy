@@ -1,0 +1,6 @@
+subscription newCoordsSubscription {
+    newCoords {
+        createdAt
+        rowId
+    }
+}

@@ -1,0 +1,27 @@
+query allDeviceCoordinatesQuery($filters: DeviceCoordinateFilter, $orderBy: DeviceCoordinateOrdering) {
+    allDeviceCoordinates(filters: $filters, orderBy: $orderBy) {
+        rowId
+        dev
+        deviceId
+        deviceType
+        bleUuid
+        createdAt
+        updatedAt
+        timestamp
+        latitudeGps
+        latitudeBle
+        longitudeGps
+        longitudeBle
+        altitudeGps
+        altitudeBle
+        activity
+        activityLevel
+        temperature
+        battery
+        batteryInPercents
+        pressure
+        altitude
+        objectId
+        sessionId
+    }
+}

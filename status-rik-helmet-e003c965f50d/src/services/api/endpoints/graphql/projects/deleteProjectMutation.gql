@@ -1,0 +1,8 @@
+mutation deleteProjectMutation($id: Int!) {
+    deleteProject(input: { id: $id }) {
+        ok
+        project {
+            rowId
+        }
+    }
+}

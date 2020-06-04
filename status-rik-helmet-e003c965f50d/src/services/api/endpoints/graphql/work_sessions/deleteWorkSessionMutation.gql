@@ -1,0 +1,5 @@
+mutation deleteWorkSessionMutation($id: Int!) {
+    deleteWorkSession(input: { id: $id }) {
+        ok
+    }
+}

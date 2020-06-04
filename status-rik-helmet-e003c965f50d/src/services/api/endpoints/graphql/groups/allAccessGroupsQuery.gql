@@ -1,0 +1,7 @@
+#import "./AccessGroupsFragment.gql"
+
+query allAccessGroupsQuery {
+    allAccessGroups {
+        ...AccessGroupsFragment
+    }
+}

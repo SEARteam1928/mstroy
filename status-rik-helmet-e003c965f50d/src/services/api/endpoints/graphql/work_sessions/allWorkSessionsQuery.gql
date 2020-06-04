@@ -1,0 +1,19 @@
+query allWorkSessionsQuery(
+    $filters: WorkSessionFilter
+    $pagination: PaginationArgument
+    $orderBy: WorkSessionOrdering
+) {
+    allWorkSessions(filters: $filters, pagination: $pagination, orderBy: $orderBy) {
+        rowId
+        startDate
+        finishDate
+        deviceId
+        timeResourceId
+        workers {
+            rowId
+            lastName
+            firstName
+            surname
+        }
+    }
+}

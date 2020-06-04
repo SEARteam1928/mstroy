@@ -1,0 +1,10 @@
+#import "./AccessGroupsFragment.gql"
+
+mutation createAccessGroupMutation($input: CreateAccessGroupInput!) {
+    createAccessGroup(input: $input) {
+        ok
+        accessgroup {
+            ...AccessGroupsFragment
+        }
+    }
+}

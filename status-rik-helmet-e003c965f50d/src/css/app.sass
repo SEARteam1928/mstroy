@@ -1,0 +1,164 @@
+@import './_vars'
+
+\:root
+    --ms_blue: #006eaa
+    --q-color-ms_blue: #006eaa
+    --ms_black: #343434
+    --q-color-ms_black: #343434
+    --like_red: #ff3347
+    --q-color-like_red: #ff3347
+    --btn_red: #fc115f
+    --q-color-btn_red: #fc115f
+    --close-red: #d51f36
+    --q-color-close-red: #d51f36
+    --q-color-custom-icon-primary: #BABABA
+    --q-color-custom-icon-bg: #f5f5f5
+    --q-color-menu-item-border: #d7d7d7
+    --q-color-menu-item-outline: #82caed
+    --q-color-menu-item-green: #76ca02
+    --q-color-menu-item-text: #888888
+
+    // Новые цвета
+    --q-color-ms-dark: #132B4D
+    --ms-dark: #132B4D
+    --q-color-ms-primary: #4774E8
+    --ms-primary: #4774E8
+    --q-color-ms-blue: #00A1E7
+    --ms-blue: #00A1E7
+    --q-color-ms-light-grey: #F4F7FA
+    --ms-light-grey: #F4F7FA
+    --q-color-ms-grey: #6C83A1
+    --ms-grey: #6C83A1
+    --q-color-ms-red: #E40069
+    --ms-red: #E40069
+
+// Регистрация новых цветов
+.text-ms-dark
+    color: var(--ms-dark) !important
+.bg-ms-dark
+    background: var(--ms-dark) !important
+
+.text-ms-primary
+    color: var(--ms-primary) !important
+.bg-ms-primary
+    background: var(--ms-primary) !important
+
+.text-ms-blue
+    color: var(--ms-blue) !important
+.bg-ms-blue
+    background: var(--ms-blue) !important
+
+.text-ms-light-grey
+    color: var(--ms-light-grey) !important
+.bg-ms-light-grey
+    background: var(--ms-light-grey) !important
+
+.text-ms-grey
+    color: var(--ms-grey) !important
+.bg-ms-grey
+    background: var(--ms-grey) !important
+
+.text-ms-red
+    color: var(--ms-red) !important
+.bg-ms-red
+    background: var(--ms-red) !important
+
+
+// #006eaa
+.text-ms_blue 
+    color: var(--ms_blue)
+.bg-ms_blue 
+    background: var(--ms_blue)
+
+// #343434
+.text-ms_black
+    color: var(--ms_black)
+.bg-ms_black
+    background: var(--ms_black)
+
+// #ff3347
+.text-like_red
+    color: var(--like_red)
+.bg-like_red
+    background: var(--like_red)
+
+// #fc115f
+.text-btn_red 
+    color: var(--btn_red)
+.bg-btn_red 
+    background: var(--btn_red)
+
+// #f5f5f5
+.text-custom-icon-bg
+    color: var(--q-color-custom-icon-bg)
+.bg-custom-icon-bg
+    background: var(--q-color-custom-icon-bg)
+
+// #76ca02
+.text-menu-item-green
+    color: var(--q-color-menu-item-green)
+.bg-menu-item-green
+    background: var(--q-color-menu-item-green)
+
+// #888888
+.text-menu-item-text
+    color: var(--q-color-menu-item-text)
+.bg-menu-item-text
+    background: var(--q-color-menu-item-text)
+
+
+[title="Hosted on free web hosting 000webhost.com. Host your own website for FREE."]
+    display: none
+
+body
+    margin: 0
+    background-color: #fff
+
+.no-user-select
+    user-select: none
+
+.q-icon
+    overflow: hidden
+
+.height-100vh
+    height: 100vh
+
+.messageNotify
+    .q-notification__message
+        white-space: pre
+
+.page-background
+    background-color: var(--ms-light-grey)
+
+// Импорт стилей кастомизации таблиц
+@import "./tables"
+
+// Импорт стилей кастомизации нопок
+@import "./buttons"
+
+// Импорт стилей кастомизации теней
+@import "./shadows"
+
+.page-block
+    box-shadow: $shadow-2
+    background-color: #fff
+    border-radius: 4px
+
+// Переопределение родных классов для теней с использованием цвета --ms-dark
+.shadow-1
+    box-shadow: $shadow-1
+
+.shadow-2
+    box-shadow: $shadow-2
+
+.shadow-3
+    box-shadow: $shadow-3
+
+.shadow-5
+    box-shadow: $shadow-5
+
+.shadow-10
+    box-shadow: $shadow-10
+
+.shadow-15
+    box-shadow: $shadow-15

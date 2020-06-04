@@ -1,0 +1,22 @@
+query allPlannedWorksQuery {
+    allPlannedWorks {
+        startDate
+        endDate
+        wbsElementId
+        wbsElement {
+            operName
+            parentWbsElementId
+            wbsElementType
+            isResource
+            factVolume
+            workLoadSum
+            cSum1
+            cSum111
+            cSum112
+            resCentHour
+            measureUnit {
+                shortName
+            }
+        }
+    }
+}

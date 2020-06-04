@@ -1,0 +1,36 @@
+#import "./ProjectFragment.gql"
+
+mutation updateProjectMutation(
+    $id: Int!
+    $name: String
+    $shortName: String
+    $dateBegin: Date
+    $dateComplete: Date
+    $cost: Float
+    $timeZoneOffset: Int
+    $latitude: Float
+    $longitude: Float
+    $repoId: String
+    $characteristics: String
+) {
+    updateProject(
+        input: {
+            id: $id
+            name: $name
+            shortName: $shortName
+            dateBegin: $dateBegin
+            dateComplete: $dateComplete
+            cost: $cost
+            timeZoneOffset: $timeZoneOffset
+            latitude: $latitude
+            longitude: $longitude
+            repoId: $repoId
+            characteristics: $characteristics
+        }
+    ) {
+        ok
+        project {
+            ...ProjectFragment
+        }
+    }
+}

@@ -1,0 +1,17 @@
+query allTimeResourcesQuery($filters: TimeResourceFilter) {
+    allTimeResources(filters: $filters) {
+        rowId
+        name
+        projectId
+        worker {
+            rowId
+            lastName
+            firstName
+            surname
+            position {
+                rowId
+                name
+            }
+        }
+    }
+}

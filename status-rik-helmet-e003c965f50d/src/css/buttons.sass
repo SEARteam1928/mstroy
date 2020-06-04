@@ -1,0 +1,68 @@
+.modal-close-btn
+    &.close-red
+        .q-focus-helper
+            opacity: 1
+            &:before
+                opacity: 1
+                background: var(--close-red)
+            &:after
+                opacity: 0
+        &.q-focusable:focus > .q-focus-helper, 
+        &.q-manual-focusable--focused > .q-focus-helper, 
+        &.q-hoverable:hover > .q-focus-helper
+            opacity: 1
+            background: var(--close-red)
+            &:after
+                opacity: 0.1
+        .q-icon
+            fill: var(--q-color-custom-icon-bg)
+            color: var(--q-color-custom-icon-bg)
+
+    &.with-mobile
+        .q-focus-helper
+            position: absolute
+            top: 0
+            left: 0 /* rtl:ignore */
+            width: 100%
+            height: 100%
+            pointer-events: none
+            border-radius: inherit
+            opacity: 1
+            transition: background-color 0.3s cubic-bezier(0.25, 0.8, 0.5, 1), opacity 0.4s cubic-bezier(0.25, 0.8, 0.5, 1)
+            &:before, &:after
+                content: ''
+                position: absolute
+                top: 0
+                left: 0
+                width: 100%
+                height: 100%
+                border-radius: inherit
+                transition: background-color 0.3s cubic-bezier(0.25, 0.8, 0.5, 1), opacity 0.6s cubic-bezier(0.25, 0.8, 0.5, 1)
+
+    &.no-radius-top-left
+        border-top-left-radius: 0
+    &.no-radius-top-right
+        border-top-right-radius: 0
+    &.no-radius-bottom-right
+        border-bottom-right-radius: 0
+    &.no-radius-bottom-left
+        border-bottom-left-radius: 0
+
+.modal-close-btn-dense
+    z-index: 10
+    position: absolute
+    right: 8px
+    top: 8px
+    & > .q-focus-helper
+        background: currentColor !important
+        opacity: 0.15 !important
+        &:before
+            opacity: 0.1 !important
+        &:after
+            opacity: 0.4 !important
+    .q-icon
+        opacity: 0.6
+        transition: opacity 150ms ease-in-out
+    &:hover
+        .q-icon
+            opacity: 1

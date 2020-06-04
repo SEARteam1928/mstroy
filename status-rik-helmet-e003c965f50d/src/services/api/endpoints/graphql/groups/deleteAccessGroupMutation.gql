@@ -1,0 +1,8 @@
+mutation deleteAccessGroupMutation($id: Int!) {
+    deleteAccessGroup(input: { id: $id }) {
+        ok
+        accessgroup {
+            rowId
+        }
+    }
+}

@@ -1,0 +1,63 @@
+#import "./AccessRuleFragment.gql"
+
+mutation createAccessRuleForNewProjectMutation(
+    $projectEntityId: Int!
+    $projectId: Int!
+    $withRead: Boolean!
+    $readName: String
+    $withUpdate: Boolean!
+    $updateName: String
+    $withDelete: Boolean!
+    $deleteName: String
+) {
+    readAccessRule: createAccessRule(
+        input: {
+            create: false
+            read: true
+            update: false
+            delete: false
+            name: $readName
+            entityId: $projectEntityId
+            accessRowId: $projectId
+        }
+    ) @include(if: $withRead) {
+        ok
+        accessrule {
+            ...AccessRuleFragment
+        }
+    }
+
+    updateAccessRule: createAccessRule(
+        input: {
+            create: false
+            read: false
+            update: true
+            delete: false
+            name: $updateName
+            entityId: $projectEntityId
+            accessRowId: $projectId
+        }
+    ) @include(if: $withUpdate) {
+        ok
+        accessrule {
+            ...AccessRuleFragment
+        }
+    }
+
+    deleteAccessRule: createAccessRule(
+        input: {
+            create: false
+            read: false
+            update: false
+            delete: true
+            name: $deleteName
+            entityId: $projectEntityId
+            accessRowId: $projectId
+        }
+    ) @include(if: $withDelete) {
+        ok
+        accessrule {
+            ...AccessRuleFragment
+        }
+    }
+}

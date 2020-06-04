@@ -1,0 +1,10 @@
+query allDevicesQuery {
+    allDevices {
+        rowId
+        name
+        assetsNumber
+        loraKey
+        sendPeriod
+        ethalon
+    }
+}

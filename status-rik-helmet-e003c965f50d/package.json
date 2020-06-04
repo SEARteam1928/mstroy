@@ -1,0 +1,65 @@
+{
+    "name": "helmet",
+    "version": "0.0.1",
+    "description": "",
+    "productName": "BIM-портал",
+    "author": "Neyasbltb <neyasbltb_88@mail.ru>",
+    "private": true,
+    "scripts": {
+        "dev": "quasar dev",
+        "build": "quasar build",
+        "build:deploy": "quasar build && cross-env RULE=fast node deploy",
+        "deploy": "node deploy"
+    },
+    "dependencies": {
+        "@amcharts/amcharts4": "^4.7.21",
+        "@geoman-io/leaflet-geoman-free": "^2.3.0",
+        "@quasar/extras": "^1.6.0",
+        "@reallife/vue-tree-grid": "0.0.3",
+        "@xeokit/xeokit-sdk": "0.9.5",
+        "apollo-cache-inmemory": "^1.6.5",
+        "apollo-client": "^2.6.8",
+        "apollo-link-context": "^1.0.19",
+        "apollo-link-error": "^1.1.12",
+        "apollo-link-http": "^1.5.16",
+        "apollo-link-ws": "^1.0.20",
+        "axios": "^0.19.0",
+        "babel-plugin-graphql-tag": "^2.5.0",
+        "bimserverapi": "0.0.167",
+        "chart.js": "^2.9.3",
+        "devextreme": "19.2.7",
+        "devextreme-vue": "19.2.7",
+        "dotenv": "^8.2.0",
+        "graphql": "^14.6.0",
+        "graphql-tag": "^2.10.3",
+        "jquery": "^3.4.1",
+        "leaflet": "^1.5.1",
+        "leaflet-hotline": "^0.4.0",
+        "leaflet-play": "^0.3.3",
+        "leaflet-plugin-trackplayback": "^1.0.5",
+        "leaflet.heat": "^0.2.0",
+        "portal-vue": "^2.1.7",
+        "quasar": "^1.9.11",
+        "subscriptions-transport-ws": "^0.9.16",
+        "vis-timeline": "^6.2.10",
+        "vue-json-viewer": "^2.2.8",
+        "vue2-leaflet": "^2.2.1",
+        "vuex-router-sync": "^5.0.0"
+    },
+    "devDependencies": {
+        "@quasar/app": "^1.6.1",
+        "bitbar-webpack-progress-plugin": "^1.0.0",
+        "copy-webpack-plugin": "^5.0.4",
+        "cross-env": "^5.2.0",
+        "ftp-deploy": "^2.3.3",
+        "node-sass": "^4.13.1"
+    },
+    "engines": {
+        "node": ">= 8.9.0",
+        "npm": ">= 5.6.0",
+        "yarn": ">= 1.6.0"
+    },
+    "browserslist": [
+        "last 30 version, not dead, ie >= 11"
+    ]
+}

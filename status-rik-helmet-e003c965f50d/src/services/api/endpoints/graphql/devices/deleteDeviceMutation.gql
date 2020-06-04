@@ -1,0 +1,9 @@
+mutation deleteDeviceMutation($id: Int!) {
+    deleteDevice(input: { id: $id }) {
+        device {
+            id
+            name
+            loraKey
+        }
+    }
+}

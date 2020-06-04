@@ -1,0 +1,13 @@
+query allRolesQuery {
+    allRoles {
+        rowId
+        name
+        description
+        scenarios {
+            rowId
+            name
+            rootName
+            description
+        }
+    }
+}

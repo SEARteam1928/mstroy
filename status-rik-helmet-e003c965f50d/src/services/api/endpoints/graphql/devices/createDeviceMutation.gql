@@ -1,0 +1,26 @@
+mutation createDeviceMutation(
+    $name: String!
+    $loraKey: String!
+    $assetsNumber: Int!
+    $sendPeriod: Int!
+    $ethalon: Boolean!
+) {
+    createDevice(
+        input: {
+            name: $name
+            loraKey: $loraKey
+            assetsNumber: $assetsNumber
+            sendPeriod: $sendPeriod
+            ethalon: $ethalon
+        }
+    ) {
+        device {
+            rowId
+            name
+            loraKey
+            assetsNumber
+            sendPeriod
+            ethalon
+        }
+    }
+}

@@ -1,0 +1,18 @@
+query allProjectResourcesQuery($projectIdEq: Int!, $parentElementIdIn: [Int!]) {
+    allProjectResources(filters: { projectIdEq: $projectIdEq, parentElementIdIn: $parentElementIdIn }) {
+        rowId
+        name
+        code
+        volumePlan
+        volumeOrdered
+        volumneUsed
+        datePlan
+        dateAvailable
+        dateOrdered
+        dateUsed
+        measureUnit {
+            name
+            shortName
+        }
+    }
+}

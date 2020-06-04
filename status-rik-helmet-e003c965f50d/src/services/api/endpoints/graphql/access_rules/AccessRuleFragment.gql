@@ -1,0 +1,14 @@
+fragment AccessRuleFragment on AccessRuleNode {
+    rowId
+    name
+    accessRowId
+    create
+    read
+    update
+    delete
+    entityId
+    entity {
+        rowId
+        tableName
+    }
+}
