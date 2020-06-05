@@ -82,12 +82,20 @@ class _MyHomePageState extends State<RenameList> {
           },
           title: Text(
             text,
-            style: TextStyle(fontSize: 25),
+            style: TextStyle(fontSize: 20),
           ),
-          trailing: Text(
+          trailing: Container(
+            width: 50,
+                  height: 50,
+            decoration: BoxDecoration(
+              color: const Color(0xffe40069),
+              borderRadius: BorderRadius.all(Radius.circular(50)),
+            ),
+              child: Center(
+                  child: Text(
             trailingText,
-            style: TextStyle(fontSize: 25),
-          ),
+            style: TextStyle(fontSize: 20,color: Colors.white),
+              ))),
         ),
       ));
 }
