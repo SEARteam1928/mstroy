@@ -19,119 +19,96 @@ class _MyHomePageState extends State<Authorization> {
     return Scaffold(
       backgroundColor: const Color(0xFFF4F7FA),
       body: Center(
-        child: SafeArea(
+          child: SafeArea(
               child: Container(
-            padding: EdgeInsets.only(left: 25, top: 40, right: 25, bottom: 40),
-            decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.all(Radius.circular(5)),
-                boxShadow: [
-                  BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 6,
-                      blurRadius: 15,
-                      offset: Offset(0, 5))
-                ]),
-            height: 359,
-            width: 350,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Container(
-                  margin: EdgeInsets.only(top: 5, bottom: 20),
-                  padding: EdgeInsets.only(bottom: 20),
-                  child: Text(
-                    "Авторизация",
-                    style: TextStyle(
-                        fontWeight: FontWeight.w400,
-                        fontSize: 24.0,
-                        color: const Color(0xff132B4D)),
-                  ),
-                ),
-                Container(
-                  width: 300,
-                  decoration: BoxDecoration(
-                    color: const Color(0xFFF4F7FA),
-                    borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(4),
-                        topRight: Radius.circular(4),
-                        bottomRight: Radius.circular(1),
-                        bottomLeft: Radius.circular(1)),
-                  ),
-                  child: TextField(
-
-                      controller: loginController,
-                      decoration: InputDecoration(
-
-                        suffixIcon: Container(
-                          child: loginIco,
-                          padding: EdgeInsets.all(14),
-                        ),
-                        focusedBorder: UnderlineInputBorder(
-                          borderSide:
-                              BorderSide(color: const Color(0xFF4774e8)),
-                        ),
-                        border: InputBorder.none,
-                        errorBorder: InputBorder.none,
-                        disabledBorder: InputBorder.none,
-                        contentPadding: EdgeInsets.only(
-                            left: 15, bottom: 11, top: 11, right: 15),
-                        hintText: "Email",
-                      )),
-                ),
-                Container(
-                  width: 300,
-                  margin: EdgeInsets.only(top: 20, bottom: 20),
-                  decoration: BoxDecoration(
-                    color: const Color(0xFFF4F7FA),
-                    borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(4),
-                        topRight: Radius.circular(4),
-                        bottomRight: Radius.circular(1),
-                        bottomLeft: Radius.circular(1)),
-                  ),
-                  child: TextField(
-                      controller: passwordController,
-                      obscureText: true,
-                      decoration: InputDecoration(
-                        suffixIcon: Container(
-                          child: passwordIco,
-                          padding: EdgeInsets.all(14),
-                        ),
-                        border: InputBorder.none,
-                        focusedBorder: UnderlineInputBorder(
-                          borderSide:
-                              BorderSide(color: const Color(0xFF4774e8)),
-                        ),
-                        errorBorder: InputBorder.none,
-                        disabledBorder: InputBorder.none,
-                        contentPadding: EdgeInsets.only(
-                            left: 15, bottom: 11, top: 11, right: 15),
-                        hintText: "Пароль",
-                      )),
-                ),
-                Container(
-                  width: 137,
-                    height: 36,
-                    margin: EdgeInsets.only(top: 31),
-                    child: MaterialButton(
-                        onPressed: () {
-                          _checkInputOnNull();
-                        },
-                        textColor: Colors.white,
-                        color: const Color(0xFF4774e8),
-                        child: Container(
-                          padding: EdgeInsets.only(
-                               top: 4, bottom: 4),
-                          child: Text(
-                            "Войти",
-                            style: TextStyle(fontWeight: FontWeight.w400, fontSize: 16),
-                          ),
-                        )))
-              ],
+        padding: EdgeInsets.only(left: 25, top: 40, right: 25, bottom: 40),
+        decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.all(Radius.circular(5)),
+            boxShadow: [
+              BoxShadow(
+                  color: Colors.grey.withOpacity(0.5),
+                  spreadRadius: 6,
+                  blurRadius: 15,
+                  offset: Offset(0, 5))
+            ]),
+        height: 359,
+        width: 350,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Container(
+              margin: EdgeInsets.only(top: 5, bottom: 20),
+              padding: EdgeInsets.only(bottom: 20),
+              child: Text(
+                "Авторизация",
+                style: TextStyle(
+                    fontWeight: FontWeight.w400,
+                    fontSize: 24.0,
+                    color: const Color(0xff132B4D)),
+              ),
             ),
-          ))),
+            _textField(loginController, loginIco, false, "Email", 0),
+            _textField(passwordController, passwordIco, true, "Пароль", 20),
+            _enterButton()
+          ],
+        ),
+      ))),
     );
+  }
+
+  Widget _textField(TextEditingController controller, Widget ico, bool obscure,
+      String hintText, double containerMargin) {
+    return Container(
+      width: 300,
+      margin: EdgeInsets.only(top: containerMargin, bottom: containerMargin),
+      decoration: BoxDecoration(
+        color: const Color(0xFFF4F7FA),
+        borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(4),
+            topRight: Radius.circular(4),
+            bottomRight: Radius.circular(1),
+            bottomLeft: Radius.circular(1)),
+      ),
+      child: TextField(
+          controller: controller,
+          obscureText: obscure,
+          decoration: InputDecoration(
+            suffixIcon: Container(
+              child: ico,
+              padding: EdgeInsets.all(14),
+            ),
+            border: InputBorder.none,
+            focusedBorder: UnderlineInputBorder(
+              borderSide: BorderSide(color: const Color(0xFF4774e8)),
+            ),
+            errorBorder: InputBorder.none,
+            disabledBorder: InputBorder.none,
+            contentPadding:
+                EdgeInsets.only(left: 15, bottom: 11, top: 11, right: 15),
+            hintText: hintText,
+          )),
+    );
+  }
+
+  Widget _enterButton() {
+    return Container(
+        width: 137,
+        height: 36,
+        margin: EdgeInsets.only(top: 31),
+        child: MaterialButton(
+            onPressed: () {
+              _checkInputOnNull();
+            },
+            textColor: Colors.white,
+            color: const Color(0xFF4774e8),
+            child: Container(
+              padding: EdgeInsets.only(top: 4, bottom: 4),
+              child: Text(
+                "Войти",
+                style: TextStyle(fontWeight: FontWeight.w400, fontSize: 16),
+              ),
+            )));
   }
 
   void _checkInputOnNull() {
@@ -165,5 +142,3 @@ final Widget loginIco = SvgPicture.asset(loginAssetname, semanticsLabel: 'ico');
 final String passwordAssetName = 'images/authorization_password_ico.svg';
 final Widget passwordIco =
     SvgPicture.asset(passwordAssetName, semanticsLabel: 'ico');
-
-
