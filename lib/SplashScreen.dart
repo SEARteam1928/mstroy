@@ -29,8 +29,8 @@ class _SplashScreenState extends State<SplashScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Container(
-              height: 300,
-              width: 300,
+              height: 400,
+              width: 400,
               child: logoIco,
               padding: EdgeInsets.all(0),
             ),

@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+import 'package:mstroy/urls.dart';
+import 'MSColors.dart';
 
 class Authorization extends StatefulWidget {
-  Authorization({Key key, this.title}) : super(key: key);
-  final String title;
-
+  Authorization({Key key}) : super(key: key);
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
+
+var underLineColor = blue;
 
 class _MyHomePageState extends State<Authorization> {
   TextEditingController loginController = TextEditingController(),
@@ -18,22 +21,22 @@ class _MyHomePageState extends State<Authorization> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF4F7FA),
+      backgroundColor: backgroundWhite,
       body: Center(
           child: SafeArea(
               child: Container(
         padding: EdgeInsets.only(left: 25, top: 40, right: 25, bottom: 40),
         decoration: BoxDecoration(
-            color: Colors.white,
+            color: white,
             borderRadius: BorderRadius.all(Radius.circular(5)),
             boxShadow: [
               BoxShadow(
-                  color: Colors.grey.withOpacity(0.5),
+                  color: greyOpacity0_5,
                   spreadRadius: 6,
                   blurRadius: 15,
                   offset: Offset(0, 5))
             ]),
-        height: 359,
+        height: 369,
         width: 350,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -46,7 +49,7 @@ class _MyHomePageState extends State<Authorization> {
                 style: TextStyle(
                     fontWeight: FontWeight.w400,
                     fontSize: 24.0,
-                    color: const Color(0xff132B4D)),
+                    color: darkBlue),
               ),
             ),
             _textField(loginController, loginIco, false, "Email", 0),
@@ -64,7 +67,7 @@ class _MyHomePageState extends State<Authorization> {
       width: 300,
       margin: EdgeInsets.only(top: containerMargin, bottom: containerMargin),
       decoration: BoxDecoration(
-        color: const Color(0xFFF4F7FA),
+        color: backgroundWhite,
         borderRadius: BorderRadius.only(
             topLeft: Radius.circular(4),
             topRight: Radius.circular(4),
@@ -81,7 +84,7 @@ class _MyHomePageState extends State<Authorization> {
             ),
             border: InputBorder.none,
             focusedBorder: UnderlineInputBorder(
-              borderSide: BorderSide(color: const Color(0xFF4774e8)),
+              borderSide: BorderSide(color: underLineColor),
             ),
             errorBorder: InputBorder.none,
             disabledBorder: InputBorder.none,
@@ -94,15 +97,15 @@ class _MyHomePageState extends State<Authorization> {
 
   Widget _enterButton() {
     return Container(
-        width: 137,
-        height: 36,
+        width: 150,
+        height: 46,
         margin: EdgeInsets.only(top: 31),
         child: MaterialButton(
             onPressed: () {
               _checkInputOnNull();
             },
-            textColor: Colors.white,
-            color: const Color(0xFF4774e8),
+            textColor: white,
+            color: blue,
             child: Container(
               padding: EdgeInsets.only(top: 4, bottom: 4),
               child: Text(
@@ -112,28 +115,69 @@ class _MyHomePageState extends State<Authorization> {
             )));
   }
 
-  void _checkInputOnNull() {
+  Future<void> _checkInputOnNull() async {
     String login = loginController.text;
     String password = passwordController.text;
+
     if (login == '' || password == '') {
       Fluttertoast.showToast(
           msg: "Заполните все поля",
           toastLength: Toast.LENGTH_SHORT,
           gravity: ToastGravity.TOP,
           timeInSecForIosWeb: 1,
-          backgroundColor: const Color(0xffe40069),
+          backgroundColor: red,
           textColor: Colors.white,
           fontSize: 16.0);
     } else {
+      //заглушка для быстрого тестирования
+      //TODO REPLACE COMMENT IN CURRENT AUTH DATA
+
+      Map authData = {
+        "email": loginController.text,
+        "password": passwordController.text
+      };
+
+
+/*
       Fluttertoast.showToast(
-          msg: "Вход в систему!",
+          msg: "Выполняется вход в систему!",
           toastLength: Toast.LENGTH_SHORT,
-          gravity: ToastGravity.BOTTOM,
+          gravity: ToastGravity.TOP,
           timeInSecForIosWeb: 1,
-          backgroundColor: const Color(0xff00A1e7),
+          backgroundColor: lightBlue,
           textColor: Colors.white,
           fontSize: 16.0);
-      Navigator.of(context).pushNamed('/RenameList');
+*/
+
+      var body = json.encode(authData);
+      var authResponse = await http.post(authApiUrl,
+          headers: {"Content-type": "application/json;charset=utf-8"},
+          body: body);
+
+      print(authResponse.body);
+      var authResponseJson = jsonDecode(authResponse.body);
+
+      if (authResponseJson["status"] == "success") {
+        Fluttertoast.showToast(
+            msg:
+                "Вход выполнен\n\nПользователь: ${authResponseJson["user"]["username"]}",
+            toastLength: Toast.LENGTH_SHORT,
+            gravity: ToastGravity.TOP,
+            timeInSecForIosWeb: 1,
+            backgroundColor: lightBlue,
+            textColor: white,
+            fontSize: 17.0);
+        Navigator.of(context).pushReplacementNamed('/RenameList');
+      } else {
+        Fluttertoast.showToast(
+            msg: "Ошибка входа, проверьте введёные данные",
+            toastLength: Toast.LENGTH_SHORT,
+            gravity: ToastGravity.TOP,
+            timeInSecForIosWeb: 1,
+            backgroundColor: red,
+            textColor: white,
+            fontSize: 16.0);
+      }
     }
   }
 }

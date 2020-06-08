@@ -9,8 +9,8 @@ void main() {
 
 class MyApp extends StatelessWidget {
   final routes = <String, WidgetBuilder>{
-    '/Authorization': (BuildContext context) => Authorization(title: 'MStroy'),
-    '/RenameList': (BuildContext context) => RenameList(title: 'MStroy')
+    '/Authorization': (BuildContext context) => Authorization(),
+    '/RenameList': (BuildContext context) => RenameList()
   };
 
   @override
