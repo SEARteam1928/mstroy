@@ -129,15 +129,13 @@ class _MyHomePageState extends State<Authorization> {
           textColor: Colors.white,
           fontSize: 16.0);
     } else {
-      //заглушка для быстрого тестирования
-      //TODO REPLACE COMMENT IN CURRENT AUTH DATA
 
       Map authData = {
         "email": loginController.text,
         "password": passwordController.text
       };
 
-
+//TODO: сделать что-то, что будет показывать, что производится вход в систему
 /*
       Fluttertoast.showToast(
           msg: "Выполняется вход в систему!",
