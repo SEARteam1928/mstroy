@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:mstroy/RenameList.dart';
+import 'package:mstroy/ProjectList.dart';
 import 'package:mstroy/SplashScreen.dart';
 import 'package:mstroy/Authorization.dart';
+import 'package:mstroy/MSColors.dart';
 
 void main() {
   runApp(MyApp());

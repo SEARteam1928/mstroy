@@ -116,6 +116,12 @@
       "languageVersion": "2.7"
     },
     {
+      "name": "gradient_bottom_navigation_bar",
+      "rootUri": "file:///D:/FlutterSDK/flutter/.pub-cache/hosted/pub.dartlang.org/gradient_bottom_navigation_bar-1.0.0+4",
+      "packageUri": "lib/",
+      "languageVersion": "2.0"
+    },
+    {
       "name": "graphql",
       "rootUri": "file:///D:/FlutterSDK/flutter/.pub-cache/hosted/pub.dartlang.org/graphql-3.0.2",
       "packageUri": "lib/",
@@ -254,6 +260,30 @@
       "languageVersion": "2.6"
     },
     {
+      "name": "shared_preferences",
+      "rootUri": "file:///D:/FlutterSDK/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences-0.5.7+3",
+      "packageUri": "lib/",
+      "languageVersion": "2.1"
+    },
+    {
+      "name": "shared_preferences_macos",
+      "rootUri": "file:///D:/FlutterSDK/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences_macos-0.0.1+10",
+      "packageUri": "lib/",
+      "languageVersion": "2.1"
+    },
+    {
+      "name": "shared_preferences_platform_interface",
+      "rootUri": "file:///D:/FlutterSDK/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences_platform_interface-1.0.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.1"
+    },
+    {
+      "name": "shared_preferences_web",
+      "rootUri": "file:///D:/FlutterSDK/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences_web-0.1.2+7",
+      "packageUri": "lib/",
+      "languageVersion": "2.1"
+    },
+    {
       "name": "sky_engine",
       "rootUri": "file:///D:/FlutterSDK/flutter/bin/cache/pkg/sky_engine",
       "packageUri": "lib/",
@@ -344,7 +374,7 @@
       "languageVersion": "2.7"
     }
   ],
-  "generated": "2020-06-08T04:21:57.688163Z",
+  "generated": "2020-06-09T08:51:28.444685Z",
   "generator": "pub",
   "generatorVersion": "2.8.3"
 }

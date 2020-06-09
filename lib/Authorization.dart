@@ -4,7 +4,12 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:mstroy/urls.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'MSColors.dart';
+import 'package:path_provider/path_provider.dart';
+import 'dart:io';
+import 'dart:async';
+import 'package:flutter/foundation.dart';
 
 class Authorization extends StatefulWidget {
   Authorization({Key key}) : super(key: key);
@@ -165,6 +170,9 @@ class _MyHomePageState extends State<Authorization> {
             backgroundColor: lightBlue,
             textColor: white,
             fontSize: 17.0);
+        var writeJsonData = _write(authResponse.body);
+        print(writeJsonData);
+        addBoolToSF(true);
         Navigator.of(context).pushReplacementNamed('/RenameList');
       } else {
         Fluttertoast.showToast(
@@ -180,8 +188,22 @@ class _MyHomePageState extends State<Authorization> {
   }
 }
 
+addBoolToSF(bool booleanVal) async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  prefs.setBool('authCheck', booleanVal);
+}
+
 final String loginAssetname = 'images/authorization_login_ico.svg';
 final Widget loginIco = SvgPicture.asset(loginAssetname, semanticsLabel: 'ico');
 final String passwordAssetName = 'images/authorization_password_ico.svg';
 final Widget passwordIco =
     SvgPicture.asset(passwordAssetName, semanticsLabel: 'ico');
+
+
+
+_write(String text) async {
+  final Directory directory = await getApplicationDocumentsDirectory();
+  final File file = File('${directory.path}/my_file.txt');
+  await file.writeAsString(text);
+}
+
