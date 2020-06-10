@@ -121,6 +121,7 @@ class _MyHomePageState extends State<Authorization> {
   }
 
   Future<void> _checkInputOnNull() async {
+    try{
     String login = loginController.text;
     String password = passwordController.text;
 
@@ -141,7 +142,6 @@ class _MyHomePageState extends State<Authorization> {
       };
 
 //TODO: сделать что-то, что будет показывать, что производится вход в систему
-/*
       Fluttertoast.showToast(
           msg: "Выполняется вход в систему!",
           toastLength: Toast.LENGTH_SHORT,
@@ -150,7 +150,7 @@ class _MyHomePageState extends State<Authorization> {
           backgroundColor: lightBlue,
           textColor: Colors.white,
           fontSize: 16.0);
-*/
+
 
       var body = json.encode(authData);
       var authResponse = await http.post(authApiUrl,
@@ -184,6 +184,15 @@ class _MyHomePageState extends State<Authorization> {
             textColor: white,
             fontSize: 16.0);
       }
+    }}catch(e){
+      Fluttertoast.showToast(
+          msg: "Что-то пошло не так, попробуйте снова!",
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.TOP,
+          timeInSecForIosWeb: 1,
+          backgroundColor: red,
+          textColor: white,
+          fontSize: 16.0);
     }
   }
 }
