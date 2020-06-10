@@ -263,14 +263,6 @@ class _MyHomePageState extends State<ProjectList> {
                 builder: (context) => PageOfProject(
                   projectName: "$text", graphQLtoken: graphQLtoken.toString(),
                     )));
-            Fluttertoast.showToast(
-                msg: "Вы выбрали $trailingText-й проект",
-                toastLength: Toast.LENGTH_SHORT,
-                gravity: ToastGravity.BOTTOM,
-                timeInSecForIosWeb: 1,
-                backgroundColor: lightBlue,
-                textColor: white,
-                fontSize: 16.0);
           },
           title: Text(
             text,

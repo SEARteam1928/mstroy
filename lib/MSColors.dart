@@ -10,6 +10,7 @@ var mstroyBlue = const Color(0xff4976b0);
 /*
 var mstroyBlue = const Color(0xff4f67a3);
 */
+var newRed = const Color(0xFFEAB5CD);
 var darkBlue = const Color(0xff132B4D);
 var red = const Color(0xFFd40069);
 var white = Colors.white;
