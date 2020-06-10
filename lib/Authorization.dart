@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:http/http.dart' as http;
+import 'package:mstroy/RouteNames.dart';
 import 'dart:convert';
 import 'package:mstroy/urls.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -173,7 +174,7 @@ class _MyHomePageState extends State<Authorization> {
         var writeJsonData = _write(authResponse.body);
         print(writeJsonData);
         addBoolToSF(true);
-        Navigator.of(context).pushReplacementNamed('/RenameList');
+        Navigator.of(context).pushReplacementNamed(projectListRoute);
       } else {
         Fluttertoast.showToast(
             msg: "Ошибка входа, проверьте введёные данные",

@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:mstroy/PageOfProject.dart';
 import 'package:mstroy/urls.dart';
 import 'package:path_provider/path_provider.dart';
 import 'dart:io';
@@ -10,8 +11,10 @@ import 'dart:convert';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class RenameList extends StatefulWidget {
-  RenameList({Key key}) : super(key: key);
+import 'RouteNames.dart';
+
+class ProjectList extends StatefulWidget {
+  ProjectList({Key key}) : super(key: key);
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -48,11 +51,11 @@ addBoolToSF(bool booleanVal) async {
   prefs.setBool('authCheck', booleanVal);
 }
 
-class _MyHomePageState extends State<RenameList> {
+class _MyHomePageState extends State<ProjectList> {
   int _selectedIndex = 0;
-  TextStyle optionStyle =
-  TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  List<Widget> _widgetOptions ;
+  TextStyle optionStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+  List<Widget> _widgetOptions;
+
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -62,7 +65,7 @@ class _MyHomePageState extends State<RenameList> {
   Future<void> startScreen() async {
     // ignore: unrelated_type_equality_checks
     if (checkAuthorizationIsNull == false) {
-      Navigator.of(context).pushReplacementNamed('/Authorization');
+      Navigator.of(context).pushReplacementNamed(authorizationRoute);
     } else {
       String text;
       try {
@@ -92,28 +95,28 @@ class _MyHomePageState extends State<RenameList> {
   Widget build(BuildContext context) {
     startScreen();
 
-_widgetOptions = <Widget>[
-  projectListWidget(),
-  Text(
-    'Index 1: Business',
-  ),
-  Container(
-      margin: EdgeInsets.only(top: 16),
-      child: MaterialButton(
-          onPressed: () {
-            _backScreen();
-          },
-          textColor: white,
-          color: blue,
-          child: Container(
-            padding: EdgeInsets.only(
-                left: 45, top: 4, right: 45, bottom: 4),
-            child: Text(
-              "Выйти из аккаунта",
-              style: TextStyle(fontWeight: FontWeight.w400),
-            ),
-          ))),
-];
+    _widgetOptions = <Widget>[
+      projectListWidget(),
+      Text(
+        'Index 1: Business',
+      ),
+      Container(
+          margin: EdgeInsets.only(top: 16),
+          child: MaterialButton(
+              onPressed: () {
+                _backScreen();
+              },
+              textColor: white,
+              color: blue,
+              child: Container(
+                padding:
+                    EdgeInsets.only(left: 45, top: 4, right: 45, bottom: 4),
+                child: Text(
+                  "Выйти из аккаунта",
+                  style: TextStyle(fontWeight: FontWeight.w400),
+                ),
+              ))),
+    ];
 
     return GraphQLProvider(
         client: client,
@@ -121,10 +124,9 @@ _widgetOptions = <Widget>[
           appBar: AppBar(
             centerTitle: true,
             title: Text(title),
-           backgroundColor: mstroyLightBlue,
+            backgroundColor: mstroyLightBlue,
           ),
-
-          body: /**/ Center(
+          body: Center(
             child: _widgetOptions.elementAt(_selectedIndex),
           ),
           bottomNavigationBar: BottomNavigationBar(
@@ -145,20 +147,19 @@ _widgetOptions = <Widget>[
             currentIndex: _selectedIndex,
             backgroundColor: mstroyBlue,
             selectedItemColor: white,
-
             onTap: _onItemTapped,
           ),
         ));
   }
 
-  Widget projectListWidget(){
+  Widget projectListWidget() {
     return SingleChildScrollView(
       child: SafeArea(
           child: Column(
-            children: <Widget>[
-              loadProjects(),
-            ],
-          )),
+        children: <Widget>[
+          loadProjects(),
+        ],
+      )),
     );
   }
 
@@ -248,19 +249,20 @@ _widgetOptions = <Widget>[
 
   void _backScreen() {
     var exitAuth = _write("");
-/*
-    print(exitAuth);
-*/
     addBoolToSF(true);
-    Navigator.of(context).pushReplacementNamed('/Authorization');
+    Navigator.of(context).pushReplacementNamed(authorizationRoute);
   }
 
   Widget card(String text, String trailingText) => Container(
       height: 100,
       child: Card(
-        child: Center(
+          child: Center(
         child: ListTile(
           onTap: () {
+            Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => PageOfProject(
+                  projectName: "$text", graphQLtoken: graphQLtoken.toString(),
+                    )));
             Fluttertoast.showToast(
                 msg: "Вы выбрали $trailingText-й проект",
                 toastLength: Toast.LENGTH_SHORT,
@@ -284,7 +286,8 @@ _widgetOptions = <Widget>[
               child: Center(
                   child: Text(
                 trailingText,
-                style: TextStyle(fontSize: 20, color: white),maxLines: 1,
+                style: TextStyle(fontSize: 20, color: white),
+                maxLines: 1,
               ))),
         ),
       )));
@@ -327,6 +330,6 @@ dynamic _read() async {
   return text;
 }
 
-
 final String projectsIcoName = 'images/projects_ico.svg';
-final Widget projectsIco = SvgPicture.asset(projectsIcoName, semanticsLabel: 'ico');
+final Widget projectsIco =
+    SvgPicture.asset(projectsIcoName, semanticsLabel: 'ico');
