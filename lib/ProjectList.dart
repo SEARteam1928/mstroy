@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:mstroy/PageOfProject.dart';
 import 'package:mstroy/urls.dart';
@@ -72,19 +71,12 @@ class _MyHomePageState extends State<ProjectList> {
         final Directory directory = await getApplicationDocumentsDirectory();
         final File file = File('${directory.path}/my_file.txt');
         text = await file.readAsString();
-/*
-        print(text);
-*/
         var jsonText = jsonDecode(text);
 
         graphQLtoken = jsonText["Authorization"].toString();
         setState(() {
           title = jsonText["user"]["username"];
         });
-
-/*
-        print(graphQLtoken);
-*/
       } catch (e) {
         print("Couldn't read file");
       }
@@ -97,17 +89,16 @@ class _MyHomePageState extends State<ProjectList> {
 
     _widgetOptions = <Widget>[
       projectListWidget(),
-      Text(
-        'Index 1: Business',
-      ),
+
       Container(
           margin: EdgeInsets.only(top: 16),
+
           child: MaterialButton(
               onPressed: () {
                 _backScreen();
               },
               textColor: white,
-              color: blue,
+              color: mstroyBlue,
               child: Container(
                 padding:
                     EdgeInsets.only(left: 45, top: 4, right: 45, bottom: 4),
@@ -116,6 +107,9 @@ class _MyHomePageState extends State<ProjectList> {
                   style: TextStyle(fontWeight: FontWeight.w400),
                 ),
               ))),
+      Text(
+        'Тут, наверное, будет справка (но это не точно)',
+      ),
     ];
 
     return GraphQLProvider(
@@ -136,12 +130,12 @@ class _MyHomePageState extends State<ProjectList> {
                 title: Text('Проекты'),
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.business),
-                title: Text('Business'),
+                icon: Icon(Icons.home),
+                title: Text('Главная'),
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.school),
-                title: Text('School'),
+                icon: Icon(Icons.help),
+                title: Text('Справка'),
               ),
             ],
             currentIndex: _selectedIndex,
@@ -256,33 +250,35 @@ class _MyHomePageState extends State<ProjectList> {
   Widget card(String text, String trailingText) => Container(
       height: 100,
       child: Card(
-          child: Center(
-        child: ListTile(
-          onTap: () {
-            Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => PageOfProject(
-                  projectName: "$text", graphQLtoken: graphQLtoken.toString(),
-                    )));
-          },
-          title: Text(
-            text,
-            style: TextStyle(fontSize: 16),
-          ),
-          trailing: Container(
-              width: 40,
-              height: 40,
-              decoration: BoxDecoration(
-                color: red,
-                borderRadius: BorderRadius.all(Radius.circular(10)),
-              ),
+          child: MaterialButton(
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => PageOfProject(
+                          projectName: "$text",
+                          graphQLtoken: graphQLtoken.toString(),
+                        )));
+              },
               child: Center(
-                  child: Text(
-                trailingText,
-                style: TextStyle(fontSize: 20, color: white),
-                maxLines: 1,
-              ))),
-        ),
-      )));
+                child: ListTile(
+                  title: Text(
+                    text,
+                    style: TextStyle(fontSize: 16),
+                  ),
+                  trailing: Container(
+                      width: 40,
+                      height: 40,
+                      decoration: BoxDecoration(
+                        color: red,
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                      ),
+                      child: Center(
+                          child: Text(
+                        trailingText,
+                        style: TextStyle(fontSize: 20, color: white),
+                        maxLines: 1,
+                      ))),
+                ),
+              ))));
 }
 
 bool checkAuthorizationIsNull() {
