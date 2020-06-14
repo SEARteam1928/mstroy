@@ -1,7 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="169d8321-fc3f-45d4-9f98-3006ea6f6fd7" name="Default Changelist" comment="" />
+    <list default="true" id="169d8321-fc3f-45d4-9f98-3006ea6f6fd7" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/f7715dceaf058729ef8881a07512ca9d/.filecache" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/f7715dceaf058729ef8881a07512ca9d/.filecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/f7715dceaf058729ef8881a07512ca9d/app.dill" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/f7715dceaf058729ef8881a07512ca9d/app.dill" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/f7715dceaf058729ef8881a07512ca9d/kernel_snapshot.d" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/f7715dceaf058729ef8881a07512ca9d/kernel_snapshot.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.flutter-plugins" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/android/local.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Runner/GeneratedPluginRegistrant.h" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner/GeneratedPluginRegistrant.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Runner/GeneratedPluginRegistrant.m" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner/GeneratedPluginRegistrant.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/construction_control/PageOfProject.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/construction_control/PageOfProject.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/construction_control/ProjectList.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/construction_control/ProjectList.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/construction_control/incidents/AllIncidents.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/construction_control/incidents/AllIncidents.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/construction_control/incidents/FixIncident.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/construction_control/incidents/FixIncident.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/construction_control/incidents/IncidentsOnTheCheck.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/construction_control/incidents/IncidentsOnTheCheck.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/construction_control/inspections/CreateInspection.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/construction_control/inspections/CreateInspection.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/construction_control/inspections/RegisterOfInspections.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/construction_control/inspections/RegisterOfInspections.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/construction_control/inspections/RegisterOfRequests.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/construction_control/inspections/RegisterOfRequests.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/mainclasses/Authorization.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/mainclasses/Authorization.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/mainclasses/SplashScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/mainclasses/SplashScreen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/mainclasses/constants/MSColors.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/mainclasses/constants/MSColors.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/mainclasses/constants/RouteNames.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/mainclasses/constants/RouteNames.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/mainclasses/constants/urls.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/mainclasses/constants/urls.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/mainclasses/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/mainclasses/main.dart" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,7 +42,9 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="dart.analysis.tool.window.force.activate" value="false" />
+    <property name="io.flutter.reload.alreadyRun" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
@@ -35,9 +62,25 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="335" y="334" key="com.intellij.ide.util.TipDialog" timestamp="1592132976816">
+    <state width="1236" height="272" key="GridCell.Tab.0.bottom" timestamp="1592147096226">
       <screen x="0" y="0" width="1280" height="1024" />
     </state>
-    <state x="335" y="334" key="com.intellij.ide.util.TipDialog/0.0.1280.1024@0.0.1280.1024" timestamp="1592132976816" />
+    <state width="1236" height="272" key="GridCell.Tab.0.bottom/0.0.1280.1024@0.0.1280.1024" timestamp="1592147096226" />
+    <state width="1236" height="272" key="GridCell.Tab.0.center" timestamp="1592147096226">
+      <screen x="0" y="0" width="1280" height="1024" />
+    </state>
+    <state width="1236" height="272" key="GridCell.Tab.0.center/0.0.1280.1024@0.0.1280.1024" timestamp="1592147096226" />
+    <state width="1236" height="272" key="GridCell.Tab.0.left" timestamp="1592147096226">
+      <screen x="0" y="0" width="1280" height="1024" />
+    </state>
+    <state width="1236" height="272" key="GridCell.Tab.0.left/0.0.1280.1024@0.0.1280.1024" timestamp="1592147096226" />
+    <state width="1236" height="272" key="GridCell.Tab.0.right" timestamp="1592147096226">
+      <screen x="0" y="0" width="1280" height="1024" />
+    </state>
+    <state width="1236" height="272" key="GridCell.Tab.0.right/0.0.1280.1024@0.0.1280.1024" timestamp="1592147096226" />
+    <state x="335" y="334" key="com.intellij.ide.util.TipDialog" timestamp="1592152750554">
+      <screen x="0" y="0" width="1280" height="1024" />
+    </state>
+    <state x="335" y="334" key="com.intellij.ide.util.TipDialog/0.0.1280.1024@0.0.1280.1024" timestamp="1592152750554" />
   </component>
 </project>

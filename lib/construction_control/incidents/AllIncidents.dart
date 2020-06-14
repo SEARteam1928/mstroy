@@ -2,7 +2,7 @@ import 'dart:core';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'file:///C:/Users/User/Desktop/mstroy/lib/mainclasses/constants/MSColors.dart';
+import 'package:mstroy/mainclasses/constants/MSColors.dart';
 
 class AllIncidents extends StatefulWidget {
   final String projectName;
@@ -66,9 +66,9 @@ class _AllIncidentState extends State<AllIncidents> {
                             slivers: <Widget>[
                               SliverList(
                                 delegate: SliverChildBuilderDelegate(
-                                        (BuildContext context, int index) {
-                                      return card("$index В работе", "$index");
-                                    }, childCount: s),
+                                    (BuildContext context, int index) {
+                                  return card("$index В работе", "$index");
+                                }, childCount: s),
                               )
                             ],
                           ))),
@@ -94,9 +94,9 @@ class _AllIncidentState extends State<AllIncidents> {
                             slivers: <Widget>[
                               SliverList(
                                 delegate: SliverChildBuilderDelegate(
-                                        (BuildContext context, int index) {
-                                      return card("$index Черновики", "$index");
-                                    }, childCount: s),
+                                    (BuildContext context, int index) {
+                                  return card("$index Черновики", "$index");
+                                }, childCount: s),
                               )
                             ],
                           ))),
@@ -109,14 +109,18 @@ class _AllIncidentState extends State<AllIncidents> {
   Widget card(String text, String trailingText) => Container(
       height: 100,
       child: Card(
-        child: MaterialButton(
-          onPressed: (){},
-            child: ListTile(
-          title:
-          Text(
-            text,
-            style: TextStyle(fontSize: 16),
-          ),
-          )
-      )));
+          child: MaterialButton(
+              onPressed: () {},
+              child: Column(children: <Widget>[
+                Container(
+                  alignment: Alignment.topLeft,
+                  child: Text("Предписание"),
+                ),
+                ListTile(
+                  title: Text(
+                    text,
+                    style: TextStyle(fontSize: 16),
+                  ),
+                )
+              ]))));
 }

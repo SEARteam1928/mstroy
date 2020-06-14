@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:http/http.dart' as http;
-import 'file:///C:/Users/User/Desktop/mstroy/lib/mainclasses/constants/RouteNames.dart';
+import 'package:mstroy/mainclasses/constants/RouteNames.dart';
+import 'package:mstroy/mainclasses/constants/urls.dart';
 import 'dart:convert';
-import 'file:///C:/Users/User/Desktop/mstroy/lib/mainclasses/constants/urls.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'constants/MSColors.dart';
 import 'package:path_provider/path_provider.dart';
@@ -14,6 +14,7 @@ import 'package:flutter/foundation.dart';
 
 class Authorization extends StatefulWidget {
   Authorization({Key key}) : super(key: key);
+
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
@@ -122,70 +123,69 @@ class _MyHomePageState extends State<Authorization> {
   }
 
   Future<void> _checkInputOnNull() async {
-    try{
-    String login = loginController.text;
-    String password = passwordController.text;
+    try {
+      String login = loginController.text;
+      String password = passwordController.text;
 
-    if (login == '' || password == '') {
-      Fluttertoast.showToast(
-          msg: "Заполните все поля",
-          toastLength: Toast.LENGTH_SHORT,
-          gravity: ToastGravity.TOP,
-          timeInSecForIosWeb: 1,
-          backgroundColor: red,
-          textColor: Colors.white,
-          fontSize: 16.0);
-    } else {
-
-      Map authData = {
-        "email": loginController.text,
-        "password": passwordController.text
-      };
-
-//TODO: сделать что-то, что будет показывать, что производится вход в систему
-      Fluttertoast.showToast(
-          msg: "Выполняется вход в систему!",
-          toastLength: Toast.LENGTH_SHORT,
-          gravity: ToastGravity.TOP,
-          timeInSecForIosWeb: 1,
-          backgroundColor: lightBlue,
-          textColor: Colors.white,
-          fontSize: 16.0);
-
-
-      var body = json.encode(authData);
-      var authResponse = await http.post(authApiUrl,
-          headers: {"Content-type": "application/json;charset=utf-8"},
-          body: body);
-
-      print(authResponse.body);
-      var authResponseJson = jsonDecode(authResponse.body);
-
-      if (authResponseJson["status"] == "success") {
+      if (login == '' || password == '') {
         Fluttertoast.showToast(
-            msg:
-                "Вход выполнен\n\nПользователь: ${authResponseJson["user"]["username"]}",
-            toastLength: Toast.LENGTH_SHORT,
-            gravity: ToastGravity.TOP,
-            timeInSecForIosWeb: 1,
-            backgroundColor: lightBlue,
-            textColor: white,
-            fontSize: 17.0);
-        var writeJsonData = _write(authResponse.body);
-        print(writeJsonData);
-        addBoolToSF(true);
-        Navigator.of(context).pushReplacementNamed(projectListRoute);
-      } else {
-        Fluttertoast.showToast(
-            msg: "Ошибка входа, проверьте введёные данные",
+            msg: "Заполните все поля",
             toastLength: Toast.LENGTH_SHORT,
             gravity: ToastGravity.TOP,
             timeInSecForIosWeb: 1,
             backgroundColor: red,
-            textColor: white,
+            textColor: Colors.white,
             fontSize: 16.0);
+      } else {
+        Map authData = {
+          "email": loginController.text,
+          "password": passwordController.text
+        };
+
+//TODO: сделать что-то, что будет показывать, что производится вход в систему
+        Fluttertoast.showToast(
+            msg: "Выполняется вход в систему!",
+            toastLength: Toast.LENGTH_SHORT,
+            gravity: ToastGravity.TOP,
+            timeInSecForIosWeb: 1,
+            backgroundColor: lightBlue,
+            textColor: Colors.white,
+            fontSize: 16.0);
+
+        var body = json.encode(authData);
+        var authResponse = await http.post(authApiUrl,
+            headers: {"Content-type": "application/json;charset=utf-8"},
+            body: body);
+
+        print(authResponse.body);
+        var authResponseJson = jsonDecode(authResponse.body);
+
+        if (authResponseJson["status"] == "success") {
+          Fluttertoast.showToast(
+              msg:
+                  "Вход выполнен\n\nПользователь: ${authResponseJson["user"]["username"]}",
+              toastLength: Toast.LENGTH_SHORT,
+              gravity: ToastGravity.TOP,
+              timeInSecForIosWeb: 1,
+              backgroundColor: lightBlue,
+              textColor: white,
+              fontSize: 17.0);
+          var writeJsonData = _write(authResponse.body);
+          print(writeJsonData);
+          addBoolToSF(true);
+          Navigator.of(context).pushReplacementNamed(projectListRoute);
+        } else {
+          Fluttertoast.showToast(
+              msg: "Ошибка входа, проверьте введёные данные",
+              toastLength: Toast.LENGTH_SHORT,
+              gravity: ToastGravity.TOP,
+              timeInSecForIosWeb: 1,
+              backgroundColor: red,
+              textColor: white,
+              fontSize: 16.0);
+        }
       }
-    }}catch(e){
+    } catch (e) {
       Fluttertoast.showToast(
           msg: "Что-то пошло не так, попробуйте снова!",
           toastLength: Toast.LENGTH_SHORT,
@@ -209,11 +209,8 @@ final String passwordAssetName = 'images/authorization_password_ico.svg';
 final Widget passwordIco =
     SvgPicture.asset(passwordAssetName, semanticsLabel: 'ico');
 
-
-
 _write(String text) async {
   final Directory directory = await getApplicationDocumentsDirectory();
   final File file = File('${directory.path}/my_file.txt');
   await file.writeAsString(text);
 }
-

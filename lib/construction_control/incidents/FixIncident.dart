@@ -2,7 +2,7 @@ import 'dart:core';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'file:///C:/Users/User/Desktop/mstroy/lib/mainclasses/constants/MSColors.dart';
+import 'package:mstroy/mainclasses/constants/MSColors.dart';
 
 class FixIncident extends StatefulWidget {
   final String projectName;
@@ -23,6 +23,7 @@ class _FixIncidentState extends State<FixIncident> {
   final String buttonName;
   final String graphQLtoken;
   TabController _tabController;
+
   _FixIncidentState({this.projectName, this.buttonName, this.graphQLtoken});
 
   @override
@@ -45,13 +46,11 @@ class _FixIncidentState extends State<FixIncident> {
       height: 100,
       child: Card(
           child: MaterialButton(
-              onPressed: (){},
+              onPressed: () {},
               child: ListTile(
-                title:
-                Text(
+                title: Text(
                   text,
                   style: TextStyle(fontSize: 16),
                 ),
-              )
-          )));
+              ))));
 }

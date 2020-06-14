@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 
-
 /*
 var mstroyBlue = const Color(0xff4f67a3);
 var mstroyLightBlue = const Color(0xff4096c9);
-
 */
+
 var lightBlue = const Color(0xff00A1e7);
 var mstroyLightBlue = const Color(0xff4789bf);
 var blue = const Color(0xFF4774e8);

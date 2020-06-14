@@ -23,32 +23,31 @@ class _SplashScreenState extends State<SplashScreen> {
       Future<String> text;
       String graphQLtoken;
       final Future<Directory> directory = getApplicationDocumentsDirectory();
-try {
-  final Future<File> file = directory.then((value) => File('${value.path}/my_file.txt')).catchError((onError) => Navigator.of(context).pushReplacementNamed(widget.nextRoute));
+      try {
+        final Future<File> file = directory
+            .then((value) => File('${value.path}/my_file.txt'))
+            .catchError((onError) =>
+                Navigator.of(context).pushReplacementNamed(widget.nextRoute));
 
+        text = file.then((value) => value.readAsString());
+        var jsonText = text.then((value) => jsonDecode(value.toString()));
 
-  text = file.then((value) => value.readAsString());
-  var jsonText = text.then((value) => jsonDecode(value.toString()));
+        var s = await jsonText.then((value) => value);
+        print(s);
 
-  var s = await jsonText.then((value) => value);
-  print(s);
-
-  jsonText.then((value) =>
-  {
-    if (value["Authorization"].toString() == "" ||
-        value["Authorization"] == "" ||
-        value["Authorization"].toString() == null ||
-        graphQLtoken == null ||
-        graphQLtoken.toString() == "Instance of 'Future<String>'") {
-      Navigator.of(context).pushReplacementNamed('/RenameList')
-    } else
-      {
-        Navigator.of(context).pushReplacementNamed(widget.nextRoute)
-      }}
-  );
-}catch(e){
-  Navigator.of(context).pushReplacementNamed(widget.nextRoute);
-}
+        jsonText.then((value) => {
+              if (value["Authorization"].toString() == "" ||
+                  value["Authorization"] == "" ||
+                  value["Authorization"].toString() == null ||
+                  graphQLtoken == null ||
+                  graphQLtoken.toString() == "Instance of 'Future<String>'")
+                {Navigator.of(context).pushReplacementNamed('/RenameList')}
+              else
+                {Navigator.of(context).pushReplacementNamed(widget.nextRoute)}
+            });
+      } catch (e) {
+        Navigator.of(context).pushReplacementNamed(widget.nextRoute);
+      }
     });
   }
 
@@ -76,4 +75,3 @@ bool checkAuthBool;
 
 final String logoAssetName = 'images/mstroy_vertical.svg';
 final Widget logoIco = SvgPicture.asset(logoAssetName, semanticsLabel: 'ico');
-

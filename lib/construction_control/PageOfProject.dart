@@ -3,19 +3,20 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'file:///C:/Users/User/Desktop/mstroy/lib/construction_control/incidents/AllIncidents.dart';
-import 'file:///C:/Users/User/Desktop/mstroy/lib/construction_control/inspections/CreateInspection.dart';
-import 'file:///C:/Users/User/Desktop/mstroy/lib/construction_control/incidents/FixIncident.dart';
-import 'file:///C:/Users/User/Desktop/mstroy/lib/construction_control/incidents/IncidentsOnTheCheck.dart';
-import 'file:///C:/Users/User/Desktop/mstroy/lib/construction_control/inspections/RegisterOfInspections.dart';
-import 'file:///C:/Users/User/Desktop/mstroy/lib/construction_control/inspections/RegisterOfRequests.dart';
-import 'file:///C:/Users/User/Desktop/mstroy/lib/mainclasses/constants/MSColors.dart';
+import 'package:mstroy/construction_control/incidents/AllIncidents.dart';
+import 'package:mstroy/construction_control/inspections/CreateInspection.dart';
+import 'package:mstroy/construction_control/incidents/FixIncident.dart';
+import 'package:mstroy/construction_control/incidents/IncidentsOnTheCheck.dart';
+import 'package:mstroy/construction_control/inspections/RegisterOfInspections.dart';
+import 'package:mstroy/construction_control/inspections/RegisterOfRequests.dart';
+import 'package:mstroy/mainclasses/constants/MSColors.dart';
 
 class PageOfProject extends StatefulWidget {
   final String projectName;
   final String graphQLtoken;
 
   PageOfProject({this.projectName, this.graphQLtoken});
+
 //TODO: Сделать определённый State для определённой роли
   @override
   State<StatefulWidget> createState() {

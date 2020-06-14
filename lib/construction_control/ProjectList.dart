@@ -1,11 +1,11 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
-import 'file:///C:/Users/User/Desktop/mstroy/lib/construction_control/PageOfProject.dart';
-import 'file:///C:/Users/User/Desktop/mstroy/lib/mainclasses/constants/urls.dart';
+import 'package:mstroy/construction_control/PageOfProject.dart';
+import 'package:mstroy/mainclasses/constants/urls.dart';
+import 'package:mstroy/mainclasses/constants/MSColors.dart';
 import 'package:path_provider/path_provider.dart';
 import 'dart:io';
-import 'file:///C:/Users/User/Desktop/mstroy/lib/mainclasses/constants/MSColors.dart';
 import 'dart:convert';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -89,10 +89,8 @@ class _MyHomePageState extends State<ProjectList> {
 
     _widgetOptions = <Widget>[
       projectListWidget(),
-
       Container(
           margin: EdgeInsets.only(top: 16),
-
           child: MaterialButton(
               onPressed: () {
                 _backScreen();

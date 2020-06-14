@@ -2,7 +2,7 @@ import 'dart:core';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'file:///C:/Users/User/Desktop/mstroy/lib/mainclasses/constants/MSColors.dart';
+import 'package:mstroy/mainclasses/constants/MSColors.dart';
 
 class RegisterOfRequests extends StatefulWidget {
   final String projectName;
@@ -37,89 +37,86 @@ class _RegisterOfRequestsState extends State<RegisterOfRequests> {
     return DefaultTabController(
         length: 3,
         child: Scaffold(
-          appBar: new AppBar(
-            backgroundColor: mstroyLightBlue,
-            title: new Text("Реестр заявок"),
-            bottom: new TabBar(
-              indicatorColor: white,
-              tabs: <Tab>[
-                new Tab(
-                  text: "НЕ ЗАКРЫТЫЕ",
-                ),
-                new Tab(
-                  text: "ЗАКРЫТЫЕ",
-                ),
-                new Tab(
-                  text: "ВСЕ",
-                ),
-              ],
-              controller: _tabController,
+            appBar: new AppBar(
+              backgroundColor: mstroyLightBlue,
+              title: new Text("Реестр заявок"),
+              bottom: new TabBar(
+                indicatorColor: white,
+                tabs: <Tab>[
+                  new Tab(
+                    text: "НЕ ЗАКРЫТЫЕ",
+                  ),
+                  new Tab(
+                    text: "ЗАКРЫТЫЕ",
+                  ),
+                  new Tab(
+                    text: "ВСЕ",
+                  ),
+                ],
+                controller: _tabController,
+              ),
             ),
-          ),
-          body:Container(
-    color: backgroundWhite,
-    child:  new TabBarView(
-            children: <Widget>[
-              SingleChildScrollView(
-                  child: Container(
-                      height: MediaQuery.of(context).size.height - 135,
-                      child: CustomScrollView(
-                        shrinkWrap: true,
-                        slivers: <Widget>[
-                          SliverList(
-                            delegate: SliverChildBuilderDelegate(
+            body: Container(
+              color: backgroundWhite,
+              child: new TabBarView(
+                children: <Widget>[
+                  SingleChildScrollView(
+                      child: Container(
+                          height: MediaQuery.of(context).size.height - 135,
+                          child: CustomScrollView(
+                            shrinkWrap: true,
+                            slivers: <Widget>[
+                              SliverList(
+                                delegate: SliverChildBuilderDelegate(
                                     (BuildContext context, int index) {
                                   return card("$index Не закрытые", "$index");
                                 }, childCount: s),
-                          )
-                        ],
-                      ))),
-              SingleChildScrollView(
-                  child: Container(
-                      height: MediaQuery.of(context).size.height - 135,
-                      child: CustomScrollView(
-                        shrinkWrap: true,
-                        slivers: <Widget>[
-                          SliverList(
-                            delegate: SliverChildBuilderDelegate(
+                              )
+                            ],
+                          ))),
+                  SingleChildScrollView(
+                      child: Container(
+                          height: MediaQuery.of(context).size.height - 135,
+                          child: CustomScrollView(
+                            shrinkWrap: true,
+                            slivers: <Widget>[
+                              SliverList(
+                                delegate: SliverChildBuilderDelegate(
                                     (BuildContext context, int index) {
                                   return card("$index Закрытые", "$index");
                                 }, childCount: s),
-                          )
-                        ],
-                      ))),
-              SingleChildScrollView(
-                  child: Container(
-                      height: MediaQuery.of(context).size.height - 135,
-                      child: CustomScrollView(
-                        shrinkWrap: true,
-                        slivers: <Widget>[
-                          SliverList(
-                            delegate: SliverChildBuilderDelegate(
+                              )
+                            ],
+                          ))),
+                  SingleChildScrollView(
+                      child: Container(
+                          height: MediaQuery.of(context).size.height - 135,
+                          child: CustomScrollView(
+                            shrinkWrap: true,
+                            slivers: <Widget>[
+                              SliverList(
+                                delegate: SliverChildBuilderDelegate(
                                     (BuildContext context, int index) {
                                   return card("$index Все", "$index");
                                 }, childCount: s),
-                          )
-                        ],
-                      ))),
-            ],
-            controller: _tabController,
-          ),)
-        ));
+                              )
+                            ],
+                          ))),
+                ],
+                controller: _tabController,
+              ),
+            )));
   }
 
   Widget card(String text, String trailingText) => Container(
       height: 100,
       child: Card(
           child: MaterialButton(
-              onPressed: (){},
+              onPressed: () {},
               child: ListTile(
-
-                title:
-                Text(
+                title: Text(
                   text,
                   style: TextStyle(fontSize: 16),
                 ),
-              )
-          )));
+              ))));
 }

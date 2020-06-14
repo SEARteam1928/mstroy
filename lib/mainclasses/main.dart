@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'file:///C:/Users/User/Desktop/mstroy/lib/construction_control/incidents/AllIncidents.dart';
-import 'file:///C:/Users/User/Desktop/mstroy/lib/construction_control/inspections/CreateInspection.dart';
-import 'file:///C:/Users/User/Desktop/mstroy/lib/construction_control/incidents/FixIncident.dart';
-import 'file:///C:/Users/User/Desktop/mstroy/lib/construction_control/incidents/IncidentsOnTheCheck.dart';
-import 'file:///C:/Users/User/Desktop/mstroy/lib/construction_control/inspections/RegisterOfInspections.dart';
-import 'file:///C:/Users/User/Desktop/mstroy/lib/construction_control/inspections/RegisterOfRequests.dart';
-import 'file:///C:/Users/User/Desktop/mstroy/lib/construction_control/ProjectList.dart';
-import 'file:///C:/Users/User/Desktop/mstroy/lib/construction_control/PageOfProject.dart';
-import 'file:///C:/Users/User/Desktop/mstroy/lib/mainclasses/constants/RouteNames.dart';
-import 'file:///C:/Users/User/Desktop/mstroy/lib/mainclasses/SplashScreen.dart';
-import 'file:///C:/Users/User/Desktop/mstroy/lib/mainclasses/Authorization.dart';
+import 'package:mstroy/construction_control/incidents/AllIncidents.dart';
+import 'package:mstroy/construction_control/inspections/CreateInspection.dart';
+import 'package:mstroy/construction_control/incidents/FixIncident.dart';
+import 'package:mstroy/construction_control/incidents/IncidentsOnTheCheck.dart';
+import 'package:mstroy/construction_control/inspections/RegisterOfInspections.dart';
+import 'package:mstroy/construction_control/inspections/RegisterOfRequests.dart';
+import 'package:mstroy/construction_control/ProjectList.dart';
+import 'package:mstroy/construction_control/PageOfProject.dart';
+import 'package:mstroy/mainclasses/constants/RouteNames.dart';
+import 'package:mstroy/mainclasses/SplashScreen.dart';
+import 'package:mstroy/mainclasses/Authorization.dart';
 import 'package:flutter/services.dart';
 
 void main() {
