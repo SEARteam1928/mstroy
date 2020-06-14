@@ -1,10 +1,10 @@
 # This is a generated file; do not edit or check into version control.
-connectivity=D:\\FlutterSDK\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\connectivity-0.4.8+6\\
-connectivity_macos=D:\\FlutterSDK\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\connectivity_macos-0.1.0+3\\
-fluttertoast=D:\\FlutterSDK\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\fluttertoast-4.0.1\\
-path_provider=D:\\FlutterSDK\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\path_provider-1.6.10\\
-path_provider_linux=D:\\FlutterSDK\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\path_provider_linux-0.0.1+1\\
-path_provider_macos=D:\\FlutterSDK\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\path_provider_macos-0.0.4+3\\
-shared_preferences=D:\\FlutterSDK\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\shared_preferences-0.5.7+3\\
-shared_preferences_macos=D:\\FlutterSDK\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\shared_preferences_macos-0.0.1+10\\
-shared_preferences_web=D:\\FlutterSDK\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\shared_preferences_web-0.1.2+7\\
+connectivity=C:\\FlutterSDK\\flutter_windows_1.17.2-stable\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\connectivity-0.4.8+6\\
+connectivity_macos=C:\\FlutterSDK\\flutter_windows_1.17.2-stable\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\connectivity_macos-0.1.0+3\\
+fluttertoast=C:\\FlutterSDK\\flutter_windows_1.17.2-stable\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\fluttertoast-4.0.1\\
+path_provider=C:\\FlutterSDK\\flutter_windows_1.17.2-stable\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\path_provider-1.6.10\\
+path_provider_linux=C:\\FlutterSDK\\flutter_windows_1.17.2-stable\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\path_provider_linux-0.0.1+1\\
+path_provider_macos=C:\\FlutterSDK\\flutter_windows_1.17.2-stable\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\path_provider_macos-0.0.4+3\\
+shared_preferences=C:\\FlutterSDK\\flutter_windows_1.17.2-stable\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\shared_preferences-0.5.7+3\\
+shared_preferences_macos=C:\\FlutterSDK\\flutter_windows_1.17.2-stable\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\shared_preferences_macos-0.0.1+10\\
+shared_preferences_web=C:\\FlutterSDK\\flutter_windows_1.17.2-stable\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\shared_preferences_web-0.1.2+7\\
