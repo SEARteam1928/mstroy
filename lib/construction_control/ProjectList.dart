@@ -43,6 +43,7 @@ String userInfo(String email) {
 allUsers(filters: {EmailEq: "$email"}){
   roles{
     name
+    description
   }
 }
 }
@@ -132,12 +133,6 @@ class _MyHomePageState extends State<ProjectList> {
 
           List allUsersInfo = result.data['allUsers'][0]['roles'];
 
-          for (int i = 0; i < allUsersInfo.length; i++) {
-            if (allUsersInfo[i]["name"] == 'admin') {
-              allUsersInfo[i]["name"] = "Администратор";
-            }
-          }
-
           try {
 /*            print(allProjectsJson);
             print(allProjectsJson[0]["name"]);*/
@@ -153,7 +148,7 @@ class _MyHomePageState extends State<ProjectList> {
                           (BuildContext context, int index) {
                         return Center(
                             child: Text(
-                                "${index + 1} ${allUsersInfo[index]["name"]}"));
+                                "${allUsersInfo[index]["name"]}:  ${allUsersInfo[index]["description"]}"));
                       }, childCount: allUsersInfo.length),
                     )
                   ],
@@ -216,9 +211,19 @@ class _MyHomePageState extends State<ProjectList> {
               )),
             ),
           ])),
-      Text(
-        'Тут, наверное, будет справка (но это не точно)',
-      ),
+      MaterialButton(
+
+          onPressed: () { Navigator.of(context).pushNamed(workWithCameraRoute);},
+
+          textColor: white,
+          color: mstroyBlue,
+          child: Container(
+              padding: EdgeInsets.only(
+                  left: 45, top: 4, right: 45, bottom: 4),
+              child: Text(
+                "Камера //TODO: ПЕРЕСТАВИТЬ НА МЕСТО",
+                style: TextStyle(fontWeight: FontWeight.w400),
+              ))),
     ];
 
     return GraphQLProvider(

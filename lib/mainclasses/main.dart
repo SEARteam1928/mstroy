@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mstroy/WorkWithCamera.dart';
 import 'package:mstroy/construction_control/incidents/AllIncidents.dart';
 import 'package:mstroy/construction_control/incidents/AllIncidentsEditPage.dart';
 import 'package:mstroy/construction_control/inspections/CreateInspection.dart';
@@ -34,6 +35,7 @@ class MyApp extends StatelessWidget {
     registerOfInspectionRoute: (BuildContext context) => RegisterOfRequests(),
     inspectionEditPageRoute: (BuildContext context) => InspectionsEditPage(),
     requestsEditPageRoute: (BuildContext context) => RequestsEditPage(),
+    workWithCameraRoute: (BuildContext context) => WorkWithCamera(),
   };
 
   @override

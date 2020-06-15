@@ -10,3 +10,4 @@ var inspectionEditPageRoute = '/InspectionsEditPage';
 var requestsEditPageRoute = '/RequestsEditPage';
 var registerOfRequestsRoute = '/RegisterOfRequests';
 var registerOfInspectionRoute = '/RegisterOfInspection';
+var workWithCameraRoute = '/WorkWithCamera';
