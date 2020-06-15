@@ -68,7 +68,7 @@ class _IncidentOnTheCheckState extends State<IncidentOnTheCheck> {
                                 delegate: SliverChildBuilderDelegate(
                                     (BuildContext context, int index) {
                                   return card(
-                                      "$index на проверку", "$index", "Type");
+                                      "на проверку", "$index", "Type");
                                 }, childCount: s),
                               )
                             ],
