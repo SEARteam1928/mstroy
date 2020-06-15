@@ -2,6 +2,7 @@ import 'dart:core';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:mstroy/construction_control/inspections/InspectionsEditPage.dart';
 import 'package:mstroy/mainclasses/constants/MSColors.dart';
 
 class RegisterOfInspections extends StatefulWidget {
@@ -70,7 +71,7 @@ class _RegisterOfInspections extends State<RegisterOfInspections> {
                               SliverList(
                                 delegate: SliverChildBuilderDelegate(
                                     (BuildContext context, int index) {
-                                  return card("$index Не принятые", "$index");
+                                  return card("Не принятые", "$index");
                                 }, childCount: s),
                               )
                             ],
@@ -84,7 +85,7 @@ class _RegisterOfInspections extends State<RegisterOfInspections> {
                               SliverList(
                                 delegate: SliverChildBuilderDelegate(
                                     (BuildContext context, int index) {
-                                  return card("$index Принятые", "$index");
+                                  return card("Принятые", "$index");
                                 }, childCount: s),
                               )
                             ],
@@ -98,7 +99,7 @@ class _RegisterOfInspections extends State<RegisterOfInspections> {
                               SliverList(
                                 delegate: SliverChildBuilderDelegate(
                                     (BuildContext context, int index) {
-                                  return card("$index Черновики", "$index");
+                                  return card("Черновики", "$index");
                                 }, childCount: s),
                               )
                             ],
@@ -109,15 +110,28 @@ class _RegisterOfInspections extends State<RegisterOfInspections> {
             )));
   }
 
-  Widget card(String text, String trailingText) => Container(
-      height: 100,
+  Widget card(String text, String index) => Container(
+      constraints: BoxConstraints(
+          minHeight: 100
+      ),
       child: Card(
           child: MaterialButton(
-              onPressed: () {},
-              child: ListTile(
-                title: Text(
-                  text,
-                  style: TextStyle(fontSize: 16),
-                ),
-              ))));
+              onPressed: () {
+                _startEditPage(InspectionsEditPage(graphQLtoken: graphQLtoken,index: "$index",projectName: projectName));
+              },
+              child: Column(children: <Widget>[
+                ListTile(
+                  leading: Text(index),
+                  title: Text(
+                    text,
+                    style: TextStyle(fontSize: 16),
+                  ),
+                  trailing: Text("dd.mm.yyyy", style: TextStyle(fontSize: 12)),
+                )
+              ]))));
+
+  void _startEditPage(StatefulWidget statefulWidget) {
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => statefulWidget));
+  }
 }

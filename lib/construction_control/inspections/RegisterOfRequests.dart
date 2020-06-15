@@ -2,6 +2,8 @@ import 'dart:core';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:mstroy/construction_control/inspections/InspectionsEditPage.dart';
+import 'package:mstroy/construction_control/inspections/RequestsEditPage.dart';
 import 'package:mstroy/mainclasses/constants/MSColors.dart';
 
 class RegisterOfRequests extends StatefulWidget {
@@ -69,7 +71,7 @@ class _RegisterOfRequestsState extends State<RegisterOfRequests> {
                               SliverList(
                                 delegate: SliverChildBuilderDelegate(
                                     (BuildContext context, int index) {
-                                  return card("$index Не закрытые", "$index");
+                                  return card("Не закрытые", "$index");
                                 }, childCount: s),
                               )
                             ],
@@ -83,7 +85,7 @@ class _RegisterOfRequestsState extends State<RegisterOfRequests> {
                               SliverList(
                                 delegate: SliverChildBuilderDelegate(
                                     (BuildContext context, int index) {
-                                  return card("$index Закрытые", "$index");
+                                  return card("Закрытые", "$index");
                                 }, childCount: s),
                               )
                             ],
@@ -97,7 +99,7 @@ class _RegisterOfRequestsState extends State<RegisterOfRequests> {
                               SliverList(
                                 delegate: SliverChildBuilderDelegate(
                                     (BuildContext context, int index) {
-                                  return card("$index Все", "$index");
+                                  return card("Все", "$index");
                                 }, childCount: s),
                               )
                             ],
@@ -108,15 +110,28 @@ class _RegisterOfRequestsState extends State<RegisterOfRequests> {
             )));
   }
 
-  Widget card(String text, String trailingText) => Container(
-      height: 100,
+  Widget card(String text, String index) => Container(
+      constraints: BoxConstraints(
+          minHeight: 100
+      ),
       child: Card(
           child: MaterialButton(
-              onPressed: () {},
-              child: ListTile(
-                title: Text(
-                  text,
-                  style: TextStyle(fontSize: 16),
-                ),
-              ))));
+              onPressed: () {
+                _startEditPage(RequestsEditPage(graphQLtoken: graphQLtoken,index: "$index",projectName: projectName));
+              },
+              child: Column(children: <Widget>[
+                ListTile(
+                  leading: Text(index),
+                  title: Text(
+                    text,
+                    style: TextStyle(fontSize: 16),
+                  ),
+                  trailing: Text("dd.mm.yyyy", style: TextStyle(fontSize: 12)),
+                )
+              ]))));
+
+  void _startEditPage(StatefulWidget statefulWidget) {
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => statefulWidget));
+  }
 }

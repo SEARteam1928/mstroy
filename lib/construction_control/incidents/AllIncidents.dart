@@ -2,6 +2,7 @@ import 'dart:core';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:mstroy/construction_control/incidents/AllIncidentsEditPage.dart';
 import 'package:mstroy/mainclasses/constants/MSColors.dart';
 
 class AllIncidents extends StatefulWidget {
@@ -67,7 +68,7 @@ class _AllIncidentState extends State<AllIncidents> {
                               SliverList(
                                 delegate: SliverChildBuilderDelegate(
                                     (BuildContext context, int index) {
-                                  return card("$index В работе", "$index");
+                                  return card("В работе", "$index", "Type");
                                 }, childCount: s),
                               )
                             ],
@@ -81,7 +82,7 @@ class _AllIncidentState extends State<AllIncidents> {
                               SliverList(
                                 delegate: SliverChildBuilderDelegate(
                                     (BuildContext context, int index) {
-                                  return card("$index Все", "$index");
+                                  return card("Все", "$index","Type");
                                 }, childCount: s),
                               )
                             ],
@@ -95,7 +96,7 @@ class _AllIncidentState extends State<AllIncidents> {
                               SliverList(
                                 delegate: SliverChildBuilderDelegate(
                                     (BuildContext context, int index) {
-                                  return card("$index Черновики", "$index");
+                                  return card("Черновики", "$index", "Тип");
                                 }, childCount: s),
                               )
                             ],
@@ -106,21 +107,33 @@ class _AllIncidentState extends State<AllIncidents> {
     );
   }
 
-  Widget card(String text, String trailingText) => Container(
-      height: 100,
+  Widget card(String text, String index, String incidentType) => Container(
+      constraints: BoxConstraints(
+        minHeight: 100
+      ),
       child: Card(
           child: MaterialButton(
-              onPressed: () {},
+              onPressed: () {
+                _startEditPage(AllIncidentsEditPage(graphQLtoken: graphQLtoken,index: "$index",projectName: projectName, incidentType: incidentType));
+              },
               child: Column(children: <Widget>[
                 Container(
                   alignment: Alignment.topLeft,
-                  child: Text("Предписание"),
+                  child: Text(incidentType),
                 ),
                 ListTile(
+                  leading: Text(index),
                   title: Text(
                     text,
                     style: TextStyle(fontSize: 16),
                   ),
+                  trailing: Text("dd.mm.yyyy", style: TextStyle(fontSize: 12)),
                 )
               ]))));
+
+  void _startEditPage(StatefulWidget statefulWidget) {
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => statefulWidget));
+  }
+
 }

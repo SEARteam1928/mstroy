@@ -1,0 +1,137 @@
+import 'dart:core';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+
+class AllIncidentsEditPage extends StatefulWidget {
+  final String projectName;
+  final String index;
+  final String graphQLtoken;
+  final String incidentType;
+
+  AllIncidentsEditPage(
+      {this.projectName, this.index, this.graphQLtoken, this.incidentType});
+
+  @override
+  State<StatefulWidget> createState() => _AllIncidentsEditPageState(
+      projectName: projectName,
+      incidentIndex: index,
+      graphQLtoken: graphQLtoken,
+      incidentType: incidentType);
+}
+
+class _AllIncidentsEditPageState extends State<AllIncidentsEditPage> {
+  final String projectName;
+  final String incidentIndex;
+  final String graphQLtoken;
+  final String incidentType;
+
+  _AllIncidentsEditPageState(
+      {this.projectName, this.incidentIndex, this.graphQLtoken, this.incidentType});
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(),
+    body:
+      SingleChildScrollView(
+        child: SafeArea(
+            child: Column(
+              children: <Widget>[
+                Container(
+                    height: MediaQuery.of(context).size.height - 100,
+                    child: CustomScrollView(
+                      shrinkWrap: true,
+                      slivers: <Widget>[
+                        SliverList(
+                          delegate: SliverChildBuilderDelegate(
+                                  (BuildContext context, int index) {
+                                return  SingleChildScrollView(
+                                        child: Column (children: <Widget>[
+                                                  Container(
+                                                    margin: EdgeInsets.all(10),
+                                                    decoration: BoxDecoration(
+                                                        border: Border.all(color: Colors.blueAccent)),
+                                                    child: Column(
+                                                      children: <Widget>[
+                                                        Text("$incidentType № $incidentIndex"),
+                                                        Text("Проект"),
+                                                        Text(projectName),
+                                                        Text("Нарушение"),
+                                                        Text("Any Incident"),
+                                                        Text("Описание"),
+                                                        Text("Конструктив"),
+                                                        Text("Конструктив (описание)"),
+                                                        Text("Вид работ"),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  Container(
+                                                    margin: EdgeInsets.all(10),
+                                                    decoration: BoxDecoration(
+                                                        border: Border.all(color: Colors.blueAccent)),
+                                                    child: Column(
+                                                      children: <Widget>[
+                                                        Text("Решение"),
+                                                        Text("Срок устранения"),
+                                                        Text("Рекомендации"),
+                                                        Text("Подписано СК"),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  Container(
+                                                    margin: EdgeInsets.all(10),
+                                                    height: 1000,
+                                                    decoration: BoxDecoration(
+                                                        border: Border.all(color: Colors.blueAccent)),
+                                                    child: Column(
+                                                      children: <Widget>[
+                                                        Text("Устранение нарушения"),
+                                                        Text("Принято в работу"),
+                                                        Text("Готово к проверке"),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  Container(
+                                                    margin: EdgeInsets.all(10),
+                                                    decoration: BoxDecoration(
+                                                        border: Border.all(color: Colors.blueAccent)),
+                                                    child: Column(
+                                                      children: <Widget>[
+                                                        Text("Подтверждение нарушения"),
+                                                        Text(
+                                                          "Подтвердить нарушение",
+                                                          style: TextStyle(color: Colors.green),
+                                                        ),
+                                                        Text("Готово к проверке"),
+                                                      ],
+                                                    ),
+                                                  ),
+                                        ]));
+                              }, childCount: 1),
+                        )
+                      ],
+                    ))              ],
+            )),
+      ));
+  }
+
+  Widget card(String text, String trailingText) => Container(
+      constraints: BoxConstraints(minHeight: 100),
+      child: Card(
+          child: MaterialButton(
+              onPressed: () {},
+              child: Column(children: <Widget>[
+                ListTile(
+                  title: Text(
+                    text,
+                    style: TextStyle(fontSize: 16),
+                  ),
+                )
+              ]))));
+}
