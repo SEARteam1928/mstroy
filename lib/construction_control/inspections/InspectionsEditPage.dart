@@ -9,8 +9,7 @@ class InspectionsEditPage extends StatefulWidget {
   final String index;
   final String graphQLtoken;
 
-  InspectionsEditPage(
-      {this.projectName, this.index, this.graphQLtoken});
+  InspectionsEditPage({this.projectName, this.index, this.graphQLtoken});
 
   @override
   State<StatefulWidget> createState() => _InspectionsEditPageState(
@@ -35,84 +34,93 @@ class _InspectionsEditPageState extends State<InspectionsEditPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text("Инспекции"), backgroundColor: mstroyLightBlue,),
-        body:
-        SingleChildScrollView(
+        appBar: AppBar(
+          title: Text("Инспекции"),
+          backgroundColor: mstroyLightBlue,
+        ),
+        body: SingleChildScrollView(
           child: SafeArea(
               child: Column(
-                children: <Widget>[
-                  Container(
-                      height: MediaQuery.of(context).size.height - 100,
-                      child: CustomScrollView(
-                        shrinkWrap: true,
-                        slivers: <Widget>[
-                          SliverList(
-                            delegate: SliverChildBuilderDelegate(
-                                    (BuildContext context, int index) {
-                                  return  SingleChildScrollView(
-                                      child: Column (children: <Widget>[
-                                        Container(
-                                          margin: EdgeInsets.all(10),
-                                          decoration: BoxDecoration(
-                                              border: Border.all(color: Colors.blueAccent)),
-                                          child: Column(
-                                            children: <Widget>[
-                                              Text("№ $incidentIndex"),
-                                              Text("Заявка на инспекцию"),
-                                              Text("Проект"),
-                                              Text(projectName),
-                                              Text("Тип инспекции"),
-                                              Text("Конструктив"),
-                                              Text("Вид работ"),
-                                              Text("Ответственный"),
-                                              Text("Температура"),
-                                            ],
-                                          ),
-                                        ),
-                                        Container(
-                                          margin: EdgeInsets.all(10),
-                                          decoration: BoxDecoration(
-                                              border: Border.all(color: Colors.blueAccent)),
-                                          child: Column(
-                                            children: <Widget>[
-                                              Text("Заключение"),
-                                            ],
-                                          ),
-                                        ),
-                                        Container(
-                                          margin: EdgeInsets.all(10),
-                                          height: 1000,
-                                          decoration: BoxDecoration(
-                                              border: Border.all(color: Colors.blueAccent)),
-                                          child: Column(
-                                            children: <Widget>[
-                                              Text("Результаты оценки -выполнено- -корректно-"),
-                                              Text("Количество несоответствий -выполнено- -корректно-"),
-                                              Text("Чек-листы -выполнено- -корректно-"),
-                                              Text("Паспорта, сертификаты соответствия, таможенные декларации -выполнено- -корректно-"),
-                                              Text("Исполнительные схемы -выполнено- -корректно-"),
-                                              Text("Требования ПД и РД -выполнено- -корректно-"),
-                                              Text("Требования нормативной документации -выполнено- -корректно-"),
-                                            ],
-                                          ),
-                                        ),
-                                        Container(
-                                          margin: EdgeInsets.all(10),
-                                          decoration: BoxDecoration(
-                                              border: Border.all(color: Colors.blueAccent)),
-                                          child: Column(
-                                            children: <Widget>[
-                                              Text("Инспекция принята/не принята"),
-                                              Text("Виза ОКС"),
-                                            ],
-                                          ),
-                                        ),
-                                      ]));
-                                }, childCount: 1),
-                          )
-                        ],
-                      ))              ],
-              )),
+            children: <Widget>[
+              Container(
+                  height: MediaQuery.of(context).size.height - 100,
+                  child: CustomScrollView(
+                    shrinkWrap: true,
+                    slivers: <Widget>[
+                      SliverList(
+                        delegate: SliverChildBuilderDelegate(
+                            (BuildContext context, int index) {
+                          return SingleChildScrollView(
+                              child: Column(children: <Widget>[
+                            Container(
+                              margin: EdgeInsets.all(10),
+                              decoration: BoxDecoration(
+                                  border: Border.all(color: Colors.blueAccent)),
+                              child: Column(
+                                children: <Widget>[
+                                  Text("№ $incidentIndex"),
+                                  Text("Заявка на инспекцию"),
+                                  Text("Проект"),
+                                  Text(projectName),
+                                  Text("Тип инспекции"),
+                                  Text("Конструктив"),
+                                  Text("Вид работ"),
+                                  Text("Ответственный"),
+                                  Text("Температура"),
+                                ],
+                              ),
+                            ),
+                            Container(
+                              margin: EdgeInsets.all(10),
+                              decoration: BoxDecoration(
+                                  border: Border.all(color: Colors.blueAccent)),
+                              child: Column(
+                                children: <Widget>[
+                                  Text("Заключение"),
+                                ],
+                              ),
+                            ),
+                            Container(
+                              margin: EdgeInsets.all(10),
+                              height: 1000,
+                              decoration: BoxDecoration(
+                                  border: Border.all(color: Colors.blueAccent)),
+                              child: Column(
+                                children: <Widget>[
+                                  Text(
+                                      "Результаты оценки -выполнено- -корректно-"),
+                                  Text(
+                                      "Количество несоответствий -выполнено- -корректно-"),
+                                  Text("Чек-листы -выполнено- -корректно-"),
+                                  Text(
+                                      "Паспорта, сертификаты соответствия, таможенные декларации -выполнено- -корректно-"),
+                                  Text(
+                                      "Исполнительные схемы -выполнено- -корректно-"),
+                                  Text(
+                                      "Требования ПД и РД -выполнено- -корректно-"),
+                                  Text(
+                                      "Требования нормативной документации -выполнено- -корректно-"),
+                                ],
+                              ),
+                            ),
+                            Container(
+                              margin: EdgeInsets.all(10),
+                              decoration: BoxDecoration(
+                                  border: Border.all(color: Colors.blueAccent)),
+                              child: Column(
+                                children: <Widget>[
+                                  Text("Инспекция принята/не принята"),
+                                  Text("Виза ОКС"),
+                                ],
+                              ),
+                            ),
+                          ]));
+                        }, childCount: 1),
+                      )
+                    ],
+                  ))
+            ],
+          )),
         ));
   }
 

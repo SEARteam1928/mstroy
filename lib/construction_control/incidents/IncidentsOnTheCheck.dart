@@ -67,7 +67,8 @@ class _IncidentOnTheCheckState extends State<IncidentOnTheCheck> {
                               SliverList(
                                 delegate: SliverChildBuilderDelegate(
                                     (BuildContext context, int index) {
-                                  return card("$index на проверку", "$index", "Type");
+                                  return card(
+                                      "$index на проверку", "$index", "Type");
                                 }, childCount: s),
                               )
                             ],
@@ -93,13 +94,15 @@ class _IncidentOnTheCheckState extends State<IncidentOnTheCheck> {
   }
 
   Widget card(String text, String index, String incidentType) => Container(
-      constraints: BoxConstraints(
-          minHeight: 100
-      ),
+      constraints: BoxConstraints(minHeight: 100),
       child: Card(
           child: MaterialButton(
               onPressed: () {
-                _startEditPage(AllIncidentsEditPage(graphQLtoken: graphQLtoken,index: "$index",projectName: projectName, incidentType: incidentType));
+                _startEditPage(AllIncidentsEditPage(
+                    graphQLtoken: graphQLtoken,
+                    index: "$index",
+                    projectName: projectName,
+                    incidentType: incidentType));
               },
               child: Column(children: <Widget>[
                 Container(

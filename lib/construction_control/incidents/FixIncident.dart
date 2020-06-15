@@ -34,93 +34,96 @@ class _FixIncidentState extends State<FixIncident> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text("Нарушение"), backgroundColor: mstroyLightBlue,),
-        body:
-        SingleChildScrollView(
+        appBar: AppBar(
+          title: Text("Нарушение"),
+          backgroundColor: mstroyLightBlue,
+        ),
+        body: SingleChildScrollView(
           child: SafeArea(
               child: Column(
-                children: <Widget>[
-                  Container(
-                      height: MediaQuery.of(context).size.height - 100,
-                      child: CustomScrollView(
-                        shrinkWrap: true,
-                        slivers: <Widget>[
-                          SliverList(
-                            delegate: SliverChildBuilderDelegate(
-                                    (BuildContext context, int index) {
-                                  return  SingleChildScrollView(
-                                      child: Column (children: <Widget>[
-                                        Container(
-                                          margin: EdgeInsets.all(10),
-                                          decoration: BoxDecoration(
-                                              border: Border.all(color: Colors.blueAccent)),
-                                          child: Column(
-                                            children: <Widget>[
-                                              Text(" № $index"),
-                                              Text("Категория"),
-                                              Text("-Замечание"),
-                                              Text("-Предписание"),
-                                              Text("-Предписание о приостановке работ"),
-                                              Text("Проект"),
-                                              Text(projectName),
-                                              Text("Нарушение"),
-                                              Text("-Кратко назовите замечание-"),
-                                              Text("Описание"),
-                                              Text("-подробно опишите замечание-"),
-                                              Text("Конструктив"),
-                                              Text("Конструктив (описание)"),
-                                              Text("Вид работ"),
-                                              Text("Дата"),
-                                              Text("dd.mm.yyyy"),
-                                              Text("Нарушение зафиксировал"),
-                                              Text("ФИО (роль)"),
-                                              Text("=Добавить фото="),
-                                            ],
-                                          ),
-                                        ),
-                                        Container(
-                                          margin: EdgeInsets.all(10),
-                                          decoration: BoxDecoration(
-                                              border: Border.all(color: Colors.blueAccent)),
-                                          child: Column(
-                                            children: <Widget>[
-                                              Text("Решение"),
-                                              Text("Срок устранения"),
-                                              Text("Рекомендации"),
-                                              Text("Подписать"),
-                                              Text("Подписано СК"),
-                                            ],
-                                          ),
-                                        ),
-                                        Container(
-                                          margin: EdgeInsets.all(10),
-                                          height: 1000,
-                                          decoration: BoxDecoration(
-                                              border: Border.all(color: Colors.blueAccent)),
-                                          child: Column(
-                                            children: <Widget>[
-                                              Text("Статус нарушения"),
-                                              Text("Принято в работу"),
-                                              Text("Готово к проверке"),
-                                            ],
-                                          ),
-                                        ),
-                                        Container(
-                                          margin: EdgeInsets.all(10),
-                                          decoration: BoxDecoration(
-                                              border: Border.all(color: Colors.blueAccent)),
-                                          child: Column(
-                                            children: <Widget>[
-                                              Text("-удалить-  -отменить- -сохранить-"),
-                                            ],
-                                          ),
-                                        ),
-                                      ]));
-                                }, childCount: 1),
-                          )
-                        ],
-                      ))              ],
-              )),
+            children: <Widget>[
+              Container(
+                  height: MediaQuery.of(context).size.height - 100,
+                  child: CustomScrollView(
+                    shrinkWrap: true,
+                    slivers: <Widget>[
+                      SliverList(
+                        delegate: SliverChildBuilderDelegate(
+                            (BuildContext context, int index) {
+                          return SingleChildScrollView(
+                              child: Column(children: <Widget>[
+                            Container(
+                              margin: EdgeInsets.all(10),
+                              decoration: BoxDecoration(
+                                  border: Border.all(color: Colors.blueAccent)),
+                              child: Column(
+                                children: <Widget>[
+                                  Text(" № $index"),
+                                  Text("Категория"),
+                                  Text("-Замечание"),
+                                  Text("-Предписание"),
+                                  Text("-Предписание о приостановке работ"),
+                                  Text("Проект"),
+                                  Text(projectName),
+                                  Text("Нарушение"),
+                                  Text("-Кратко назовите замечание-"),
+                                  Text("Описание"),
+                                  Text("-подробно опишите замечание-"),
+                                  Text("Конструктив"),
+                                  Text("Конструктив (описание)"),
+                                  Text("Вид работ"),
+                                  Text("Дата"),
+                                  Text("dd.mm.yyyy"),
+                                  Text("Нарушение зафиксировал"),
+                                  Text("ФИО (роль)"),
+                                  Text("=Добавить фото="),
+                                ],
+                              ),
+                            ),
+                            Container(
+                              margin: EdgeInsets.all(10),
+                              decoration: BoxDecoration(
+                                  border: Border.all(color: Colors.blueAccent)),
+                              child: Column(
+                                children: <Widget>[
+                                  Text("Решение"),
+                                  Text("Срок устранения"),
+                                  Text("Рекомендации"),
+                                  Text("Подписать"),
+                                  Text("Подписано СК"),
+                                ],
+                              ),
+                            ),
+                            Container(
+                              margin: EdgeInsets.all(10),
+                              height: 1000,
+                              decoration: BoxDecoration(
+                                  border: Border.all(color: Colors.blueAccent)),
+                              child: Column(
+                                children: <Widget>[
+                                  Text("Статус нарушения"),
+                                  Text("Принято в работу"),
+                                  Text("Готово к проверке"),
+                                ],
+                              ),
+                            ),
+                            Container(
+                              margin: EdgeInsets.all(10),
+                              decoration: BoxDecoration(
+                                  border: Border.all(color: Colors.blueAccent)),
+                              child: Column(
+                                children: <Widget>[
+                                  Text("-удалить-  -отменить- -сохранить-"),
+                                ],
+                              ),
+                            ),
+                          ]));
+                        }, childCount: 1),
+                      )
+                    ],
+                  ))
+            ],
+          )),
         ));
   }
 

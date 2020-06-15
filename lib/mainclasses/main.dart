@@ -26,7 +26,8 @@ class MyApp extends StatelessWidget {
     pageOfProjectRoute: (BuildContext context) => PageOfProject(),
     fixIncidentRoute: (BuildContext context) => FixIncident(),
     allIncidentsRoute: (BuildContext context) => AllIncidents(),
-    allIncidentsPageStateRoute: (BuildContext context) => AllIncidentsEditPage(),
+    allIncidentsPageStateRoute: (BuildContext context) =>
+        AllIncidentsEditPage(),
     incidentsOnTheCheckRoute: (BuildContext context) => IncidentOnTheCheck(),
     createInspectionRoute: (BuildContext context) => CreateInspection(),
     registerOfRequestsRoute: (BuildContext context) => RegisterOfInspections(),

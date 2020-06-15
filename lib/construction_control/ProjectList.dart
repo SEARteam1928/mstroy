@@ -98,7 +98,7 @@ class _MyHomePageState extends State<ProjectList> {
   }
 
   Widget loadUserInfo() {
-    double screenHeight = MediaQuery.of(context).size.height-260;
+    double screenHeight = MediaQuery.of(context).size.height - 260;
     try {
       return Query(
         options: QueryOptions(
@@ -132,8 +132,8 @@ class _MyHomePageState extends State<ProjectList> {
 
           List allUsersInfo = result.data['allUsers'][0]['roles'];
 
-          for (int i = 0; i < allUsersInfo.length;i++){
-            if(allUsersInfo[i]["name"]=='admin'){
+          for (int i = 0; i < allUsersInfo.length; i++) {
+            if (allUsersInfo[i]["name"] == 'admin') {
               allUsersInfo[i]["name"] = "Администратор";
             }
           }
@@ -144,7 +144,7 @@ class _MyHomePageState extends State<ProjectList> {
           } catch (e) {}
           try {
             return Container(
-                height: screenHeight ,
+                height: screenHeight,
                 child: CustomScrollView(
                   shrinkWrap: true,
                   slivers: <Widget>[

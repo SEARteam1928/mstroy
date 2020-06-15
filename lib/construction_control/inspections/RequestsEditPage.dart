@@ -9,8 +9,7 @@ class RequestsEditPage extends StatefulWidget {
   final String index;
   final String graphQLtoken;
 
-  RequestsEditPage(
-      {this.projectName, this.index, this.graphQLtoken});
+  RequestsEditPage({this.projectName, this.index, this.graphQLtoken});
 
   @override
   State<StatefulWidget> createState() => _RequestsEditPageState(
@@ -35,80 +34,83 @@ class _RequestsEditPageState extends State<RequestsEditPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text("Заявки на инспекции"), backgroundColor: mstroyLightBlue,),
-        body:
-        SingleChildScrollView(
+        appBar: AppBar(
+          title: Text("Заявки на инспекции"),
+          backgroundColor: mstroyLightBlue,
+        ),
+        body: SingleChildScrollView(
           child: SafeArea(
               child: Column(
-                children: <Widget>[
-                  Container(
-                      height: MediaQuery.of(context).size.height - 100,
-                      child: CustomScrollView(
-                        shrinkWrap: true,
-                        slivers: <Widget>[
-                          SliverList(
-                            delegate: SliverChildBuilderDelegate(
-                                    (BuildContext context, int index) {
-                                  return  SingleChildScrollView(
-                                      child: Column (children: <Widget>[
-                                        Container(
-                                          margin: EdgeInsets.all(10),
-                                          decoration: BoxDecoration(
-                                              border: Border.all(color: Colors.blueAccent)),
-                                          child: Column(
-                                            children: <Widget>[
-                                              Text("№ $incidentIndex"),
-                                              Text("Проект"),
-                                              Text(projectName),
-                                              Text("Плановая дата"),
-                                              Text("Конструктив"),
-                                              Text("Вид работ"),
-                                              Text("Номер чертежа"),
-                                              Text("Руководящие документы"),
-                                              Text("Инициатор"),
-                                              Text("Комментарий"),
-                                            ],
-                                          ),
-                                        ),
-                                        Container(
-                                          margin: EdgeInsets.all(10),
-                                          decoration: BoxDecoration(
-                                              border: Border.all(color: Colors.blueAccent)),
-                                          child: Column(
-                                            children: <Widget>[
-                                              Text("Фотографии"),
-                                            ],
-                                          ),
-                                        ),
-                                        Container(
-                                          margin: EdgeInsets.all(10),
-                                          height: 1000,
-                                          decoration: BoxDecoration(
-                                              border: Border.all(color: Colors.blueAccent)),
-                                          child: Column(
-                                            children: <Widget>[
-                                              Text("Подписи"),
-                                              Text("Заявка создана"),
-                                              Text("Виза ОКС"),
-                                            ],
-                                          ),
-                                        ),
-                                        Container(
-                                          margin: EdgeInsets.all(10),
-                                          decoration: BoxDecoration(
-                                              border: Border.all(color: Colors.blueAccent)),
-                                          child: Column(
-                                            children: <Widget>[
-                                              Text("Создать инспекцию"),
-                                            ],
-                                          ),
-                                        ),
-                                      ]));
-                                }, childCount: 1),
-                          )
-                        ],
-                      ))              ],
-              )),
+            children: <Widget>[
+              Container(
+                  height: MediaQuery.of(context).size.height - 100,
+                  child: CustomScrollView(
+                    shrinkWrap: true,
+                    slivers: <Widget>[
+                      SliverList(
+                        delegate: SliverChildBuilderDelegate(
+                            (BuildContext context, int index) {
+                          return SingleChildScrollView(
+                              child: Column(children: <Widget>[
+                            Container(
+                              margin: EdgeInsets.all(10),
+                              decoration: BoxDecoration(
+                                  border: Border.all(color: Colors.blueAccent)),
+                              child: Column(
+                                children: <Widget>[
+                                  Text("№ $incidentIndex"),
+                                  Text("Проект"),
+                                  Text(projectName),
+                                  Text("Плановая дата"),
+                                  Text("Конструктив"),
+                                  Text("Вид работ"),
+                                  Text("Номер чертежа"),
+                                  Text("Руководящие документы"),
+                                  Text("Инициатор"),
+                                  Text("Комментарий"),
+                                ],
+                              ),
+                            ),
+                            Container(
+                              margin: EdgeInsets.all(10),
+                              decoration: BoxDecoration(
+                                  border: Border.all(color: Colors.blueAccent)),
+                              child: Column(
+                                children: <Widget>[
+                                  Text("Фотографии"),
+                                ],
+                              ),
+                            ),
+                            Container(
+                              margin: EdgeInsets.all(10),
+                              height: 1000,
+                              decoration: BoxDecoration(
+                                  border: Border.all(color: Colors.blueAccent)),
+                              child: Column(
+                                children: <Widget>[
+                                  Text("Подписи"),
+                                  Text("Заявка создана"),
+                                  Text("Виза ОКС"),
+                                ],
+                              ),
+                            ),
+                            Container(
+                              margin: EdgeInsets.all(10),
+                              decoration: BoxDecoration(
+                                  border: Border.all(color: Colors.blueAccent)),
+                              child: Column(
+                                children: <Widget>[
+                                  Text("Создать инспекцию"),
+                                ],
+                              ),
+                            ),
+                          ]));
+                        }, childCount: 1),
+                      )
+                    ],
+                  ))
+            ],
+          )),
         ));
   }
 

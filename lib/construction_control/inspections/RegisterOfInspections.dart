@@ -111,13 +111,14 @@ class _RegisterOfInspections extends State<RegisterOfInspections> {
   }
 
   Widget card(String text, String index) => Container(
-      constraints: BoxConstraints(
-          minHeight: 100
-      ),
+      constraints: BoxConstraints(minHeight: 100),
       child: Card(
           child: MaterialButton(
               onPressed: () {
-                _startEditPage(InspectionsEditPage(graphQLtoken: graphQLtoken,index: "$index",projectName: projectName));
+                _startEditPage(InspectionsEditPage(
+                    graphQLtoken: graphQLtoken,
+                    index: "$index",
+                    projectName: projectName));
               },
               child: Column(children: <Widget>[
                 ListTile(
