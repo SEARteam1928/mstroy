@@ -24,6 +24,7 @@ final HttpLink httpLink = HttpLink(
 );
 var graphQLtoken;
 var title = "";
+var userEmail = "";
 final AuthLink authLink = AuthLink(
   getToken: () async => graphQLtoken.toString(),
 );
@@ -35,6 +36,18 @@ String allProjectQuery = """
     }
   }
 """;
+
+String userInfo(String email) {
+  return """
+  query q {
+allUsers(filters: {EmailEq: "$email"}){
+  roles{
+    name
+  }
+}
+}
+""";
+}
 
 ValueNotifier<GraphQLClient> client = ValueNotifier(
   GraphQLClient(
@@ -76,10 +89,96 @@ class _MyHomePageState extends State<ProjectList> {
         graphQLtoken = jsonText["Authorization"].toString();
         setState(() {
           title = jsonText["user"]["username"];
+          userEmail = jsonText["user"]["email"];
         });
       } catch (e) {
         print("Couldn't read file");
       }
+    }
+  }
+
+  Widget loadUserInfo() {
+    double screenHeight = MediaQuery.of(context).size.height-260;
+    try {
+      return Query(
+        options: QueryOptions(
+          documentNode: gql(userInfo(userEmail)),
+          variables: {'allUsers': 1},
+          pollInterval: 100,
+        ),
+        builder: (QueryResult result,
+            {VoidCallback refetch, FetchMore fetchMore}) {
+          if (result.hasException) {
+            return Visibility(
+                maintainSize: true,
+                maintainAnimation: true,
+                maintainState: true,
+                visible: true,
+                child: Container(
+                    margin: EdgeInsets.only(top: 50, bottom: 30),
+                    child: CircularProgressIndicator()));
+          }
+
+          if (result.loading) {
+            return Visibility(
+                maintainSize: true,
+                maintainAnimation: true,
+                maintainState: true,
+                visible: true,
+                child: Container(
+                    margin: EdgeInsets.only(top: 50, bottom: 30),
+                    child: CircularProgressIndicator()));
+          }
+
+          List allUsersInfo = result.data['allUsers'][0]['roles'];
+
+          for (int i = 0; i < allUsersInfo.length;i++){
+            if(allUsersInfo[i]["name"]=='admin'){
+              allUsersInfo[i]["name"] = "Администратор";
+            }
+          }
+
+          try {
+/*            print(allProjectsJson);
+            print(allProjectsJson[0]["name"]);*/
+          } catch (e) {}
+          try {
+            return Container(
+                height: screenHeight ,
+                child: CustomScrollView(
+                  shrinkWrap: true,
+                  slivers: <Widget>[
+                    SliverList(
+                      delegate: SliverChildBuilderDelegate(
+                          (BuildContext context, int index) {
+                        return Center(
+                            child: Text(
+                                "${index + 1} ${allUsersInfo[index]["name"]}"));
+                      }, childCount: allUsersInfo.length),
+                    )
+                  ],
+                ));
+          } catch (e) {
+            return Visibility(
+                maintainSize: true,
+                maintainAnimation: true,
+                maintainState: true,
+                visible: true,
+                child: Container(
+                    margin: EdgeInsets.only(top: 50, bottom: 30),
+                    child: CircularProgressIndicator()));
+          }
+        },
+      );
+    } catch (e) {
+      return Visibility(
+          maintainSize: true,
+          maintainAnimation: true,
+          maintainState: true,
+          visible: true,
+          child: Container(
+              margin: EdgeInsets.only(top: 50, bottom: 30),
+              child: CircularProgressIndicator()));
     }
   }
 
@@ -91,20 +190,32 @@ class _MyHomePageState extends State<ProjectList> {
       projectListWidget(),
       Container(
           margin: EdgeInsets.only(top: 16),
-          child: MaterialButton(
-              onPressed: () {
-                _backScreen();
-              },
-              textColor: white,
-              color: mstroyBlue,
-              child: Container(
-                padding:
-                    EdgeInsets.only(left: 45, top: 4, right: 45, bottom: 4),
-                child: Text(
-                  "Выйти из аккаунта",
-                  style: TextStyle(fontWeight: FontWeight.w400),
-                ),
-              ))),
+          child: Column(children: <Widget>[
+            SingleChildScrollView(
+              child: SafeArea(
+                  child: Column(
+                children: <Widget>[
+                  MaterialButton(
+                      onPressed: () {
+                        _backScreen();
+                      },
+                      textColor: white,
+                      color: mstroyBlue,
+                      child: Container(
+                          padding: EdgeInsets.only(
+                              left: 45, top: 4, right: 45, bottom: 4),
+                          child: Text(
+                            "Выйти из аккаунта",
+                            style: TextStyle(fontWeight: FontWeight.w400),
+                          ))),
+                  Text("Email"),
+                  Text(userEmail),
+                  Text("Роль:"),
+                  loadUserInfo(),
+                ],
+              )),
+            ),
+          ])),
       Text(
         'Тут, наверное, будет справка (но это не точно)',
       ),

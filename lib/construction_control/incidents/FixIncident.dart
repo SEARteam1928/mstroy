@@ -34,7 +34,7 @@ class _FixIncidentState extends State<FixIncident> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(),
+        appBar: AppBar(title: Text("Нарушение"), backgroundColor: mstroyLightBlue,),
         body:
         SingleChildScrollView(
           child: SafeArea(

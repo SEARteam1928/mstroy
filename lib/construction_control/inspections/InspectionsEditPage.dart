@@ -2,6 +2,7 @@ import 'dart:core';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:mstroy/mainclasses/constants/MSColors.dart';
 
 class InspectionsEditPage extends StatefulWidget {
   final String projectName;
@@ -34,7 +35,7 @@ class _InspectionsEditPageState extends State<InspectionsEditPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(),
+        appBar: AppBar(title: Text("Инспекции"), backgroundColor: mstroyLightBlue,),
         body:
         SingleChildScrollView(
           child: SafeArea(

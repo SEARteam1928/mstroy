@@ -32,7 +32,7 @@ class _CreateInspectionState extends State<CreateInspection> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text("Создать заявку"),),
+        appBar: AppBar(title: Text("Создать заявку"), backgroundColor: mstroyLightBlue,),
         body:
         SingleChildScrollView(
           child: SafeArea(
