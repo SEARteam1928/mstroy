@@ -117,7 +117,51 @@ class _FixIncidentState extends State<FixIncident> {
                                   border: Border.all(color: Colors.blueAccent)),
                               child: Column(
                                 children: <Widget>[
-                                  Text("-удалить-  -отменить- -сохранить-"),
+                                  MaterialButton(
+                                      onPressed: () {},
+                                      textColor: white,
+                                      color: red,
+                                      child: Container(
+                                          padding: EdgeInsets.only(
+                                              left: 45,
+                                              top: 4,
+                                              right: 45,
+                                              bottom: 4),
+                                          child: Text(
+                                            "Удалить",
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.w400),
+                                          ))),
+                                  MaterialButton(
+                                      onPressed: () {},
+                                      textColor: white,
+                                      color: Colors.grey,
+                                      child: Container(
+                                          padding: EdgeInsets.only(
+                                              left: 45,
+                                              top: 4,
+                                              right: 45,
+                                              bottom: 4),
+                                          child: Text(
+                                            "отменить",
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.w400),
+                                          ))),
+                                  MaterialButton(
+                                      onPressed: () {},
+                                      textColor: white,
+                                      color: Colors.lightGreenAccent,
+                                      child: Container(
+                                          padding: EdgeInsets.only(
+                                              left: 45,
+                                              top: 4,
+                                              right: 45,
+                                              bottom: 4),
+                                          child: Text(
+                                            "сохранить",
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.w400),
+                                          ))),
                                 ],
                               ),
                             ),

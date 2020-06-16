@@ -23,6 +23,27 @@ class _InspectionsEditPageState extends State<InspectionsEditPage> {
   final String incidentIndex;
   final String graphQLtoken;
 
+  bool _resultEstimationFirst = false;
+  bool _resultEstimationSecond = false;
+
+  bool _discrepanciesCountFirst = false;
+  bool _discrepanciesCountSecond = false;
+
+  bool _checklistsFirst = false;
+  bool _checklistsSecond = false;
+
+  bool _passportsFirst = false;
+  bool _passportsSecond = false;
+
+  bool _executiveSchemeFirst = false;
+  bool _executiveSchemeSecond = false;
+
+  bool _requirementsForPDandRDFirst = false;
+  bool _requirementsForPDandRDSecond = false;
+
+  bool _regulatoryDocumentationFirst = false;
+  bool _regulatoryDocumentationSecond = false;
+
   _InspectionsEditPageState(
       {this.projectName, this.incidentIndex, this.graphQLtoken});
 
@@ -87,19 +108,19 @@ class _InspectionsEditPageState extends State<InspectionsEditPage> {
                                   border: Border.all(color: Colors.blueAccent)),
                               child: Column(
                                 children: <Widget>[
-                                  Text(
-                                      "Результаты оценки -выполнено- -корректно-"),
-                                  Text(
-                                      "Количество несоответствий -выполнено- -корректно-"),
-                                  Text("Чек-листы -выполнено- -корректно-"),
-                                  Text(
-                                      "Паспорта, сертификаты соответствия, таможенные декларации -выполнено- -корректно-"),
-                                  Text(
-                                      "Исполнительные схемы -выполнено- -корректно-"),
-                                  Text(
-                                      "Требования ПД и РД -выполнено- -корректно-"),
-                                  Text(
-                                      "Требования нормативной документации -выполнено- -корректно-"),
+                                  Row(
+                                    children: <Widget>[
+                                      Text("Выполнено"),
+                                      Text("Корректно"),
+                                    ],
+                                  ),
+                                  _resultEstimation("Результаты оценки"),
+                                  _discrepanciesCount("Количество несоответствий"),
+                                  _checklists("Чек-листы"),
+                                  _passports("Паспорта, сертификаты соответствия, таможенные декларации"),
+                                  _executiveScheme("Исполнительные схемы"),
+                                  _requirementsForPDandRD("Требования ПД и РД"),
+                                  _regulatoryDocumentation("Требования нормативной документации"),
                                 ],
                               ),
                             ),
@@ -123,6 +144,132 @@ class _InspectionsEditPageState extends State<InspectionsEditPage> {
           )),
         ));
   }
+
+  Widget _resultEstimation(String text) => Row(
+        children: <Widget>[
+          Text(text),
+          Switch(
+            onChanged: (val) => setState(() => _resultEstimationFirst = val),
+            value: _resultEstimationFirst,
+          ),
+          Switch(
+            value: _resultEstimationSecond,
+            onChanged: (bool newValue) {
+              setState(() {
+                _resultEstimationSecond = newValue;
+              });
+            },
+          )
+        ],
+      );
+
+  Widget _discrepanciesCount(String text) => Row(
+        children: <Widget>[
+          Text(text),
+          Switch(
+            onChanged: (val) => setState(() => _discrepanciesCountFirst = val),
+            value: _discrepanciesCountFirst,
+          ),
+          Switch(
+            value: _discrepanciesCountSecond,
+            onChanged: (bool newValue) {
+              setState(() {
+                _discrepanciesCountSecond = newValue;
+              });
+            },
+          )
+        ],
+      );
+
+  Widget _checklists(String text) => Row(
+        children: <Widget>[
+          Text(text),
+          Switch(
+            onChanged: (val) => setState(() => _checklistsFirst = val),
+            value: _checklistsFirst,
+          ),
+          Switch(
+            value: _checklistsSecond,
+            onChanged: (bool newValue) {
+              setState(() {
+                _checklistsSecond = newValue;
+              });
+            },
+          )
+        ],
+      );
+
+  Widget _passports(String text) => Row(
+        children: <Widget>[
+          Text(text),
+          Switch(
+            onChanged: (val) => setState(() => _passportsFirst = val),
+            value: _passportsFirst,
+          ),
+          Switch(
+            value: _passportsSecond,
+            onChanged: (bool newValue) {
+              setState(() {
+                _passportsSecond = newValue;
+              });
+            },
+          )
+        ],
+      );
+
+  Widget _executiveScheme(String text) => Row(
+        children: <Widget>[
+          Text(text),
+          Switch(
+            onChanged: (val) => setState(() => _executiveSchemeFirst = val),
+            value: _executiveSchemeFirst,
+          ),
+          Switch(
+            value: _executiveSchemeSecond,
+            onChanged: (bool newValue) {
+              setState(() {
+                _executiveSchemeSecond = newValue;
+              });
+            },
+          )
+        ],
+      );
+
+  Widget _requirementsForPDandRD(String text) => Row(
+        children: <Widget>[
+          Text(text),
+          Switch(
+            onChanged: (val) => setState(() => _requirementsForPDandRDFirst = val),
+            value: _requirementsForPDandRDFirst,
+          ),
+          Switch(
+            value: _requirementsForPDandRDSecond,
+            onChanged: (bool newValue) {
+              setState(() {
+                _requirementsForPDandRDSecond = newValue;
+              });
+            },
+          )
+        ],
+      );
+
+  Widget _regulatoryDocumentation(String text) => Row(
+        children: <Widget>[
+          Text(text),
+          Switch(
+            onChanged: (val) => setState(() => _regulatoryDocumentationFirst = val),
+            value: _regulatoryDocumentationFirst,
+          ),
+          Switch(
+            value: _regulatoryDocumentationSecond,
+            onChanged: (bool newValue) {
+              setState(() {
+                _regulatoryDocumentationSecond = newValue;
+              });
+            },
+          )
+        ],
+      );
 
   Widget card(String text, String trailingText) => Container(
       constraints: BoxConstraints(minHeight: 100),
