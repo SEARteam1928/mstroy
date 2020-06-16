@@ -24,6 +24,7 @@ var underLineColor = blue;
 class _MyHomePageState extends State<Authorization> {
   TextEditingController loginController = TextEditingController(),
       passwordController = TextEditingController();
+  var authTextTitle = "Авторизация";
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +53,7 @@ class _MyHomePageState extends State<Authorization> {
               margin: EdgeInsets.only(top: 5, bottom: 20),
               padding: EdgeInsets.only(bottom: 20),
               child: Text(
-                "Авторизация",
+                authTextTitle,
                 style: TextStyle(
                     fontWeight: FontWeight.w400,
                     fontSize: 24.0,

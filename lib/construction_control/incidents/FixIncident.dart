@@ -2,7 +2,9 @@ import 'dart:core';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:mstroy/WorkWithCamera.dart';
 import 'package:mstroy/mainclasses/constants/MSColors.dart';
+import 'package:mstroy/mainclasses/constants/RouteNames.dart';
 
 class FixIncident extends StatefulWidget {
   final String projectName;
@@ -76,7 +78,9 @@ class _FixIncidentState extends State<FixIncident> {
                                   Text("dd.mm.yyyy"),
                                   Text("Нарушение зафиксировал"),
                                   Text("ФИО (роль)"),
-                                  Text("=Добавить фото="),
+                                  Container(
+                                      margin: EdgeInsets.all(10),
+                                      child: WorkWithCamera()),
                                 ],
                               ),
                             ),

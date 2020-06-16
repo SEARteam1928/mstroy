@@ -105,7 +105,7 @@ class _MyHomePageState extends State<ProjectList> {
         options: QueryOptions(
           documentNode: gql(userInfo(userEmail)),
           variables: {'allUsers': 1},
-          pollInterval: 100,
+          pollInterval: 30,
         ),
         builder: (QueryResult result,
             {VoidCallback refetch, FetchMore fetchMore}) {
@@ -212,14 +212,13 @@ class _MyHomePageState extends State<ProjectList> {
             ),
           ])),
       MaterialButton(
-
-          onPressed: () { Navigator.of(context).pushNamed(workWithCameraRoute);},
-
+          onPressed: () {
+            Navigator.of(context).pushNamed(workWithCameraRoute);
+          },
           textColor: white,
           color: mstroyBlue,
           child: Container(
-              padding: EdgeInsets.only(
-                  left: 45, top: 4, right: 45, bottom: 4),
+              padding: EdgeInsets.only(left: 45, top: 4, right: 45, bottom: 4),
               child: Text(
                 "Камера //TODO: ПЕРЕСТАВИТЬ НА МЕСТО",
                 style: TextStyle(fontWeight: FontWeight.w400),
