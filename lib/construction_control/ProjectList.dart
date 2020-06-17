@@ -23,7 +23,7 @@ final HttpLink httpLink = HttpLink(
   uri: graphQLUrl,
 );
 var graphQLtoken;
-var title = "";
+var userName = "";
 var userEmail = "";
 final AuthLink authLink = AuthLink(
   getToken: () async => graphQLtoken.toString(),
@@ -89,7 +89,7 @@ class _MyHomePageState extends State<ProjectList> {
 
         graphQLtoken = jsonText["Authorization"].toString();
         setState(() {
-          title = jsonText["user"]["username"];
+          userName = jsonText["user"]["username"];
           userEmail = jsonText["user"]["email"];
         });
       } catch (e) {
@@ -99,7 +99,7 @@ class _MyHomePageState extends State<ProjectList> {
   }
 
   Widget loadUserInfo() {
-    double screenHeight = MediaQuery.of(context).size.height - 260;
+    double screenHeight = MediaQuery.of(context).size.height - 290;
     try {
       return Query(
         options: QueryOptions(
@@ -203,6 +203,8 @@ class _MyHomePageState extends State<ProjectList> {
                             "Выйти из аккаунта",
                             style: TextStyle(fontWeight: FontWeight.w400),
                           ))),
+                  Text("Имя пользователя: "),
+                  Text(userName),
                   Text("Email"),
                   Text(userEmail),
                   Text("Роль:"),
@@ -230,7 +232,7 @@ class _MyHomePageState extends State<ProjectList> {
         child: Scaffold(
           appBar: AppBar(
             centerTitle: true,
-            title: Text(title),
+            title: Text("MStroy"),
             backgroundColor: mstroyLightBlue,
           ),
           body: Center(

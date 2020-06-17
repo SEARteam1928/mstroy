@@ -145,19 +145,42 @@ class _InspectionsEditPageState extends State<InspectionsEditPage> {
         ));
   }
 
-  Widget _switchesNamesColumn() => Container(padding: EdgeInsets.only(top: 15),
+  Widget _switchesNamesColumn() => Container(
+      padding: EdgeInsets.only(top: 15),
       constraints: BoxConstraints(maxWidth: 200),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
-         Container(padding: EdgeInsets.only(left: 10,top: 10,bottom: 15),child: Text("Результаты оценки"),)  ,
-         Container(padding: EdgeInsets.only(left: 10,top: 10,bottom: 15),child: Text("Количество несоответствий"),)  ,
-         Container(padding: EdgeInsets.only(left: 10,top: 10,bottom: 15),child: Text("Чек-листы"),)  ,
-         Container(padding: EdgeInsets.only(left: 10,top: 10,bottom: 15),child: Text("Паспорта, сертификаты соответствия, таможенные декларации"),)  ,
-         Container(padding: EdgeInsets.only(left: 10,top: 10,bottom: 15),child: Text("Исполнительные схемы"),)  ,
-         Container(padding: EdgeInsets.only(left: 10,top: 10,bottom: 15),child: Text("Требования ПД и РД"),)  ,
-         Container(padding: EdgeInsets.only(left: 10,top: 10,bottom: 15),child: Text("Требования нормативной документации"),)  ,
+          Container(
+            padding: EdgeInsets.only(left: 10, top: 10, bottom: 15),
+            child: Text("Результаты оценки"),
+          ),
+          Container(
+            padding: EdgeInsets.only(left: 10, top: 10, bottom: 15),
+            child: Text("Количество несоответствий"),
+          ),
+          Container(
+            padding: EdgeInsets.only(left: 10, top: 10, bottom: 15),
+            child: Text("Чек-листы"),
+          ),
+          Container(
+            padding: EdgeInsets.only(left: 10, top: 10, bottom: 15),
+            child: Text(
+                "Паспорта, сертификаты соответствия, таможенные декларации"),
+          ),
+          Container(
+            padding: EdgeInsets.only(left: 10, top: 10, bottom: 15),
+            child: Text("Исполнительные схемы"),
+          ),
+          Container(
+            padding: EdgeInsets.only(left: 10, top: 10, bottom: 15),
+            child: Text("Требования ПД и РД"),
+          ),
+          Container(
+            padding: EdgeInsets.only(left: 10, top: 10, bottom: 15),
+            child: Text("Требования нормативной документации"),
+          ),
         ],
       ));
 

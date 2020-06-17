@@ -386,6 +386,7 @@ class _PageOfProjectState extends State<PageOfProject> {
                                     ))),
                           ])))
                     ]))),
+
             Container(
                 height: MediaQuery.of(context).size.height / 2 - 68,
                 margin:

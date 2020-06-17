@@ -16,7 +16,9 @@ class RegisterOfRequests extends StatefulWidget {
 
   @override
   State<StatefulWidget> createState() => _RegisterOfRequestsState(
-      projectName: projectName, buttonName: buttonName, graphQLtoken: graphQLtoken);
+      projectName: projectName,
+      buttonName: buttonName,
+      graphQLtoken: graphQLtoken);
 }
 
 String allInspectionRequestId = """
@@ -61,7 +63,7 @@ class _RegisterOfRequestsState extends State<RegisterOfRequests> {
   Widget loadInspectionsRequests() {
     double screenHeight = MediaQuery.of(context).size.height - 260;
 
-      try {
+    try {
       return Query(
         options: QueryOptions(
           documentNode: gql(allInspectionRequestId),
@@ -127,7 +129,7 @@ class _RegisterOfRequestsState extends State<RegisterOfRequests> {
         },
       );
     } catch (e) {
-        print(e);
+      print(e);
       return Visibility(
           maintainSize: true,
           maintainAnimation: true,
@@ -141,7 +143,6 @@ class _RegisterOfRequestsState extends State<RegisterOfRequests> {
 
   @override
   Widget build(BuildContext context) {
-
     return DefaultTabController(
         length: 3,
         child: Scaffold(
