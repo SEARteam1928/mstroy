@@ -2,9 +2,10 @@ import 'dart:core';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:mstroy/construction_control/inspections/InspectionsEditPage.dart';
+import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:mstroy/construction_control/inspections/RequestsEditPage.dart';
 import 'package:mstroy/mainclasses/constants/MSColors.dart';
+import 'package:mstroy/mainclasses/constants/urls.dart';
 
 class RegisterOfRequests extends StatefulWidget {
   final String projectName;
@@ -15,8 +16,17 @@ class RegisterOfRequests extends StatefulWidget {
 
   @override
   State<StatefulWidget> createState() => _RegisterOfRequestsState(
-      projectName: projectName, buttonName: buttonName);
+      projectName: projectName, buttonName: buttonName, graphQLtoken: graphQLtoken);
 }
+
+String allInspectionRequestId = """
+query q{
+  allInspectionRequests{
+    id
+    comment
+  }
+}
+""";
 
 class _RegisterOfRequestsState extends State<RegisterOfRequests> {
   final String projectName;
@@ -30,12 +40,108 @@ class _RegisterOfRequestsState extends State<RegisterOfRequests> {
   @override
   void initState() {
     super.initState();
+    final HttpLink httpLink = HttpLink(
+      uri: graphQLUrl,
+    );
+
+    final AuthLink authLink = AuthLink(
+      getToken: () async => graphQLtoken.toString(),
+    );
+    final Link link = authLink.concat(httpLink);
+    ValueNotifier<GraphQLClient> client = ValueNotifier(
+      GraphQLClient(
+        cache: InMemoryCache(),
+        link: link,
+      ),
+    );
   }
 
   TabController _tabController;
 
+  Widget loadInspectionsRequests() {
+    double screenHeight = MediaQuery.of(context).size.height - 260;
+
+      try {
+      return Query(
+        options: QueryOptions(
+          documentNode: gql(allInspectionRequestId),
+          pollInterval: 40,
+        ),
+        builder: (QueryResult result,
+            {VoidCallback refetch, FetchMore fetchMore}) {
+          if (result.hasException) {
+            return Visibility(
+                maintainSize: true,
+                maintainAnimation: true,
+                maintainState: true,
+                visible: true,
+                child: Container(
+                    margin: EdgeInsets.only(top: 50, bottom: 30),
+                    child: CircularProgressIndicator()));
+          }
+
+          if (result.loading) {
+            return Visibility(
+                maintainSize: true,
+                maintainAnimation: true,
+                maintainState: true,
+                visible: true,
+                child: Container(
+                    margin: EdgeInsets.only(top: 50, bottom: 30),
+                    child: CircularProgressIndicator()));
+          }
+
+          List allInspectionRequests = result.data['allInspectionRequests'];
+
+          try {
+/*            print(allProjectsJson);
+            print(allProjectsJson[0]["name"]);*/
+          } catch (e) {}
+          try {
+            print(allInspectionRequests.length);
+            return Container(
+                height: screenHeight,
+                child: CustomScrollView(
+                  shrinkWrap: true,
+                  slivers: <Widget>[
+                    SliverList(
+                      delegate: SliverChildBuilderDelegate(
+                          (BuildContext context, int index) {
+                        return Center(
+                            child: Text(
+                                "${allInspectionRequests[index]["comment"]}"));
+                      }, childCount: allInspectionRequests.length),
+                    )
+                  ],
+                ));
+          } catch (e) {
+            return Visibility(
+                maintainSize: true,
+                maintainAnimation: true,
+                maintainState: true,
+                visible: true,
+                child: Container(
+                    margin: EdgeInsets.only(top: 50, bottom: 30),
+                    child: CircularProgressIndicator()));
+          }
+        },
+      );
+    } catch (e) {
+        print(e);
+      return Visibility(
+          maintainSize: true,
+          maintainAnimation: true,
+          maintainState: true,
+          visible: true,
+          child: Container(
+              margin: EdgeInsets.only(top: 50, bottom: 30),
+              child: CircularProgressIndicator()));
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+
     return DefaultTabController(
         length: 3,
         child: Scaffold(
@@ -91,19 +197,11 @@ class _RegisterOfRequestsState extends State<RegisterOfRequests> {
                             ],
                           ))),
                   SingleChildScrollView(
-                      child: Container(
-                          height: MediaQuery.of(context).size.height - 135,
-                          child: CustomScrollView(
-                            shrinkWrap: true,
-                            slivers: <Widget>[
-                              SliverList(
-                                delegate: SliverChildBuilderDelegate(
-                                    (BuildContext context, int index) {
-                                  return card("Все", "$index");
-                                }, childCount: s),
-                              )
-                            ],
-                          ))),
+                    child: SafeArea(
+                        child: Column(
+                      children: <Widget>[loadInspectionsRequests()],
+                    )),
+                  ),
                 ],
                 controller: _tabController,
               ),
