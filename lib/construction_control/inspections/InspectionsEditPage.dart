@@ -114,13 +114,13 @@ class _InspectionsEditPageState extends State<InspectionsEditPage> {
                                       Text("Корректно"),
                                     ],
                                   ),
-                                  _resultEstimation("Результаты оценки"),
-                                  _discrepanciesCount("Количество несоответствий"),
-                                  _checklists("Чек-листы"),
-                                  _passports("Паспорта, сертификаты соответствия, таможенные декларации"),
-                                  _executiveScheme("Исполнительные схемы"),
-                                  _requirementsForPDandRD("Требования ПД и РД"),
-                                  _regulatoryDocumentation("Требования нормативной документации"),
+                                  Row(
+                                    children: <Widget>[
+                                      _switchesNamesColumn(),
+                                      _firstSwitches(),
+                                      _secondSwitches()
+                                    ],
+                                  )
                                 ],
                               ),
                             ),
@@ -145,13 +145,59 @@ class _InspectionsEditPageState extends State<InspectionsEditPage> {
         ));
   }
 
-  Widget _resultEstimation(String text) => Row(
+  Widget _switchesNamesColumn() => Container(padding: EdgeInsets.only(top: 15),
+      constraints: BoxConstraints(maxWidth: 200),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
-          Text(text),
+         Container(padding: EdgeInsets.only(left: 10,top: 10,bottom: 15),child: Text("Результаты оценки"),)  ,
+         Container(padding: EdgeInsets.only(left: 10,top: 10,bottom: 15),child: Text("Количество несоответствий"),)  ,
+         Container(padding: EdgeInsets.only(left: 10,top: 10,bottom: 15),child: Text("Чек-листы"),)  ,
+         Container(padding: EdgeInsets.only(left: 10,top: 10,bottom: 15),child: Text("Паспорта, сертификаты соответствия, таможенные декларации"),)  ,
+         Container(padding: EdgeInsets.only(left: 10,top: 10,bottom: 15),child: Text("Исполнительные схемы"),)  ,
+         Container(padding: EdgeInsets.only(left: 10,top: 10,bottom: 15),child: Text("Требования ПД и РД"),)  ,
+         Container(padding: EdgeInsets.only(left: 10,top: 10,bottom: 15),child: Text("Требования нормативной документации"),)  ,
+        ],
+      ));
+
+  Widget _firstSwitches() => Column(
+        children: <Widget>[
           Switch(
             onChanged: (val) => setState(() => _resultEstimationFirst = val),
             value: _resultEstimationFirst,
           ),
+          Switch(
+            onChanged: (val) => setState(() => _discrepanciesCountFirst = val),
+            value: _discrepanciesCountFirst,
+          ),
+          Switch(
+            onChanged: (val) => setState(() => _checklistsFirst = val),
+            value: _checklistsFirst,
+          ),
+          Switch(
+            onChanged: (val) => setState(() => _passportsFirst = val),
+            value: _passportsFirst,
+          ),
+          Switch(
+            onChanged: (val) => setState(() => _executiveSchemeFirst = val),
+            value: _executiveSchemeFirst,
+          ),
+          Switch(
+            onChanged: (val) =>
+                setState(() => _requirementsForPDandRDFirst = val),
+            value: _requirementsForPDandRDFirst,
+          ),
+          Switch(
+            onChanged: (val) =>
+                setState(() => _regulatoryDocumentationFirst = val),
+            value: _regulatoryDocumentationFirst,
+          ),
+        ],
+      );
+
+  Widget _secondSwitches() => Column(
+        children: <Widget>[
           Switch(
             value: _resultEstimationSecond,
             onChanged: (bool newValue) {
@@ -159,16 +205,6 @@ class _InspectionsEditPageState extends State<InspectionsEditPage> {
                 _resultEstimationSecond = newValue;
               });
             },
-          )
-        ],
-      );
-
-  Widget _discrepanciesCount(String text) => Row(
-        children: <Widget>[
-          Text(text),
-          Switch(
-            onChanged: (val) => setState(() => _discrepanciesCountFirst = val),
-            value: _discrepanciesCountFirst,
           ),
           Switch(
             value: _discrepanciesCountSecond,
@@ -177,16 +213,6 @@ class _InspectionsEditPageState extends State<InspectionsEditPage> {
                 _discrepanciesCountSecond = newValue;
               });
             },
-          )
-        ],
-      );
-
-  Widget _checklists(String text) => Row(
-        children: <Widget>[
-          Text(text),
-          Switch(
-            onChanged: (val) => setState(() => _checklistsFirst = val),
-            value: _checklistsFirst,
           ),
           Switch(
             value: _checklistsSecond,
@@ -195,16 +221,6 @@ class _InspectionsEditPageState extends State<InspectionsEditPage> {
                 _checklistsSecond = newValue;
               });
             },
-          )
-        ],
-      );
-
-  Widget _passports(String text) => Row(
-        children: <Widget>[
-          Text(text),
-          Switch(
-            onChanged: (val) => setState(() => _passportsFirst = val),
-            value: _passportsFirst,
           ),
           Switch(
             value: _passportsSecond,
@@ -213,16 +229,6 @@ class _InspectionsEditPageState extends State<InspectionsEditPage> {
                 _passportsSecond = newValue;
               });
             },
-          )
-        ],
-      );
-
-  Widget _executiveScheme(String text) => Row(
-        children: <Widget>[
-          Text(text),
-          Switch(
-            onChanged: (val) => setState(() => _executiveSchemeFirst = val),
-            value: _executiveSchemeFirst,
           ),
           Switch(
             value: _executiveSchemeSecond,
@@ -231,16 +237,6 @@ class _InspectionsEditPageState extends State<InspectionsEditPage> {
                 _executiveSchemeSecond = newValue;
               });
             },
-          )
-        ],
-      );
-
-  Widget _requirementsForPDandRD(String text) => Row(
-        children: <Widget>[
-          Text(text),
-          Switch(
-            onChanged: (val) => setState(() => _requirementsForPDandRDFirst = val),
-            value: _requirementsForPDandRDFirst,
           ),
           Switch(
             value: _requirementsForPDandRDSecond,
@@ -249,16 +245,6 @@ class _InspectionsEditPageState extends State<InspectionsEditPage> {
                 _requirementsForPDandRDSecond = newValue;
               });
             },
-          )
-        ],
-      );
-
-  Widget _regulatoryDocumentation(String text) => Row(
-        children: <Widget>[
-          Text(text),
-          Switch(
-            onChanged: (val) => setState(() => _regulatoryDocumentationFirst = val),
-            value: _regulatoryDocumentationFirst,
           ),
           Switch(
             value: _regulatoryDocumentationSecond,
@@ -267,7 +253,7 @@ class _InspectionsEditPageState extends State<InspectionsEditPage> {
                 _regulatoryDocumentationSecond = newValue;
               });
             },
-          )
+          ),
         ],
       );
 

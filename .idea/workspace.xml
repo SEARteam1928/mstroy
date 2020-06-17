@@ -9,20 +9,14 @@
     <list default="true" id="169d8321-fc3f-45d4-9f98-3006ea6f6fd7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/43ae2cba878ea8b4a9953aa0d9f4f993/.filecache" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/43ae2cba878ea8b4a9953aa0d9f4f993/.filecache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/43ae2cba878ea8b4a9953aa0d9f4f993/app.dill" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/43ae2cba878ea8b4a9953aa0d9f4f993/app.dill" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/4b82e3ac7d8153a5f2008bcf1dd56b46/.filecache" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/4b82e3ac7d8153a5f2008bcf1dd56b46/.filecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/4b82e3ac7d8153a5f2008bcf1dd56b46/app.dill" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/4b82e3ac7d8153a5f2008bcf1dd56b46/app.dill" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/4b82e3ac7d8153a5f2008bcf1dd56b46/arm64-v8a/app.so" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/4b82e3ac7d8153a5f2008bcf1dd56b46/arm64-v8a/app.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/4b82e3ac7d8153a5f2008bcf1dd56b46/armeabi-v7a/app.so" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/4b82e3ac7d8153a5f2008bcf1dd56b46/armeabi-v7a/app.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/4b82e3ac7d8153a5f2008bcf1dd56b46/x86_64/app.so" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/4b82e3ac7d8153a5f2008bcf1dd56b46/x86_64/app.so" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/.gradle/5.6.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/5.6.2/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/.gradle/5.6.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/5.6.2/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/.gradle/5.6.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/5.6.2/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/.gradle/5.6.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/5.6.2/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.gradle/5.6.2/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/5.6.2/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/android/local.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_assets/kernel_blob.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_assets/kernel_blob.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/app/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/app/intermediates/merged_assets/debug/out/flutter_assets/kernel_blob.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/merged_assets/debug/out/flutter_assets/kernel_blob.bin" afterDir="false" />
@@ -31,7 +25,6 @@
       <change beforePath="$PROJECT_DIR$/build/app/outputs/apk/debug/app-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/outputs/apk/debug/app-debug.apk" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app-debug.apk" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/cache.dill" beforeDir="false" afterPath="$PROJECT_DIR$/build/cache.dill" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/construction_control/incidents/FixIncident.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/construction_control/incidents/FixIncident.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/construction_control/inspections/InspectionsEditPage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/construction_control/inspections/InspectionsEditPage.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -39,7 +32,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="Pixel_3a_API_29_x86" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="XELRX19314002917" />
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -96,26 +89,26 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2660" y="274" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1592278981561" />
-    <state width="1877" height="281" key="GridCell.Tab.0.bottom" timestamp="1592302607222">
+    <state width="1877" height="281" key="GridCell.Tab.0.bottom" timestamp="1592369007997">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1236" height="272" key="GridCell.Tab.0.bottom/0.0.1280.1024@0.0.1280.1024" timestamp="1592147096226" />
-    <state width="1877" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1592302607222" />
-    <state width="1877" height="281" key="GridCell.Tab.0.center" timestamp="1592302607222">
+    <state width="1877" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1592369007997" />
+    <state width="1877" height="281" key="GridCell.Tab.0.center" timestamp="1592369007997">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1236" height="272" key="GridCell.Tab.0.center/0.0.1280.1024@0.0.1280.1024" timestamp="1592147096226" />
-    <state width="1877" height="281" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1592302607222" />
-    <state width="1877" height="281" key="GridCell.Tab.0.left" timestamp="1592302607222">
+    <state width="1877" height="281" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1592369007997" />
+    <state width="1877" height="281" key="GridCell.Tab.0.left" timestamp="1592369007997">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1236" height="272" key="GridCell.Tab.0.left/0.0.1280.1024@0.0.1280.1024" timestamp="1592147096226" />
-    <state width="1877" height="281" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1592302607222" />
-    <state width="1877" height="281" key="GridCell.Tab.0.right" timestamp="1592302607222">
+    <state width="1877" height="281" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1592369007997" />
+    <state width="1877" height="281" key="GridCell.Tab.0.right" timestamp="1592369007997">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1236" height="272" key="GridCell.Tab.0.right/0.0.1280.1024@0.0.1280.1024" timestamp="1592147096226" />
-    <state width="1877" height="281" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1592302607222" />
+    <state width="1877" height="281" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1592369007997" />
     <state x="2460" y="263" key="IDE.errors.dialog" timestamp="1592190893477">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
@@ -124,11 +117,11 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2381" y="162" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1592211746842" />
-    <state x="2423" y="339" key="com.intellij.ide.util.TipDialog" timestamp="1592276903573">
+    <state x="2423" y="339" key="com.intellij.ide.util.TipDialog" timestamp="1592364055884">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="335" y="334" key="com.intellij.ide.util.TipDialog/0.0.1280.1024@0.0.1280.1024" timestamp="1592152750554" />
-    <state x="2423" y="339" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1592276903573" />
+    <state x="2423" y="339" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1592364055884" />
     <state x="2543" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1592294492383">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
