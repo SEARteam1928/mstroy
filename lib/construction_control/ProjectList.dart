@@ -32,6 +32,8 @@ final AuthLink authLink = AuthLink(
 String allProjectQuery = """
   query allProjectQuery {
    allProjects{
+     id
+     rowId
      name
     }
   }
@@ -321,7 +323,7 @@ class _MyHomePageState extends State<ProjectList> {
                       delegate: SliverChildBuilderDelegate(
                           (BuildContext context, int index) {
                         return card(
-                            "${allProjectsJson[index]["name"]}", "$index");
+                            "${allProjectsJson[index]["name"]}", "$index","${allProjectsJson[index]["rowId"]}","${allProjectsJson[index]["id"]}");
                       }, childCount: allProjectsJson.length),
                     )
                   ],
@@ -362,16 +364,18 @@ class _MyHomePageState extends State<ProjectList> {
     Navigator.of(context).pushReplacementNamed(authorizationRoute);
   }
 
-  Widget card(String text, String trailingText) => Container(
+  Widget card(String text, String trailingText, String rowIdOfProject, String idOfProject) => Container(
       height: 100,
       child: Card(
           child: MaterialButton(
               onPressed: () {
+                print(rowIdOfProject);
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => PageOfProject(
                           projectName: "$text",
                           graphQLtoken: graphQLtoken.toString(),
-                        )));
+                        rowIdOfProject: rowIdOfProject,
+                        idOfProject: idOfProject,)));
               },
               child: Center(
                 child: ListTile(

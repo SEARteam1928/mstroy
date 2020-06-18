@@ -8,24 +8,32 @@ import 'package:mstroy/mainclasses/constants/MSColors.dart';
 class RequestsEditPage extends StatefulWidget {
   final String projectName;
   final String index;
+  final String rowId;
   final String graphQLtoken;
+  final String comment;
 
-  RequestsEditPage({this.projectName, this.index, this.graphQLtoken});
+  RequestsEditPage(
+      {this.projectName, this.index, this.graphQLtoken, this.rowId, this.comment});
 
   @override
   State<StatefulWidget> createState() => _RequestsEditPageState(
       projectName: projectName,
       incidentIndex: index,
-      graphQLtoken: graphQLtoken);
+      graphQLtoken: graphQLtoken,
+    rowId: rowId,
+    comment: comment
+  );
 }
 
 class _RequestsEditPageState extends State<RequestsEditPage> {
   final String projectName;
   final String incidentIndex;
+  final String rowId;
   final String graphQLtoken;
+  final String comment;
 
   _RequestsEditPageState(
-      {this.projectName, this.incidentIndex, this.graphQLtoken});
+      {this.projectName, this.incidentIndex, this.graphQLtoken, this.rowId, this.comment});
 
   @override
   void initState() {
@@ -59,7 +67,7 @@ class _RequestsEditPageState extends State<RequestsEditPage> {
                                   border: Border.all(color: Colors.blueAccent)),
                               child: Column(
                                 children: <Widget>[
-                                  Text("№ $incidentIndex"),
+                                  Text("№ $rowId"),
                                   Text("Проект"),
                                   Text(projectName),
                                   Text("Плановая дата"),
@@ -69,6 +77,7 @@ class _RequestsEditPageState extends State<RequestsEditPage> {
                                   Text("Руководящие документы"),
                                   Text("Инициатор"),
                                   Text("Комментарий"),
+                                  Text("$comment")
                                 ],
                               ),
                             ),
