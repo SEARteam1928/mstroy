@@ -77,15 +77,10 @@ query findAllInspectionRequests {
     id
     comment
     constructive
-    work
     managerId
     projectId
     constructiveId
-    mainSignListId
-    workId
     planDate
-    isRepeated
-    drawingNumber
     manager{
       name
     }
@@ -93,8 +88,6 @@ query findAllInspectionRequests {
       id
       name
     }
-    governingDocuments
-    inspectionId
     rowId
   }
 }
@@ -103,7 +96,7 @@ query findAllInspectionRequests {
       return Query(
         options: QueryOptions(
           documentNode: gql(allInspectionRequestId),
-          pollInterval: 20,
+          pollInterval: 30,
         ),
         builder: (QueryResult result,
             {VoidCallback refetch, FetchMore fetchMore}) {
@@ -118,23 +111,10 @@ query findAllInspectionRequests {
                     child: CircularProgressIndicator()));
           }
 
-          if (result.loading) {
-            return Visibility(
-                maintainSize: true,
-                maintainAnimation: true,
-                maintainState: true,
-                visible: true,
-                child: Container(
-                    margin: EdgeInsets.only(top: 50, bottom: 30),
-                    child: CircularProgressIndicator()));
-          }
+
 
           List allInspectionRequests = result.data['allInspectionRequests'];
-
-          try {
-/*            print(allProjectsJson);
-            print(allProjectsJson[0]["name"]);*/
-          } catch (e) {}
+          
           try {
             print(allInspectionRequests.length);
             return Container(

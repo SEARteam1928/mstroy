@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:mstroy/construction_control/PageOfProject.dart';
 import 'package:mstroy/mainclasses/constants/urls.dart';
@@ -59,6 +60,7 @@ ValueNotifier<GraphQLClient> client = ValueNotifier(
   ),
 );
 
+var color = Colors.grey.shade300;
 final Link link = authLink.concat(httpLink);
 
 addBoolToSF(bool booleanVal) async {
@@ -211,22 +213,37 @@ class _MyHomePageState extends State<ProjectList> {
                   Text(userEmail),
                   Text("Роль:"),
                   loadUserInfo(),
+
                 ],
               )),
             ),
           ])),
-      MaterialButton(
+      ActionChip(
+          avatar: CircleAvatar(
+            backgroundColor: mstroyBlue,
+            child: Text('НП'),
+          ),
+          label: Text('На проверке'),
+          backgroundColor: color,
           onPressed: () {
-            Navigator.of(context).pushNamed(workWithCameraRoute);
-          },
-          textColor: white,
-          color: mstroyBlue,
-          child: Container(
-              padding: EdgeInsets.only(left: 45, top: 4, right: 45, bottom: 4),
-              child: Text(
-                "Камера //TODO: ПЕРЕСТАВИТЬ НА МЕСТО",
-                style: TextStyle(fontWeight: FontWeight.w400),
-              ))),
+            setState(() {
+              if(color == Colors.grey.shade300){
+                color = mstroyLightBlue;
+              }else{
+                color = Colors.grey.shade300;
+              }
+            });
+
+        /*    Fluttertoast.showToast(
+                msg: "Вы нажали на чип",
+                toastLength: Toast.LENGTH_SHORT,
+                gravity: ToastGravity.TOP,
+                timeInSecForIosWeb: 1,
+                backgroundColor: mstroyLightBlue,
+                textColor: Colors.white,
+                fontSize: 16.0);       */   }
+      )
+
     ];
 
     return GraphQLProvider(

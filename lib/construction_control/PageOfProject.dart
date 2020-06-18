@@ -78,7 +78,8 @@ class _PageOfProjectState extends State<PageOfProject> {
 
     var buttonPadding = EdgeInsets.only(top: 4, bottom: 4);
     var buttonMargin = EdgeInsets.only(top: 10, bottom: 10);
-    var fixButtonMargin = EdgeInsets.only(left: 20, right: 20,top: 10, bottom: 10);
+    var fixButtonMargin =
+        EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 10);
 
     return Scaffold(
         backgroundColor: backgroundWhite,
@@ -120,92 +121,100 @@ class _PageOfProjectState extends State<PageOfProject> {
                                 color: red,
                                 fontSize: 30,
                               ))),
-                    Center(
-                              child: Column(
+                      Center(
+                          child: Column(
                         children: <Widget>[
                           Row(children: <Widget>[
-                                Container(
-                                    height: buttonHeight,
-                                    margin: buttonMargin,
-                                    width: buttonWidth,
-                                    child: Column(children: <Widget>[
-                                      MaterialButton(
-                                          disabledTextColor: red,
-                                          hoverColor: red,
-                                          focusColor: red,
-                                          onPressed: () {
-                                            _onButtonPressed("Все нарушения");
-                                          },
-                                          textColor: darkBlue,
-                                          color: white,
-                                          child: Container(
-                                            padding: buttonPadding,
-                                            child: Text(
-                                              "$_allIncidentsCount",
-                                              style: TextStyle(
-                                                  fontWeight: buttonFontWeight,
-                                                  fontSize: buttonFontSize),
-                                            ),
-                                          )),
-                                      Text("Просрочено",style: TextStyle(fontSize: buttonInfoFontSize),)
-                                    ])),
-                                Container(
-                                    height: buttonHeight,
-                                    margin: buttonMargin,
-                                    width: buttonWidth,
-                                    child: Column(
-                                      children: <Widget>[
-                                        MaterialButton(
-                                            disabledTextColor: red,
-                                            hoverColor: red,
-                                            focusColor: red,
-                                            onPressed: () {
-                                              _onButtonPressed(
-                                                  "Нарушений на проверке");
-                                            },
-                                            textColor: darkBlue,
-                                            color: white,
-                                            child: Container(
-                                              padding: buttonPadding,
-                                              child: Text(
-                                                "$_incidentsOnTheCheckCount",
-                                                style: TextStyle(
-                                                    fontWeight: buttonFontWeight,
-                                                    fontSize: buttonFontSize),
-                                              ),
-                                            )),
-                                        Text("Неустранённые",style: TextStyle(fontSize: buttonInfoFontSize))
-                                      ],
-                                    )),
-                                Container(
-                                    height: buttonHeight,
-                                    margin: buttonMargin,
-                                    width: buttonWidth,
-                                    child: Column(
-                                      children: <Widget>[
-                                        MaterialButton(
-                                            disabledTextColor: red,
-                                            hoverColor: red,
-                                            focusColor: red,
-                                            onPressed: () {
-                                              _onButtonPressed(
-                                                  "Нарушений на проверке");
-                                            },
-                                            textColor: darkBlue,
-                                            color: white,
-                                            child: Container(
-                                              padding: buttonPadding,
-                                              child: Text(
-                                                "$_incidentsOnTheCheckCount",
-                                                style: TextStyle(
-                                                    fontWeight: buttonFontWeight,
-                                                    fontSize: buttonFontSize),
-                                              ),
-                                            )),
-                                        Text("На проверке",style: TextStyle(fontSize: buttonInfoFontSize))
-                                      ],
-                                    )),
-                              ]),
+                            Container(
+                                height: buttonHeight,
+                                margin: buttonMargin,
+                                width: buttonWidth,
+                                child: Column(children: <Widget>[
+                                  MaterialButton(
+                                      disabledTextColor: red,
+                                      hoverColor: red,
+                                      focusColor: red,
+                                      onPressed: () {
+                                        _onButtonPressed("Все нарушения");
+                                      },
+                                      textColor: darkBlue,
+                                      color: white,
+                                      child: Container(
+                                        padding: buttonPadding,
+                                        child: Text(
+                                          "$_allIncidentsCount",
+                                          style: TextStyle(
+                                              fontWeight: buttonFontWeight,
+                                              fontSize: buttonFontSize),
+                                        ),
+                                      )),
+                                  Text(
+                                    "Просрочено",
+                                    style:
+                                        TextStyle(fontSize: buttonInfoFontSize),
+                                  )
+                                ])),
+                            Container(
+                                height: buttonHeight,
+                                margin: buttonMargin,
+                                width: buttonWidth,
+                                child: Column(
+                                  children: <Widget>[
+                                    MaterialButton(
+                                        disabledTextColor: red,
+                                        hoverColor: red,
+                                        focusColor: red,
+                                        onPressed: () {
+                                          _onButtonPressed(
+                                              "Нарушений на проверке");
+                                        },
+                                        textColor: darkBlue,
+                                        color: white,
+                                        child: Container(
+                                          padding: buttonPadding,
+                                          child: Text(
+                                            "$_incidentsOnTheCheckCount",
+                                            style: TextStyle(
+                                                fontWeight: buttonFontWeight,
+                                                fontSize: buttonFontSize),
+                                          ),
+                                        )),
+                                    Text("Неустранённые",
+                                        style: TextStyle(
+                                            fontSize: buttonInfoFontSize))
+                                  ],
+                                )),
+                            Container(
+                                height: buttonHeight,
+                                margin: buttonMargin,
+                                width: buttonWidth,
+                                child: Column(
+                                  children: <Widget>[
+                                    MaterialButton(
+                                        disabledTextColor: red,
+                                        hoverColor: red,
+                                        focusColor: red,
+                                        onPressed: () {
+                                          _onButtonPressed(
+                                              "Нарушений на проверке");
+                                        },
+                                        textColor: darkBlue,
+                                        color: white,
+                                        child: Container(
+                                          padding: buttonPadding,
+                                          child: Text(
+                                            "$_incidentsOnTheCheckCount",
+                                            style: TextStyle(
+                                                fontWeight: buttonFontWeight,
+                                                fontSize: buttonFontSize),
+                                          ),
+                                        )),
+                                    Text("На проверке",
+                                        style: TextStyle(
+                                            fontSize: buttonInfoFontSize))
+                                  ],
+                                )),
+                          ]),
                           Container(
                               height: (MediaQuery.of(context).size.height / 2 -
                                           68) /
