@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:mstroy/ActorFilterEntry.dart';
 import 'package:mstroy/construction_control/PageOfProject.dart';
 import 'package:mstroy/mainclasses/constants/urls.dart';
 import 'package:mstroy/mainclasses/constants/MSColors.dart';
@@ -216,7 +217,8 @@ class _MyHomePageState extends State<ProjectList> {
               )),
             ),
           ])),
-      ActionChip(
+      CastFilter()
+      /*    ActionChip(
           avatar: CircleAvatar(
             backgroundColor: mstroyBlue,
             child: Text('НП'),
@@ -231,16 +233,7 @@ class _MyHomePageState extends State<ProjectList> {
                 color = Colors.grey.shade300;
               }
             });
-
-            /*    Fluttertoast.showToast(
-                msg: "Вы нажали на чип",
-                toastLength: Toast.LENGTH_SHORT,
-                gravity: ToastGravity.TOP,
-                timeInSecForIosWeb: 1,
-                backgroundColor: mstroyLightBlue,
-                textColor: Colors.white,
-                fontSize: 16.0);       */
-          })
+          })*/
     ];
 
     return GraphQLProvider(
@@ -324,10 +317,6 @@ class _MyHomePageState extends State<ProjectList> {
           List allProjectsJson = result.data['allProjects'];
 
           try {
-/*            print(allProjectsJson);
-            print(allProjectsJson[0]["name"]);*/
-          } catch (e) {}
-          try {
             return Container(
                 height: screenHeight - 100,
                 child: CustomScrollView(
@@ -384,40 +373,45 @@ class _MyHomePageState extends State<ProjectList> {
   Widget card(String text, String trailingText, String rowIdOfProject,
           String idOfProject) =>
       Container(
-          height: 100,
-          child: Card(
-              child: MaterialButton(
-                  onPressed: () {
-                    print(rowIdOfProject);
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => PageOfProject(
-                              projectName: "$text",
-                              graphQLtoken: graphQLtoken.toString(),
-                              rowIdOfProject: rowIdOfProject,
-                              idOfProject: idOfProject,
-                            )));
-                  },
+        height: 100,
+        child: Card(
+          child: MaterialButton(
+            onPressed: () {
+              print(rowIdOfProject);
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => PageOfProject(
+                        projectName: "$text",
+                        graphQLtoken: graphQLtoken.toString(),
+                        rowIdOfProject: rowIdOfProject,
+                        idOfProject: idOfProject,
+                      )));
+            },
+            child: Center(
+              child: ListTile(
+                title: Text(
+                  text,
+                  style: TextStyle(fontSize: 16),
+                ),
+                trailing: Container(
+                  width: 40,
+                  height: 40,
+                  decoration: BoxDecoration(
+                    color: red,
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                  ),
                   child: Center(
-                    child: ListTile(
-                      title: Text(
-                        text,
-                        style: TextStyle(fontSize: 16),
-                      ),
-                      trailing: Container(
-                          width: 40,
-                          height: 40,
-                          decoration: BoxDecoration(
-                            color: red,
-                            borderRadius: BorderRadius.all(Radius.circular(10)),
-                          ),
-                          child: Center(
-                              child: Text(
-                            trailingText,
-                            style: TextStyle(fontSize: 20, color: white),
-                            maxLines: 1,
-                          ))),
+                    child: Text(
+                      trailingText,
+                      style: TextStyle(fontSize: 20, color: white),
+                      maxLines: 1,
                     ),
-                  ))));
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      );
 }
 
 bool checkAuthorizationIsNull() {
