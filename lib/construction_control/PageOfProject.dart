@@ -17,7 +17,11 @@ class PageOfProject extends StatefulWidget {
   final String rowIdOfProject;
   final String idOfProject;
 
-  PageOfProject({this.projectName, this.graphQLtoken, this.rowIdOfProject, this.idOfProject});
+  PageOfProject(
+      {this.projectName,
+      this.graphQLtoken,
+      this.rowIdOfProject,
+      this.idOfProject});
 
 //TODO: Сделать определённый State для определённой роли
   @override
@@ -27,11 +31,13 @@ class PageOfProject extends StatefulWidget {
           projectName: "SECOND STATE", graphQLtoken: graphQLtoken);
     } else {
       return _PageOfProjectState(
-          projectName: projectName, graphQLtoken: graphQLtoken,rowIdOfProject:rowIdOfProject,idOfProject:idOfProject);
+          projectName: projectName,
+          graphQLtoken: graphQLtoken,
+          rowIdOfProject: rowIdOfProject,
+          idOfProject: idOfProject);
     }
   }
 }
-
 
 class _PageOfProjectState extends State<PageOfProject> {
   final String projectName;
@@ -43,7 +49,11 @@ class _PageOfProjectState extends State<PageOfProject> {
   final String rowIdOfProject;
   final String idOfProject;
 
-  _PageOfProjectState({this.projectName, this.graphQLtoken,this.rowIdOfProject,this.idOfProject});
+  _PageOfProjectState(
+      {this.projectName,
+      this.graphQLtoken,
+      this.rowIdOfProject,
+      this.idOfProject});
 
   @override
   void initState() {
@@ -57,6 +67,19 @@ class _PageOfProjectState extends State<PageOfProject> {
 /*
     print("${MediaQuery.of(context).size.height - 40}");
 */
+
+    var buttonWidth = MediaQuery.of(context).size.width / 3 - 10;
+
+    var buttonHeight = (MediaQuery.of(context).size.height / 2 - 68) / 3;
+
+    var buttonFontSize = 40.toDouble();
+    var buttonInfoFontSize = 14.toDouble();
+    var buttonFontWeight = FontWeight.w200;
+
+    var buttonPadding = EdgeInsets.only(top: 4, bottom: 4);
+    var buttonMargin = EdgeInsets.only(top: 10, bottom: 10);
+    var fixButtonMargin = EdgeInsets.only(left: 20, right: 20,top: 10, bottom: 10);
+
     return Scaffold(
         backgroundColor: backgroundWhite,
         //AppBar
@@ -97,96 +120,120 @@ class _PageOfProjectState extends State<PageOfProject> {
                                 color: red,
                                 fontSize: 30,
                               ))),
-                      ListTile(
-                          title: Center(
+                    Center(
                               child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: <Widget>[
-                            Container(
-                                height:
-                                    (MediaQuery.of(context).size.height / 2 -
-                                                68) /
-                                            3 -
-                                        47,
-                                margin: EdgeInsets.only(top: 10, bottom: 10),
-                                width: MediaQuery.of(context).size.width,
-                                child: MaterialButton(
-                                    disabledTextColor: red,
-                                    hoverColor: red,
-                                    focusColor: red,
-                                    onPressed: () {
-                                      _onButtonPressed("Все нарушения");
-                                    },
-                                    textColor: darkBlue,
-                                    color: white,
-                                    child: Container(
-                                      padding:
-                                          EdgeInsets.only(top: 4, bottom: 4),
-                                      child: Text(
-                                        "Все нарушения (неустранённых: $_allIncidentsCount)",
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.w400,
-                                            fontSize: 18),
-                                      ),
-                                    ))),
-                            Container(
-                                height:
-                                    (MediaQuery.of(context).size.height / 2 -
-                                                68) /
-                                            3 -
-                                        47,
-                                margin: EdgeInsets.only(top: 10, bottom: 10),
-                                width: MediaQuery.of(context).size.width,
-                                child: MaterialButton(
-                                    disabledTextColor: red,
-                                    hoverColor: red,
-                                    focusColor: red,
-                                    onPressed: () {
-                                      _onButtonPressed("Нарушений на проверке");
-                                    },
-                                    textColor: darkBlue,
-                                    color: white,
-                                    child: Container(
-                                      padding:
-                                          EdgeInsets.only(top: 4, bottom: 4),
-                                      child: Text(
-                                        "Нарушений на проверке( $_incidentsOnTheCheckCount )",
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.w400,
-                                            fontSize: 18),
-                                      ),
-                                    ))),
-                            Container(
-                                height:
-                                    (MediaQuery.of(context).size.height / 2 -
-                                                68) /
-                                            3 -
-                                        47,
-                                margin: EdgeInsets.only(top: 10, bottom: 10),
-                                width: MediaQuery.of(context).size.width,
-                                child: MaterialButton(
-                                    highlightColor: redOpacity,
-                                    disabledTextColor: red,
-                                    hoverColor: red,
-                                    focusColor: red,
-                                    onPressed: () {
-                                      _onButtonPressed(
-                                          "Зафиксировать нарушение");
-                                    },
-                                    textColor: red,
-                                    color: white,
-                                    child: Container(
-                                      padding:
-                                          EdgeInsets.only(top: 4, bottom: 4),
-                                      child: Text(
-                                        "Зафиксировать нарушение",
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.w400,
-                                            fontSize: 18),
-                                      ),
-                                    ))),
-                          ])))
+                        children: <Widget>[
+                          Row(children: <Widget>[
+                                Container(
+                                    height: buttonHeight,
+                                    margin: buttonMargin,
+                                    width: buttonWidth,
+                                    child: Column(children: <Widget>[
+                                      MaterialButton(
+                                          disabledTextColor: red,
+                                          hoverColor: red,
+                                          focusColor: red,
+                                          onPressed: () {
+                                            _onButtonPressed("Все нарушения");
+                                          },
+                                          textColor: darkBlue,
+                                          color: white,
+                                          child: Container(
+                                            padding: buttonPadding,
+                                            child: Text(
+                                              "$_allIncidentsCount",
+                                              style: TextStyle(
+                                                  fontWeight: buttonFontWeight,
+                                                  fontSize: buttonFontSize),
+                                            ),
+                                          )),
+                                      Text("Просрочено",style: TextStyle(fontSize: buttonInfoFontSize),)
+                                    ])),
+                                Container(
+                                    height: buttonHeight,
+                                    margin: buttonMargin,
+                                    width: buttonWidth,
+                                    child: Column(
+                                      children: <Widget>[
+                                        MaterialButton(
+                                            disabledTextColor: red,
+                                            hoverColor: red,
+                                            focusColor: red,
+                                            onPressed: () {
+                                              _onButtonPressed(
+                                                  "Нарушений на проверке");
+                                            },
+                                            textColor: darkBlue,
+                                            color: white,
+                                            child: Container(
+                                              padding: buttonPadding,
+                                              child: Text(
+                                                "$_incidentsOnTheCheckCount",
+                                                style: TextStyle(
+                                                    fontWeight: buttonFontWeight,
+                                                    fontSize: buttonFontSize),
+                                              ),
+                                            )),
+                                        Text("Неустранённые",style: TextStyle(fontSize: buttonInfoFontSize))
+                                      ],
+                                    )),
+                                Container(
+                                    height: buttonHeight,
+                                    margin: buttonMargin,
+                                    width: buttonWidth,
+                                    child: Column(
+                                      children: <Widget>[
+                                        MaterialButton(
+                                            disabledTextColor: red,
+                                            hoverColor: red,
+                                            focusColor: red,
+                                            onPressed: () {
+                                              _onButtonPressed(
+                                                  "Нарушений на проверке");
+                                            },
+                                            textColor: darkBlue,
+                                            color: white,
+                                            child: Container(
+                                              padding: buttonPadding,
+                                              child: Text(
+                                                "$_incidentsOnTheCheckCount",
+                                                style: TextStyle(
+                                                    fontWeight: buttonFontWeight,
+                                                    fontSize: buttonFontSize),
+                                              ),
+                                            )),
+                                        Text("На проверке",style: TextStyle(fontSize: buttonInfoFontSize))
+                                      ],
+                                    )),
+                              ]),
+                          Container(
+                              height: (MediaQuery.of(context).size.height / 2 -
+                                          68) /
+                                      3 -
+                                  47,
+                              margin: fixButtonMargin,
+                              width: MediaQuery.of(context).size.width,
+                              child: MaterialButton(
+                                  highlightColor: redOpacity,
+                                  disabledTextColor: red,
+                                  hoverColor: red,
+                                  focusColor: red,
+                                  onPressed: () {
+                                    _onButtonPressed("Зафиксировать нарушение");
+                                  },
+                                  textColor: red,
+                                  color: white,
+                                  child: Container(
+                                    padding: buttonPadding,
+                                    child: Text(
+                                      "Зафиксировать нарушение",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w400,
+                                          fontSize: 18),
+                                    ),
+                                  ))),
+                        ],
+                      ))
                     ]))),
 
             Container(
@@ -327,11 +374,12 @@ class _PageOfProjectState extends State<PageOfProject> {
       case "Реестр Заявок":
         print(rowIdOfProject);
         _pushToRegister(RegisterOfRequests(
-            projectName: projectName,
-            buttonName: buttonName,
-            graphQLtoken: graphQLtoken,
-        rowIdOfProject: rowIdOfProject,
-          idOfProject: idOfProject,));
+          projectName: projectName,
+          buttonName: buttonName,
+          graphQLtoken: graphQLtoken,
+          rowIdOfProject: rowIdOfProject,
+          idOfProject: idOfProject,
+        ));
         break;
       case "Реестр инспекций":
         _pushToRegister(RegisterOfInspections(
@@ -358,7 +406,6 @@ class _PageOfProjectState extends State<PageOfProject> {
   }
 }
 
-
 class _PageOfProjectState2 extends State<PageOfProject> {
   final String projectName;
   final String graphQLtoken;
@@ -369,7 +416,11 @@ class _PageOfProjectState2 extends State<PageOfProject> {
   final String rowIdOfProject;
   final String idOfProject;
 
-  _PageOfProjectState2({this.projectName, this.graphQLtoken,this.rowIdOfProject,this.idOfProject});
+  _PageOfProjectState2(
+      {this.projectName,
+      this.graphQLtoken,
+      this.rowIdOfProject,
+      this.idOfProject});
 
   @override
   void initState() {
@@ -393,117 +444,117 @@ class _PageOfProjectState2 extends State<PageOfProject> {
         body: SafeArea(
             child: Container(
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    //IncidentContainer
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            //IncidentContainer
 
-                    Container(
-                        height: MediaQuery.of(context).size.height / 2 - 68,
-                        margin:
-                        EdgeInsets.only(top: 10, left: 10, right: 10, bottom: 10),
-                        decoration: BoxDecoration(boxShadow: [
-                          BoxShadow(
-                              color: greyOpacity0_5,
-                              spreadRadius: 6,
-                              blurRadius: 15,
-                              offset: Offset(0, 5))
-                        ], borderRadius: BorderRadius.all(Radius.circular(5))),
-                        child: Container(
-                            decoration: BoxDecoration(
-                                color: mstroyBlue,
-                                borderRadius: BorderRadius.all(Radius.circular(5))),
-                            child: Column(children: <Widget>[
-                              Container(
-                                  padding: EdgeInsets.only(bottom: 10, top: 20),
-                                  child: Text("Инспекции",
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        color: white,
-                                        fontSize: 30,
-                                      ))),
-                              ListTile(
-                                  title: Center(
-                                      child: Column(
-                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                          mainAxisSize: MainAxisSize.min,
-                                          children: <Widget>[
-                                            Container(
-                                                height:
-                                                (MediaQuery.of(context).size.height / 2 -
-                                                    67) /
-                                                    3 -
-                                                    47,
-                                                margin: EdgeInsets.only(top: 10, bottom: 10),
-                                                width: MediaQuery.of(context).size.width,
-                                                child: MaterialButton(
-                                                    onPressed: () {
-                                                      _onButtonPressed("Реестр Заявок");
-                                                    },
-                                                    textColor: darkBlue,
-                                                    color: white,
-                                                    child: Container(
-                                                      padding:
-                                                      EdgeInsets.only(top: 4, bottom: 4),
-                                                      child: Text(
-                                                        "Реестр Заявок (новых: $_registerOfRequestsCount)",
-                                                        style: TextStyle(
-                                                            fontWeight: FontWeight.w400,
-                                                            fontSize: 18),
-                                                      ),
-                                                    ))),
-                                            Container(
-                                                height:
-                                                (MediaQuery.of(context).size.height / 2 -
-                                                    67) /
-                                                    3 -
-                                                    47,
-                                                margin: EdgeInsets.only(top: 10, bottom: 10),
-                                                width: MediaQuery.of(context).size.width,
-                                                child: MaterialButton(
-                                                    onPressed: () {
-                                                      _onButtonPressed("Реестр инспекций");
-                                                    },
-                                                    textColor: darkBlue,
-                                                    color: white,
-                                                    child: Container(
-                                                      padding:
-                                                      EdgeInsets.only(top: 4, bottom: 4),
-                                                      child: Text(
-                                                        "Реестр инспекций (непринятых: $_registerOfRequestsCount)",
-                                                        style: TextStyle(
-                                                            fontWeight: FontWeight.w400,
-                                                            fontSize: 18),
-                                                      ),
-                                                    ))),
-                                            Container(
-                                                height:
-                                                (MediaQuery.of(context).size.height / 2 -
-                                                    67) /
-                                                    3 -
-                                                    47,
-                                                margin: EdgeInsets.only(top: 10, bottom: 10),
-                                                width: MediaQuery.of(context).size.width,
-                                                child: MaterialButton(
-                                                    onPressed: () {
-                                                      _onButtonPressed("Создать инспекцию");
-                                                    },
-                                                    textColor: darkBlue,
-                                                    color: white,
-                                                    child: Container(
-                                                      padding:
-                                                      EdgeInsets.only(top: 4, bottom: 4),
-                                                      child: Text(
-                                                        "Создать инспекцию",
-                                                        style: TextStyle(
-                                                            fontWeight: FontWeight.w400,
-                                                            fontSize: 18),
-                                                      ),
-                                                    ))),
-                                          ])))
-                            ])))
-                  ],
-                ))));
+            Container(
+                height: MediaQuery.of(context).size.height / 2 - 68,
+                margin:
+                    EdgeInsets.only(top: 10, left: 10, right: 10, bottom: 10),
+                decoration: BoxDecoration(boxShadow: [
+                  BoxShadow(
+                      color: greyOpacity0_5,
+                      spreadRadius: 6,
+                      blurRadius: 15,
+                      offset: Offset(0, 5))
+                ], borderRadius: BorderRadius.all(Radius.circular(5))),
+                child: Container(
+                    decoration: BoxDecoration(
+                        color: mstroyBlue,
+                        borderRadius: BorderRadius.all(Radius.circular(5))),
+                    child: Column(children: <Widget>[
+                      Container(
+                          padding: EdgeInsets.only(bottom: 10, top: 20),
+                          child: Text("Инспекции",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: white,
+                                fontSize: 30,
+                              ))),
+                      ListTile(
+                          title: Center(
+                              child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: <Widget>[
+                            Container(
+                                height:
+                                    (MediaQuery.of(context).size.height / 2 -
+                                                67) /
+                                            3 -
+                                        47,
+                                margin: EdgeInsets.only(top: 10, bottom: 10),
+                                width: MediaQuery.of(context).size.width,
+                                child: MaterialButton(
+                                    onPressed: () {
+                                      _onButtonPressed("Реестр Заявок");
+                                    },
+                                    textColor: darkBlue,
+                                    color: white,
+                                    child: Container(
+                                      padding:
+                                          EdgeInsets.only(top: 4, bottom: 4),
+                                      child: Text(
+                                        "Реестр Заявок (новых: $_registerOfRequestsCount)",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w400,
+                                            fontSize: 18),
+                                      ),
+                                    ))),
+                            Container(
+                                height:
+                                    (MediaQuery.of(context).size.height / 2 -
+                                                67) /
+                                            3 -
+                                        47,
+                                margin: EdgeInsets.only(top: 10, bottom: 10),
+                                width: MediaQuery.of(context).size.width,
+                                child: MaterialButton(
+                                    onPressed: () {
+                                      _onButtonPressed("Реестр инспекций");
+                                    },
+                                    textColor: darkBlue,
+                                    color: white,
+                                    child: Container(
+                                      padding:
+                                          EdgeInsets.only(top: 4, bottom: 4),
+                                      child: Text(
+                                        "Реестр инспекций (непринятых: $_registerOfRequestsCount)",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w400,
+                                            fontSize: 18),
+                                      ),
+                                    ))),
+                            Container(
+                                height:
+                                    (MediaQuery.of(context).size.height / 2 -
+                                                67) /
+                                            3 -
+                                        47,
+                                margin: EdgeInsets.only(top: 10, bottom: 10),
+                                width: MediaQuery.of(context).size.width,
+                                child: MaterialButton(
+                                    onPressed: () {
+                                      _onButtonPressed("Создать инспекцию");
+                                    },
+                                    textColor: darkBlue,
+                                    color: white,
+                                    child: Container(
+                                      padding:
+                                          EdgeInsets.only(top: 4, bottom: 4),
+                                      child: Text(
+                                        "Создать инспекцию",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w400,
+                                            fontSize: 18),
+                                      ),
+                                    ))),
+                          ])))
+                    ])))
+          ],
+        ))));
   }
 
   void _onButtonPressed(String buttonName) {

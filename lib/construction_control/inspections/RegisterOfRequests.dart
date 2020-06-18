@@ -145,11 +145,30 @@ query findAllInspectionRequests {
                     SliverList(
                       delegate: SliverChildBuilderDelegate(
                           (BuildContext context, int index) {
-                        return Center(
-                            child: card(
-                                "${allInspectionRequests[index]["comment"]}",
-                                "$index",
-                                "${allInspectionRequests[index]["rowId"]}"));
+                        try {
+                          var datetimeSplitStr =
+                              "${allInspectionRequests[index]["planDate"]}"
+                                  .split("T")[0];
+                          var dateSplit = datetimeSplitStr.split("-");
+                          var yearStr = dateSplit[0];
+                          var mounthStr = dateSplit[1];
+                          var dayStr = dateSplit[2];
+                          var normalDate = "$dayStr.$mounthStr.$yearStr";
+                          return Center(
+                              child: card(
+                                  "${allInspectionRequests[index]["comment"]}",
+                                  "$index",
+                                  "${allInspectionRequests[index]["rowId"]}",
+                                  normalDate));
+                        } catch (e) {
+                          var normalDate = "--.--.----";
+                          return Center(
+                              child: card(
+                                  "${allInspectionRequests[index]["comment"]}",
+                                  "$index",
+                                  "${allInspectionRequests[index]["rowId"]}",
+                                  normalDate));
+                        }
                       }, childCount: allInspectionRequests.length),
                     )
                   ],
@@ -218,7 +237,8 @@ query findAllInspectionRequests {
                                   SliverList(
                                     delegate: SliverChildBuilderDelegate(
                                         (BuildContext context, int index) {
-                                      return card("Не закрытые", "$index", "s");
+                                      return card("Не закрытые", "$index", "s",
+                                          "dd.mm.yyyy");
                                     }, childCount: s),
                                   )
                                 ],
@@ -232,7 +252,8 @@ query findAllInspectionRequests {
                                   SliverList(
                                     delegate: SliverChildBuilderDelegate(
                                         (BuildContext context, int index) {
-                                      return card("Закрытые", "$index", "s");
+                                      return card("Закрытые", "$index", "s",
+                                          "dd.mm.yyyy");
                                     }, childCount: s),
                                   )
                                 ],
@@ -249,29 +270,30 @@ query findAllInspectionRequests {
                 ))));
   }
 
-  Widget card(String text, String index, String id) => Container(
-      constraints: BoxConstraints(minHeight: 100),
-      child: Card(
-          child: MaterialButton(
-              onPressed: () {
-                _startEditPage(RequestsEditPage(
-                  graphQLtoken: graphQLtoken,
-                  index: "$index",
-                  projectName: projectName,
-                  rowId: id,
-                  comment: text,
-                ));
-              },
-              child: Column(children: <Widget>[
-                ListTile(
-                  leading: Text(id),
-                  title: Text(
-                    text,
-                    style: TextStyle(fontSize: 16),
-                  ),
-                  trailing: Text("dd.mm.yyyy", style: TextStyle(fontSize: 12)),
-                )
-              ]))));
+  Widget card(String text, String index, String id, String datetime) =>
+      Container(
+          constraints: BoxConstraints(minHeight: 100),
+          child: Card(
+              child: MaterialButton(
+                  onPressed: () {
+                    _startEditPage(RequestsEditPage(
+                      graphQLtoken: graphQLtoken,
+                      index: "$index",
+                      projectName: projectName,
+                      rowId: id,
+                      comment: text,
+                    ));
+                  },
+                  child: Column(children: <Widget>[
+                    ListTile(
+                      leading: Text(id),
+                      title: Text(
+                        text,
+                        style: TextStyle(fontSize: 16),
+                      ),
+                      trailing: Text(datetime, style: TextStyle(fontSize: 12)),
+                    )
+                  ]))));
 
   void _startEditPage(StatefulWidget statefulWidget) {
     Navigator.of(context)

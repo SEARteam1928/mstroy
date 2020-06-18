@@ -13,16 +13,19 @@ class RequestsEditPage extends StatefulWidget {
   final String comment;
 
   RequestsEditPage(
-      {this.projectName, this.index, this.graphQLtoken, this.rowId, this.comment});
+      {this.projectName,
+      this.index,
+      this.graphQLtoken,
+      this.rowId,
+      this.comment});
 
   @override
   State<StatefulWidget> createState() => _RequestsEditPageState(
       projectName: projectName,
       incidentIndex: index,
       graphQLtoken: graphQLtoken,
-    rowId: rowId,
-    comment: comment
-  );
+      rowId: rowId,
+      comment: comment);
 }
 
 class _RequestsEditPageState extends State<RequestsEditPage> {
@@ -33,7 +36,11 @@ class _RequestsEditPageState extends State<RequestsEditPage> {
   final String comment;
 
   _RequestsEditPageState(
-      {this.projectName, this.incidentIndex, this.graphQLtoken, this.rowId, this.comment});
+      {this.projectName,
+      this.incidentIndex,
+      this.graphQLtoken,
+      this.rowId,
+      this.comment});
 
   @override
   void initState() {

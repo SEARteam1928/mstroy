@@ -323,7 +323,10 @@ class _MyHomePageState extends State<ProjectList> {
                       delegate: SliverChildBuilderDelegate(
                           (BuildContext context, int index) {
                         return card(
-                            "${allProjectsJson[index]["name"]}", "$index","${allProjectsJson[index]["rowId"]}","${allProjectsJson[index]["id"]}");
+                            "${allProjectsJson[index]["name"]}",
+                            "$index",
+                            "${allProjectsJson[index]["rowId"]}",
+                            "${allProjectsJson[index]["id"]}");
                       }, childCount: allProjectsJson.length),
                     )
                   ],
@@ -364,40 +367,43 @@ class _MyHomePageState extends State<ProjectList> {
     Navigator.of(context).pushReplacementNamed(authorizationRoute);
   }
 
-  Widget card(String text, String trailingText, String rowIdOfProject, String idOfProject) => Container(
-      height: 100,
-      child: Card(
-          child: MaterialButton(
-              onPressed: () {
-                print(rowIdOfProject);
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => PageOfProject(
-                          projectName: "$text",
-                          graphQLtoken: graphQLtoken.toString(),
-                        rowIdOfProject: rowIdOfProject,
-                        idOfProject: idOfProject,)));
-              },
-              child: Center(
-                child: ListTile(
-                  title: Text(
-                    text,
-                    style: TextStyle(fontSize: 16),
-                  ),
-                  trailing: Container(
-                      width: 40,
-                      height: 40,
-                      decoration: BoxDecoration(
-                        color: red,
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
+  Widget card(String text, String trailingText, String rowIdOfProject,
+          String idOfProject) =>
+      Container(
+          height: 100,
+          child: Card(
+              child: MaterialButton(
+                  onPressed: () {
+                    print(rowIdOfProject);
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => PageOfProject(
+                              projectName: "$text",
+                              graphQLtoken: graphQLtoken.toString(),
+                              rowIdOfProject: rowIdOfProject,
+                              idOfProject: idOfProject,
+                            )));
+                  },
+                  child: Center(
+                    child: ListTile(
+                      title: Text(
+                        text,
+                        style: TextStyle(fontSize: 16),
                       ),
-                      child: Center(
-                          child: Text(
-                        trailingText,
-                        style: TextStyle(fontSize: 20, color: white),
-                        maxLines: 1,
-                      ))),
-                ),
-              ))));
+                      trailing: Container(
+                          width: 40,
+                          height: 40,
+                          decoration: BoxDecoration(
+                            color: red,
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                          ),
+                          child: Center(
+                              child: Text(
+                            trailingText,
+                            style: TextStyle(fontSize: 20, color: white),
+                            maxLines: 1,
+                          ))),
+                    ),
+                  ))));
 }
 
 bool checkAuthorizationIsNull() {
