@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:mstroy/construction_control/PageOfProject.dart';
 import 'package:mstroy/mainclasses/constants/urls.dart';
@@ -213,7 +212,6 @@ class _MyHomePageState extends State<ProjectList> {
                   Text(userEmail),
                   Text("Роль:"),
                   loadUserInfo(),
-
                 ],
               )),
             ),
@@ -227,23 +225,22 @@ class _MyHomePageState extends State<ProjectList> {
           backgroundColor: color,
           onPressed: () {
             setState(() {
-              if(color == Colors.grey.shade300){
+              if (color == Colors.grey.shade300) {
                 color = mstroyLightBlue;
-              }else{
+              } else {
                 color = Colors.grey.shade300;
               }
             });
 
-        /*    Fluttertoast.showToast(
+            /*    Fluttertoast.showToast(
                 msg: "Вы нажали на чип",
                 toastLength: Toast.LENGTH_SHORT,
                 gravity: ToastGravity.TOP,
                 timeInSecForIosWeb: 1,
                 backgroundColor: mstroyLightBlue,
                 textColor: Colors.white,
-                fontSize: 16.0);       */   }
-      )
-
+                fontSize: 16.0);       */
+          })
     ];
 
     return GraphQLProvider(
