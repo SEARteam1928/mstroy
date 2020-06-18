@@ -2,7 +2,7 @@ import 'dart:core';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'file:///D:/AndroidStudioProjects/mstroy/lib/construction_control/inspections/inspections/InspectionsEditPage.dart';
+import 'package:mstroy/construction_control/inspections/inspections/InspectionsEditPage.dart';
 import 'package:mstroy/mainclasses/constants/MSColors.dart';
 
 class RegisterOfInspections extends StatefulWidget {

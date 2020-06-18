@@ -4,11 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:mstroy/construction_control/incidents/AllIncidents.dart';
-import 'file:///D:/AndroidStudioProjects/mstroy/lib/construction_control/inspections/inspections/CreateInspection.dart';
+import 'package:mstroy/construction_control/inspections/inspections/CreateInspection.dart';
 import 'package:mstroy/construction_control/incidents/FixIncident.dart';
 import 'package:mstroy/construction_control/incidents/IncidentsOnTheCheck.dart';
-import 'file:///D:/AndroidStudioProjects/mstroy/lib/construction_control/inspections/inspections/RegisterOfInspections.dart';
-import 'file:///D:/AndroidStudioProjects/mstroy/lib/construction_control/inspections/requests_of_inspections/RegisterOfRequests.dart';
+import 'package:mstroy/construction_control/inspections/inspections/RegisterOfInspections.dart';
+import 'package:mstroy/construction_control/inspections/requests_of_inspections/RegisterOfRequests.dart';
 import 'package:mstroy/mainclasses/constants/MSColors.dart';
 
 class PageOfProject extends StatefulWidget {
