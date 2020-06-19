@@ -73,6 +73,7 @@ class _PageOfProjectState extends State<PageOfProject> {
     var buttonFontSize = 40.toDouble();
     var buttonInfoFontSize = 14.toDouble();
     var buttonFontWeight = FontWeight.w200;
+    var buttonFontWeight2 = FontWeight.w300;
 
     var buttonPadding = EdgeInsets.only(top: 4, bottom: 4);
     var buttonMargin = EdgeInsets.only(top: 10, bottom: 10);
@@ -130,14 +131,14 @@ class _PageOfProjectState extends State<PageOfProject> {
                                 width: buttonWidth,
                                 child: Column(children: <Widget>[
                                   MaterialButton(
-                                      disabledTextColor: red,
-                                      hoverColor: red,
-                                      focusColor: red,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(50)),
+                                      ),
                                       onPressed: () {
                                         _onButtonPressed("Просрочено");
                                       },
                                       textColor: darkBlue,
-                                      color: white,
                                       child: Container(
                                         padding: buttonPadding,
                                         child: Text(
@@ -161,14 +162,14 @@ class _PageOfProjectState extends State<PageOfProject> {
                                 child: Column(
                                   children: <Widget>[
                                     MaterialButton(
-                                        disabledTextColor: red,
-                                        hoverColor: red,
-                                        focusColor: red,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(50)),
+                                        ),
                                         onPressed: () {
                                           _onButtonPressed("Неустранённые");
                                         },
                                         textColor: darkBlue,
-                                        color: white,
                                         child: Container(
                                           padding: buttonPadding,
                                           child: Text(
@@ -191,15 +192,15 @@ class _PageOfProjectState extends State<PageOfProject> {
                                 child: Column(
                                   children: <Widget>[
                                     MaterialButton(
-                                        disabledTextColor: red,
-                                        hoverColor: red,
-                                        focusColor: red,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(50)),
+                                        ),
                                         onPressed: () {
                                           _onButtonPressed(
                                               "На проверке incident");
                                         },
                                         textColor: darkBlue,
-                                        color: white,
                                         child: Container(
                                           padding: buttonPadding,
                                           child: Text(
@@ -224,6 +225,10 @@ class _PageOfProjectState extends State<PageOfProject> {
                               margin: fixButtonMargin,
                               width: MediaQuery.of(context).size.width,
                               child: MaterialButton(
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(50)),
+                                      side: BorderSide(color: red)),
                                   highlightColor: redOpacity,
                                   disabledTextColor: red,
                                   hoverColor: red,
@@ -281,27 +286,28 @@ class _PageOfProjectState extends State<PageOfProject> {
                                 width: buttonWidth,
                                 child: Column(children: <Widget>[
                                   MaterialButton(
-                                      disabledTextColor: red,
-                                      hoverColor: red,
-                                      focusColor: red,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(50)),
+                                      ),
                                       onPressed: () {
                                         _onButtonPressed("Заявки");
                                       },
-                                      textColor: darkBlue,
-                                      color: white,
+                                      textColor: white,
                                       child: Container(
                                         padding: buttonPadding,
                                         child: Text(
                                           "$_registerOfRequestsCount",
                                           style: TextStyle(
-                                              fontWeight: buttonFontWeight,
+                                              fontWeight: buttonFontWeight2,
                                               fontSize: buttonFontSize),
                                         ),
                                       )),
                                   Text(
                                     "Заявки",
-                                    style:
-                                        TextStyle(fontSize: buttonInfoFontSize),
+                                    style: TextStyle(
+                                        fontSize: buttonInfoFontSize,
+                                        color: white),
                                   )
                                 ])),
 //Неустранённые
@@ -312,26 +318,27 @@ class _PageOfProjectState extends State<PageOfProject> {
                                 child: Column(
                                   children: <Widget>[
                                     MaterialButton(
-                                        disabledTextColor: red,
-                                        hoverColor: red,
-                                        focusColor: red,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(50)),
+                                        ),
                                         onPressed: () {
                                           _onButtonPressed("Непринятые");
                                         },
-                                        textColor: darkBlue,
-                                        color: white,
+                                        textColor: white,
                                         child: Container(
                                           padding: buttonPadding,
                                           child: Text(
                                             "$_incidentsOnTheCheckCount",
                                             style: TextStyle(
-                                                fontWeight: buttonFontWeight,
+                                                fontWeight: buttonFontWeight2,
                                                 fontSize: buttonFontSize),
                                           ),
                                         )),
                                     Text("Непринятые",
                                         style: TextStyle(
-                                            fontSize: buttonInfoFontSize))
+                                            fontSize: buttonInfoFontSize,
+                                            color: white))
                                   ],
                                 )),
 //На проверке
@@ -342,27 +349,28 @@ class _PageOfProjectState extends State<PageOfProject> {
                                 child: Column(
                                   children: <Widget>[
                                     MaterialButton(
-                                        disabledTextColor: red,
-                                        hoverColor: red,
-                                        focusColor: red,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(50)),
+                                        ),
                                         onPressed: () {
                                           _onButtonPressed(
                                               "На проверке inspection");
                                         },
-                                        textColor: darkBlue,
-                                        color: white,
+                                        textColor: white,
                                         child: Container(
                                           padding: buttonPadding,
                                           child: Text(
                                             "$_incidentsOnTheCheckCount",
                                             style: TextStyle(
-                                                fontWeight: buttonFontWeight,
+                                                fontWeight: buttonFontWeight2,
                                                 fontSize: buttonFontSize),
                                           ),
                                         )),
                                     Text("На проверке",
                                         style: TextStyle(
-                                            fontSize: buttonInfoFontSize))
+                                            fontSize: buttonInfoFontSize,
+                                            color: white))
                                   ],
                                 )),
                           ]),
@@ -375,6 +383,10 @@ class _PageOfProjectState extends State<PageOfProject> {
                               margin: fixButtonMargin,
                               width: MediaQuery.of(context).size.width,
                               child: MaterialButton(
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(50)),
+                                      side: BorderSide(color: darkBlue)),
                                   highlightColor: redOpacity,
                                   disabledTextColor: red,
                                   hoverColor: red,

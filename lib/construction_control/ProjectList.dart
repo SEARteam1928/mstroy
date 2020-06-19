@@ -265,9 +265,6 @@ class _MyHomePageState extends State<ProjectList> {
     );
   }
 
-
-
-
   Widget loadProjects() {
     double screenHeight = MediaQuery.of(context).size.height;
     try {
@@ -311,13 +308,13 @@ class _MyHomePageState extends State<ProjectList> {
                   slivers: <Widget>[
                     SliverList(
                       delegate: SliverChildBuilderDelegate(
-                              (BuildContext context, int index) {
-                            return card(
-                                "${allProjectsJson[index]["name"]}",
-                                "$index",
-                                "${allProjectsJson[index]["rowId"]}",
-                                "${allProjectsJson[index]["id"]}");
-                          }, childCount: allProjectsJson.length),
+                          (BuildContext context, int index) {
+                        return card(
+                            "${allProjectsJson[index]["name"]}",
+                            "$index",
+                            "${allProjectsJson[index]["rowId"]}",
+                            "${allProjectsJson[index]["id"]}");
+                      }, childCount: allProjectsJson.length),
                     )
                   ],
                 ));
@@ -348,7 +345,12 @@ class _MyHomePageState extends State<ProjectList> {
   Widget notifyNum(String rowIdOfProject) {
     var notifyCount = 0;
     try {
-      return Query(
+      return Text(
+        "2 3 2\n0 4 1\n2 2 1",
+        style: TextStyle(fontSize: 10, color: white),
+        maxLines: 3,
+      );
+      /*return Query(
         options: QueryOptions(
           documentNode: gql(allProjectQuery),
           variables: {'allProjects': 1},
@@ -417,13 +419,13 @@ notifyCount = 0;
             return loadIndicator();
           }
         },
-      );
+      );*/
     } catch (e) {
       return loadIndicator();
     }
   }
 
-  Widget loadIndicator(){
+  Widget loadIndicator() {
     return Visibility(
         maintainSize: true,
         maintainAnimation: true,
@@ -475,9 +477,8 @@ notifyCount = 0;
                     color: red,
                     borderRadius: BorderRadius.all(Radius.circular(10)),
                   ),
-                  child: Center(
-                    child: Center(child: notifyNum(rowIdOfProject))
-                  ),
+                  child:
+                      Center(child: Center(child: notifyNum(rowIdOfProject))),
                 ),
               ),
             ),

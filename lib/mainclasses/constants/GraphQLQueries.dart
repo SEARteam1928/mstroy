@@ -158,7 +158,7 @@ query findIncidentsFromProjectId {
     """;
   }
 
-  String inspectionsRowId(rowId){
+  String inspectionsRowId(rowId) {
     return """
 query findAllInspections{
   allInspections(filters: {projectIdEq: $rowId}){
