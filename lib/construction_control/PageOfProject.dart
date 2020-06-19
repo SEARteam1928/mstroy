@@ -3,8 +3,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:mstroy/CastFilter.dart';
 import 'package:mstroy/construction_control/incidents/AllIncidents.dart';
+import 'package:mstroy/construction_control/incidents/CastIncidentFilter.dart';
+import 'package:mstroy/construction_control/inspections/CastInspectionFilter.dart';
 import 'package:mstroy/construction_control/inspections/inspections/CreateInspection.dart';
 import 'package:mstroy/construction_control/incidents/FixIncident.dart';
 import 'package:mstroy/construction_control/incidents/IncidentsOnTheCheck.dart';
@@ -168,8 +169,7 @@ class _PageOfProjectState extends State<PageOfProject> {
                                         hoverColor: red,
                                         focusColor: red,
                                         onPressed: () {
-                                          _onButtonPressed(
-                                              "Неустранённые");
+                                          _onButtonPressed("Неустранённые");
                                         },
                                         textColor: darkBlue,
                                         color: white,
@@ -200,7 +200,7 @@ class _PageOfProjectState extends State<PageOfProject> {
                                         focusColor: red,
                                         onPressed: () {
                                           _onButtonPressed(
-                                              "На проверке");
+                                              "На проверке incident");
                                         },
                                         textColor: darkBlue,
                                         color: white,
@@ -249,7 +249,7 @@ class _PageOfProjectState extends State<PageOfProject> {
                         ],
                       ))
                     ]))),
-//Инспекции
+
             Container(
                 height: MediaQuery.of(context).size.height / 2 - 68,
                 margin:
@@ -274,86 +274,131 @@ class _PageOfProjectState extends State<PageOfProject> {
                                 color: white,
                                 fontSize: 30,
                               ))),
-                      ListTile(
-                          title: Center(
-                              child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisSize: MainAxisSize.min,
+                      Center(
+                          child: Column(
+                        children: <Widget>[
+                          Row(children: <Widget>[
+//Просрочено
+                            Container(
+                                height: buttonHeight,
+                                margin: buttonMargin,
+                                width: buttonWidth,
+                                child: Column(children: <Widget>[
+                                  MaterialButton(
+                                      disabledTextColor: red,
+                                      hoverColor: red,
+                                      focusColor: red,
+                                      onPressed: () {
+                                        _onButtonPressed("Заявки");
+                                      },
+                                      textColor: darkBlue,
+                                      color: white,
+                                      child: Container(
+                                        padding: buttonPadding,
+                                        child: Text(
+                                          "$_registerOfRequestsCount",
+                                          style: TextStyle(
+                                              fontWeight: buttonFontWeight,
+                                              fontSize: buttonFontSize),
+                                        ),
+                                      )),
+                                  Text(
+                                    "Заявки",
+                                    style:
+                                        TextStyle(fontSize: buttonInfoFontSize),
+                                  )
+                                ])),
+//Неустранённые
+                            Container(
+                                height: buttonHeight,
+                                margin: buttonMargin,
+                                width: buttonWidth,
+                                child: Column(
                                   children: <Widget>[
-                            Container(
-                                height:
-                                    (MediaQuery.of(context).size.height / 2 -
-                                                67) /
-                                            3 -
-                                        47,
-                                margin: EdgeInsets.only(top: 10, bottom: 10),
-                                width: MediaQuery.of(context).size.width,
-                                child: MaterialButton(
-                                    onPressed: () {
-                                      _onButtonPressed("Реестр Заявок");
-                                    },
-                                    textColor: darkBlue,
-                                    color: white,
-                                    child: Container(
-                                      padding:
-                                          EdgeInsets.only(top: 4, bottom: 4),
-                                      child: Text(
-                                        "Реестр Заявок (новых: $_registerOfRequestsCount)",
+                                    MaterialButton(
+                                        disabledTextColor: red,
+                                        hoverColor: red,
+                                        focusColor: red,
+                                        onPressed: () {
+                                          _onButtonPressed("Непринятые");
+                                        },
+                                        textColor: darkBlue,
+                                        color: white,
+                                        child: Container(
+                                          padding: buttonPadding,
+                                          child: Text(
+                                            "$_incidentsOnTheCheckCount",
+                                            style: TextStyle(
+                                                fontWeight: buttonFontWeight,
+                                                fontSize: buttonFontSize),
+                                          ),
+                                        )),
+                                    Text("Непринятые",
                                         style: TextStyle(
-                                            fontWeight: FontWeight.w400,
-                                            fontSize: 18),
-                                      ),
-                                    ))),
+                                            fontSize: buttonInfoFontSize))
+                                  ],
+                                )),
+//На проверке
                             Container(
-                                height:
-                                    (MediaQuery.of(context).size.height / 2 -
-                                                67) /
-                                            3 -
-                                        47,
-                                margin: EdgeInsets.only(top: 10, bottom: 10),
-                                width: MediaQuery.of(context).size.width,
-                                child: MaterialButton(
-                                    onPressed: () {
-                                      _onButtonPressed("Реестр инспекций");
-                                    },
-                                    textColor: darkBlue,
-                                    color: white,
-                                    child: Container(
-                                      padding:
-                                          EdgeInsets.only(top: 4, bottom: 4),
-                                      child: Text(
-                                        "Реестр инспекций (непринятых: $_registerOfRequestsCount)",
+                                height: buttonHeight,
+                                margin: buttonMargin,
+                                width: buttonWidth,
+                                child: Column(
+                                  children: <Widget>[
+                                    MaterialButton(
+                                        disabledTextColor: red,
+                                        hoverColor: red,
+                                        focusColor: red,
+                                        onPressed: () {
+                                          _onButtonPressed("На проверке inspection");
+                                        },
+                                        textColor: darkBlue,
+                                        color: white,
+                                        child: Container(
+                                          padding: buttonPadding,
+                                          child: Text(
+                                            "$_incidentsOnTheCheckCount",
+                                            style: TextStyle(
+                                                fontWeight: buttonFontWeight,
+                                                fontSize: buttonFontSize),
+                                          ),
+                                        )),
+                                    Text("На проверке",
                                         style: TextStyle(
-                                            fontWeight: FontWeight.w400,
-                                            fontSize: 18),
-                                      ),
-                                    ))),
-                            Container(
-                                height:
-                                    (MediaQuery.of(context).size.height / 2 -
-                                                67) /
-                                            3 -
-                                        47,
-                                margin: EdgeInsets.only(top: 10, bottom: 10),
-                                width: MediaQuery.of(context).size.width,
-                                child: MaterialButton(
-                                    onPressed: () {
-                                      _onButtonPressed("Создать инспекцию");
-                                    },
-                                    textColor: darkBlue,
-                                    color: white,
-                                    child: Container(
-                                      padding:
-                                          EdgeInsets.only(top: 4, bottom: 4),
-                                      child: Text(
-                                        "Создать инспекцию",
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.w400,
-                                            fontSize: 18),
-                                      ),
-                                    ))),
-                          ])))
-                    ])))
+                                            fontSize: buttonInfoFontSize))
+                                  ],
+                                )),
+                          ]),
+//Зафиксировать нарушение
+                          Container(
+                              height: (MediaQuery.of(context).size.height / 2 -
+                                          68) /
+                                      3 -
+                                  47,
+                              margin: fixButtonMargin,
+                              width: MediaQuery.of(context).size.width,
+                              child: MaterialButton(
+                                  highlightColor: redOpacity,
+                                  disabledTextColor: red,
+                                  hoverColor: red,
+                                  focusColor: red,
+                                  onPressed: () {
+                                    _onButtonPressed("Создать инспекцию");
+                                  },
+                                  textColor: darkBlue,
+                                  color: white,
+                                  child: Container(
+                                    padding: buttonPadding,
+                                    child: Text(
+                                      "Создать инспекцию",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w400,
+                                          fontSize: 18),
+                                    ),
+                                  ))),
+                        ],
+                      ))
+                    ]))),
           ],
         ))));
   }
@@ -368,7 +413,7 @@ class _PageOfProjectState extends State<PageOfProject> {
         ));
         break;
       case "Просрочено":
-        _pushToRegister(CastFilter(
+        _pushToRegister(CastIncidentFilter(
           projectName: projectName,
           rowIdOfProject: rowIdOfProject,
           idOfProject: idOfProject,
@@ -378,7 +423,7 @@ class _PageOfProjectState extends State<PageOfProject> {
         ));
         break;
       case "Неустранённые":
-        _pushToRegister(CastFilter(
+        _pushToRegister(CastIncidentFilter(
           projectName: projectName,
           rowIdOfProject: rowIdOfProject,
           idOfProject: idOfProject,
@@ -387,13 +432,13 @@ class _PageOfProjectState extends State<PageOfProject> {
           selectFilter: 1,
         ));
         break;
-      case "На проверке":
-        _pushToRegister(CastFilter(
+      case "На проверке incident":
+        _pushToRegister(CastIncidentFilter(
           projectName: projectName,
           rowIdOfProject: rowIdOfProject,
           idOfProject: idOfProject,
           graphQLtoken: graphQLtoken,
-          buttonName: buttonName,
+          buttonName: "На проверке",
           selectFilter: 3,
         ));
         break;
@@ -403,22 +448,34 @@ class _PageOfProjectState extends State<PageOfProject> {
             buttonName: buttonName,
             graphQLtoken: graphQLtoken));
         break;
-      case "Реестр Заявок":
-        print(rowIdOfProject);
-        _pushToRegister(RegisterOfRequests(
-          projectName: projectName,
-          buttonName: buttonName,
-          graphQLtoken: graphQLtoken,
-          rowIdOfProject: rowIdOfProject,
-          idOfProject: idOfProject,
-        ));
-        break;
-      case "Реестр инспекций":
-        _pushToRegister(RegisterOfInspections(
+      case "Заявки":
+        _pushToRegister(CastInspectionFilter(
             projectName: projectName,
             buttonName: buttonName,
-            graphQLtoken: graphQLtoken));
+            graphQLtoken: graphQLtoken,
+        selectFilter: 0,
+        idOfProject: idOfProject,
+        rowIdOfProject: rowIdOfProject,));
         break;
+      case "Непринятые":
+        _pushToRegister(CastInspectionFilter(
+            projectName: projectName,
+            buttonName: buttonName,
+            graphQLtoken: graphQLtoken,
+          selectFilter: 1,
+          idOfProject: idOfProject,
+          rowIdOfProject: rowIdOfProject,));
+        break;
+      case "На проверке inspection":
+        _pushToRegister(CastInspectionFilter(
+            projectName: projectName,
+            buttonName: "На проверке",
+            graphQLtoken: graphQLtoken,
+          selectFilter: 3,
+          idOfProject: idOfProject,
+          rowIdOfProject: rowIdOfProject,));
+        break;
+
       default:
         Fluttertoast.showToast(
             msg: "Что-то пошло не так...",

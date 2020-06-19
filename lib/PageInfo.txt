@@ -9,3 +9,9 @@
 Заявки
 Непринятые
 На проверке
+Все
+
+
+
+В mutatuion createIncident есть поле name, тогда как в query allIncidents нет поля name,
+ но есть поле category, которого нет в mutation createIncidents

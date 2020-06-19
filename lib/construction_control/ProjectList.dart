@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:mstroy/CastFilter.dart';
+import 'file:///D:/AndroidStudioProjects/mstroy/lib/construction_control/incidents/CastIncidentFilter.dart';
 import 'package:mstroy/construction_control/PageOfProject.dart';
 import 'package:mstroy/mainclasses/constants/urls.dart';
 import 'package:mstroy/mainclasses/constants/MSColors.dart';
