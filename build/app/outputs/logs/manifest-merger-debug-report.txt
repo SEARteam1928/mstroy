@@ -10,7 +10,6 @@ MERGED from [:shared_preferences] D:\AndroidStudioProjects\mstroy\build\shared_p
 MERGED from [:image_picker] D:\AndroidStudioProjects\mstroy\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-22:12
 MERGED from [:flutter_plugin_android_lifecycle] D:\AndroidStudioProjects\mstroy\build\flutter_plugin_android_lifecycle\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:connectivity] D:\AndroidStudioProjects\mstroy\build\connectivity\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-10:12
-MERGED from [:camera] D:\AndroidStudioProjects\mstroy\build\camera\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-10:12
 MERGED from [:path_provider] D:\AndroidStudioProjects\mstroy\build\path_provider\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\gladkih\.gradle\caches\transforms-2\files-2.1\0986d0d74b8a2c7da8161f6370fc7744\fragment-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\gladkih\.gradle\caches\transforms-2\files-2.1\28d99d5113324aa067757f8ca41a426f\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
@@ -128,8 +127,6 @@ MERGED from [:flutter_plugin_android_lifecycle] D:\AndroidStudioProjects\mstroy\
 MERGED from [:flutter_plugin_android_lifecycle] D:\AndroidStudioProjects\mstroy\build\flutter_plugin_android_lifecycle\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:connectivity] D:\AndroidStudioProjects\mstroy\build\connectivity\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:connectivity] D:\AndroidStudioProjects\mstroy\build\connectivity\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
-MERGED from [:camera] D:\AndroidStudioProjects\mstroy\build\camera\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
-MERGED from [:camera] D:\AndroidStudioProjects\mstroy\build\camera\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:path_provider] D:\AndroidStudioProjects\mstroy\build\path_provider\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:path_provider] D:\AndroidStudioProjects\mstroy\build\path_provider\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\gladkih\.gradle\caches\transforms-2\files-2.1\0986d0d74b8a2c7da8161f6370fc7744\fragment-1.1.0\AndroidManifest.xml:20:5-22:41
@@ -194,11 +191,3 @@ uses-permission#android.permission.ACCESS_WIFI_STATE
 ADDED from [:connectivity] D:\AndroidStudioProjects\mstroy\build\connectivity\intermediates\library_manifest\debug\AndroidManifest.xml:8:5-76
 	android:name
 		ADDED from [:connectivity] D:\AndroidStudioProjects\mstroy\build\connectivity\intermediates\library_manifest\debug\AndroidManifest.xml:8:22-73
-uses-permission#android.permission.CAMERA
-ADDED from [:camera] D:\AndroidStudioProjects\mstroy\build\camera\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-65
-	android:name
-		ADDED from [:camera] D:\AndroidStudioProjects\mstroy\build\camera\intermediates\library_manifest\debug\AndroidManifest.xml:7:22-62
-uses-permission#android.permission.RECORD_AUDIO
-ADDED from [:camera] D:\AndroidStudioProjects\mstroy\build\camera\intermediates\library_manifest\debug\AndroidManifest.xml:8:5-71
-	android:name
-		ADDED from [:camera] D:\AndroidStudioProjects\mstroy\build\camera\intermediates\library_manifest\debug\AndroidManifest.xml:8:22-68

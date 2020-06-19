@@ -26,104 +26,98 @@
 18    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 18-->[:connectivity] D:\AndroidStudioProjects\mstroy\build\connectivity\intermediates\library_manifest\debug\AndroidManifest.xml:8:5-76
 18-->[:connectivity] D:\AndroidStudioProjects\mstroy\build\connectivity\intermediates\library_manifest\debug\AndroidManifest.xml:8:22-73
-19    <uses-permission android:name="android.permission.CAMERA" />
-19-->[:camera] D:\AndroidStudioProjects\mstroy\build\camera\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-65
-19-->[:camera] D:\AndroidStudioProjects\mstroy\build\camera\intermediates\library_manifest\debug\AndroidManifest.xml:7:22-62
-20    <uses-permission android:name="android.permission.RECORD_AUDIO" />
-20-->[:camera] D:\AndroidStudioProjects\mstroy\build\camera\intermediates\library_manifest\debug\AndroidManifest.xml:8:5-71
-20-->[:camera] D:\AndroidStudioProjects\mstroy\build\camera\intermediates\library_manifest\debug\AndroidManifest.xml:8:22-68
-21
-22    <application
-22-->D:\AndroidStudioProjects\mstroy\android\app\src\main\AndroidManifest.xml:10:5-48:19
-23        android:name="io.flutter.app.FlutterApplication"
-23-->D:\AndroidStudioProjects\mstroy\android\app\src\main\AndroidManifest.xml:11:9-57
-24        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-24-->[androidx.core:core:1.1.0] C:\Users\gladkih\.gradle\caches\transforms-2\files-2.1\a528b13ac93e64cafa3d0480e2c93207\core-1.1.0\AndroidManifest.xml:24:18-86
-25        android:debuggable="true"
-26        android:icon="@mipmap/ic_launcher"
-26-->D:\AndroidStudioProjects\mstroy\android\app\src\main\AndroidManifest.xml:13:9-43
-27        android:label="mstroy" >
-27-->D:\AndroidStudioProjects\mstroy\android\app\src\main\AndroidManifest.xml:12:9-31
-28        <activity
-28-->D:\AndroidStudioProjects\mstroy\android\app\src\main\AndroidManifest.xml:14:9-42:20
-29            android:name="com.mstroy.MainActivity"
-29-->D:\AndroidStudioProjects\mstroy\android\app\src\main\AndroidManifest.xml:15:13-41
-30            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
-30-->D:\AndroidStudioProjects\mstroy\android\app\src\main\AndroidManifest.xml:18:13-163
-31            android:hardwareAccelerated="true"
-31-->D:\AndroidStudioProjects\mstroy\android\app\src\main\AndroidManifest.xml:19:13-47
-32            android:launchMode="singleTop"
-32-->D:\AndroidStudioProjects\mstroy\android\app\src\main\AndroidManifest.xml:16:13-43
-33            android:theme="@style/LaunchTheme"
-33-->D:\AndroidStudioProjects\mstroy\android\app\src\main\AndroidManifest.xml:17:13-47
-34            android:windowSoftInputMode="adjustResize" >
-34-->D:\AndroidStudioProjects\mstroy\android\app\src\main\AndroidManifest.xml:20:13-55
-35
-36            <!--
-37                 Specifies an Android theme to apply to this Activity as soon as
-38                 the Android process has started. This theme is visible to the user
-39                 while the Flutter UI initializes. After that, this theme continues
-40                 to determine the Window background behind the Flutter UI.
-41            -->
-42            <meta-data
-42-->D:\AndroidStudioProjects\mstroy\android\app\src\main\AndroidManifest.xml:25:13-28:17
-43                android:name="io.flutter.embedding.android.NormalTheme"
-43-->D:\AndroidStudioProjects\mstroy\android\app\src\main\AndroidManifest.xml:26:15-70
-44                android:resource="@style/NormalTheme" />
-44-->D:\AndroidStudioProjects\mstroy\android\app\src\main\AndroidManifest.xml:27:15-52
-45            <!--
-46                 Displays an Android View that continues showing the launch screen
-47                 Drawable until Flutter paints its first frame, then this splash
-48                 screen fades out. A splash screen is useful to avoid any visual
-49                 gap between the end of Android's launch screen and the painting of
-50                 Flutter's first frame.
-51            -->
-52            <meta-data
-52-->D:\AndroidStudioProjects\mstroy\android\app\src\main\AndroidManifest.xml:34:13-37:17
-53                android:name="io.flutter.embedding.android.SplashScreenDrawable"
-53-->D:\AndroidStudioProjects\mstroy\android\app\src\main\AndroidManifest.xml:35:15-79
-54                android:resource="@drawable/launch_background" />
-54-->D:\AndroidStudioProjects\mstroy\android\app\src\main\AndroidManifest.xml:36:15-61
-55
-56            <intent-filter>
-56-->D:\AndroidStudioProjects\mstroy\android\app\src\main\AndroidManifest.xml:38:13-41:29
-57                <action android:name="android.intent.action.MAIN" />
-57-->D:\AndroidStudioProjects\mstroy\android\app\src\main\AndroidManifest.xml:39:17-68
-57-->D:\AndroidStudioProjects\mstroy\android\app\src\main\AndroidManifest.xml:39:25-66
-58
-59                <category android:name="android.intent.category.LAUNCHER" />
-59-->D:\AndroidStudioProjects\mstroy\android\app\src\main\AndroidManifest.xml:40:17-76
-59-->D:\AndroidStudioProjects\mstroy\android\app\src\main\AndroidManifest.xml:40:27-74
-60            </intent-filter>
-61        </activity>
-62        <!--
-63             Don't delete the meta-data below.
-64             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
-65        -->
-66        <meta-data
-66-->D:\AndroidStudioProjects\mstroy\android\app\src\main\AndroidManifest.xml:45:9-47:33
-67            android:name="flutterEmbedding"
-67-->D:\AndroidStudioProjects\mstroy\android\app\src\main\AndroidManifest.xml:46:13-44
-68            android:value="2" />
-68-->D:\AndroidStudioProjects\mstroy\android\app\src\main\AndroidManifest.xml:47:13-30
-69
-70        <provider
-70-->[:image_picker] D:\AndroidStudioProjects\mstroy\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:11:9-19:20
-71            android:name="io.flutter.plugins.imagepicker.ImagePickerFileProvider"
-71-->[:image_picker] D:\AndroidStudioProjects\mstroy\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:12:13-82
-72            android:authorities="com.mstroy.flutter.image_provider"
-72-->[:image_picker] D:\AndroidStudioProjects\mstroy\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-74
-73            android:exported="false"
-73-->[:image_picker] D:\AndroidStudioProjects\mstroy\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:14:13-37
-74            android:grantUriPermissions="true" >
-74-->[:image_picker] D:\AndroidStudioProjects\mstroy\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:15:13-47
-75            <meta-data
-75-->[:image_picker] D:\AndroidStudioProjects\mstroy\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:16:13-18:75
-76                android:name="android.support.FILE_PROVIDER_PATHS"
-76-->[:image_picker] D:\AndroidStudioProjects\mstroy\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:17:17-67
-77                android:resource="@xml/flutter_image_picker_file_paths" />
-77-->[:image_picker] D:\AndroidStudioProjects\mstroy\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:18:17-72
-78        </provider>
-79    </application>
-80
-81</manifest>
+19
+20    <application
+20-->D:\AndroidStudioProjects\mstroy\android\app\src\main\AndroidManifest.xml:10:5-48:19
+21        android:name="io.flutter.app.FlutterApplication"
+21-->D:\AndroidStudioProjects\mstroy\android\app\src\main\AndroidManifest.xml:11:9-57
+22        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+22-->[androidx.core:core:1.1.0] C:\Users\gladkih\.gradle\caches\transforms-2\files-2.1\a528b13ac93e64cafa3d0480e2c93207\core-1.1.0\AndroidManifest.xml:24:18-86
+23        android:debuggable="true"
+24        android:icon="@mipmap/ic_launcher"
+24-->D:\AndroidStudioProjects\mstroy\android\app\src\main\AndroidManifest.xml:13:9-43
+25        android:label="mstroy" >
+25-->D:\AndroidStudioProjects\mstroy\android\app\src\main\AndroidManifest.xml:12:9-31
+26        <activity
+26-->D:\AndroidStudioProjects\mstroy\android\app\src\main\AndroidManifest.xml:14:9-42:20
+27            android:name="com.mstroy.MainActivity"
+27-->D:\AndroidStudioProjects\mstroy\android\app\src\main\AndroidManifest.xml:15:13-41
+28            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+28-->D:\AndroidStudioProjects\mstroy\android\app\src\main\AndroidManifest.xml:18:13-163
+29            android:hardwareAccelerated="true"
+29-->D:\AndroidStudioProjects\mstroy\android\app\src\main\AndroidManifest.xml:19:13-47
+30            android:launchMode="singleTop"
+30-->D:\AndroidStudioProjects\mstroy\android\app\src\main\AndroidManifest.xml:16:13-43
+31            android:theme="@style/LaunchTheme"
+31-->D:\AndroidStudioProjects\mstroy\android\app\src\main\AndroidManifest.xml:17:13-47
+32            android:windowSoftInputMode="adjustResize" >
+32-->D:\AndroidStudioProjects\mstroy\android\app\src\main\AndroidManifest.xml:20:13-55
+33
+34            <!--
+35                 Specifies an Android theme to apply to this Activity as soon as
+36                 the Android process has started. This theme is visible to the user
+37                 while the Flutter UI initializes. After that, this theme continues
+38                 to determine the Window background behind the Flutter UI.
+39            -->
+40            <meta-data
+40-->D:\AndroidStudioProjects\mstroy\android\app\src\main\AndroidManifest.xml:25:13-28:17
+41                android:name="io.flutter.embedding.android.NormalTheme"
+41-->D:\AndroidStudioProjects\mstroy\android\app\src\main\AndroidManifest.xml:26:15-70
+42                android:resource="@style/NormalTheme" />
+42-->D:\AndroidStudioProjects\mstroy\android\app\src\main\AndroidManifest.xml:27:15-52
+43            <!--
+44                 Displays an Android View that continues showing the launch screen
+45                 Drawable until Flutter paints its first frame, then this splash
+46                 screen fades out. A splash screen is useful to avoid any visual
+47                 gap between the end of Android's launch screen and the painting of
+48                 Flutter's first frame.
+49            -->
+50            <meta-data
+50-->D:\AndroidStudioProjects\mstroy\android\app\src\main\AndroidManifest.xml:34:13-37:17
+51                android:name="io.flutter.embedding.android.SplashScreenDrawable"
+51-->D:\AndroidStudioProjects\mstroy\android\app\src\main\AndroidManifest.xml:35:15-79
+52                android:resource="@drawable/launch_background" />
+52-->D:\AndroidStudioProjects\mstroy\android\app\src\main\AndroidManifest.xml:36:15-61
+53
+54            <intent-filter>
+54-->D:\AndroidStudioProjects\mstroy\android\app\src\main\AndroidManifest.xml:38:13-41:29
+55                <action android:name="android.intent.action.MAIN" />
+55-->D:\AndroidStudioProjects\mstroy\android\app\src\main\AndroidManifest.xml:39:17-68
+55-->D:\AndroidStudioProjects\mstroy\android\app\src\main\AndroidManifest.xml:39:25-66
+56
+57                <category android:name="android.intent.category.LAUNCHER" />
+57-->D:\AndroidStudioProjects\mstroy\android\app\src\main\AndroidManifest.xml:40:17-76
+57-->D:\AndroidStudioProjects\mstroy\android\app\src\main\AndroidManifest.xml:40:27-74
+58            </intent-filter>
+59        </activity>
+60        <!--
+61             Don't delete the meta-data below.
+62             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+63        -->
+64        <meta-data
+64-->D:\AndroidStudioProjects\mstroy\android\app\src\main\AndroidManifest.xml:45:9-47:33
+65            android:name="flutterEmbedding"
+65-->D:\AndroidStudioProjects\mstroy\android\app\src\main\AndroidManifest.xml:46:13-44
+66            android:value="2" />
+66-->D:\AndroidStudioProjects\mstroy\android\app\src\main\AndroidManifest.xml:47:13-30
+67
+68        <provider
+68-->[:image_picker] D:\AndroidStudioProjects\mstroy\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:11:9-19:20
+69            android:name="io.flutter.plugins.imagepicker.ImagePickerFileProvider"
+69-->[:image_picker] D:\AndroidStudioProjects\mstroy\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:12:13-82
+70            android:authorities="com.mstroy.flutter.image_provider"
+70-->[:image_picker] D:\AndroidStudioProjects\mstroy\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-74
+71            android:exported="false"
+71-->[:image_picker] D:\AndroidStudioProjects\mstroy\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:14:13-37
+72            android:grantUriPermissions="true" >
+72-->[:image_picker] D:\AndroidStudioProjects\mstroy\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:15:13-47
+73            <meta-data
+73-->[:image_picker] D:\AndroidStudioProjects\mstroy\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:16:13-18:75
+74                android:name="android.support.FILE_PROVIDER_PATHS"
+74-->[:image_picker] D:\AndroidStudioProjects\mstroy\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:17:17-67
+75                android:resource="@xml/flutter_image_picker_file_paths" />
+75-->[:image_picker] D:\AndroidStudioProjects\mstroy\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:18:17-72
+76        </provider>
+77    </application>
+78
+79</manifest>

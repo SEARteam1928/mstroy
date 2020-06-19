@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:mstroy/ActorFilterEntry.dart';
+import 'package:mstroy/CastFilter.dart';
 import 'package:mstroy/construction_control/PageOfProject.dart';
 import 'package:mstroy/mainclasses/constants/urls.dart';
 import 'package:mstroy/mainclasses/constants/MSColors.dart';
@@ -217,23 +217,7 @@ class _MyHomePageState extends State<ProjectList> {
               )),
             ),
           ])),
-      CastFilter()
-      /*    ActionChip(
-          avatar: CircleAvatar(
-            backgroundColor: mstroyBlue,
-            child: Text('НП'),
-          ),
-          label: Text('На проверке'),
-          backgroundColor: color,
-          onPressed: () {
-            setState(() {
-              if (color == Colors.grey.shade300) {
-                color = mstroyLightBlue;
-              } else {
-                color = Colors.grey.shade300;
-              }
-            });
-          })*/
+Text("Hello World!")
     ];
 
     return GraphQLProvider(

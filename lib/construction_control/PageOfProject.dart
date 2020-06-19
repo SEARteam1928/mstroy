@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:mstroy/CastFilter.dart';
 import 'package:mstroy/construction_control/incidents/AllIncidents.dart';
 import 'package:mstroy/construction_control/inspections/inspections/CreateInspection.dart';
 import 'package:mstroy/construction_control/incidents/FixIncident.dart';
@@ -125,6 +126,7 @@ class _PageOfProjectState extends State<PageOfProject> {
                           child: Column(
                         children: <Widget>[
                           Row(children: <Widget>[
+//Просрочено
                             Container(
                                 height: buttonHeight,
                                 margin: buttonMargin,
@@ -135,7 +137,7 @@ class _PageOfProjectState extends State<PageOfProject> {
                                       hoverColor: red,
                                       focusColor: red,
                                       onPressed: () {
-                                        _onButtonPressed("Все нарушения");
+                                        _onButtonPressed("Просрочено");
                                       },
                                       textColor: darkBlue,
                                       color: white,
@@ -154,6 +156,7 @@ class _PageOfProjectState extends State<PageOfProject> {
                                         TextStyle(fontSize: buttonInfoFontSize),
                                   )
                                 ])),
+//Неустранённые
                             Container(
                                 height: buttonHeight,
                                 margin: buttonMargin,
@@ -166,7 +169,7 @@ class _PageOfProjectState extends State<PageOfProject> {
                                         focusColor: red,
                                         onPressed: () {
                                           _onButtonPressed(
-                                              "Нарушений на проверке");
+                                              "Неустранённые");
                                         },
                                         textColor: darkBlue,
                                         color: white,
@@ -184,6 +187,7 @@ class _PageOfProjectState extends State<PageOfProject> {
                                             fontSize: buttonInfoFontSize))
                                   ],
                                 )),
+//На проверке
                             Container(
                                 height: buttonHeight,
                                 margin: buttonMargin,
@@ -196,7 +200,7 @@ class _PageOfProjectState extends State<PageOfProject> {
                                         focusColor: red,
                                         onPressed: () {
                                           _onButtonPressed(
-                                              "Нарушений на проверке");
+                                              "На проверке");
                                         },
                                         textColor: darkBlue,
                                         color: white,
@@ -215,6 +219,7 @@ class _PageOfProjectState extends State<PageOfProject> {
                                   ],
                                 )),
                           ]),
+//Зафиксировать нарушение
                           Container(
                               height: (MediaQuery.of(context).size.height / 2 -
                                           68) /
@@ -244,7 +249,7 @@ class _PageOfProjectState extends State<PageOfProject> {
                         ],
                       ))
                     ]))),
-
+//Инспекции
             Container(
                 height: MediaQuery.of(context).size.height / 2 - 68,
                 margin:
@@ -362,17 +367,28 @@ class _PageOfProjectState extends State<PageOfProject> {
           graphQLtoken: graphQLtoken,
         ));
         break;
-      case "Все нарушения":
-        _pushToRegister(AllIncidents(
-            projectName: projectName,
-            buttonName: buttonName,
-            graphQLtoken: graphQLtoken));
+      case "Просрочено":
+        _pushToRegister(CastFilter(
+          projectName: projectName,
+          rowIdOfProject: rowIdOfProject,
+          idOfProject: idOfProject,
+          graphQLtoken: graphQLtoken,
+          buttonName: buttonName,
+        ));
         break;
-      case "Нарушений на проверке":
-        _pushToRegister(IncidentOnTheCheck(
-            projectName: projectName,
-            buttonName: buttonName,
-            graphQLtoken: graphQLtoken));
+      case "Неустранённые":
+        _pushToRegister(FixIncident(
+          projectName: projectName,
+          buttonName: buttonName,
+          graphQLtoken: graphQLtoken,
+        ));
+        break;
+      case "На проверке":
+        _pushToRegister(FixIncident(
+          projectName: projectName,
+          buttonName: buttonName,
+          graphQLtoken: graphQLtoken,
+        ));
         break;
       case "Создать инспекцию":
         _pushToRegister(CreateInspection(

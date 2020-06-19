@@ -36,7 +36,6 @@ dependencies:
   http: ^0.12.1
   path_provider: ^1.6.10
   gradient_bottom_navigation_bar: ^1.0.0+4
-  camera: ^0.5.8+2
   image_picker: ^0.6.7+1
 dev_dependencies:
   flutter_test:
