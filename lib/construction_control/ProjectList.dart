@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:mstroy/construction_control/PageOfProject.dart';
+import 'package:mstroy/mainclasses/constants/GraphQLQueries.dart';
 import 'package:mstroy/mainclasses/constants/urls.dart';
 import 'package:mstroy/mainclasses/constants/MSColors.dart';
 import 'package:path_provider/path_provider.dart';
@@ -264,6 +265,9 @@ class _MyHomePageState extends State<ProjectList> {
     );
   }
 
+
+
+
   Widget loadProjects() {
     double screenHeight = MediaQuery.of(context).size.height;
     try {
@@ -307,13 +311,13 @@ class _MyHomePageState extends State<ProjectList> {
                   slivers: <Widget>[
                     SliverList(
                       delegate: SliverChildBuilderDelegate(
-                          (BuildContext context, int index) {
-                        return card(
-                            "${allProjectsJson[index]["name"]}",
-                            "$index",
-                            "${allProjectsJson[index]["rowId"]}",
-                            "${allProjectsJson[index]["id"]}");
-                      }, childCount: allProjectsJson.length),
+                              (BuildContext context, int index) {
+                            return card(
+                                "${allProjectsJson[index]["name"]}",
+                                "$index",
+                                "${allProjectsJson[index]["rowId"]}",
+                                "${allProjectsJson[index]["id"]}");
+                          }, childCount: allProjectsJson.length),
                     )
                   ],
                 ));
@@ -339,6 +343,95 @@ class _MyHomePageState extends State<ProjectList> {
               margin: EdgeInsets.only(top: 50, bottom: 30),
               child: CircularProgressIndicator()));
     }
+  }
+
+  Widget notifyNum(String rowIdOfProject) {
+    var notifyCount = 0;
+    try {
+      return Query(
+        options: QueryOptions(
+          documentNode: gql(allProjectQuery),
+          variables: {'allProjects': 1},
+          pollInterval: 10,
+        ),
+        builder: (QueryResult result,
+            {VoidCallback refetch, FetchMore fetchMore}) {
+          if (result.hasException) {
+            return loadIndicator();
+          }
+
+          if (result.loading) {
+            return loadIndicator();
+          }
+
+          List allProjectsJson = result.data['allProjects'];
+
+          try {
+            return Container(
+                child: CustomScrollView(
+                  shrinkWrap: true,
+                  slivers: <Widget>[
+                    SliverList(
+                      delegate: SliverChildBuilderDelegate(
+                              (BuildContext context, int index) {
+notifyCount = 0;
+                                try {
+                                  return Query(
+                                    options: QueryOptions(
+                                      documentNode: gql(GraphQLQueries().inspectionsRowId(allProjectsJson[index]["rowId"])),
+                                      pollInterval: 5,
+                                    ),
+                                    builder: (QueryResult result,
+                                        {VoidCallback refetch, FetchMore fetchMore}) {
+                                      if (result.hasException) {
+                                        return loadIndicator();
+                                      }
+
+                                      if (result.loading) {
+                                        return loadIndicator();
+                                      }
+
+                                      List allProjectsJson = result.data['allInspections'];
+                                      notifyCount = notifyCount + allProjectsJson.length;
+
+                                      try {
+                                        return Text(
+                                                          "$notifyCount",
+                                                          style: TextStyle(fontSize: 10, color: white),
+                                                          maxLines: 1,
+                                                        );
+
+                                      } catch (e) {
+                                        return loadIndicator();
+                                      }
+                                    },
+                                  );
+                                } catch (e) {
+                                  return loadIndicator();
+                                }
+                          }, childCount: allProjectsJson.length),
+                    )
+                  ],
+                ));
+          } catch (e) {
+            return loadIndicator();
+          }
+        },
+      );
+    } catch (e) {
+      return loadIndicator();
+    }
+  }
+
+  Widget loadIndicator(){
+    return Visibility(
+        maintainSize: true,
+        maintainAnimation: true,
+        maintainState: true,
+        visible: true,
+        child: Container(
+            margin: EdgeInsets.only(top: 50, bottom: 30),
+            child: CircularProgressIndicator()));
   }
 
   _write(String text) async {
@@ -383,11 +476,7 @@ class _MyHomePageState extends State<ProjectList> {
                     borderRadius: BorderRadius.all(Radius.circular(10)),
                   ),
                   child: Center(
-                    child: Text(
-                      trailingText,
-                      style: TextStyle(fontSize: 20, color: white),
-                      maxLines: 1,
-                    ),
+                    child: Center(child: notifyNum(rowIdOfProject))
                   ),
                 ),
               ),
