@@ -439,7 +439,7 @@ class _PageOfProjectState extends State<PageOfProject> {
           idOfProject: idOfProject,
           graphQLtoken: graphQLtoken,
           buttonName: "На проверке",
-          selectFilter: 3,
+          selectFilter: 2,
         ));
         break;
       case "Создать инспекцию":
@@ -471,7 +471,7 @@ class _PageOfProjectState extends State<PageOfProject> {
             projectName: projectName,
             buttonName: "На проверке",
             graphQLtoken: graphQLtoken,
-          selectFilter: 3,
+          selectFilter: 2,
           idOfProject: idOfProject,
           rowIdOfProject: rowIdOfProject,));
         break;

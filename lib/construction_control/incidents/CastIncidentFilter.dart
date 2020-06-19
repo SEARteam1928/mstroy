@@ -77,8 +77,8 @@ class CastIncidentFilterState extends State<CastIncidentFilter> {
   final List<CardFilterEntry> _cast = <CardFilterEntry>[
     const CardFilterEntry('Просрочено'),
     const CardFilterEntry('Неустранённые'),
-    const CardFilterEntry('Все'),
     const CardFilterEntry('На проверке'),
+    const CardFilterEntry('Все'),
   ];
 
   List<String> _filters = <String>[];
@@ -172,6 +172,10 @@ class CastIncidentFilterState extends State<CastIncidentFilter> {
         ),
         builder: (QueryResult result,
             {VoidCallback refetch, FetchMore fetchMore}) {
+
+          if(queryString == ""){
+            return Text("Запрос еще не настроен");
+          }
           if (result.hasException) {
             return Visibility(
                 maintainSize: true,

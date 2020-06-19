@@ -7,7 +7,6 @@ import 'package:mstroy/construction_control/inspections/requests_of_inspections/
 import 'package:mstroy/mainclasses/constants/GraphQLQueries.dart';
 import 'package:mstroy/mainclasses/constants/NormalDate.dart';
 import 'package:mstroy/construction_control/ProjectList.dart';
-import 'package:mstroy/construction_control/incidents/AllIncidentsEditPage.dart';
 import 'package:mstroy/mainclasses/constants/MSColors.dart';
 import 'package:mstroy/mainclasses/constants/urls.dart';
 
@@ -78,8 +77,8 @@ class CastInspectionFilterState extends State<CastInspectionFilter> {
   final List<CardFilterEntry> _cast = <CardFilterEntry>[
     const CardFilterEntry('Заявки'),
     const CardFilterEntry('Непринятые'),
-    const CardFilterEntry('Все'),
     const CardFilterEntry('На проверке'),
+    const CardFilterEntry('Все'),
   ];
 
   List<String> _filters = <String>[];
@@ -144,7 +143,7 @@ class CastInspectionFilterState extends State<CastInspectionFilter> {
         child: Scaffold(
             appBar: new AppBar(
               backgroundColor: mstroyLightBlue,
-              title: new Text("Нарушения"),
+              title: new Text("Инспекции"),
             ),
             body: Container(
                 color: backgroundWhite,
@@ -175,6 +174,9 @@ class CastInspectionFilterState extends State<CastInspectionFilter> {
         ),
         builder: (QueryResult result,
             {VoidCallback refetch, FetchMore fetchMore}) {
+          if(queryString == ""){
+            return Text("Запрос еще не настроен");
+          }
           if (result.hasException) {
             return Visibility(
                 maintainSize: true,
