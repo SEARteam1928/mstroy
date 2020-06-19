@@ -93,7 +93,7 @@ query constructives {
   }
 
   // Все инциденты
-  String incidentList(){
+  String incidentList() {
     return """
 query findIncidents {
   allIncidents{
@@ -126,7 +126,7 @@ query findIncidents {
     """;
   }
 
-  String incidentListFromProjectId(rowIdOfProject){
+  String incidentListFromProjectId(rowIdOfProject) {
     return """
 query findIncidentsFromProjectId {
   allIncidents(filters: {projectIdEq: $rowIdOfProject}){

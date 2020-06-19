@@ -2,7 +2,7 @@ import 'dart:core';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:mstroy/WorkWithCamera.dart';
+import 'package:mstroy/mainclasses/WorkWithCamera.dart';
 import 'package:mstroy/mainclasses/constants/MSColors.dart';
 
 class RequestsEditPage extends StatefulWidget {

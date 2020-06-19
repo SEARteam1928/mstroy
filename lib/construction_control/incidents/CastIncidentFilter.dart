@@ -84,14 +84,14 @@ class CastIncidentFilterState extends State<CastIncidentFilter> {
   List<String> _filters = <String>[];
   String queryString = "";
 
-
   @override
   void initState() {
     super.initState();
     setState(() {
       _filters.add(_cast[selectFilter].name);
-      if(_cast[selectFilter].name == "Все"){
-        queryString = GraphQLQueries().incidentListFromProjectId(rowIdOfProject);
+      if (_cast[selectFilter].name == "Все") {
+        queryString =
+            GraphQLQueries().incidentListFromProjectId(rowIdOfProject);
       }
     });
   }
@@ -106,14 +106,15 @@ class CastIncidentFilterState extends State<CastIncidentFilter> {
           onSelected: (bool value) {
             setState(() {
               if (value) {
-                if(actor.name == "Все"){
+                if (actor.name == "Все") {
                   queryString = "";
 
-                  queryString = GraphQLQueries().incidentListFromProjectId(rowIdOfProject);
+                  queryString = GraphQLQueries()
+                      .incidentListFromProjectId(rowIdOfProject);
                   _filters.clear();
                   _filters.add(actor.name);
                 }
-                if(actor.name != "Все"){
+                if (actor.name != "Все") {
                   queryString = "";
 
                   _filters.removeWhere((String name) {
@@ -126,7 +127,6 @@ class CastIncidentFilterState extends State<CastIncidentFilter> {
                   return name == actor.name;
                 });
               }
-
             });
           },
         ),
@@ -172,8 +172,7 @@ class CastIncidentFilterState extends State<CastIncidentFilter> {
         ),
         builder: (QueryResult result,
             {VoidCallback refetch, FetchMore fetchMore}) {
-
-          if(queryString == ""){
+          if (queryString == "") {
             return Text("Запрос еще не настроен");
           }
           if (result.hasException) {

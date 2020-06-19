@@ -41,11 +41,11 @@ class CastInspectionFilter extends StatefulWidget {
 
   CastInspectionFilter(
       {this.projectName,
-        this.buttonName,
-        this.graphQLtoken,
-        this.rowIdOfProject,
-        this.idOfProject,
-        this.selectFilter});
+      this.buttonName,
+      this.graphQLtoken,
+      this.rowIdOfProject,
+      this.idOfProject,
+      this.selectFilter});
 
   @override
   State createState() => CastInspectionFilterState(
@@ -84,16 +84,16 @@ class CastInspectionFilterState extends State<CastInspectionFilter> {
   List<String> _filters = <String>[];
   String queryString = "";
 
-
   @override
   void initState() {
     super.initState();
     setState(() {
       _filters.add(_cast[selectFilter].name);
-      if(_cast[selectFilter].name == "Все"){
+      if (_cast[selectFilter].name == "Все") {
         queryString = "";
 
-        queryString = GraphQLQueries().inspectionRequestsFromProjectId(rowIdOfProject);
+        queryString =
+            GraphQLQueries().inspectionRequestsFromProjectId(rowIdOfProject);
       }
     });
   }
@@ -108,14 +108,15 @@ class CastInspectionFilterState extends State<CastInspectionFilter> {
           onSelected: (bool value) {
             setState(() {
               if (value) {
-                if(actor.name == "Все"){
+                if (actor.name == "Все") {
                   queryString = "";
 
-                  queryString = GraphQLQueries().inspectionRequestsFromProjectId(rowIdOfProject);
+                  queryString = GraphQLQueries()
+                      .inspectionRequestsFromProjectId(rowIdOfProject);
                   _filters.clear();
                   _filters.add(actor.name);
                 }
-                if(actor.name != "Все"){
+                if (actor.name != "Все") {
                   queryString = "";
 
                   _filters.removeWhere((String name) {
@@ -128,7 +129,6 @@ class CastInspectionFilterState extends State<CastInspectionFilter> {
                   return name == actor.name;
                 });
               }
-
             });
           },
         ),
@@ -157,8 +157,8 @@ class CastInspectionFilterState extends State<CastInspectionFilter> {
                     SingleChildScrollView(
                       child: SafeArea(
                           child: Column(
-                            children: <Widget>[loadInspectionsRequests()],
-                          )),
+                        children: <Widget>[loadInspectionsRequests()],
+                      )),
                     ),
                   ],
                 ))));
@@ -174,7 +174,7 @@ class CastInspectionFilterState extends State<CastInspectionFilter> {
         ),
         builder: (QueryResult result,
             {VoidCallback refetch, FetchMore fetchMore}) {
-          if(queryString == ""){
+          if (queryString == "") {
             return Text("Запрос еще не настроен");
           }
           if (result.hasException) {
@@ -210,26 +210,26 @@ class CastInspectionFilterState extends State<CastInspectionFilter> {
                   slivers: <Widget>[
                     SliverList(
                       delegate: SliverChildBuilderDelegate(
-                              (BuildContext context, int index) {
-                            try {
-                              var normalDate = NormalDate()
-                                  .reDate("${inspections[index]["planDate"]}");
-                              return Center(
-                                  child: card(
-                                      "${inspections[index]["comment"]}",
-                                      "$index",
-                                      "${inspections[index]["rowId"]}",
-                                      normalDate));
-                            } catch (e) {
-                              var normalDate = "--.--.----";
-                              return Center(
-                                  child: card(
-                                      "${inspections[index]["comment"]}",
-                                      "$index",
-                                      "${inspections[index]["rowId"]}",
-                                      normalDate));
-                            }
-                          }, childCount: inspections.length),
+                          (BuildContext context, int index) {
+                        try {
+                          var normalDate = NormalDate()
+                              .reDate("${inspections[index]["planDate"]}");
+                          return Center(
+                              child: card(
+                                  "${inspections[index]["comment"]}",
+                                  "$index",
+                                  "${inspections[index]["rowId"]}",
+                                  normalDate));
+                        } catch (e) {
+                          var normalDate = "--.--.----";
+                          return Center(
+                              child: card(
+                                  "${inspections[index]["comment"]}",
+                                  "$index",
+                                  "${inspections[index]["rowId"]}",
+                                  normalDate));
+                        }
+                      }, childCount: inspections.length),
                     )
                   ],
                 ));
