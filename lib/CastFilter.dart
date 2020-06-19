@@ -36,13 +36,15 @@ class CastFilter extends StatefulWidget {
   final String graphQLtoken;
   final String rowIdOfProject;
   final String idOfProject;
+  final int selectFilter;
 
   CastFilter(
       {this.projectName,
       this.buttonName,
       this.graphQLtoken,
       this.rowIdOfProject,
-      this.idOfProject});
+      this.idOfProject,
+      this.selectFilter});
 
   @override
   State createState() => CastFilterState(
@@ -50,7 +52,8 @@ class CastFilter extends StatefulWidget {
       buttonName: buttonName,
       graphQLtoken: graphQLtoken,
       rowIdOfProject: rowIdOfProject,
-      idOfProject: idOfProject);
+      idOfProject: idOfProject,
+      selectFilter: selectFilter);
 }
 
 class CastFilterState extends State<CastFilter> {
@@ -59,13 +62,16 @@ class CastFilterState extends State<CastFilter> {
   final String graphQLtoken;
   final String rowIdOfProject;
   final String idOfProject;
+  final int selectFilter;
 
-  CastFilterState(
-      {this.projectName,
-      this.buttonName,
-      this.graphQLtoken,
-      this.rowIdOfProject,
-      this.idOfProject});
+  CastFilterState({
+    this.projectName,
+    this.buttonName,
+    this.graphQLtoken,
+    this.rowIdOfProject,
+    this.idOfProject,
+    this.selectFilter,
+  });
 
   final List<CardFilterEntry> _cast = <CardFilterEntry>[
     const CardFilterEntry('Просрочено'),
@@ -75,6 +81,14 @@ class CastFilterState extends State<CastFilter> {
   ];
 
   List<String> _filters = <String>[];
+
+  @override
+  void initState() {
+    super.initState();
+    setState(() {
+      _filters.add(_cast[selectFilter].name);
+    });
+  }
 
   Iterable<Widget> get actorWidgets sync* {
     for (final CardFilterEntry actor in _cast) {
@@ -99,9 +113,37 @@ class CastFilterState extends State<CastFilter> {
     }
   }
 
+  @override
+  Widget build(BuildContext context) {
+    return GraphQLProvider(
+        client: client,
+        child: Scaffold(
+            appBar: new AppBar(
+              backgroundColor: mstroyLightBlue,
+              title: new Text("Нарушения"),
+            ),
+            body: Container(
+                color: backgroundWhite,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Wrap(
+                      alignment: WrapAlignment.start,
+                      children: actorWidgets.toList(),
+                    ),
+                    Text('Вы выбрали: ${_filters.join(', ')}'),
+                    SingleChildScrollView(
+                      child: SafeArea(
+                          child: Column(
+                        children: <Widget>[loadInspectionsRequests()],
+                      )),
+                    ),
+                  ],
+                ))));
+  }
 
   Widget loadInspectionsRequests() {
-    double screenHeight = MediaQuery.of(context).size.height - 136-79;
+    double screenHeight = MediaQuery.of(context).size.height - 136 - 79;
     try {
       return Query(
         options: QueryOptions(
@@ -121,7 +163,7 @@ class CastFilterState extends State<CastFilter> {
                     child: CircularProgressIndicator()));
           }
 
-          if(result.loading){
+          if (result.loading) {
             return Visibility(
                 maintainSize: true,
                 maintainAnimation: true,
@@ -143,32 +185,32 @@ class CastFilterState extends State<CastFilter> {
                   slivers: <Widget>[
                     SliverList(
                       delegate: SliverChildBuilderDelegate(
-                              (BuildContext context, int index) {
-                            try {
-                              var datetimeSplitStr =
+                          (BuildContext context, int index) {
+                        try {
+                          var datetimeSplitStr =
                               "${allInspectionRequests[index]["planDate"]}"
                                   .split("T")[0];
-                              var dateSplit = datetimeSplitStr.split("-");
-                              var yearStr = dateSplit[0];
-                              var mounthStr = dateSplit[1];
-                              var dayStr = dateSplit[2];
-                              var normalDate = "$dayStr.$mounthStr.$yearStr";
-                              return Center(
-                                  child: card(
-                                      "${allInspectionRequests[index]["comment"]}",
-                                      "$index",
-                                      "${allInspectionRequests[index]["rowId"]}",
-                                      normalDate));
-                            } catch (e) {
-                              var normalDate = "--.--.----";
-                              return Center(
-                                  child: card(
-                                      "${allInspectionRequests[index]["comment"]}",
-                                      "$index",
-                                      "${allInspectionRequests[index]["rowId"]}",
-                                      normalDate));
-                            }
-                          }, childCount: allInspectionRequests.length),
+                          var dateSplit = datetimeSplitStr.split("-");
+                          var yearStr = dateSplit[0];
+                          var mounthStr = dateSplit[1];
+                          var dayStr = dateSplit[2];
+                          var normalDate = "$dayStr.$mounthStr.$yearStr";
+                          return Center(
+                              child: card(
+                                  "${allInspectionRequests[index]["comment"]}",
+                                  "$index",
+                                  "${allInspectionRequests[index]["rowId"]}",
+                                  normalDate));
+                        } catch (e) {
+                          var normalDate = "--.--.----";
+                          return Center(
+                              child: card(
+                                  "${allInspectionRequests[index]["comment"]}",
+                                  "$index",
+                                  "${allInspectionRequests[index]["rowId"]}",
+                                  normalDate));
+                        }
+                      }, childCount: allInspectionRequests.length),
                     )
                   ],
                 ));
@@ -195,36 +237,6 @@ class CastFilterState extends State<CastFilter> {
               margin: EdgeInsets.only(top: 50, bottom: 30),
               child: CircularProgressIndicator()));
     }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return GraphQLProvider(
-        client: client,
-        child: Scaffold(
-        appBar: new AppBar(
-        backgroundColor: mstroyLightBlue,
-        title: new Text("Нарушения"), ),
-        body: Container(
-              color: backgroundWhite,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                Wrap(
-                  alignment: WrapAlignment.start,
-                  children: actorWidgets.toList(),
-                ),
-                Text('Вы выбрали: ${_filters.join(', ')}'),
-                SingleChildScrollView(
-                  child: SafeArea(
-                      child: Column(
-                        children: <Widget>[loadInspectionsRequests()],
-                      )),
-                ),
-              ],)
-
-
-            )));
   }
 
   Widget card(String text, String index, String id, String datetime) =>

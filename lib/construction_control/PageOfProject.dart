@@ -374,20 +374,27 @@ class _PageOfProjectState extends State<PageOfProject> {
           idOfProject: idOfProject,
           graphQLtoken: graphQLtoken,
           buttonName: buttonName,
+          selectFilter: 0,
         ));
         break;
       case "Неустранённые":
-        _pushToRegister(FixIncident(
+        _pushToRegister(CastFilter(
           projectName: projectName,
-          buttonName: buttonName,
+          rowIdOfProject: rowIdOfProject,
+          idOfProject: idOfProject,
           graphQLtoken: graphQLtoken,
+          buttonName: buttonName,
+          selectFilter: 1,
         ));
         break;
       case "На проверке":
-        _pushToRegister(FixIncident(
+        _pushToRegister(CastFilter(
           projectName: projectName,
-          buttonName: buttonName,
+          rowIdOfProject: rowIdOfProject,
+          idOfProject: idOfProject,
           graphQLtoken: graphQLtoken,
+          buttonName: buttonName,
+          selectFilter: 3,
         ));
         break;
       case "Создать инспекцию":
