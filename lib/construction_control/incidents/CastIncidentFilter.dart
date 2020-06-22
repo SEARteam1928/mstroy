@@ -209,25 +209,42 @@ class CastIncidentFilterState extends State<CastIncidentFilter> {
                     SliverList(
                       delegate: SliverChildBuilderDelegate(
                           (BuildContext context, int index) {
-                        try {
+                            var incidentName = "s";
+
+                            try {
                           var normalDate = NormalDate()
                               .reDate("${incidents[index]["resolveUntil"]}");
+                          try {
+                            incidentName = "${incidents[index]["name"]}";
+                          } catch (e) {
+                            incidentName = "";
+                          }
+
                           return Center(
                               child: card(
                                   "${incidents[index]["comment"]}",
                                   "$index",
                                   "${incidents[index]["rowId"]}",
                                   normalDate,
-                                  "Type"));
+                                  "Type",
+                                  incidentName));
+
                         } catch (e) {
                           var normalDate = "--.--.----";
+                          try {
+                            incidentName = "${incidents[index]["name"]}";
+                          } catch (e) {
+                            incidentName = "";
+                          }
+
                           return Center(
                               child: card(
                                   "${incidents[index]["comment"]}",
                                   "$index",
                                   "${incidents[index]["rowId"]}",
                                   normalDate,
-                                  "Type"));
+                                  "Type",
+                                  incidentName));
                         }
                       }, childCount: incidents.length),
                     )
@@ -258,18 +275,21 @@ class CastIncidentFilterState extends State<CastIncidentFilter> {
     }
   }
 
-  Widget card(String text, String index, String rowId, String datetime,
-          String incidentType) =>
+  Widget card(String comment, String index, String rowId, String datetime,
+          String incidentType, incidentName) =>
       Container(
           constraints: BoxConstraints(minHeight: 100),
           child: Card(
               child: MaterialButton(
                   onPressed: () {
                     _startEditPage(AllIncidentsEditPage(
-                        graphQLtoken: graphQLtoken,
-                        index: "$index",
-                        projectName: projectName,
-                        incidentType: incidentType));
+                      graphQLtoken: graphQLtoken,
+                      index: "$index",
+                      projectName: projectName,
+                      incidentType: incidentType,
+                      incidentName: incidentName,
+                      comment: comment,
+                    ));
                   },
                   child: Column(children: <Widget>[
                     Container(
@@ -279,7 +299,7 @@ class CastIncidentFilterState extends State<CastIncidentFilter> {
                     ListTile(
                       leading: Text(index),
                       title: Text(
-                        text,
+                        incidentName,
                         style: TextStyle(fontSize: 16),
                       ),
                       trailing: Text(datetime, style: TextStyle(fontSize: 12)),

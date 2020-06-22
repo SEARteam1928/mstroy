@@ -10,8 +10,7 @@ import 'dart:io';
 import 'dart:convert';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-import '../mainclasses/constants/RouteNames.dart';
+import 'package:mstroy/mainclasses/constants/RouteNames.dart';
 
 class ProjectList extends StatefulWidget {
   ProjectList({Key key}) : super(key: key);
@@ -30,29 +29,6 @@ final AuthLink authLink = AuthLink(
   getToken: () async => graphQLtoken.toString(),
 );
 
-String allProjectQuery = """
-  query allProjectQuery {
-   allProjects{
-     id
-     rowId
-     name
-    }
-  }
-""";
-
-String userInfo(String email) {
-  return """
-  query q {
-allUsers(filters: {EmailEq: "$email"}){
-  roles{
-    name
-    description
-  }
-}
-}
-""";
-}
-
 ValueNotifier<GraphQLClient> client = ValueNotifier(
   GraphQLClient(
     cache: InMemoryCache(),
@@ -60,8 +36,8 @@ ValueNotifier<GraphQLClient> client = ValueNotifier(
   ),
 );
 
-var color = Colors.grey.shade300;
 final Link link = authLink.concat(httpLink);
+var color = Colors.grey.shade300;
 
 addBoolToSF(bool booleanVal) async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -107,7 +83,7 @@ class _MyHomePageState extends State<ProjectList> {
     try {
       return Query(
         options: QueryOptions(
-          documentNode: gql(userInfo(userEmail)),
+          documentNode: gql(GraphQLQueries().userInfo(userEmail)),
           variables: {'allUsers': 1},
           pollInterval: 30,
         ),
@@ -270,7 +246,7 @@ class _MyHomePageState extends State<ProjectList> {
     try {
       return Query(
         options: QueryOptions(
-          documentNode: gql(allProjectQuery),
+          documentNode: gql(GraphQLQueries().allProjectQuery()),
           variables: {'allProjects': 1},
           pollInterval: 10,
         ),
@@ -346,8 +322,8 @@ class _MyHomePageState extends State<ProjectList> {
     var notifyCount = 0;
     try {
       return Text(
-        "2 3 2\n0 4 1\n2 2 1",
-        style: TextStyle(fontSize: 10, color: white),
+        "00",
+        style: TextStyle(fontSize: 15, color: white),
         maxLines: 3,
       );
       /*return Query(

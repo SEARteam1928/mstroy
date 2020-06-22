@@ -6,7 +6,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:mstroy/construction_control/incidents/CastIncidentFilter.dart';
 import 'package:mstroy/construction_control/inspections/CastInspectionFilter.dart';
 import 'package:mstroy/construction_control/inspections/inspections/CreateInspection.dart';
-import 'package:mstroy/construction_control/incidents/FixIncident.dart';
+import 'package:mstroy/construction_control/incidents/CreateIncident.dart';
 import 'package:mstroy/mainclasses/constants/MSColors.dart';
 
 class PageOfProject extends StatefulWidget {
@@ -415,7 +415,7 @@ class _PageOfProjectState extends State<PageOfProject> {
   void _onButtonPressed(String buttonName) {
     switch (buttonName) {
       case "Зафиксировать нарушение":
-        _pushToRegister(FixIncident(
+        _pushToRegister(CreateIncident(
           projectName: projectName,
           buttonName: buttonName,
           graphQLtoken: graphQLtoken,

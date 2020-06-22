@@ -99,6 +99,7 @@ query findIncidents {
   allIncidents{
     id
     comment
+    name
     constructive
     managerId
     projectId
@@ -137,6 +138,7 @@ query findIncidentsFromProjectId {
     projectId
     constructiveId
     work
+    name
     descritpion
     deleted
     stopWorkUntil
@@ -163,6 +165,68 @@ query findIncidentsFromProjectId {
 query findAllInspections{
   allInspections(filters: {projectIdEq: $rowId}){
     rowId
+  }
+}
+    """;
+  }
+
+  String userInfo(String email) {
+    return """
+  query q {
+allUsers(filters: {EmailEq: "$email"}){
+  roles{
+    name
+    description
+  }
+}
+}
+""";
+  }
+
+  String allProjectQuery() {
+    return """
+  query allProjectQuery {
+   allProjects{
+     id
+     rowId
+     name
+    }
+  }
+""";
+  }
+
+  String createIncidentMutation(
+    name,
+    recomendation,
+    comment,
+    work,
+    managerid,
+    projectId,
+    constructiveId,
+    resolved,
+    resolvedUntil,
+  ) {
+    return """
+mutation createIncident{
+  createIncident(input: {
+    comment: "$comment",
+    work: "$work",
+    managerId: $managerid,
+    projectId: $projectId,
+    constructiveId: $constructiveId,
+    resolved:$resolved,
+   resolveUntil: "$resolvedUntil",
+ recommendation:"$recomendation",
+    name:"$name",
+  }){
+    incident{
+      id
+      comment
+      constructive
+      work
+      managerId
+    }
+   ok 
   }
 }
     """;

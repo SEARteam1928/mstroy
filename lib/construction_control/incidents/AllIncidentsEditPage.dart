@@ -9,16 +9,20 @@ class AllIncidentsEditPage extends StatefulWidget {
   final String index;
   final String graphQLtoken;
   final String incidentType;
+  final String incidentName;
+  final String comment;
 
   AllIncidentsEditPage(
-      {this.projectName, this.index, this.graphQLtoken, this.incidentType});
+      {this.projectName, this.index, this.graphQLtoken, this.incidentType, this.incidentName, this.comment});
 
   @override
   State<StatefulWidget> createState() => _AllIncidentsEditPageState(
       projectName: projectName,
       incidentIndex: index,
       graphQLtoken: graphQLtoken,
-      incidentType: incidentType);
+      incidentType: incidentType,
+  incidentName: incidentName,
+  comment: comment);
 }
 
 class _AllIncidentsEditPageState extends State<AllIncidentsEditPage> {
@@ -26,12 +30,16 @@ class _AllIncidentsEditPageState extends State<AllIncidentsEditPage> {
   final String incidentIndex;
   final String graphQLtoken;
   final String incidentType;
+  final String incidentName;
+  final String comment;
 
   _AllIncidentsEditPageState(
       {this.projectName,
       this.incidentIndex,
       this.graphQLtoken,
-      this.incidentType});
+      this.incidentType,
+      this.incidentName,
+      this.comment});
 
   @override
   void initState() {
@@ -66,11 +74,9 @@ class _AllIncidentsEditPageState extends State<AllIncidentsEditPage> {
                               child: Column(
                                 children: <Widget>[
                                   Text("$incidentType № $incidentIndex"),
-                                  Text("Проект"),
-                                  Text(projectName),
-                                  Text("Нарушение"),
-                                  Text("Any Incident"),
-                                  Text("Описание"),
+                                  Text("Проект : $projectName"),
+                                  Text("Нарушение : $incidentName"),
+                                  Text("Описание : $comment"),
                                   Text("Конструктив"),
                                   Text("Конструктив (описание)"),
                                   Text("Вид работ"),

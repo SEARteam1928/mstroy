@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mstroy/mainclasses/WorkWithCamera.dart';
 import 'package:mstroy/construction_control/incidents/AllIncidentsEditPage.dart';
 import 'package:mstroy/construction_control/inspections/inspections/CreateInspection.dart';
-import 'package:mstroy/construction_control/incidents/FixIncident.dart';
+import 'package:mstroy/construction_control/incidents/CreateIncident.dart';
 import 'package:mstroy/construction_control/inspections/inspections/InspectionsEditPage.dart';
 import 'package:mstroy/construction_control/ProjectList.dart';
 import 'package:mstroy/construction_control/PageOfProject.dart';
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
     authorizationRoute: (BuildContext context) => Authorization(),
     projectListRoute: (BuildContext context) => ProjectList(),
     pageOfProjectRoute: (BuildContext context) => PageOfProject(),
-    fixIncidentRoute: (BuildContext context) => FixIncident(),
+    fixIncidentRoute: (BuildContext context) => CreateIncident(),
     allIncidentsPageStateRoute: (BuildContext context) =>
         AllIncidentsEditPage(),
     createInspectionRoute: (BuildContext context) => CreateInspection(),
