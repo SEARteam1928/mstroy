@@ -209,9 +209,9 @@ class CastIncidentFilterState extends State<CastIncidentFilter> {
                     SliverList(
                       delegate: SliverChildBuilderDelegate(
                           (BuildContext context, int index) {
-                            var incidentName = "s";
+                        var incidentName = "s";
 
-                            try {
+                        try {
                           var normalDate = NormalDate()
                               .reDate("${incidents[index]["resolveUntil"]}");
                           try {
@@ -227,8 +227,8 @@ class CastIncidentFilterState extends State<CastIncidentFilter> {
                                   "${incidents[index]["rowId"]}",
                                   normalDate,
                                   "Type",
-                                  incidentName));
-
+                                  incidentName,
+                                  "${incidents[index]["recommendation"]}"));
                         } catch (e) {
                           var normalDate = "--.--.----";
                           try {
@@ -244,7 +244,8 @@ class CastIncidentFilterState extends State<CastIncidentFilter> {
                                   "${incidents[index]["rowId"]}",
                                   normalDate,
                                   "Type",
-                                  incidentName));
+                                  incidentName,
+                                  "${incidents[index]["recommendation"]}"));
                         }
                       }, childCount: incidents.length),
                     )
@@ -276,7 +277,7 @@ class CastIncidentFilterState extends State<CastIncidentFilter> {
   }
 
   Widget card(String comment, String index, String rowId, String datetime,
-          String incidentType, incidentName) =>
+          String incidentType, incidentName, recommendation) =>
       Container(
           constraints: BoxConstraints(minHeight: 100),
           child: Card(
@@ -289,6 +290,7 @@ class CastIncidentFilterState extends State<CastIncidentFilter> {
                       incidentType: incidentType,
                       incidentName: incidentName,
                       comment: comment,
+                      recommendation: recommendation,
                     ));
                   },
                   child: Column(children: <Widget>[

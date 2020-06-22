@@ -11,9 +11,16 @@ class AllIncidentsEditPage extends StatefulWidget {
   final String incidentType;
   final String incidentName;
   final String comment;
+  final String recommendation;
 
   AllIncidentsEditPage(
-      {this.projectName, this.index, this.graphQLtoken, this.incidentType, this.incidentName, this.comment});
+      {this.projectName,
+      this.index,
+      this.graphQLtoken,
+      this.incidentType,
+      this.incidentName,
+      this.comment,
+      this.recommendation});
 
   @override
   State<StatefulWidget> createState() => _AllIncidentsEditPageState(
@@ -21,8 +28,9 @@ class AllIncidentsEditPage extends StatefulWidget {
       incidentIndex: index,
       graphQLtoken: graphQLtoken,
       incidentType: incidentType,
-  incidentName: incidentName,
-  comment: comment);
+      incidentName: incidentName,
+      comment: comment,
+      recommendation: recommendation);
 }
 
 class _AllIncidentsEditPageState extends State<AllIncidentsEditPage> {
@@ -32,6 +40,7 @@ class _AllIncidentsEditPageState extends State<AllIncidentsEditPage> {
   final String incidentType;
   final String incidentName;
   final String comment;
+  final String recommendation;
 
   _AllIncidentsEditPageState(
       {this.projectName,
@@ -39,7 +48,8 @@ class _AllIncidentsEditPageState extends State<AllIncidentsEditPage> {
       this.graphQLtoken,
       this.incidentType,
       this.incidentName,
-      this.comment});
+      this.comment,
+      this.recommendation});
 
   @override
   void initState() {
@@ -91,7 +101,7 @@ class _AllIncidentsEditPageState extends State<AllIncidentsEditPage> {
                                 children: <Widget>[
                                   Text("Решение"),
                                   Text("Срок устранения"),
-                                  Text("Рекомендации"),
+                                  Text("Рекомендации: $recommendation"),
                                   Text("Подписано СК"),
                                 ],
                               ),

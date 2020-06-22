@@ -37,6 +37,7 @@ dependencies:
   path_provider: ^1.6.10
   gradient_bottom_navigation_bar: ^1.0.0+4
   image_picker: ^0.6.7+1
+  flutter_cupertino_date_picker: ^1.0.26+2
 dev_dependencies:
   flutter_test:
     sdk: flutter
