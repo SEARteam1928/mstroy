@@ -114,8 +114,6 @@ class _MyHomePageState extends State<ProjectList> {
           List allUsersInfo = result.data['allUsers'][0]['roles'];
 
           try {
-/*            print(allProjectsJson);
-            print(allProjectsJson[0]["name"]);*/
           } catch (e) {}
           try {
             return Container(
@@ -156,7 +154,9 @@ class _MyHomePageState extends State<ProjectList> {
               child: CircularProgressIndicator()));
     }
   }
-
+/*
+* 
+* */
   @override
   Widget build(BuildContext context) {
     startScreen();
@@ -319,18 +319,12 @@ class _MyHomePageState extends State<ProjectList> {
   }
 
   Widget notifyNum(String rowIdOfProject) {
-    var notifyCount = 0;
     try {
-      return Text(
-        "00",
-        style: TextStyle(fontSize: 15, color: white),
-        maxLines: 3,
-      );
-      /*return Query(
+      return Query(
         options: QueryOptions(
-          documentNode: gql(allProjectQuery),
-          variables: {'allProjects': 1},
-          pollInterval: 10,
+          documentNode:
+              gql(GraphQLQueries().allNotifyFromIdOfProject(rowIdOfProject)),
+          pollInterval: 30,
         ),
         builder: (QueryResult result,
             {VoidCallback refetch, FetchMore fetchMore}) {
@@ -342,60 +336,24 @@ class _MyHomePageState extends State<ProjectList> {
             return loadIndicator();
           }
 
-          List allProjectsJson = result.data['allProjects'];
+          List allInspectionRequestsJson = result.data['allInspectionRequests'];
+          List allInspectionsJson = result.data['allInspections'];
+          List allIncidentsJson = result.data['allIncidents'];
 
           try {
-            return Container(
-                child: CustomScrollView(
-                  shrinkWrap: true,
-                  slivers: <Widget>[
-                    SliverList(
-                      delegate: SliverChildBuilderDelegate(
-                              (BuildContext context, int index) {
-notifyCount = 0;
-                                try {
-                                  return Query(
-                                    options: QueryOptions(
-                                      documentNode: gql(GraphQLQueries().inspectionsRowId(allProjectsJson[index]["rowId"])),
-                                      pollInterval: 5,
-                                    ),
-                                    builder: (QueryResult result,
-                                        {VoidCallback refetch, FetchMore fetchMore}) {
-                                      if (result.hasException) {
-                                        return loadIndicator();
-                                      }
-
-                                      if (result.loading) {
-                                        return loadIndicator();
-                                      }
-
-                                      List allProjectsJson = result.data['allInspections'];
-                                      notifyCount = notifyCount + allProjectsJson.length;
-
-                                      try {
-                                        return Text(
-                                                          "$notifyCount",
-                                                          style: TextStyle(fontSize: 10, color: white),
-                                                          maxLines: 1,
-                                                        );
-
-                                      } catch (e) {
-                                        return loadIndicator();
-                                      }
-                                    },
-                                  );
-                                } catch (e) {
-                                  return loadIndicator();
-                                }
-                          }, childCount: allProjectsJson.length),
-                    )
-                  ],
-                ));
+            var notifyLength = allInspectionRequestsJson.length +
+                allInspectionsJson.length +
+                allIncidentsJson.length;
+            return Text(
+              "$notifyLength",
+              style: TextStyle(fontSize: 20, color: white),
+              maxLines: 1,
+            );
           } catch (e) {
             return loadIndicator();
           }
         },
-      );*/
+      );
     } catch (e) {
       return loadIndicator();
     }
@@ -408,8 +366,12 @@ notifyCount = 0;
         maintainState: true,
         visible: true,
         child: Container(
-            margin: EdgeInsets.only(top: 50, bottom: 30),
-            child: CircularProgressIndicator()));
+          width: 20,
+            height: 20,
+            margin: EdgeInsets.only(top: 5, bottom: 5),
+            child: CircularProgressIndicator(
+              valueColor: new AlwaysStoppedAnimation<Color>(white),
+            )));
   }
 
   _write(String text) async {
@@ -420,6 +382,7 @@ notifyCount = 0;
 
   void _backScreen() {
     var exitAuth = _write("");
+    print("$exitAuth");
     addBoolToSF(true);
     Navigator.of(context).pushReplacementNamed(authorizationRoute);
   }
@@ -484,15 +447,9 @@ dynamic _read() async {
     final Directory directory = await getApplicationDocumentsDirectory();
     final File file = File('${directory.path}/my_file.txt');
     text = await file.readAsString();
-/*
-    print(text);
-*/
     var jsonText = jsonDecode(text);
 
     graphQLtoken = jsonText["Authorization"].toString();
-/*
-    print(graphQLtoken);
-*/
   } catch (e) {
     print("Couldn't read file");
   }

@@ -176,52 +176,56 @@ class _CreateIncidentState extends State<CreateIncident> {
                                           Text("Конструктив (описание)"),
                                           Text("Вид работ"),
                                           Text("Дата"),
-/*
-                                          MaterialButton(
-                                            onPressed: () {
-                                              DatePicker.showDatePicker(
-                                                context,
-                                                minDateTime: DateTime.parse(MIN_DATETIME),
-                                                maxDateTime: DateTime.parse(MAX_DATETIME),
-                                                initialDateTime: DateTime.parse(INIT_DATETIME),
-                                                dateFormat: _format,
-                                                locale: _locale,
-                                                pickerTheme: DateTimePickerTheme(
-                                                  showTitle: _showTitle,
-                                                ),
-                                                pickerMode: DateTimePickerMode.datetime, // show TimePicker
-                                                onCancel: () {
-                                                  debugPrint('onCancel');
-                                                },
-                                                onChange: (dateTime, List<int> index) {
-                                                  setState(() {
-                                                    _dateTime = dateTime;
-                                                  });
+                                          MaterialButton(onPressed: () {
+                                            DatePicker.showDatePicker(
+                                              context,
+                                              minDateTime:
+                                                  DateTime.parse(MIN_DATETIME),
+                                              maxDateTime:
+                                                  DateTime.parse(MAX_DATETIME),
+                                              initialDateTime:
+                                                  DateTime.parse(INIT_DATETIME),
+                                              dateFormat: _format,
+                                              locale: _locale,
+                                              pickerTheme: DateTimePickerTheme(
+                                                showTitle: _showTitle,
+                                              ),
+                                              pickerMode:
+                                                  DateTimePickerMode.datetime,
+                                              // show TimePicker
+                                              onCancel: () {
+                                                print('onCancel');
+                                              },
+                                              onChange:
+                                                  (dateTime, List<int> index) {
+                                                setState(() {
+                                                  _dateTime = dateTime;
+                                                });
+                                                print(_dateTime);
+                                              },
+                                              onConfirm:
+                                                  (dateTime, List<int> index) {
+                                                setState(() {
+                                                  _dateTime = dateTime;
                                                   print(_dateTime);
-                                                },
-                                                onConfirm: (dateTime, List<int> index) {
-                                                  setState(() {
-                                                    _dateTime = dateTime;
-                                                    print(_dateTime);
-                                                  });
-                                                },
-                                              );
-                                            }
-                                          ),
-*/
+                                                });
+                                              },
+                                            );
+                                          }),
                                           Text("dd.mm.yyyy"),
                                           Text("Нарушение зафиксировал"),
                                           Center(
-                                              child: new DropdownButton(items: new List.generate(20, (int index){
-                                                return new DropdownMenuItem(child: new Container(
-                                                  child: new Text ("ФИО#$index"),
-                                                  width: 200.0, //200.0 to 100.0
-                                                ));
-                                              })
-                                                  , onChanged: (value) {
-
-                                                  },)
-                                          ),
+                                              child: new DropdownButton(
+                                            items: new List.generate(20,
+                                                (int index) {
+                                              return new DropdownMenuItem(
+                                                  child: new Container(
+                                                child: new Text("ФИО#$index"),
+                                                width: 200.0, //200.0 to 100.0
+                                              ));
+                                            }),
+                                            onChanged: (value) {},
+                                          )),
                                           Text("ФИО (роль)"),
                                           Container(
                                               margin: EdgeInsets.all(10),
@@ -324,7 +328,7 @@ class _CreateIncidentState extends State<CreateIncident> {
                                                     fontSize: 16.0);
                                               },
                                               textColor: white,
-                                              color: Colors.lightGreenAccent,
+                                              color: Colors.lightGreen,
                                               child: Container(
                                                   padding: EdgeInsets.only(
                                                       left: 45,

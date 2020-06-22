@@ -195,6 +195,23 @@ allUsers(filters: {EmailEq: "$email"}){
 """;
   }
 
+  String allNotifyFromIdOfProject (projectRowId){
+    return """
+    query q{
+  allInspectionRequests(filters: {projectIdEq: $projectRowId}){
+    rowId
+  }
+  allInspections(filters: {projectIdEq: $projectRowId}){
+    rowId
+  }
+  allIncidents(filters: {projectIdEq:$projectRowId}){
+    rowId
+  }
+}
+
+    """;
+  }
+
   String createIncidentMutation(
     name,
     recomendation,
