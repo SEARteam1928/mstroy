@@ -182,7 +182,7 @@ allUsers(filters: {EmailEq: "$email"}){
 """;
   }
 
-  String allNotifyFromIdOfProject (projectRowId){
+  String allNotifyFromIdOfProject(projectRowId) {
     return """
     query q{
   allInspectionRequests(filters: {projectIdEq: $projectRowId}){
@@ -199,7 +199,7 @@ allUsers(filters: {EmailEq: "$email"}){
     """;
   }
 
-  String incidentNotifyFromIdOfProject (projectRowId){
+  String incidentNotifyFromIdOfProject(projectRowId) {
     return """
     query q{
   allIncidents(filters: {projectIdEq:$projectRowId}){

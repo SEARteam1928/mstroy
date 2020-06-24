@@ -91,18 +91,15 @@ class _MyHomePageState extends State<ProjectList> {
             {VoidCallback refetch, FetchMore fetchMore}) {
           if (result.hasException) {
             return loadIndicate();
-
           }
 
           if (result.loading) {
             return loadIndicate();
-
           }
 
           List allUsersInfo = result.data['allUsers'][0]['roles'];
 
-          try {
-          } catch (e) {}
+          try {} catch (e) {}
           try {
             return Container(
                 height: screenHeight,
@@ -121,15 +118,14 @@ class _MyHomePageState extends State<ProjectList> {
                 ));
           } catch (e) {
             return loadIndicate();
-
           }
         },
       );
     } catch (e) {
       return loadIndicate();
-
     }
   }
+
 /*
 *
 * */
@@ -169,7 +165,8 @@ class _MyHomePageState extends State<ProjectList> {
               )),
             ),
           ])),
-      Text("Hello World") ];
+      Text("Hello World")
+    ];
 
     return GraphQLProvider(
         client: client,
@@ -229,12 +226,10 @@ class _MyHomePageState extends State<ProjectList> {
             {VoidCallback refetch, FetchMore fetchMore}) {
           if (result.hasException) {
             return loadIndicate();
-
           }
 
           if (result.loading) {
             return loadIndicate();
-
           }
 
           List allProjectsJson = result.data['allProjects'];
@@ -259,7 +254,6 @@ class _MyHomePageState extends State<ProjectList> {
                 ));
           } catch (e) {
             return loadIndicate();
-
           }
         },
       );
@@ -268,7 +262,7 @@ class _MyHomePageState extends State<ProjectList> {
     }
   }
 
-  Widget loadIndicate(){
+  Widget loadIndicate() {
     return Visibility(
         maintainSize: true,
         maintainAnimation: true,
@@ -328,7 +322,8 @@ class _MyHomePageState extends State<ProjectList> {
         "0",
         style: TextStyle(fontSize: 20, color: white),
         maxLines: 1,
-      );    }
+      );
+    }
   }
 
   Widget loadIndicator() {
@@ -338,7 +333,7 @@ class _MyHomePageState extends State<ProjectList> {
         maintainState: true,
         visible: true,
         child: Container(
-          width: 20,
+            width: 20,
             height: 20,
             margin: EdgeInsets.only(top: 5, bottom: 5),
             child: CircularProgressIndicator(

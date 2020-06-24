@@ -24,4 +24,3 @@ var greyOpacity0_5 = Colors.grey.withOpacity(0.5);
 
 var newBackgroundWhite = const Color(0xFFE5E5E5);
 var newBackgroundWhite2 = const Color(0xFFF7F9FC);
-

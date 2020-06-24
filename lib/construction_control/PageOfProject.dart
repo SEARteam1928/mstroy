@@ -107,10 +107,8 @@ class _PageOfProjectState extends State<PageOfProject> {
   Widget build(BuildContext context) {
     var buttonWidth = 318.toDouble();
     var buttonHeight = 35.toDouble();
-    var trailingWidth =
-        36.toDouble();
-    var trailingHeight =
-        23.toDouble() ;
+    var trailingWidth = 36.toDouble();
+    var trailingHeight = 23.toDouble();
     var leadingHeight = buttonHeight;
 
     return GraphQLProvider(
@@ -144,8 +142,8 @@ class _PageOfProjectState extends State<PageOfProject> {
                             borderRadius: BorderRadius.all(Radius.circular(5))),
                         child: Column(children: <Widget>[
                           Container(
-                            height: 26,
-                            margin: EdgeInsets.only(top: 17,bottom: 15.1),
+                              height: 26,
+                              margin: EdgeInsets.only(top: 17, bottom: 15.1),
                               child: Text("Нарушения",
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
@@ -156,7 +154,6 @@ class _PageOfProjectState extends State<PageOfProject> {
                               child: Column(
                             children: <Widget>[
 //Неустранённые
-
 
                               Row(
                                 children: <Widget>[
@@ -205,7 +202,6 @@ class _PageOfProjectState extends State<PageOfProject> {
                                   ),
                                 ],
                               ),
-
 
                               Row(
                                 children: <Widget>[
