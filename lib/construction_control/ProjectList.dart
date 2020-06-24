@@ -169,8 +169,7 @@ class _MyHomePageState extends State<ProjectList> {
               )),
             ),
           ])),
-      Text("Hello World!")
-    ];
+      Text("Hello World") ];
 
     return GraphQLProvider(
         client: client,

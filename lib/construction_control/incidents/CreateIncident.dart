@@ -176,8 +176,14 @@ class _CreateIncidentState extends State<CreateIncident> {
                                           Text("Конструктив"),
                                           Text("Конструктив (описание)"),
                                           Text("Вид работ"),
-                                          Text("Дата", style: TextStyle(fontSize: 20),),
-                                          Text("${NormalDate().formatDateInCreateView(DateTime.now())}", style: TextStyle(fontSize: 20),),
+                                          Text(
+                                            "Дата",
+                                            style: TextStyle(fontSize: 20),
+                                          ),
+                                          Text(
+                                            "${NormalDate().formatDateInCreateView(DateTime.now())}",
+                                            style: TextStyle(fontSize: 20),
+                                          ),
                                           Text("Нарушение зафиксировал"),
                                           Center(
                                               child: new DropdownButton(
