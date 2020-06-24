@@ -85,30 +85,18 @@ class _MyHomePageState extends State<ProjectList> {
         options: QueryOptions(
           documentNode: gql(GraphQLQueries().userInfo(userEmail)),
           variables: {'allUsers': 1},
-          pollInterval: 30,
+          pollInterval: 10000,
         ),
         builder: (QueryResult result,
             {VoidCallback refetch, FetchMore fetchMore}) {
           if (result.hasException) {
-            return Visibility(
-                maintainSize: true,
-                maintainAnimation: true,
-                maintainState: true,
-                visible: true,
-                child: Container(
-                    margin: EdgeInsets.only(top: 50, bottom: 30),
-                    child: CircularProgressIndicator()));
+            return loadIndicate();
+
           }
 
           if (result.loading) {
-            return Visibility(
-                maintainSize: true,
-                maintainAnimation: true,
-                maintainState: true,
-                visible: true,
-                child: Container(
-                    margin: EdgeInsets.only(top: 50, bottom: 30),
-                    child: CircularProgressIndicator()));
+            return loadIndicate();
+
           }
 
           List allUsersInfo = result.data['allUsers'][0]['roles'];
@@ -132,26 +120,14 @@ class _MyHomePageState extends State<ProjectList> {
                   ],
                 ));
           } catch (e) {
-            return Visibility(
-                maintainSize: true,
-                maintainAnimation: true,
-                maintainState: true,
-                visible: true,
-                child: Container(
-                    margin: EdgeInsets.only(top: 50, bottom: 30),
-                    child: CircularProgressIndicator()));
+            return loadIndicate();
+
           }
         },
       );
     } catch (e) {
-      return Visibility(
-          maintainSize: true,
-          maintainAnimation: true,
-          maintainState: true,
-          visible: true,
-          child: Container(
-              margin: EdgeInsets.only(top: 50, bottom: 30),
-              child: CircularProgressIndicator()));
+      return loadIndicate();
+
     }
   }
 /*
@@ -248,30 +224,18 @@ class _MyHomePageState extends State<ProjectList> {
         options: QueryOptions(
           documentNode: gql(GraphQLQueries().allProjectQuery()),
           variables: {'allProjects': 1},
-          pollInterval: 10,
+          pollInterval: 10000,
         ),
         builder: (QueryResult result,
             {VoidCallback refetch, FetchMore fetchMore}) {
           if (result.hasException) {
-            return Visibility(
-                maintainSize: true,
-                maintainAnimation: true,
-                maintainState: true,
-                visible: true,
-                child: Container(
-                    margin: EdgeInsets.only(top: 50, bottom: 30),
-                    child: CircularProgressIndicator()));
+            return loadIndicate();
+
           }
 
           if (result.loading) {
-            return Visibility(
-                maintainSize: true,
-                maintainAnimation: true,
-                maintainState: true,
-                visible: true,
-                child: Container(
-                    margin: EdgeInsets.only(top: 50, bottom: 30),
-                    child: CircularProgressIndicator()));
+            return loadIndicate();
+
           }
 
           List allProjectsJson = result.data['allProjects'];
@@ -295,27 +259,25 @@ class _MyHomePageState extends State<ProjectList> {
                   ],
                 ));
           } catch (e) {
-            return Visibility(
-                maintainSize: true,
-                maintainAnimation: true,
-                maintainState: true,
-                visible: true,
-                child: Container(
-                    margin: EdgeInsets.only(top: 50, bottom: 30),
-                    child: CircularProgressIndicator()));
+            return loadIndicate();
+
           }
         },
       );
     } catch (e) {
-      return Visibility(
-          maintainSize: true,
-          maintainAnimation: true,
-          maintainState: true,
-          visible: true,
-          child: Container(
-              margin: EdgeInsets.only(top: 50, bottom: 30),
-              child: CircularProgressIndicator()));
+      return loadIndicate();
     }
+  }
+
+  Widget loadIndicate(){
+    return Visibility(
+        maintainSize: true,
+        maintainAnimation: true,
+        maintainState: true,
+        visible: true,
+        child: Container(
+            margin: EdgeInsets.only(top: 50, bottom: 30),
+            child: CircularProgressIndicator()));
   }
 
   Widget notifyNum(String rowIdOfProject) {
@@ -324,12 +286,16 @@ class _MyHomePageState extends State<ProjectList> {
         options: QueryOptions(
           documentNode:
               gql(GraphQLQueries().allNotifyFromIdOfProject(rowIdOfProject)),
-          pollInterval: 30,
+          pollInterval: 1000,
         ),
         builder: (QueryResult result,
             {VoidCallback refetch, FetchMore fetchMore}) {
           if (result.hasException) {
-            return loadIndicator();
+            return Text(
+              "0",
+              style: TextStyle(fontSize: 20, color: white),
+              maxLines: 1,
+            );
           }
 
           if (result.loading) {
@@ -350,13 +316,20 @@ class _MyHomePageState extends State<ProjectList> {
               maxLines: 1,
             );
           } catch (e) {
-            return loadIndicator();
+            return Text(
+              "0",
+              style: TextStyle(fontSize: 20, color: white),
+              maxLines: 1,
+            );
           }
         },
       );
     } catch (e) {
-      return loadIndicator();
-    }
+      return Text(
+        "0",
+        style: TextStyle(fontSize: 20, color: white),
+        maxLines: 1,
+      );    }
   }
 
   Widget loadIndicator() {

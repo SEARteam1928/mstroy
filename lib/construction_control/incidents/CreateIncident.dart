@@ -8,6 +8,7 @@ import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:mstroy/mainclasses/WorkWithCamera.dart';
 import 'package:mstroy/mainclasses/constants/GraphQLQueries.dart';
 import 'package:mstroy/mainclasses/constants/MSColors.dart';
+import 'package:mstroy/mainclasses/constants/NormalDate.dart';
 import 'package:mstroy/mainclasses/constants/urls.dart';
 
 class CreateIncident extends StatefulWidget {
@@ -175,44 +176,8 @@ class _CreateIncidentState extends State<CreateIncident> {
                                           Text("Конструктив"),
                                           Text("Конструктив (описание)"),
                                           Text("Вид работ"),
-                                          Text("Дата"),
-                                          MaterialButton(onPressed: () {
-                                            DatePicker.showDatePicker(
-                                              context,
-                                              minDateTime:
-                                                  DateTime.parse(MIN_DATETIME),
-                                              maxDateTime:
-                                                  DateTime.parse(MAX_DATETIME),
-                                              initialDateTime:
-                                                  DateTime.parse(INIT_DATETIME),
-                                              dateFormat: _format,
-                                              locale: _locale,
-                                              pickerTheme: DateTimePickerTheme(
-                                                showTitle: _showTitle,
-                                              ),
-                                              pickerMode:
-                                                  DateTimePickerMode.datetime,
-                                              // show TimePicker
-                                              onCancel: () {
-                                                print('onCancel');
-                                              },
-                                              onChange:
-                                                  (dateTime, List<int> index) {
-                                                setState(() {
-                                                  _dateTime = dateTime;
-                                                });
-                                                print(_dateTime);
-                                              },
-                                              onConfirm:
-                                                  (dateTime, List<int> index) {
-                                                setState(() {
-                                                  _dateTime = dateTime;
-                                                  print(_dateTime);
-                                                });
-                                              },
-                                            );
-                                          }),
-                                          Text("dd.mm.yyyy"),
+                                          Text("Дата", style: TextStyle(fontSize: 20),),
+                                          Text("${NormalDate().formatDateInCreateView(DateTime.now())}", style: TextStyle(fontSize: 20),),
                                           Text("Нарушение зафиксировал"),
                                           Center(
                                               child: new DropdownButton(

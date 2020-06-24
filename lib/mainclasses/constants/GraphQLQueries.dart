@@ -54,18 +54,7 @@ query findAllInspectionRequests {
 query projectsList {
   allProjects{
     name
-    longitude
-    latitude
-    dateBegin
-    dateComplete
-    wasChanged
-    timeZoneOffset
-    outsideId
-    repoId
     shortName
-    cost
-    actualProjectTransactionId
-    characteristics
     rowId
   }
 }
@@ -140,11 +129,9 @@ query findIncidentsFromProjectId {
     work
     name
     descritpion
-    deleted
     stopWorkUntil
     resolveUntil
     recommendation
-    resolved
     category
     manager{
       id

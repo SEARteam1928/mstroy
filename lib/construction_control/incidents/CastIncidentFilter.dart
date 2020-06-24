@@ -168,7 +168,7 @@ class CastIncidentFilterState extends State<CastIncidentFilter> {
       return Query(
         options: QueryOptions(
           documentNode: gql(queryString),
-          pollInterval: 30,
+          pollInterval: 10000,
         ),
         builder: (QueryResult result,
             {VoidCallback refetch, FetchMore fetchMore}) {
@@ -176,14 +176,8 @@ class CastIncidentFilterState extends State<CastIncidentFilter> {
             return Text("Запрос еще не настроен");
           }
           if (result.hasException) {
-            return Visibility(
-                maintainSize: true,
-                maintainAnimation: true,
-                maintainState: true,
-                visible: true,
-                child: Container(
-                    margin: EdgeInsets.only(top: 50, bottom: 30),
-                    child: CircularProgressIndicator()));
+            print(result.exception);
+            return Text("Что-то пошло не так");
           }
 
           if (result.loading) {
@@ -252,27 +246,14 @@ class CastIncidentFilterState extends State<CastIncidentFilter> {
                   ],
                 ));
           } catch (e) {
-            return Visibility(
-                maintainSize: true,
-                maintainAnimation: true,
-                maintainState: true,
-                visible: true,
-                child: Container(
-                    margin: EdgeInsets.only(top: 50, bottom: 30),
-                    child: CircularProgressIndicator()));
+            print(e);
+            return Text("Что-то пошло не так");
           }
         },
       );
     } catch (e) {
       print(e);
-      return Visibility(
-          maintainSize: true,
-          maintainAnimation: true,
-          maintainState: true,
-          visible: true,
-          child: Container(
-              margin: EdgeInsets.only(top: 50, bottom: 30),
-              child: CircularProgressIndicator()));
+      return Text("Что-то пошло не так");
     }
   }
 

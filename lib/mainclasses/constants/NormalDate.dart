@@ -23,4 +23,10 @@ class NormalDate {
       return "${dateSplit[0]}-${dateSplit[1]}-${dateSplit[2]}T${int.parse(timeSplit[0])-5}:${timeSplit[1]}:${timeSplit[2]}+$timezoneOffsetHour:$timezoneOffsetMin";
     }
   }
+
+  String formatDateInCreateView(DateTime dateTime){
+    var datetimeSplitStr = "$dateTime".split(" ");
+    var dateSplit = datetimeSplitStr[0].split("-");
+    return "${dateSplit[2]}.${dateSplit[1]}.${dateSplit[0]}";
+  }
 }

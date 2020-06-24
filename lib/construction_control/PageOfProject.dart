@@ -58,12 +58,17 @@ class _PageOfProjectState extends State<PageOfProject> {
     super.initState();
   }
 
-  var redOpacity = const Color(0x59d40069);
+  var redOpacity = const Color(0x591890FF);
 
   @override
   Widget build(BuildContext context) {
     var buttonWidth = MediaQuery.of(context).size.width - 50;
-    var buttonHeight = (MediaQuery.of(context).size.height / 2 - 105) / 6;
+    var buttonHeight = (MediaQuery.of(context).size.height / 2 - 120) / 6;
+
+    var textColor = newDarkBlue;
+    var trailingBackColor = trailingBackgroundColor;
+    var createButtonColor = newMstroyBlue;
+    var listTileColor = newBackgroundWhite2;
 
     var trailingWidth = 40.toDouble();
     var trailingHeight = 40.toDouble();
@@ -73,16 +78,18 @@ class _PageOfProjectState extends State<PageOfProject> {
     var buttonFontWeight = FontWeight.w200;
     var buttonFontWeight2 = FontWeight.w300;
 
+    var buttonBodrerRadius = BorderRadius.all(Radius.circular(3));
+
     var contentPadding =
         EdgeInsets.only(top: 0, left: 10, right: 10, bottom: 0);
 
     var buttonPadding = EdgeInsets.only(top: 0, bottom: 0);
-    var buttonMargin = EdgeInsets.only(top: 0, bottom: 0);
+    var buttonMargin = EdgeInsets.only(top: 2, bottom: 2);
     var fixButtonMargin =
         EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 10);
 
     return Scaffold(
-        backgroundColor: backgroundWhite,
+        backgroundColor: newBackgroundWhite,
         //AppBar
         appBar: AppBar(
           centerTitle: true,
@@ -110,7 +117,7 @@ class _PageOfProjectState extends State<PageOfProject> {
                 ], borderRadius: BorderRadius.all(Radius.circular(5))),
                 child: Container(
                     decoration: BoxDecoration(
-                        color: backgroundWhite,
+                        color: white,
                         borderRadius: BorderRadius.all(Radius.circular(5))),
                     child: Column(children: <Widget>[
                       Container(
@@ -118,7 +125,7 @@ class _PageOfProjectState extends State<PageOfProject> {
                           child: Text("Нарушения",
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
-                                color: red,
+                                color: textColor,
                                 fontSize: 20,
                               ))),
                       Center(
@@ -128,6 +135,10 @@ class _PageOfProjectState extends State<PageOfProject> {
                           Container(
                             height: buttonHeight,
                             margin: buttonMargin,
+                            decoration: BoxDecoration(
+                              borderRadius: buttonBodrerRadius,
+                              color: listTileColor
+                            ),
                             width: buttonWidth,
                             child: ListTile(
                               onLongPress: () {},
@@ -137,13 +148,13 @@ class _PageOfProjectState extends State<PageOfProject> {
                               },
                               title: Text(
                                 "Неустранённые",
-                                style: TextStyle(color: darkBlue, fontSize: 20),
+                                style: TextStyle(color: textColor, fontSize: 20),
                               ),
                               trailing: Container(
                                 width: trailingWidth,
                                 height: trailingHeight,
                                 decoration: BoxDecoration(
-                                  color: red,
+                                  color: trailingBackColor,
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(10)),
                                 ),
@@ -161,6 +172,10 @@ class _PageOfProjectState extends State<PageOfProject> {
                             height: buttonHeight,
                             margin: buttonMargin,
                             width: buttonWidth,
+                            decoration: BoxDecoration(
+                                borderRadius: buttonBodrerRadius,
+                                color: listTileColor
+                            ),
                             child: ListTile(
                               onLongPress: () {},
                               contentPadding: contentPadding,
@@ -169,13 +184,13 @@ class _PageOfProjectState extends State<PageOfProject> {
                               },
                               title: Text(
                                 "На проверке",
-                                style: TextStyle(color: darkBlue, fontSize: 20),
+                                style: TextStyle(color: textColor, fontSize: 20),
                               ),
                               trailing: Container(
                                 width: trailingWidth,
                                 height: trailingHeight,
                                 decoration: BoxDecoration(
-                                  color: red,
+                                  color: trailingBackColor,
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(10)),
                                 ),
@@ -193,6 +208,10 @@ class _PageOfProjectState extends State<PageOfProject> {
                             height: buttonHeight,
                             margin: buttonMargin,
                             width: buttonWidth,
+                            decoration: BoxDecoration(
+                                borderRadius: buttonBodrerRadius,
+                                color: listTileColor
+                            ),
                             child: ListTile(
                               contentPadding: contentPadding,
                               enabled: true,
@@ -202,13 +221,13 @@ class _PageOfProjectState extends State<PageOfProject> {
                               },
                               title: Text(
                                 "Просрочено",
-                                style: TextStyle(color: darkBlue, fontSize: 20),
+                                style: TextStyle(color: textColor, fontSize: 20),
                               ),
                               trailing: Container(
                                 width: trailingWidth,
                                 height: trailingHeight,
                                 decoration: BoxDecoration(
-                                  color: red,
+                                  color: trailingBackColor,
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(10)),
                                 ),
@@ -226,6 +245,10 @@ class _PageOfProjectState extends State<PageOfProject> {
                             height: buttonHeight,
                             margin: buttonMargin,
                             width: buttonWidth,
+                            decoration: BoxDecoration(
+                                borderRadius: buttonBodrerRadius,
+                                color: listTileColor
+                            ),
                             child: ListTile(
                               enabled: true,
                               onLongPress: () {},
@@ -235,13 +258,13 @@ class _PageOfProjectState extends State<PageOfProject> {
                               },
                               title: Text(
                                 "Все",
-                                style: TextStyle(color: darkBlue, fontSize: 20),
+                                style: TextStyle(color: textColor, fontSize: 20),
                               ),
                               trailing: Container(
                                 width: trailingWidth,
                                 height: trailingHeight,
                                 decoration: BoxDecoration(
-                                  color: red,
+                                  color: trailingBackColor,
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(10)),
                                 ),
@@ -266,16 +289,16 @@ class _PageOfProjectState extends State<PageOfProject> {
                               child: MaterialButton(
                                   shape: RoundedRectangleBorder(
                                       borderRadius:
-                                          BorderRadius.all(Radius.circular(50)),
-                                      side: BorderSide(color: red)),
+                                          BorderRadius.all(Radius.circular(5)),
+                                      side: BorderSide(color: createButtonColor)),
                                   highlightColor: redOpacity,
-                                  disabledTextColor: red,
-                                  hoverColor: red,
-                                  focusColor: red,
+                                  disabledTextColor: createButtonColor,
+                                  hoverColor: createButtonColor,
+                                  focusColor: createButtonColor,
                                   onPressed: () {
                                     _onButtonPressed("Зафиксировать нарушение");
                                   },
-                                  textColor: red,
+                                  textColor: createButtonColor,
                                   color: white,
                                   child: Container(
                                     padding: buttonPadding,
@@ -303,7 +326,7 @@ class _PageOfProjectState extends State<PageOfProject> {
                 ], borderRadius: BorderRadius.all(Radius.circular(5))),
                 child: Container(
                     decoration: BoxDecoration(
-                        color: mstroyBlue,
+                        color: white,
                         borderRadius: BorderRadius.all(Radius.circular(5))),
                     child: Column(children: <Widget>[
                       Container(
@@ -311,7 +334,7 @@ class _PageOfProjectState extends State<PageOfProject> {
                           child: Text("Инспекции",
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
-                                color: white,
+                                color: textColor,
                                 fontSize: 20,
                               ))),
                       Center(
@@ -322,6 +345,10 @@ class _PageOfProjectState extends State<PageOfProject> {
                             height: buttonHeight,
                             margin: buttonMargin,
                             width: buttonWidth,
+                            decoration: BoxDecoration(
+                                borderRadius: buttonBodrerRadius,
+                                color: listTileColor
+                            ),
                             child: ListTile(
                               onLongPress: () {},
                               contentPadding: contentPadding,
@@ -330,13 +357,13 @@ class _PageOfProjectState extends State<PageOfProject> {
                               },
                               title: Text(
                                 "Непринятые",
-                                style: TextStyle(color: white, fontSize: 20),
+                                style: TextStyle(color: textColor, fontSize: 20),
                               ),
                               trailing: Container(
                                 width: trailingWidth,
                                 height: trailingHeight,
                                 decoration: BoxDecoration(
-                                  color: red,
+                                  color: trailingBackColor,
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(10)),
                                 ),
@@ -354,6 +381,10 @@ class _PageOfProjectState extends State<PageOfProject> {
                             height: buttonHeight,
                             margin: buttonMargin,
                             width: buttonWidth,
+                            decoration: BoxDecoration(
+                                borderRadius: buttonBodrerRadius,
+                                color: listTileColor
+                            ),
                             child: ListTile(
                               onLongPress: () {},
                               contentPadding: contentPadding,
@@ -362,13 +393,13 @@ class _PageOfProjectState extends State<PageOfProject> {
                               },
                               title: Text(
                                 "На проверке",
-                                style: TextStyle(color: white, fontSize: 20),
+                                style: TextStyle(color: textColor, fontSize: 20),
                               ),
                               trailing: Container(
                                 width: trailingWidth,
                                 height: trailingHeight,
                                 decoration: BoxDecoration(
-                                  color: red,
+                                  color: trailingBackColor,
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(10)),
                                 ),
@@ -386,6 +417,10 @@ class _PageOfProjectState extends State<PageOfProject> {
                             height: buttonHeight,
                             margin: buttonMargin,
                             width: buttonWidth,
+                            decoration: BoxDecoration(
+                                borderRadius: buttonBodrerRadius,
+                                color: listTileColor
+                            ),
                             child: ListTile(
                               onLongPress: () {},
                               contentPadding: contentPadding,
@@ -394,13 +429,13 @@ class _PageOfProjectState extends State<PageOfProject> {
                               },
                               title: Text(
                                 "Заявки",
-                                style: TextStyle(color: white, fontSize: 20),
+                                style: TextStyle(color: textColor, fontSize: 20),
                               ),
                               trailing: Container(
                                 width: trailingWidth,
                                 height: trailingHeight,
                                 decoration: BoxDecoration(
-                                  color: red,
+                                  color: trailingBackColor,
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(10)),
                                 ),
@@ -418,6 +453,10 @@ class _PageOfProjectState extends State<PageOfProject> {
                             height: buttonHeight,
                             margin: buttonMargin,
                             width: buttonWidth,
+                            decoration: BoxDecoration(
+                                borderRadius: buttonBodrerRadius,
+                                color: listTileColor
+                            ),
                             child: ListTile(
                               onLongPress: () {},
                               contentPadding: contentPadding,
@@ -426,13 +465,13 @@ class _PageOfProjectState extends State<PageOfProject> {
                               },
                               title: Text(
                                 "Все",
-                                style: TextStyle(color: white, fontSize: 20),
+                                style: TextStyle(color: textColor, fontSize: 20),
                               ),
                               trailing: Container(
                                 width: trailingWidth,
                                 height: trailingHeight,
                                 decoration: BoxDecoration(
-                                  color: red,
+                                  color: trailingBackColor,
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(10)),
                                 ),
@@ -457,7 +496,7 @@ class _PageOfProjectState extends State<PageOfProject> {
                                   shape: RoundedRectangleBorder(
                                       borderRadius:
                                           BorderRadius.all(Radius.circular(50)),
-                                      side: BorderSide(color: darkBlue)),
+                                      side: BorderSide(color: newDarkBlue)),
                                   highlightColor: redOpacity,
                                   disabledTextColor: red,
                                   hoverColor: red,
@@ -465,7 +504,7 @@ class _PageOfProjectState extends State<PageOfProject> {
                                   onPressed: () {
                                     _onButtonPressed("Создать инспекцию");
                                   },
-                                  textColor: darkBlue,
+                                  textColor: newDarkBlue,
                                   color: white,
                                   child: Container(
                                     padding: buttonPadding,

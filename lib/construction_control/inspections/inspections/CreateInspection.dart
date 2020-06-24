@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:mstroy/mainclasses/WorkWithCamera.dart';
 import 'package:mstroy/mainclasses/constants/MSColors.dart';
+import 'package:mstroy/mainclasses/constants/NormalDate.dart';
 
 class CreateInspection extends StatefulWidget {
   final String projectName;
@@ -59,7 +60,14 @@ class _CreateInspectionState extends State<CreateInspection> {
                                 children: <Widget>[
                                   Text(" № $index"),
                                   Text("Заявка на инспекцию"),
-                                  Text("Дата"),
+                                  Text(
+                                    "Дата",
+                                    style: TextStyle(fontSize: 20),
+                                  ),
+                                  Text(
+                                    "${NormalDate().formatDateInCreateView(DateTime.now())}",
+                                    style: TextStyle(fontSize: 20),
+                                  ),
                                   Text("Проект"),
                                   Text(projectName),
                                   Text("Тип инспекции"),

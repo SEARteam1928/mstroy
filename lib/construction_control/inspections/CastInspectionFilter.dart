@@ -170,7 +170,7 @@ class CastInspectionFilterState extends State<CastInspectionFilter> {
       return Query(
         options: QueryOptions(
           documentNode: gql(queryString),
-          pollInterval: 30,
+          pollInterval: 10000,
         ),
         builder: (QueryResult result,
             {VoidCallback refetch, FetchMore fetchMore}) {
