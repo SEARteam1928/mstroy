@@ -62,21 +62,22 @@ class _PageOfProjectState extends State<PageOfProject> {
 
   @override
   Widget build(BuildContext context) {
-/*
-    print("${MediaQuery.of(context).size.height - 40}");
-*/
+    var buttonWidth = MediaQuery.of(context).size.width - 50;
+    var buttonHeight = (MediaQuery.of(context).size.height / 2 - 105) / 6;
 
-    var buttonWidth = MediaQuery.of(context).size.width / 3 - 10;
-
-    var buttonHeight = (MediaQuery.of(context).size.height / 2 - 68) / 3;
+    var trailingWidth = 40.toDouble();
+    var trailingHeight = 40.toDouble();
 
     var buttonFontSize = 40.toDouble();
     var buttonInfoFontSize = 14.toDouble();
     var buttonFontWeight = FontWeight.w200;
     var buttonFontWeight2 = FontWeight.w300;
 
-    var buttonPadding = EdgeInsets.only(top: 4, bottom: 4);
-    var buttonMargin = EdgeInsets.only(top: 10, bottom: 10);
+    var contentPadding =
+        EdgeInsets.only(top: 0, left: 10, right: 10, bottom: 0);
+
+    var buttonPadding = EdgeInsets.only(top: 0, bottom: 0);
+    var buttonMargin = EdgeInsets.only(top: 0, bottom: 0);
     var fixButtonMargin =
         EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 10);
 
@@ -118,110 +119,148 @@ class _PageOfProjectState extends State<PageOfProject> {
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 color: red,
-                                fontSize: 30,
+                                fontSize: 20,
                               ))),
                       Center(
                           child: Column(
                         children: <Widget>[
-                          Row(children: <Widget>[
-//Просрочено
-                            Container(
-                                height: buttonHeight,
-                                margin: buttonMargin,
-                                width: buttonWidth,
-                                child: Column(children: <Widget>[
-                                  MaterialButton(
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.all(
-                                            Radius.circular(50)),
-                                      ),
-                                      onPressed: () {
-                                        _onButtonPressed("Просрочено");
-                                      },
-                                      textColor: darkBlue,
-                                      child: Container(
-                                        padding: buttonPadding,
-                                        child: Text(
-                                          "$_allIncidentsCount",
-                                          style: TextStyle(
-                                              fontWeight: buttonFontWeight,
-                                              fontSize: buttonFontSize),
-                                        ),
-                                      )),
-                                  Text(
-                                    "Просрочено",
-                                    style:
-                                        TextStyle(fontSize: buttonInfoFontSize),
-                                  )
-                                ])),
 //Неустранённые
-                            Container(
-                                height: buttonHeight,
-                                margin: buttonMargin,
-                                width: buttonWidth,
-                                child: Column(
-                                  children: <Widget>[
-                                    MaterialButton(
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(50)),
-                                        ),
-                                        onPressed: () {
-                                          _onButtonPressed("Неустранённые");
-                                        },
-                                        textColor: darkBlue,
-                                        child: Container(
-                                          padding: buttonPadding,
-                                          child: Text(
-                                            "$_incidentsOnTheCheckCount",
-                                            style: TextStyle(
-                                                fontWeight: buttonFontWeight,
-                                                fontSize: buttonFontSize),
-                                          ),
-                                        )),
-                                    Text("Неустранённые",
-                                        style: TextStyle(
-                                            fontSize: buttonInfoFontSize))
-                                  ],
-                                )),
+                          Container(
+                            height: buttonHeight,
+                            margin: buttonMargin,
+                            width: buttonWidth,
+                            child: ListTile(
+                              onLongPress: () {},
+                              contentPadding: contentPadding,
+                              onTap: () {
+                                _onButtonPressed("Неустранённые");
+                              },
+                              title: Text(
+                                "Неустранённые",
+                                style: TextStyle(color: darkBlue, fontSize: 20),
+                              ),
+                              trailing: Container(
+                                width: trailingWidth,
+                                height: trailingHeight,
+                                decoration: BoxDecoration(
+                                  color: red,
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10)),
+                                ),
+                                child: Center(
+                                    child: Center(
+                                        child: Text(
+                                  "0",
+                                  style: TextStyle(color: white, fontSize: 20),
+                                ))),
+                              ),
+                            ),
+                          ),
 //На проверке
-                            Container(
-                                height: buttonHeight,
-                                margin: buttonMargin,
-                                width: buttonWidth,
-                                child: Column(
-                                  children: <Widget>[
-                                    MaterialButton(
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(50)),
-                                        ),
-                                        onPressed: () {
-                                          _onButtonPressed(
-                                              "На проверке incident");
-                                        },
-                                        textColor: darkBlue,
-                                        child: Container(
-                                          padding: buttonPadding,
-                                          child: Text(
-                                            "$_incidentsOnTheCheckCount",
-                                            style: TextStyle(
-                                                fontWeight: buttonFontWeight,
-                                                fontSize: buttonFontSize),
-                                          ),
-                                        )),
-                                    Text("На проверке",
-                                        style: TextStyle(
-                                            fontSize: buttonInfoFontSize))
-                                  ],
-                                )),
-                          ]),
+                          Container(
+                            height: buttonHeight,
+                            margin: buttonMargin,
+                            width: buttonWidth,
+                            child: ListTile(
+                              onLongPress: () {},
+                              contentPadding: contentPadding,
+                              onTap: () {
+                                _onButtonPressed("На проверке incident");
+                              },
+                              title: Text(
+                                "На проверке",
+                                style: TextStyle(color: darkBlue, fontSize: 20),
+                              ),
+                              trailing: Container(
+                                width: trailingWidth,
+                                height: trailingHeight,
+                                decoration: BoxDecoration(
+                                  color: red,
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10)),
+                                ),
+                                child: Center(
+                                    child: Center(
+                                        child: Text(
+                                  "0",
+                                  style: TextStyle(color: white, fontSize: 20),
+                                ))),
+                              ),
+                            ),
+                          ),
+//Просрочено
+                          Container(
+                            height: buttonHeight,
+                            margin: buttonMargin,
+                            width: buttonWidth,
+                            child: ListTile(
+                              contentPadding: contentPadding,
+                              enabled: true,
+                              onLongPress: () {},
+                              onTap: () {
+                                _onButtonPressed("Просрочено");
+                              },
+                              title: Text(
+                                "Просрочено",
+                                style: TextStyle(color: darkBlue, fontSize: 20),
+                              ),
+                              trailing: Container(
+                                width: trailingWidth,
+                                height: trailingHeight,
+                                decoration: BoxDecoration(
+                                  color: red,
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10)),
+                                ),
+                                child: Center(
+                                    child: Center(
+                                        child: Text(
+                                  "0",
+                                  style: TextStyle(color: white, fontSize: 20),
+                                ))),
+                              ),
+                            ),
+                          ),
+//Все
+                          Container(
+                            height: buttonHeight,
+                            margin: buttonMargin,
+                            width: buttonWidth,
+                            child: ListTile(
+                              enabled: true,
+                              onLongPress: () {},
+                              contentPadding: contentPadding,
+                              onTap: () {
+                                _onButtonPressed("Все incident");
+                              },
+                              title: Text(
+                                "Все",
+                                style: TextStyle(color: darkBlue, fontSize: 20),
+                              ),
+                              trailing: Container(
+                                width: trailingWidth,
+                                height: trailingHeight,
+                                decoration: BoxDecoration(
+                                  color: red,
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10)),
+                                ),
+                                child: Center(
+                                    child: Center(
+                                        child: Text(
+                                  "0",
+                                  style: TextStyle(color: white, fontSize: 20),
+                                ))),
+                              ),
+                            ),
+                          ),
+
 //Зафиксировать нарушение
                           Container(
                               height: (MediaQuery.of(context).size.height / 2 -
                                           68) /
                                       3 -
-                                  47,
+                                  60,
                               margin: fixButtonMargin,
                               width: MediaQuery.of(context).size.width,
                               child: MaterialButton(
@@ -273,113 +312,145 @@ class _PageOfProjectState extends State<PageOfProject> {
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 color: white,
-                                fontSize: 30,
+                                fontSize: 20,
                               ))),
                       Center(
                           child: Column(
                         children: <Widget>[
-                          Row(children: <Widget>[
-//Просрочено
-                            Container(
-                                height: buttonHeight,
-                                margin: buttonMargin,
-                                width: buttonWidth,
-                                child: Column(children: <Widget>[
-                                  MaterialButton(
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.all(
-                                            Radius.circular(50)),
-                                      ),
-                                      onPressed: () {
-                                        _onButtonPressed("Заявки");
-                                      },
-                                      textColor: white,
-                                      child: Container(
-                                        padding: buttonPadding,
+//Непринятые
+                          Container(
+                            height: buttonHeight,
+                            margin: buttonMargin,
+                            width: buttonWidth,
+                            child: ListTile(
+                              onLongPress: () {},
+                              contentPadding: contentPadding,
+                              onTap: () {
+                                _onButtonPressed("Непринятые");
+                              },
+                              title: Text(
+                                "Непринятые",
+                                style: TextStyle(color: white, fontSize: 20),
+                              ),
+                              trailing: Container(
+                                width: trailingWidth,
+                                height: trailingHeight,
+                                decoration: BoxDecoration(
+                                  color: red,
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10)),
+                                ),
+                                child: Center(
+                                    child: Center(
                                         child: Text(
-                                          "$_registerOfRequestsCount",
-                                          style: TextStyle(
-                                              fontWeight: buttonFontWeight2,
-                                              fontSize: buttonFontSize),
-                                        ),
-                                      )),
-                                  Text(
-                                    "Заявки",
-                                    style: TextStyle(
-                                        fontSize: buttonInfoFontSize,
-                                        color: white),
-                                  )
-                                ])),
-//Неустранённые
-                            Container(
-                                height: buttonHeight,
-                                margin: buttonMargin,
-                                width: buttonWidth,
-                                child: Column(
-                                  children: <Widget>[
-                                    MaterialButton(
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(50)),
-                                        ),
-                                        onPressed: () {
-                                          _onButtonPressed("Непринятые");
-                                        },
-                                        textColor: white,
-                                        child: Container(
-                                          padding: buttonPadding,
-                                          child: Text(
-                                            "$_incidentsOnTheCheckCount",
-                                            style: TextStyle(
-                                                fontWeight: buttonFontWeight2,
-                                                fontSize: buttonFontSize),
-                                          ),
-                                        )),
-                                    Text("Непринятые",
-                                        style: TextStyle(
-                                            fontSize: buttonInfoFontSize,
-                                            color: white))
-                                  ],
-                                )),
+                                  "0",
+                                  style: TextStyle(color: white, fontSize: 20),
+                                ))),
+                              ),
+                            ),
+                          ), //Неустранённые
 //На проверке
-                            Container(
-                                height: buttonHeight,
-                                margin: buttonMargin,
-                                width: buttonWidth,
-                                child: Column(
-                                  children: <Widget>[
-                                    MaterialButton(
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(50)),
-                                        ),
-                                        onPressed: () {
-                                          _onButtonPressed(
-                                              "На проверке inspection");
-                                        },
-                                        textColor: white,
-                                        child: Container(
-                                          padding: buttonPadding,
-                                          child: Text(
-                                            "$_incidentsOnTheCheckCount",
-                                            style: TextStyle(
-                                                fontWeight: buttonFontWeight2,
-                                                fontSize: buttonFontSize),
-                                          ),
-                                        )),
-                                    Text("На проверке",
-                                        style: TextStyle(
-                                            fontSize: buttonInfoFontSize,
-                                            color: white))
-                                  ],
-                                )),
-                          ]),
-//Зафиксировать нарушение
+                          Container(
+                            height: buttonHeight,
+                            margin: buttonMargin,
+                            width: buttonWidth,
+                            child: ListTile(
+                              onLongPress: () {},
+                              contentPadding: contentPadding,
+                              onTap: () {
+                                _onButtonPressed("На проверке inspection");
+                              },
+                              title: Text(
+                                "На проверке",
+                                style: TextStyle(color: white, fontSize: 20),
+                              ),
+                              trailing: Container(
+                                width: trailingWidth,
+                                height: trailingHeight,
+                                decoration: BoxDecoration(
+                                  color: red,
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10)),
+                                ),
+                                child: Center(
+                                    child: Center(
+                                        child: Text(
+                                  "0",
+                                  style: TextStyle(color: white, fontSize: 20),
+                                ))),
+                              ),
+                            ),
+                          ),
+//Заявки
+                          Container(
+                            height: buttonHeight,
+                            margin: buttonMargin,
+                            width: buttonWidth,
+                            child: ListTile(
+                              onLongPress: () {},
+                              contentPadding: contentPadding,
+                              onTap: () {
+                                _onButtonPressed("Заявки");
+                              },
+                              title: Text(
+                                "Заявки",
+                                style: TextStyle(color: white, fontSize: 20),
+                              ),
+                              trailing: Container(
+                                width: trailingWidth,
+                                height: trailingHeight,
+                                decoration: BoxDecoration(
+                                  color: red,
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10)),
+                                ),
+                                child: Center(
+                                    child: Center(
+                                        child: Text(
+                                  "0",
+                                  style: TextStyle(color: white, fontSize: 20),
+                                ))),
+                              ),
+                            ),
+                          ),
+//Все
+                          Container(
+                            height: buttonHeight,
+                            margin: buttonMargin,
+                            width: buttonWidth,
+                            child: ListTile(
+                              onLongPress: () {},
+                              contentPadding: contentPadding,
+                              onTap: () {
+                                _onButtonPressed("Все inspection");
+                              },
+                              title: Text(
+                                "Все",
+                                style: TextStyle(color: white, fontSize: 20),
+                              ),
+                              trailing: Container(
+                                width: trailingWidth,
+                                height: trailingHeight,
+                                decoration: BoxDecoration(
+                                  color: red,
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10)),
+                                ),
+                                child: Center(
+                                    child: Center(
+                                        child: Text(
+                                  "0",
+                                  style: TextStyle(color: white, fontSize: 20),
+                                ))),
+                              ),
+                            ),
+                          ),
+//Создать инспекцию
                           Container(
                               height: (MediaQuery.of(context).size.height / 2 -
                                           68) /
                                       3 -
-                                  47,
+                                  60,
                               margin: fixButtonMargin,
                               width: MediaQuery.of(context).size.width,
                               child: MaterialButton(
@@ -451,6 +522,16 @@ class _PageOfProjectState extends State<PageOfProject> {
           selectFilter: 2,
         ));
         break;
+      case "Все incident":
+        _pushToRegister(CastIncidentFilter(
+          projectName: projectName,
+          rowIdOfProject: rowIdOfProject,
+          idOfProject: idOfProject,
+          graphQLtoken: graphQLtoken,
+          buttonName: "Все",
+          selectFilter: 3,
+        ));
+        break;
       case "Создать инспекцию":
         _pushToRegister(CreateInspection(
             projectName: projectName,
@@ -483,6 +564,16 @@ class _PageOfProjectState extends State<PageOfProject> {
           buttonName: "На проверке",
           graphQLtoken: graphQLtoken,
           selectFilter: 2,
+          idOfProject: idOfProject,
+          rowIdOfProject: rowIdOfProject,
+        ));
+        break;
+      case "Все inspection":
+        _pushToRegister(CastInspectionFilter(
+          projectName: projectName,
+          buttonName: "Все",
+          graphQLtoken: graphQLtoken,
+          selectFilter: 3,
           idOfProject: idOfProject,
           rowIdOfProject: rowIdOfProject,
         ));
