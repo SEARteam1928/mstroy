@@ -2,8 +2,8 @@ import 'dart:core';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:mstroy/mainclasses/constants/OftenAppBar.dart';
 import 'package:mstroy/mainclasses/WorkWithCamera.dart';
-import 'package:mstroy/mainclasses/constants/MSColors.dart';
 import 'package:mstroy/mainclasses/constants/NormalDate.dart';
 
 class CreateInspection extends StatefulWidget {
@@ -34,10 +34,7 @@ class _CreateInspectionState extends State<CreateInspection> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text("Создать заявку"),
-          backgroundColor: mstroyLightBlue,
-        ),
+        appBar: OftenAppBar().create("Создать заявку"),
         body: SingleChildScrollView(
           child: SafeArea(
               child: Column(

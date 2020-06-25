@@ -3,6 +3,7 @@ import 'dart:core';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/widgets.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:mstroy/mainclasses/constants/OftenAppBar.dart';
 import 'package:mstroy/mainclasses/constants/GraphQLQueries.dart';
 import 'package:mstroy/mainclasses/constants/NormalDate.dart';
 import 'package:mstroy/construction_control/ProjectList.dart';
@@ -101,6 +102,7 @@ class CastIncidentFilterState extends State<CastIncidentFilter> {
       yield Padding(
         padding: const EdgeInsets.all(2.0),
         child: FilterChip(
+          backgroundColor: newMstroyBlue,
           label: Text(actor.name),
           selected: _filters.contains(actor.name),
           onSelected: (bool value) {
@@ -139,10 +141,7 @@ class CastIncidentFilterState extends State<CastIncidentFilter> {
     return GraphQLProvider(
         client: client,
         child: Scaffold(
-            appBar: new AppBar(
-              backgroundColor: mstroyLightBlue,
-              title: new Text("Нарушения"),
-            ),
+            appBar: OftenAppBar().create("Нарушения"),
             body: Container(
                 color: backgroundWhite,
                 child: Column(

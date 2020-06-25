@@ -2,7 +2,7 @@ import 'dart:core';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:mstroy/mainclasses/constants/MSColors.dart';
+import 'package:mstroy/mainclasses/constants/OftenAppBar.dart';
 
 class InspectionsEditPage extends StatefulWidget {
   final String projectName;
@@ -55,10 +55,7 @@ class _InspectionsEditPageState extends State<InspectionsEditPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text("Инспекции"),
-          backgroundColor: mstroyLightBlue,
-        ),
+        appBar: OftenAppBar().create("Инспекции"),
         body: SingleChildScrollView(
           child: SafeArea(
               child: Column(

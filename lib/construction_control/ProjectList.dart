@@ -1,6 +1,6 @@
 import 'dart:async';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:mstroy/construction_control/PageOfProject.dart';
 import 'package:mstroy/mainclasses/constants/GraphQLQueries.dart';
@@ -85,8 +85,6 @@ class _MyHomePageState extends State<ProjectList> {
       return Query(
         options: QueryOptions(
           documentNode: gql(GraphQLQueries().userInfo(userEmail)),
-          variables: {'allUsers': 1},
-          pollInterval: 10000,
         ),
         builder: (QueryResult result,
             {VoidCallback refetch, FetchMore fetchMore}) {
@@ -137,6 +135,11 @@ class _MyHomePageState extends State<ProjectList> {
     _widgetOptions = <Widget>[
       projectListWidget(),
       Container(
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
+          decoration: BoxDecoration(
+              color: newBackgroundWhite,
+              borderRadius: BorderRadius.all(Radius.circular(5))),
           margin: EdgeInsets.only(top: 16),
           child: Column(children: <Widget>[
             SingleChildScrollView(
@@ -166,19 +169,32 @@ class _MyHomePageState extends State<ProjectList> {
               )),
             ),
           ])),
-      Text("Hello World")
+      Container(
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
+          decoration: BoxDecoration(color: newBackgroundWhite),
+          child: Text("Hello World"))
     ];
 
     return GraphQLProvider(
         client: client,
         child: Scaffold(
           appBar: AppBar(
+            elevation: 0.0,
+            backgroundColor: newBackgroundWhite,
+            title: Text(
+              "MStroy",
+              style: TextStyle(
+                  color: newDarkBlue,
+                  fontSize: 10 * MediaQuery.of(context).devicePixelRatio),
+            ),
+            iconTheme: IconThemeData(color: newDarkBlue),
             centerTitle: true,
-            title: Text("MStroy"),
-            backgroundColor: mstroyLightBlue,
           ),
           body: Center(
-            child: _widgetOptions.elementAt(_selectedIndex),
+            child: Container(
+                decoration: BoxDecoration(color: newBackgroundWhite),
+                child: _widgetOptions.elementAt(_selectedIndex)),
           ),
           bottomNavigationBar: BottomNavigationBar(
             items: const <BottomNavigationBarItem>[
@@ -196,8 +212,9 @@ class _MyHomePageState extends State<ProjectList> {
               ),
             ],
             currentIndex: _selectedIndex,
-            backgroundColor: mstroyBlue,
-            selectedItemColor: white,
+            backgroundColor: newBackgroundWhite,
+            elevation: 0.0,
+            selectedItemColor: darkBlue,
             onTap: _onItemTapped,
           ),
         ));
@@ -243,7 +260,9 @@ class _MyHomePageState extends State<ProjectList> {
                     SliverList(
                       delegate: SliverChildBuilderDelegate(
                           (BuildContext context, int index) {
+/*
                         print("${allProjectsJson[index]["shortName"]}");
+*/
 
                         if ("${allProjectsJson[index]["shortName"]}" == null ||
                             "${allProjectsJson[index]["shortName"]}" == "" ||

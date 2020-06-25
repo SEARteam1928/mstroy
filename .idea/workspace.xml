@@ -10,21 +10,38 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="169d8321-fc3f-45d4-9f98-3006ea6f6fd7" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/43ae2cba878ea8b4a9953aa0d9f4f993/.filecache" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/43ae2cba878ea8b4a9953aa0d9f4f993/.filecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/43ae2cba878ea8b4a9953aa0d9f4f993/app.dill" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/43ae2cba878ea8b4a9953aa0d9f4f993/app.dill" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/43ae2cba878ea8b4a9953aa0d9f4f993/kernel_snapshot.d" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/43ae2cba878ea8b4a9953aa0d9f4f993/kernel_snapshot.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/43ae2cba878ea8b4a9953aa0d9f4f993/kernel_snapshot.stamp" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/43ae2cba878ea8b4a9953aa0d9f4f993/kernel_snapshot.stamp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/.gradle/5.6.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/5.6.2/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/.gradle/5.6.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/5.6.2/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/.gradle/5.6.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/5.6.2/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/.gradle/5.6.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/5.6.2/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.gradle/5.6.2/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/5.6.2/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/android/local.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_assets/kernel_blob.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_assets/kernel_blob.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_build.d" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_build.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/intermediates/merged_assets/debug/out/flutter_assets/kernel_blob.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/merged_assets/debug/out/flutter_assets/kernel_blob.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/outputs/apk/app.apk" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/outputs/apk/app.apk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/outputs/apk/app.apk.sha1" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/outputs/apk/app.apk.sha1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/outputs/apk/debug/app-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/outputs/apk/debug/app-debug.apk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app-debug.apk" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/cache.dill" beforeDir="false" afterPath="$PROJECT_DIR$/build/cache.dill" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/PageInfo.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/construction_control/PageOfProject.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/construction_control/PageOfProject.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/construction_control/ProjectList.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/construction_control/ProjectList.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/construction_control/incidents/AllIncidentsEditPage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/construction_control/incidents/AllIncidentsEditPage.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/construction_control/incidents/CastIncidentFilter.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/construction_control/incidents/CastIncidentFilter.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/construction_control/incidents/CreateIncident.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/construction_control/incidents/CreateIncident.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/construction_control/inspections/CastInspectionFilter.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/construction_control/inspections/CastInspectionFilter.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/construction_control/inspections/inspections/CreateInspection.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/construction_control/inspections/inspections/CreateInspection.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/construction_control/inspections/inspections/InspectionsEditPage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/construction_control/inspections/inspections/InspectionsEditPage.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/construction_control/inspections/requests_of_inspections/RequestsEditPage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/construction_control/inspections/requests_of_inspections/RequestsEditPage.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/mainclasses/SplashScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/mainclasses/SplashScreen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/mainclasses/constants/GraphQLQueries.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/mainclasses/constants/GraphQLQueries.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/mainclasses/constants/MSColors.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/mainclasses/constants/MSColors.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,9 +79,9 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\AndroidStudioProjects\mstroy\lib\mainclasses\constants" />
       <recent name="D:\AndroidStudioProjects\mstroy\lib\mainclasses" />
       <recent name="D:\AndroidStudioProjects\mstroy\lib\construction_control\incidents" />
-      <recent name="D:\AndroidStudioProjects\mstroy\lib\mainclasses\constants" />
       <recent name="D:\AndroidStudioProjects\mstroy\lib\construction_control\inspections\requests_of_inspections" />
       <recent name="D:\AndroidStudioProjects\mstroy\lib\construction_control\inspections\inspections" />
     </key>
@@ -101,34 +118,34 @@
     </state>
     <state x="2660" y="274" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1592278981561" />
     <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1592478141279" />
-    <state width="1877" height="190" key="GridCell.Tab.0.bottom" timestamp="1593063834954">
+    <state width="1877" height="190" key="GridCell.Tab.0.bottom" timestamp="1593068898704">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1236" height="272" key="GridCell.Tab.0.bottom/0.0.1280.1024@0.0.1280.1024" timestamp="1592147096226" />
     <state width="1877" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1592384162852" />
     <state width="1877" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1592476015256" />
-    <state width="1877" height="190" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1593063834954" />
-    <state width="1877" height="190" key="GridCell.Tab.0.center" timestamp="1593063834953">
+    <state width="1877" height="190" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1593068898704" />
+    <state width="1877" height="190" key="GridCell.Tab.0.center" timestamp="1593068898704">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1236" height="272" key="GridCell.Tab.0.center/0.0.1280.1024@0.0.1280.1024" timestamp="1592147096226" />
     <state width="1877" height="281" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1592384162852" />
     <state width="1877" height="281" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1592476015256" />
-    <state width="1877" height="190" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1593063834953" />
-    <state width="1877" height="190" key="GridCell.Tab.0.left" timestamp="1593063834953">
+    <state width="1877" height="190" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1593068898704" />
+    <state width="1877" height="190" key="GridCell.Tab.0.left" timestamp="1593068898704">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1236" height="272" key="GridCell.Tab.0.left/0.0.1280.1024@0.0.1280.1024" timestamp="1592147096226" />
     <state width="1877" height="281" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1592384162852" />
     <state width="1877" height="281" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1592476015256" />
-    <state width="1877" height="190" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1593063834953" />
-    <state width="1877" height="190" key="GridCell.Tab.0.right" timestamp="1593063834953">
+    <state width="1877" height="190" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1593068898704" />
+    <state width="1877" height="190" key="GridCell.Tab.0.right" timestamp="1593068898704">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1236" height="272" key="GridCell.Tab.0.right/0.0.1280.1024@0.0.1280.1024" timestamp="1592147096226" />
     <state width="1877" height="281" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1592384162852" />
     <state width="1877" height="281" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1592476015256" />
-    <state width="1877" height="190" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1593063834953" />
+    <state width="1877" height="190" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1593068898704" />
     <state x="2460" y="263" key="IDE.errors.dialog" timestamp="1592190893477">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
@@ -148,6 +165,10 @@
     <state x="335" y="334" key="com.intellij.ide.util.TipDialog/0.0.1280.1024@0.0.1280.1024" timestamp="1592152750554" />
     <state x="2423" y="339" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1592450189676" />
     <state x="503" y="339" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1593054516180" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1593068367556">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1593068367556" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1592974701182">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

@@ -21,6 +21,5 @@ var leadingBlue = const Color(0xFF1890FF);
 var white = Colors.white;
 var backgroundWhite = const Color(0xFFF4F7FA);
 var greyOpacity0_5 = Colors.grey.withOpacity(0.5);
-
 var newBackgroundWhite = const Color(0xFFE5E5E5);
 var newBackgroundWhite2 = const Color(0xFFF7F9FC);

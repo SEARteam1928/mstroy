@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:mstroy/mainclasses/constants/OftenAppBar.dart';
 import 'package:mstroy/mainclasses/WorkWithCamera.dart';
 import 'package:mstroy/mainclasses/constants/GraphQLQueries.dart';
 import 'package:mstroy/mainclasses/constants/MSColors.dart';
@@ -134,10 +135,7 @@ class _CreateIncidentState extends State<CreateIncident> {
             QueryResult result,
           ) {
             return Scaffold(
-                appBar: AppBar(
-                  title: Text("Нарушение"),
-                  backgroundColor: mstroyLightBlue,
-                ),
+                appBar: OftenAppBar().create("Нарушение"),
                 body: SingleChildScrollView(
                   child: SafeArea(
                       child: Column(

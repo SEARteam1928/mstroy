@@ -3,6 +3,7 @@ import 'dart:core';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/widgets.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:mstroy/mainclasses/constants/OftenAppBar.dart';
 import 'package:mstroy/construction_control/inspections/requests_of_inspections/RequestsEditPage.dart';
 import 'package:mstroy/mainclasses/constants/GraphQLQueries.dart';
 import 'package:mstroy/mainclasses/constants/NormalDate.dart';
@@ -141,10 +142,7 @@ class CastInspectionFilterState extends State<CastInspectionFilter> {
     return GraphQLProvider(
         client: client,
         child: Scaffold(
-            appBar: new AppBar(
-              backgroundColor: mstroyLightBlue,
-              title: new Text("Инспекции"),
-            ),
+            appBar: OftenAppBar().create("Инспекции"),
             body: Container(
                 color: backgroundWhite,
                 child: Column(

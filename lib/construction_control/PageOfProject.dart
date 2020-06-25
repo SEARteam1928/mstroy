@@ -1,9 +1,11 @@
+import 'dart:async';
 import 'dart:core';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:mstroy/mainclasses/constants/OftenAppBar.dart';
 import 'package:mstroy/construction_control/incidents/CastIncidentFilter.dart';
 import 'package:mstroy/construction_control/inspections/CastInspectionFilter.dart';
 import 'package:mstroy/construction_control/inspections/inspections/CreateInspection.dart';
@@ -119,25 +121,8 @@ class _PageOfProjectState extends State<PageOfProject> {
     });
 
     var leadingMargin = EdgeInsets.only(left: 12, bottom: 4 * devicePR / 2);
-
     var buttonMargin = EdgeInsets.only(top: 0, bottom: 4 * devicePR / 2);
-
-/*
-    var buttonPadding = EdgeInsets.only(top: 6 * devicePR / 2, bottom: 6 * devicePR / 2);
-*/
     var buttonPadding = EdgeInsets.only(top: 0, bottom: 4 * devicePR / 2);
-
-/*
-    Fluttertoast.showToast(
-        msg:
-            "$devicePR \n ${devicePR * width} \n ${devicePR * height} \n $width \n $height \n ${devicePR * 17} \n ${276 * devicePR / 2}",
-        toastLength: Toast.LENGTH_SHORT,
-        gravity: ToastGravity.TOP,
-        timeInSecForIosWeb: 1,
-        backgroundColor: lightBlue,
-        textColor: Colors.white,
-        fontSize: 16.0);
-*/
 
     var buttonWidth = 318.toDouble() / devicePR * 3;
     var buttonHeight = 35.toDouble() * devicePR / 2 + 2;
@@ -150,16 +135,8 @@ class _PageOfProjectState extends State<PageOfProject> {
         child: Scaffold(
             backgroundColor: newBackgroundWhite,
             //AppBar
-            appBar: AppBar(
-              elevation: 0.0,
-              iconTheme: IconThemeData(color: newDarkBlue),
-              title: Text(
-                shortName,
-                style:
-                    TextStyle(color: newDarkBlue, fontSize: 14 * devicePR / 2),
-              ),
-              backgroundColor: newBackgroundWhite,
-            ),
+            appBar: OftenAppBar().create(shortName),
+
             //Body
             body: SafeArea(
                 child: Container(
@@ -818,6 +795,8 @@ class _PageOfProjectState extends State<PageOfProject> {
         builder: (QueryResult result,
             {VoidCallback refetch, FetchMore fetchMore}) {
           if (result.hasException) {
+            Timer(Duration(seconds: 5), () async {});
+
             print(result.exception);
             return Text(
               "?1",
@@ -827,12 +806,14 @@ class _PageOfProjectState extends State<PageOfProject> {
           }
 
           if (result.loading) {
+            Timer(Duration(seconds: 5), () async {});
             return loadIndicator();
           }
           List allIncidentsJson = result.data['allIncidents'];
 
           try {
             var notifyLength = allIncidentsJson.length;
+            print("$notifyLength");
             return Text(
               "$notifyLength",
               style: TextStyle(color: white, fontSize: trailingTextSize),
@@ -840,6 +821,7 @@ class _PageOfProjectState extends State<PageOfProject> {
             );
           } catch (e) {
             print(e.toString());
+            Timer(Duration(seconds: 5), () async {});
             return Text(
               "?2",
               style: TextStyle(color: white, fontSize: trailingTextSize),
