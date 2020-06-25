@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:mstroy/construction_control/PageOfProject.dart';
 import 'package:mstroy/mainclasses/constants/GraphQLQueries.dart';
@@ -219,8 +220,7 @@ class _MyHomePageState extends State<ProjectList> {
       return Query(
         options: QueryOptions(
           documentNode: gql(GraphQLQueries().allProjectQuery()),
-          variables: {'allProjects': 1},
-          pollInterval: 10000,
+          pollInterval: 20000,
         ),
         builder: (QueryResult result,
             {VoidCallback refetch, FetchMore fetchMore}) {
@@ -243,11 +243,26 @@ class _MyHomePageState extends State<ProjectList> {
                     SliverList(
                       delegate: SliverChildBuilderDelegate(
                           (BuildContext context, int index) {
-                        return card(
-                            "${allProjectsJson[index]["name"]}",
-                            "$index",
-                            "${allProjectsJson[index]["rowId"]}",
-                            "${allProjectsJson[index]["id"]}");
+                        print("${allProjectsJson[index]["shortName"]}");
+
+                        if ("${allProjectsJson[index]["shortName"]}" == null ||
+                            "${allProjectsJson[index]["shortName"]}" == "" ||
+                            "${allProjectsJson[index]["shortName"]}" ==
+                                "null") {
+                          return card(
+                              "${allProjectsJson[index]["name"]}",
+                              "${allProjectsJson[index]["name"]}",
+                              "$index",
+                              "${allProjectsJson[index]["rowId"]}",
+                              "${allProjectsJson[index]["id"]}");
+                        } else {
+                          return card(
+                              "${allProjectsJson[index]["name"]}",
+                              "${allProjectsJson[index]["shortName"]}",
+                              "$index",
+                              "${allProjectsJson[index]["rowId"]}",
+                              "${allProjectsJson[index]["id"]}");
+                        }
                       }, childCount: allProjectsJson.length),
                     )
                   ],
@@ -354,8 +369,8 @@ class _MyHomePageState extends State<ProjectList> {
     Navigator.of(context).pushReplacementNamed(authorizationRoute);
   }
 
-  Widget card(String text, String trailingText, String rowIdOfProject,
-          String idOfProject) =>
+  Widget card(String text, String shortName, String trailingText,
+          String rowIdOfProject, String idOfProject) =>
       Container(
         height: 100,
         child: Card(
@@ -365,6 +380,7 @@ class _MyHomePageState extends State<ProjectList> {
               Navigator.of(context).push(MaterialPageRoute(
                   builder: (context) => PageOfProject(
                         projectName: "$text",
+                        shortName: shortName,
                         graphQLtoken: graphQLtoken.toString(),
                         rowIdOfProject: rowIdOfProject,
                         idOfProject: idOfProject,

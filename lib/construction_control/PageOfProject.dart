@@ -14,12 +14,14 @@ import 'package:mstroy/mainclasses/constants/urls.dart';
 
 class PageOfProject extends StatefulWidget {
   final String projectName;
+  final String shortName;
   final String graphQLtoken;
   final String rowIdOfProject;
   final String idOfProject;
 
   PageOfProject(
       {this.projectName,
+      this.shortName,
       this.graphQLtoken,
       this.rowIdOfProject,
       this.idOfProject});
@@ -33,6 +35,7 @@ class PageOfProject extends StatefulWidget {
     } else {
       return _PageOfProjectState(
           projectName: projectName,
+          shortName: shortName,
           graphQLtoken: graphQLtoken,
           rowIdOfProject: rowIdOfProject,
           idOfProject: idOfProject);
@@ -54,9 +57,11 @@ ValueNotifier<GraphQLClient> client = ValueNotifier(
   ),
 );
 final Link link = authLink.concat(httpLink);
+double devicePR = 0.0;
 
 class _PageOfProjectState extends State<PageOfProject> {
   final String projectName;
+  final String shortName;
   final String graphQLtoken;
   int _allIncidentsCount = 0;
   int _incidentsOnTheCheckCount = 0;
@@ -67,6 +72,7 @@ class _PageOfProjectState extends State<PageOfProject> {
 
   _PageOfProjectState(
       {this.projectName,
+      this.shortName,
       this.graphQLtoken,
       this.rowIdOfProject,
       this.idOfProject});
@@ -77,38 +83,66 @@ class _PageOfProjectState extends State<PageOfProject> {
   }
 
   var redOpacity = const Color(0x591890FF);
+
   var textColor = newDarkBlue;
-  var textSize = 14.toDouble();
   var trailingBackColor = trailingBackgroundColor;
   var createButtonColor = newMstroyBlue;
   var listTileColor = newBackgroundWhite2;
-
   var trailingBorderRadius = BorderRadius.all(Radius.circular(50));
-  var trailingTextSize = 14.toDouble();
-
-  var leadingMargin = EdgeInsets.only(left: 12);
-  var leadingWidth = 6.toDouble();
   var leadingBorderRadius = BorderRadius.only(
       bottomLeft: Radius.circular(4), topLeft: Radius.circular(4));
-  var buttonBodrerRadius = BorderRadius.all(Radius.circular(4));
-  var buttonFontSize = 40.toDouble();
-  var buttonInfoFontSize = 14.toDouble();
+  var buttonBodrerRadius = BorderRadius.only(
+      bottomRight: Radius.circular(4), topRight: Radius.circular(4));
+
   var buttonFontWeight = FontWeight.w200;
   var buttonFontWeight2 = FontWeight.w300;
 
-  var contentPadding = EdgeInsets.only(top: 0, left: 15, right: 10, bottom: 0);
-
-  var buttonPadding = EdgeInsets.only(top: 0, bottom: 0);
-  var buttonMargin = EdgeInsets.only(top: 0, bottom: 0);
-  var fixButtonMargin =
-      EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 10);
-
   @override
   Widget build(BuildContext context) {
-    var buttonWidth = 318.toDouble();
-    var buttonHeight = 35.toDouble();
-    var trailingWidth = 36.toDouble();
-    var trailingHeight = 23.toDouble();
+    devicePR = MediaQuery.of(context).devicePixelRatio;
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
+    var textSize = 14.toDouble() * devicePR / 2;
+    var leadingWidth = 6.toDouble() * devicePR / 2;
+    var buttonFontSize = 40.toDouble() * devicePR / 2;
+    var contentPadding =
+        EdgeInsets.only(top: 0, left: 15, right: 10, bottom: 4 * devicePR / 2);
+    var fixButtonMargin = EdgeInsets.only(
+        left: 10, right: 10, top: 18, bottom: 12 * devicePR / 2);
+    var fixButtonSize = 14.toDouble() * devicePR / 2.1;
+    var trailingTextSize = 14.toDouble() * devicePR;
+    trailingTextSize = 14.toDouble() * devicePR / 2;
+
+    setState(() {
+      devicePR = MediaQuery.of(context).devicePixelRatio;
+      trailingTextSize = 14.toDouble() * devicePR / 2;
+    });
+
+    var leadingMargin = EdgeInsets.only(left: 12, bottom: 4 * devicePR / 2);
+
+    var buttonMargin = EdgeInsets.only(top: 0, bottom: 4 * devicePR / 2);
+
+/*
+    var buttonPadding = EdgeInsets.only(top: 6 * devicePR / 2, bottom: 6 * devicePR / 2);
+*/
+    var buttonPadding = EdgeInsets.only(top: 0, bottom: 4 * devicePR / 2);
+
+/*
+    Fluttertoast.showToast(
+        msg:
+            "$devicePR \n ${devicePR * width} \n ${devicePR * height} \n $width \n $height \n ${devicePR * 17} \n ${276 * devicePR / 2}",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.TOP,
+        timeInSecForIosWeb: 1,
+        backgroundColor: lightBlue,
+        textColor: Colors.white,
+        fontSize: 16.0);
+*/
+
+    var buttonWidth = 318.toDouble() / devicePR * 3;
+    var buttonHeight = 35.toDouble() * devicePR / 2 + 2;
+    var trailingWidth = 36.toDouble() * devicePR / 2;
+    var trailingHeight = 23.toDouble() * devicePR / 2;
     var leadingHeight = buttonHeight;
 
     return GraphQLProvider(
@@ -117,9 +151,14 @@ class _PageOfProjectState extends State<PageOfProject> {
             backgroundColor: newBackgroundWhite,
             //AppBar
             appBar: AppBar(
-              centerTitle: true,
-              title: Text(projectName),
-              backgroundColor: newMstroyBlue,
+              elevation: 0.0,
+              iconTheme: IconThemeData(color: newDarkBlue),
+              title: Text(
+                shortName,
+                style:
+                    TextStyle(color: newDarkBlue, fontSize: 14 * devicePR / 2),
+              ),
+              backgroundColor: newBackgroundWhite,
             ),
             //Body
             body: SafeArea(
@@ -130,8 +169,8 @@ class _PageOfProjectState extends State<PageOfProject> {
               children: <Widget>[
                 //IncidentContainer
                 Container(
-                    height: 276,
-                    width: 339,
+                    height: 276 * devicePR / 2,
+                    width: 339 * devicePR,
                     margin: EdgeInsets.only(
                         top: 10, left: 10, right: 10, bottom: 10),
                     decoration: BoxDecoration(
@@ -142,13 +181,15 @@ class _PageOfProjectState extends State<PageOfProject> {
                             borderRadius: BorderRadius.all(Radius.circular(5))),
                         child: Column(children: <Widget>[
                           Container(
-                              height: 26,
-                              margin: EdgeInsets.only(top: 17, bottom: 15.1),
+                              height: 26 * devicePR / 2,
+                              margin: EdgeInsets.only(
+                                  top: 17 * devicePR / 3,
+                                  bottom: 15.1 * devicePR / 3),
                               child: Text("Нарушения",
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     color: textColor,
-                                    fontSize: 18,
+                                    fontSize: 18 * devicePR / 2,
                                   ))),
                           Center(
                               child: Column(
@@ -195,8 +236,9 @@ class _PageOfProjectState extends State<PageOfProject> {
                                         ),
                                         child: Center(
                                             child: Center(
-                                                child:
-                                                    notifyNum("$idOfProject"))),
+                                                child: allNotifyNumIncidents(
+                                                    "$rowIdOfProject",
+                                                    trailingTextSize))),
                                       ),
                                     ),
                                   ),
@@ -368,6 +410,7 @@ class _PageOfProjectState extends State<PageOfProject> {
                                   margin: fixButtonMargin,
                                   width: MediaQuery.of(context).size.width,
                                   child: MaterialButton(
+                                      elevation: 0.0,
                                       shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.all(
                                             Radius.circular(7)),
@@ -383,8 +426,8 @@ class _PageOfProjectState extends State<PageOfProject> {
                                         child: Text(
                                           "Зафиксировать нарушение",
                                           style: TextStyle(
-                                              fontWeight: FontWeight.w400,
-                                              fontSize: 18),
+                                              fontWeight: FontWeight.w300,
+                                              fontSize: fixButtonSize),
                                         ),
                                       ))),
                             ],
@@ -392,7 +435,8 @@ class _PageOfProjectState extends State<PageOfProject> {
                         ]))),
 
                 Container(
-                    height: MediaQuery.of(context).size.height / 2 - 68,
+                    height: 276 * devicePR / 2,
+                    width: 339 * devicePR,
                     margin: EdgeInsets.only(
                         top: 10, left: 10, right: 10, bottom: 10),
                     decoration: BoxDecoration(
@@ -403,12 +447,15 @@ class _PageOfProjectState extends State<PageOfProject> {
                             borderRadius: BorderRadius.all(Radius.circular(5))),
                         child: Column(children: <Widget>[
                           Container(
-                              padding: EdgeInsets.only(bottom: 10, top: 20),
+                              height: 26 * devicePR / 2,
+                              margin: EdgeInsets.only(
+                                  top: 17 * devicePR / 3,
+                                  bottom: 15.1 * devicePR / 3),
                               child: Text("Инспекции",
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     color: textColor,
-                                    fontSize: 27,
+                                    fontSize: 18 * devicePR / 2,
                                   ))),
                           Center(
                               child: Column(
@@ -454,12 +501,8 @@ class _PageOfProjectState extends State<PageOfProject> {
                                         ),
                                         child: Center(
                                             child: Center(
-                                          child: Text(
-                                            "0",
-                                            style: TextStyle(
-                                                color: white,
-                                                fontSize: trailingTextSize),
-                                          ),
+                                          child: allNotifyNumInspections(
+                                              rowIdOfProject, trailingTextSize),
                                         )),
                                       ),
                                     ),
@@ -629,6 +672,7 @@ class _PageOfProjectState extends State<PageOfProject> {
                                   margin: fixButtonMargin,
                                   width: MediaQuery.of(context).size.width,
                                   child: MaterialButton(
+                                      elevation: 0.0,
                                       shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.all(
                                             Radius.circular(7)),
@@ -643,8 +687,8 @@ class _PageOfProjectState extends State<PageOfProject> {
                                         child: Text(
                                           "Создать заявку на инспекцию",
                                           style: TextStyle(
-                                              fontWeight: FontWeight.w400,
-                                              fontSize: 18),
+                                              fontWeight: FontWeight.w300,
+                                              fontSize: fixButtonSize),
                                         ),
                                       ))),
                             ],
@@ -763,7 +807,7 @@ class _PageOfProjectState extends State<PageOfProject> {
     }
   }
 
-  Widget notifyNum(String rowIdOfProject) {
+  Widget allNotifyNumIncidents(String rowIdOfProject, double trailingTextSize) {
     try {
       return Query(
         options: QueryOptions(
@@ -774,8 +818,9 @@ class _PageOfProjectState extends State<PageOfProject> {
         builder: (QueryResult result,
             {VoidCallback refetch, FetchMore fetchMore}) {
           if (result.hasException) {
+            print(result.exception);
             return Text(
-              "0",
+              "?1",
               style: TextStyle(color: white, fontSize: trailingTextSize),
               maxLines: 1,
             );
@@ -794,6 +839,61 @@ class _PageOfProjectState extends State<PageOfProject> {
               maxLines: 1,
             );
           } catch (e) {
+            print(e.toString());
+            return Text(
+              "?2",
+              style: TextStyle(color: white, fontSize: trailingTextSize),
+              maxLines: 1,
+            );
+          }
+        },
+      );
+    } catch (e) {
+      print(e.toString());
+      return Text(
+        "?3",
+        style: TextStyle(color: white, fontSize: trailingTextSize),
+        maxLines: 1,
+      );
+    }
+  }
+
+  Widget allNotifyNumInspections(
+      String rowIdOfProject, double trailingTextSize) {
+    try {
+      return Query(
+        options: QueryOptions(
+          documentNode: gql(
+              GraphQLQueries().inspectionNotifyFromIdOfProject(rowIdOfProject)),
+          pollInterval: 1000,
+        ),
+        builder: (QueryResult result,
+            {VoidCallback refetch, FetchMore fetchMore}) {
+          if (result.hasException) {
+            print(result.exception);
+            return Text(
+              "0",
+              style: TextStyle(color: white, fontSize: trailingTextSize),
+              maxLines: 1,
+            );
+          }
+
+          if (result.loading) {
+            return loadIndicator();
+          }
+          List allInspectionsJson = result.data['allInspections'];
+          List allInspectionRequestJson = result.data['allInspectionRequests'];
+
+          try {
+            var notifyLength =
+                allInspectionsJson.length + allInspectionRequestJson.length;
+            return Text(
+              "$notifyLength",
+              style: TextStyle(color: white, fontSize: trailingTextSize),
+              maxLines: 1,
+            );
+          } catch (e) {
+            print(e.toString());
             return Text(
               "0",
               style: TextStyle(color: white, fontSize: trailingTextSize),
@@ -803,6 +903,7 @@ class _PageOfProjectState extends State<PageOfProject> {
         },
       );
     } catch (e) {
+      print(e.toString());
       return Text(
         "0",
         style: TextStyle(color: white, fontSize: trailingTextSize),

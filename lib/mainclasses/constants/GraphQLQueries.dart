@@ -175,6 +175,7 @@ allUsers(filters: {EmailEq: "$email"}){
   query allProjectQuery {
    allProjects{
      id
+     shortName
      rowId
      name
     }
@@ -201,12 +202,25 @@ allUsers(filters: {EmailEq: "$email"}){
 
   String incidentNotifyFromIdOfProject(projectRowId) {
     return """
-    query q{
+    query q1{
   allIncidents(filters: {projectIdEq:$projectRowId}){
     rowId
   }
 }
 
+    """;
+  }
+
+  String inspectionNotifyFromIdOfProject(projectRowId) {
+    return """
+query q2{
+  allInspectionRequests(filters: {projectIdEq: 1}){
+    rowId
+  }
+  allInspections(filters: {projectIdEq: 1}){
+    rowId
+  }
+}
     """;
   }
 
