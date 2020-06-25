@@ -122,13 +122,121 @@ class _PageOfProjectState extends State<PageOfProject> {
 
     var leadingMargin = EdgeInsets.only(left: 12, bottom: 4 * devicePR / 2);
     var buttonMargin = EdgeInsets.only(top: 0, bottom: 4 * devicePR / 2);
-    var buttonPadding = EdgeInsets.only(top: 0, bottom: 4 * devicePR / 2);
+    var buttonPadding =
+        EdgeInsets.only(top: 4 * devicePR / 2, bottom: 4 * devicePR / 2);
 
     var buttonWidth = 318.toDouble() / devicePR * 3;
     var buttonHeight = 35.toDouble() * devicePR / 2 + 2;
     var trailingWidth = 36.toDouble() * devicePR / 2;
     var trailingHeight = 23.toDouble() * devicePR / 2;
     var leadingHeight = buttonHeight;
+
+    Widget buttonRow(leadingColor, buttonPressedText, buttonText, fontWeight,
+        notifyWidget, trailingBackgroundColor) {
+      return Row(
+        children: <Widget>[
+          Container(
+            margin: leadingMargin,
+            height: leadingHeight,
+            width: leadingWidth,
+            decoration: BoxDecoration(
+                color: leadingColor, borderRadius: leadingBorderRadius),
+          ),
+          Container(
+              height: buttonHeight,
+              margin: buttonMargin,
+              width: buttonWidth,
+              decoration: BoxDecoration(
+                  borderRadius: buttonBodrerRadius, color: listTileColor),
+              child: Container(
+                  child: Row(children: <Widget>[
+                Container(
+                  padding: EdgeInsets.only(left: 5),
+                  width: (172 + 60) * devicePR / 2,
+                  child: MaterialButton(
+                    onLongPress: () {},
+                    onPressed: () {
+                      _onButtonPressed(buttonPressedText);
+                    },
+                    child: Align(
+                      child: Text(
+                        buttonText,
+                        style: TextStyle(
+                            color: textColor,
+                            fontSize: textSize,
+                            fontWeight: fontWeight),
+                      ),
+                      alignment: Alignment.centerLeft,
+                    ),
+                  ),
+                ),
+                Container(
+                    width: trailingWidth,
+                    height: trailingHeight,
+                    decoration: BoxDecoration(
+                      color: trailingBackgroundColor,
+                      borderRadius: trailingBorderRadius,
+                    ),
+                    child: Center(
+                      child: notifyWidget,
+                    )),
+              ]))),
+        ],
+      );
+    }
+
+    Widget buttonRowAll(leadingColor, buttonPressedText, buttonText, fontWeight,
+        notifyWidget, trailingBackgroundColor) {
+      return Row(
+        children: <Widget>[
+          Container(
+            margin: leadingMargin,
+            height: leadingHeight,
+            width: leadingWidth,
+            decoration: BoxDecoration(
+                color: leadingColor, borderRadius: leadingBorderRadius),
+          ),
+          Container(
+              height: buttonHeight,
+              margin: buttonMargin,
+              width: buttonWidth,
+              decoration: BoxDecoration(
+                  borderRadius: buttonBodrerRadius, color: listTileColor),
+              child: Container(
+                  child: Row(children: <Widget>[
+                Container(
+                  width: (172 + 60) * devicePR / 2,
+                  child: MaterialButton(
+                    onLongPress: () {},
+                    onPressed: () {
+                      _onButtonPressed(buttonPressedText);
+                    },
+                    child: Align(
+                      child: Text(
+                        buttonText,
+                        style: TextStyle(
+                            color: textColor,
+                            fontSize: textSize,
+                            fontWeight: fontWeight),
+                      ),
+                      alignment: Alignment.centerLeft,
+                    ),
+                  ),
+                ),
+                Container(
+                    width: trailingWidth,
+                    height: trailingHeight,
+                    decoration: BoxDecoration(
+                      color: trailingBackgroundColor,
+                      borderRadius: trailingBorderRadius,
+                    ),
+                    child: Center(
+                      child: notifyWidget,
+                    )),
+              ]))),
+        ],
+      );
+    }
 
     return GraphQLProvider(
         client: client,
@@ -173,215 +281,53 @@ class _PageOfProjectState extends State<PageOfProject> {
                             children: <Widget>[
 //Неустранённые
 
-                              Row(
-                                children: <Widget>[
-                                  Container(
-                                    margin: leadingMargin,
-                                    height: leadingHeight,
-                                    width: leadingWidth,
-                                    decoration: BoxDecoration(
-                                        color: listTileColor,
-                                        borderRadius: leadingBorderRadius),
+                              buttonRow(
+                                  listTileColor,
+                                  "Просрочено",
+                                  "Просрочено",
+                                  FontWeight.w600,
+                                  Text(
+                                    "0",
+                                    style: TextStyle(
+                                        color: white,
+                                        fontSize: trailingTextSize),
                                   ),
-                                  Container(
-                                    height: buttonHeight,
-                                    margin: buttonMargin,
-                                    width: buttonWidth,
-                                    decoration: BoxDecoration(
-                                        borderRadius: buttonBodrerRadius,
-                                        color: listTileColor),
-                                    child: ListTile(
-                                      enabled: true,
-                                      onLongPress: () {},
-                                      contentPadding: contentPadding,
-                                      onTap: () {
-                                        _onButtonPressed("Все incident");
-                                      },
-                                      title: Text(
-                                        "Общее количество",
-                                        style: TextStyle(
-                                            color: textColor,
-                                            fontSize: textSize,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                      trailing: Container(
-                                        width: trailingWidth,
-                                        height: trailingHeight,
-                                        decoration: BoxDecoration(
-                                          color: trailingBackColor,
-                                          borderRadius: trailingBorderRadius,
-                                        ),
-                                        child: Center(
-                                            child: Center(
-                                                child: allNotifyNumIncidents(
-                                                    "$rowIdOfProject",
-                                                    trailingTextSize))),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
+                                  redTrailing),
 
-                              Row(
-                                children: <Widget>[
-                                  Container(
-                                    margin: leadingMargin,
-                                    height: leadingHeight,
-                                    width: leadingWidth,
-                                    decoration: BoxDecoration(
-                                        color: leadingRed,
-                                        borderRadius: leadingBorderRadius),
+                              buttonRow(
+                                  listTileColor,
+                                  "Неустранённые",
+                                  "Неустранённые",
+                                  FontWeight.w600,
+                                  Text(
+                                    "0",
+                                    style: TextStyle(
+                                        color: white,
+                                        fontSize: trailingTextSize),
                                   ),
-                                  Container(
-                                    height: buttonHeight,
-                                    margin: buttonMargin,
-                                    width: buttonWidth,
-                                    decoration: BoxDecoration(
-                                        borderRadius: buttonBodrerRadius,
-                                        color: listTileColor),
-                                    child: ListTile(
-                                      contentPadding: contentPadding,
-                                      enabled: true,
-                                      onLongPress: () {},
-                                      onTap: () {
-                                        _onButtonPressed("Просрочено");
-                                      },
-                                      title: Text(
-                                        "Просрочено",
-                                        style: TextStyle(
-                                            color: textColor,
-                                            fontSize: textSize,
-                                            fontWeight: FontWeight.w600),
-                                      ),
-                                      trailing: Container(
-                                        width: trailingWidth,
-                                        height: trailingHeight,
-                                        decoration: BoxDecoration(
-                                          color: trailingBackColor,
-                                          borderRadius: trailingBorderRadius,
-                                        ),
-                                        child: Center(
-                                            child: Center(
-                                                child: Text(
-                                          "0",
-                                          style: TextStyle(
-                                              color: white,
-                                              fontSize: trailingTextSize),
-                                        ))),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
+                                  trailingBackColor),
 
-                              Row(
-                                children: <Widget>[
-                                  Container(
-                                    margin: leadingMargin,
-                                    height: leadingHeight,
-                                    width: leadingWidth,
-                                    decoration: BoxDecoration(
-                                        color: leadingYellow,
-                                        borderRadius: leadingBorderRadius),
+                              buttonRow(
+                                  listTileColor,
+                                  "На проверке incident",
+                                  "На проверке",
+                                  FontWeight.w600,
+                                  Text(
+                                    "0",
+                                    style: TextStyle(
+                                        color: white,
+                                        fontSize: trailingTextSize),
                                   ),
-                                  Container(
-                                    height: buttonHeight,
-                                    margin: buttonMargin,
-                                    decoration: BoxDecoration(
-                                        borderRadius: buttonBodrerRadius,
-                                        color: listTileColor),
-                                    width: buttonWidth,
-                                    child: ListTile(
-                                      onLongPress: () {},
-                                      contentPadding: contentPadding,
-                                      onTap: () {
-                                        _onButtonPressed("Неустранённые");
-                                      },
-                                      title: Text(
-                                        "Неустранённые",
-                                        style: TextStyle(
-                                            color: textColor,
-                                            fontSize: textSize,
-                                            fontWeight: FontWeight.w600),
-                                      ),
-                                      trailing: Container(
-                                        width: trailingWidth,
-                                        height: trailingHeight,
-                                        decoration: BoxDecoration(
-                                          color: trailingBackColor,
-                                          borderRadius: trailingBorderRadius,
-                                        ),
-                                        child: Center(
-                                            child: Center(
-                                                child: Text(
-                                          "0",
-                                          style: TextStyle(
-                                              color: white,
-                                              fontSize: trailingTextSize),
-                                        ))),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
+                                  trailingBackColor),
+                              buttonRowAll(
+                                  listTileColor,
+                                  "Все incident",
+                                  "Общее количество",
+                                  FontWeight.bold,
+                                  allNotifyNumIncidents(
+                                      "$rowIdOfProject", trailingTextSize),
+                                  trailingBackColor),
 
-                              Row(
-                                children: <Widget>[
-                                  Container(
-                                    margin: leadingMargin,
-                                    width: leadingWidth,
-                                    height: leadingHeight,
-                                    decoration: BoxDecoration(
-                                        color: leadingBlue,
-                                        borderRadius: leadingBorderRadius),
-                                  ),
-                                  Container(
-                                    height: buttonHeight,
-                                    margin: buttonMargin,
-                                    width: buttonWidth,
-                                    decoration: BoxDecoration(
-                                        borderRadius: buttonBodrerRadius,
-                                        color: listTileColor),
-                                    child: ListTile(
-                                      onLongPress: () {},
-                                      contentPadding: contentPadding,
-                                      onTap: () {
-                                        _onButtonPressed(
-                                            "На проверке incident");
-                                      },
-                                      title: Text(
-                                        "На проверке",
-                                        style: TextStyle(
-                                            color: textColor,
-                                            fontSize: textSize,
-                                            fontWeight: FontWeight.w600),
-                                      ),
-                                      trailing: Container(
-                                        width: trailingWidth,
-                                        height: trailingHeight,
-                                        decoration: BoxDecoration(
-                                          color: trailingBackColor,
-                                          borderRadius: trailingBorderRadius,
-                                        ),
-                                        child: Center(
-                                            child: Center(
-                                                child: Text(
-                                          "0",
-                                          style: TextStyle(
-                                              color: white,
-                                              fontSize: trailingTextSize),
-                                        ))),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-
-//На проверке
-
-//Просрочено
-
-//Зафиксировать нарушение
                               Container(
                                   height: buttonHeight,
                                   margin: fixButtonMargin,
@@ -439,211 +385,58 @@ class _PageOfProjectState extends State<PageOfProject> {
                             children: <Widget>[
                               //Все
 
-                              Row(
-                                children: <Widget>[
-                                  Container(
-                                    margin: leadingMargin,
-                                    width: leadingWidth,
-                                    height: leadingHeight,
-                                    decoration: BoxDecoration(
-                                        color: listTileColor,
-                                        borderRadius: leadingBorderRadius),
-                                  ),
-                                  Container(
-                                    height: buttonHeight,
-                                    margin: buttonMargin,
-                                    width: buttonWidth,
-                                    decoration: BoxDecoration(
-                                        borderRadius: buttonBodrerRadius,
-                                        color: listTileColor),
-                                    child: ListTile(
-                                      onLongPress: () {},
-                                      contentPadding: contentPadding,
-                                      onTap: () {
-                                        _onButtonPressed("Все inspection");
-                                      },
-                                      title: Text(
-                                        "Общее количество",
-                                        style: TextStyle(
-                                            color: textColor,
-                                            fontSize: textSize,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                      trailing: Container(
-                                        width: trailingWidth,
-                                        height: trailingHeight,
-                                        decoration: BoxDecoration(
-                                          color: trailingBackColor,
-                                          borderRadius: trailingBorderRadius,
-                                        ),
-                                        child: Center(
-                                            child: Center(
-                                          child: allNotifyNumInspections(
-                                              rowIdOfProject, trailingTextSize),
-                                        )),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-//Непринятые
+                              buttonRow(
+                                  listTileColor,
+                                  "Непринятые",
+                                  "Непринятые",
+                                  FontWeight.w600,
+                                  Center(
+                                      child: Text(
+                                    "0",
+                                    style: TextStyle(
+                                        color: white,
+                                        fontSize: trailingTextSize),
+                                  )),
+                                  redTrailing),
 
-                              Row(
-                                children: <Widget>[
-                                  Container(
-                                    margin: leadingMargin,
-                                    width: leadingWidth,
-                                    height: leadingHeight,
-                                    decoration: BoxDecoration(
-                                        color: leadingYellow,
-                                        borderRadius: leadingBorderRadius),
-                                  ),
-                                  Container(
-                                    height: buttonHeight,
-                                    margin: buttonMargin,
-                                    width: buttonWidth,
-                                    decoration: BoxDecoration(
-                                        borderRadius: buttonBodrerRadius,
-                                        color: listTileColor),
-                                    child: ListTile(
-                                      onLongPress: () {},
-                                      contentPadding: contentPadding,
-                                      onTap: () {
-                                        _onButtonPressed("Заявки");
-                                      },
-                                      title: Text(
-                                        "Новые заявки",
-                                        style: TextStyle(
-                                            color: textColor,
-                                            fontSize: textSize,
-                                            fontWeight: FontWeight.w600),
-                                      ),
-                                      trailing: Container(
-                                        width: trailingWidth,
-                                        height: trailingHeight,
-                                        decoration: BoxDecoration(
-                                          color: trailingBackColor,
-                                          borderRadius: trailingBorderRadius,
-                                        ),
-                                        child: Center(
-                                            child: Center(
-                                                child: Text(
-                                          "0",
-                                          style: TextStyle(
-                                              color: white,
-                                              fontSize: trailingTextSize),
-                                        ))),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              Row(
-                                children: <Widget>[
-                                  Container(
-                                    margin: leadingMargin,
-                                    width: leadingWidth,
-                                    height: leadingHeight,
-                                    decoration: BoxDecoration(
-                                        color: leadingRed,
-                                        borderRadius: leadingBorderRadius),
-                                  ),
-                                  Container(
-                                    height: buttonHeight,
-                                    margin: buttonMargin,
-                                    width: buttonWidth,
-                                    decoration: BoxDecoration(
-                                        borderRadius: buttonBodrerRadius,
-                                        color: listTileColor),
-                                    child: ListTile(
-                                      onLongPress: () {},
-                                      contentPadding: contentPadding,
-                                      onTap: () {
-                                        _onButtonPressed("Непринятые");
-                                      },
-                                      title: Text(
-                                        "Непринятые",
-                                        style: TextStyle(
-                                            color: textColor,
-                                            fontSize: textSize,
-                                            fontWeight: FontWeight.w600),
-                                      ),
-                                      trailing: Container(
-                                        width: trailingWidth,
-                                        height: trailingHeight,
-                                        decoration: BoxDecoration(
-                                          color: trailingBackColor,
-                                          borderRadius: trailingBorderRadius,
-                                        ),
-                                        child: Center(
-                                            child: Center(
-                                                child: Text(
-                                          "0",
-                                          style: TextStyle(
-                                              color: white,
-                                              fontSize: trailingTextSize),
-                                        ))),
-                                      ),
-                                    ),
-                                  ), //Неустранённые
-                                ],
-                              ),
-                              Row(
-                                children: <Widget>[
-                                  Container(
-                                    margin: leadingMargin,
-                                    width: leadingWidth,
-                                    height: leadingHeight,
-                                    decoration: BoxDecoration(
-                                        color: leadingBlue,
-                                        borderRadius: leadingBorderRadius),
-                                  ),
-                                  Container(
-                                    height: buttonHeight,
-                                    margin: buttonMargin,
-                                    width: buttonWidth,
-                                    decoration: BoxDecoration(
-                                        borderRadius: buttonBodrerRadius,
-                                        color: listTileColor),
-                                    child: ListTile(
-                                      onLongPress: () {},
-                                      contentPadding: contentPadding,
-                                      onTap: () {
-                                        _onButtonPressed(
-                                            "На проверке inspection");
-                                      },
-                                      title: Text(
-                                        "На проверке",
-                                        style: TextStyle(
-                                            color: textColor,
-                                            fontSize: textSize,
-                                            fontWeight: FontWeight.w600),
-                                      ),
-                                      trailing: Container(
-                                        width: trailingWidth,
-                                        height: trailingHeight,
-                                        decoration: BoxDecoration(
-                                          color: trailingBackColor,
-                                          borderRadius: trailingBorderRadius,
-                                        ),
-                                        child: Center(
-                                            child: Center(
-                                                child: Text(
-                                          "0",
-                                          style: TextStyle(
-                                              color: white,
-                                              fontSize: trailingTextSize),
-                                        ))),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
+                              buttonRow(
+                                  listTileColor,
+                                  "Заявки",
+                                  "Новые заявки",
+                                  FontWeight.w600,
+                                  Center(
+                                      child: Text(
+                                    "0",
+                                    style: TextStyle(
+                                        color: white,
+                                        fontSize: trailingTextSize),
+                                  )),
+                                  trailingBackColor),
 
-//На проверке
-//Заявки
+                              buttonRow(
+                                  listTileColor,
+                                  "На проверке inspection",
+                                  "На проверке",
+                                  FontWeight.w600,
+                                  Center(
+                                      child: Text(
+                                    "0",
+                                    style: TextStyle(
+                                        color: white,
+                                        fontSize: trailingTextSize),
+                                  )),
+                                  trailingBackColor),
+                              buttonRowAll(
+                                  listTileColor,
+                                  "Все inspection",
+                                  "Общее количество",
+                                  FontWeight.bold,
+                                  Center(
+                                    child: allNotifyNumInspections(
+                                        rowIdOfProject, trailingTextSize),
+                                  ),
+                                  trailingBackColor),
 
-//Создать инспекцию
                               Container(
                                   height: buttonHeight,
                                   margin: fixButtonMargin,

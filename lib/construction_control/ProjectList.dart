@@ -45,6 +45,8 @@ addBoolToSF(bool booleanVal) async {
   prefs.setBool('authCheck', booleanVal);
 }
 
+double devicePR = 0.0;
+
 class _MyHomePageState extends State<ProjectList> {
   int _selectedIndex = 0;
   TextStyle optionStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
@@ -125,12 +127,10 @@ class _MyHomePageState extends State<ProjectList> {
     }
   }
 
-/*
-*
-* */
   @override
   Widget build(BuildContext context) {
     startScreen();
+    devicePR = MediaQuery.of(context).devicePixelRatio;
 
     _widgetOptions = <Widget>[
       projectListWidget(),
@@ -212,6 +212,7 @@ class _MyHomePageState extends State<ProjectList> {
               ),
             ],
             currentIndex: _selectedIndex,
+            unselectedItemColor: Colors.grey.shade400,
             backgroundColor: newBackgroundWhite,
             elevation: 0.0,
             selectedItemColor: darkBlue,
@@ -268,14 +269,14 @@ class _MyHomePageState extends State<ProjectList> {
                             "${allProjectsJson[index]["shortName"]}" == "" ||
                             "${allProjectsJson[index]["shortName"]}" ==
                                 "null") {
-                          return card(
+                          return buttonRow(
                               "${allProjectsJson[index]["name"]}",
                               "${allProjectsJson[index]["name"]}",
                               "$index",
                               "${allProjectsJson[index]["rowId"]}",
                               "${allProjectsJson[index]["id"]}");
                         } else {
-                          return card(
+                          return buttonRow(
                               "${allProjectsJson[index]["name"]}",
                               "${allProjectsJson[index]["shortName"]}",
                               "$index",
@@ -297,14 +298,15 @@ class _MyHomePageState extends State<ProjectList> {
   }
 
   Widget loadIndicate() {
-    return Visibility(
-        maintainSize: true,
-        maintainAnimation: true,
-        maintainState: true,
-        visible: true,
-        child: Container(
-            margin: EdgeInsets.only(top: 50, bottom: 30),
-            child: CircularProgressIndicator()));
+    return Container(
+        child: Visibility(
+            maintainSize: true,
+            maintainAnimation: true,
+            maintainState: true,
+            visible: true,
+            child: Container(
+                margin: EdgeInsets.only(top: 50, bottom: 30),
+                child: CircularProgressIndicator())));
   }
 
   Widget notifyNum(String rowIdOfProject) {
@@ -388,44 +390,74 @@ class _MyHomePageState extends State<ProjectList> {
     Navigator.of(context).pushReplacementNamed(authorizationRoute);
   }
 
-  Widget card(String text, String shortName, String trailingText,
-          String rowIdOfProject, String idOfProject) =>
-      Container(
-        height: 100,
-        child: Card(
-          child: MaterialButton(
-            onPressed: () {
-              print(rowIdOfProject);
-              Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => PageOfProject(
-                        projectName: "$text",
-                        shortName: shortName,
-                        graphQLtoken: graphQLtoken.toString(),
-                        rowIdOfProject: rowIdOfProject,
-                        idOfProject: idOfProject,
-                      )));
-            },
-            child: Center(
-              child: ListTile(
-                title: Text(
-                  text,
-                  style: TextStyle(fontSize: 16),
-                ),
-                trailing: Container(
-                  width: 40,
-                  height: 40,
-                  decoration: BoxDecoration(
-                    color: red,
-                    borderRadius: BorderRadius.all(Radius.circular(10)),
+  Widget buttonRow(String text, String shortName, String trailingText,
+      String rowIdOfProject, String idOfProject) {
+    var buttonHeight = 50.toDouble() * devicePR / 2 + 2;
+    var buttonMargin =
+        EdgeInsets.only(left: 12, top: 0, bottom: 8 * devicePR / 2);
+    var buttonWidth = 340.toDouble() / devicePR * 3;
+    var buttonBodrerRadius = BorderRadius.all(Radius.circular(10));
+    var listTileColor = newBackgroundWhite2;
+    var textColor = newDarkBlue;
+    var textSize = 14.toDouble() * devicePR / 2;
+    var trailingWidth = 36.toDouble() * devicePR / 2;
+    var trailingHeight = 23.toDouble() * devicePR / 2;
+    var trailingBorderRadius = BorderRadius.all(Radius.circular(50));
+    var trailingBackColor = trailingBackgroundColor;
+
+    return Row(
+      children: <Widget>[
+        Container(
+            height: buttonHeight,
+            margin: buttonMargin,
+            width: buttonWidth,
+            decoration: BoxDecoration(
+                borderRadius: buttonBodrerRadius, color: listTileColor),
+            child: Container(
+                child: Row(children: <Widget>[
+              Container(
+                padding: EdgeInsets.only(left: 7),
+                width: (180 + 70) * devicePR / 2,
+                child: MaterialButton(
+                  onLongPress: () {},
+                  onPressed: () {
+                    print(rowIdOfProject);
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => PageOfProject(
+                              projectName: "$text",
+                              shortName: shortName,
+                              graphQLtoken: graphQLtoken.toString(),
+                              rowIdOfProject: rowIdOfProject,
+                              idOfProject: idOfProject,
+                            )));
+                  },
+                  child: Align(
+                    child: Text(
+                      shortName,
+                      maxLines: 1,
+                      style: TextStyle(
+                          color: textColor,
+                          fontSize: textSize,
+                          fontWeight: FontWeight.w600),
+                    ),
+                    alignment: Alignment.centerLeft,
                   ),
-                  child:
-                      Center(child: Center(child: notifyNum(rowIdOfProject))),
                 ),
               ),
-            ),
-          ),
-        ),
-      );
+              Container(
+                  width: trailingWidth,
+                  height: trailingHeight,
+                  decoration: BoxDecoration(
+                    color: trailingBackColor,
+                    borderRadius: trailingBorderRadius,
+                  ),
+                  child: Center(
+                    child: notifyNum(rowIdOfProject),
+                  )),
+            ]))),
+      ],
+    );
+  }
 }
 
 bool checkAuthorizationIsNull() {
@@ -460,5 +492,15 @@ dynamic _read() async {
 }
 
 final String projectsIcoName = 'images/projects_ico.svg';
+final String logoutIcoName = 'images/logout.svg';
+final String projectIcoName = 'images/projectIco.svg';
+final String questionsIcoName = 'images/question.svg';
+final String starIcoName = 'images/star.svg';
 final Widget projectsIco =
     SvgPicture.asset(projectsIcoName, semanticsLabel: 'ico');
+final Widget projectPageIco =
+    SvgPicture.asset(projectIcoName, semanticsLabel: 'ico');
+final Widget logoutIco = SvgPicture.asset(logoutIcoName, semanticsLabel: 'ico');
+final Widget questionIco =
+    SvgPicture.asset(questionsIcoName, semanticsLabel: 'ico');
+final Widget starIco = SvgPicture.asset(starIcoName, semanticsLabel: 'ico');
