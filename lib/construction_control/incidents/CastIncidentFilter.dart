@@ -20,6 +20,7 @@ class CardFilterEntry {
 final HttpLink httpLink = HttpLink(
   uri: graphQLUrl,
 );
+double devicePR = 0.0;
 
 final AuthLink authLink = AuthLink(
   getToken: () async => graphQLtoken.toString(),
@@ -97,6 +98,21 @@ class CastIncidentFilterState extends State<CastIncidentFilter> {
     });
   }
 
+  var redOpacity = const Color(0x591890FF);
+
+  var textColor = newDarkBlue;
+  var trailingBackColor = trailingBackgroundColor;
+  var createButtonColor = newMstroyBlue;
+  var listTileColor = newBackgroundWhite2;
+  var trailingBorderRadius = BorderRadius.all(Radius.circular(50));
+  var leadingBorderRadius = BorderRadius.only(
+      bottomLeft: Radius.circular(4), topLeft: Radius.circular(4));
+  var buttonBodrerRadius = BorderRadius.only(
+      bottomRight: Radius.circular(4), topRight: Radius.circular(4));
+
+  var buttonFontWeight = FontWeight.w200;
+  var buttonFontWeight2 = FontWeight.w300;
+
   Iterable<Widget> get actorWidgets sync* {
     for (final CardFilterEntry actor in _cast) {
       yield Padding(
@@ -138,19 +154,53 @@ class CastIncidentFilterState extends State<CastIncidentFilter> {
 
   @override
   Widget build(BuildContext context) {
+    devicePR = MediaQuery.of(context).devicePixelRatio;
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
+    var textSize = 14.toDouble() * devicePR / 2;
+    var leadingWidth = 6.toDouble() * devicePR / 2;
+    var buttonFontSize = 40.toDouble() * devicePR / 2;
+    var contentPadding =
+        EdgeInsets.only(top: 0, left: 15, right: 10, bottom: 4 * devicePR / 2);
+    var fixButtonMargin = EdgeInsets.only(
+        left: 10, right: 10, top: 18, bottom: 12 * devicePR / 2);
+    var fixButtonSize = 14.toDouble() * devicePR / 2.1;
+    var trailingTextSize = 14.toDouble() * devicePR;
+    trailingTextSize = 14.toDouble() * devicePR / 2;
+
+    setState(() {
+      devicePR = MediaQuery.of(context).devicePixelRatio;
+      trailingTextSize = 14.toDouble() * devicePR / 2;
+    });
+
+    var leadingMargin = EdgeInsets.only(left: 12, bottom: 4 * devicePR / 2);
+    var buttonMargin = EdgeInsets.only(top: 0, bottom: 4 * devicePR / 2);
+    var buttonPadding =
+        EdgeInsets.only(top: 4 * devicePR / 2, bottom: 4 * devicePR / 2);
+
+    var buttonWidth = 318.toDouble() / devicePR * 3;
+    var buttonHeight = 35.toDouble() * devicePR / 2 + 2;
+    var trailingWidth = 36.toDouble() * devicePR / 2;
+    var trailingHeight = 23.toDouble() * devicePR / 2;
+    var leadingHeight = buttonHeight;
+
     return GraphQLProvider(
         client: client,
         child: Scaffold(
-            appBar: OftenAppBar().create("Нарушения"),
+            appBar: OftenAppBar().incidentAppBar("Нарушения"),
             body: Container(
                 color: backgroundWhite,
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Wrap(
-                      alignment: WrapAlignment.start,
-                      children: actorWidgets.toList(),
-                    ),
+                    Container(
+                        width: MediaQuery.of(context).size.width,
+                        color: newLeadingRed,
+                        child: Wrap(
+                          alignment: WrapAlignment.start,
+                          children: actorWidgets.toList(),
+                        )),
                     SingleChildScrollView(
                       child: SafeArea(
                           child: Column(
@@ -259,34 +309,67 @@ class CastIncidentFilterState extends State<CastIncidentFilter> {
   Widget card(String comment, String index, String rowId, String datetime,
           String incidentType, incidentName, recommendation) =>
       Container(
-          constraints: BoxConstraints(minHeight: 100),
-          child: Card(
-              child: MaterialButton(
-                  onPressed: () {
-                    _startEditPage(AllIncidentsEditPage(
-                      graphQLtoken: graphQLtoken,
-                      index: "$index",
-                      projectName: projectName,
-                      incidentType: incidentType,
-                      incidentName: incidentName,
-                      comment: comment,
-                      recommendation: recommendation,
-                    ));
-                  },
-                  child: Column(children: <Widget>[
-                    Container(
-                      alignment: Alignment.topLeft,
-                      child: Text(incidentType),
+          margin: EdgeInsets.only(bottom: 5 * devicePR / 2),
+          decoration: BoxDecoration(
+            color: white,
+            borderRadius: BorderRadius.all(Radius.circular(10 * devicePR / 2)),
+          ),
+          width: 339 / devicePR * 3,
+          height: 55 * devicePR / 2,
+          alignment: Alignment.centerLeft,
+          child: MaterialButton(
+              padding: EdgeInsets.all(0),
+              onPressed: () {
+                _startEditPage(AllIncidentsEditPage(
+                  graphQLtoken: graphQLtoken,
+                  index: "$index",
+                  projectName: projectName,
+                  incidentType: incidentType,
+                  incidentName: incidentName,
+                  comment: comment,
+                  recommendation: recommendation,
+                ));
+              },
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(10 * devicePR / 2),
+                          bottomLeft: Radius.circular(10 * devicePR / 2)),
+                      color: newLeadingRed,
                     ),
-                    ListTile(
-                      leading: Text(index),
-                      title: Text(
-                        incidentName,
-                        style: TextStyle(fontSize: 16),
-                      ),
-                      trailing: Text(datetime, style: TextStyle(fontSize: 12)),
-                    )
-                  ]))));
+                    alignment: Alignment.centerLeft,
+                    width: 13 * devicePR / 3,
+                  ),
+                  Container(
+                      margin: EdgeInsets.only(
+                          left: 11 * devicePR / 2,
+                          top: 7 * devicePR / 2,
+                          right: 14 * devicePR / 2),
+                      child: Text(
+                        "777",
+                        style: TextStyle(
+                            color: newDarkBlue,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 14 * devicePR / 2),
+                      )),
+                  Container(
+                    width: 265 * devicePR / 2.5,
+                    margin: EdgeInsets.only(top: 7 * devicePR / 2),
+                    child: Text(
+                      incidentName,
+                      style: TextStyle(
+                          fontWeight: FontWeight.normal,
+                          color: newDarkBlue,
+                          fontSize: 14 * devicePR / 2),
+                      maxLines: 5,
+                    ),
+                  )
+                ],
+              )));
 
   void _startEditPage(StatefulWidget statefulWidget) {
     Navigator.of(context)

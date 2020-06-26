@@ -135,7 +135,7 @@ class _CreateIncidentState extends State<CreateIncident> {
             QueryResult result,
           ) {
             return Scaffold(
-                appBar: OftenAppBar().create("Нарушение"),
+                appBar: OftenAppBar().mainAppBar("Нарушение"),
                 body: SingleChildScrollView(
                   child: SafeArea(
                       child: Column(

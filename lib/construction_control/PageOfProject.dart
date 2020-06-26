@@ -92,9 +92,11 @@ class _PageOfProjectState extends State<PageOfProject> {
   var listTileColor = newBackgroundWhite2;
   var trailingBorderRadius = BorderRadius.all(Radius.circular(50));
   var leadingBorderRadius = BorderRadius.only(
-      bottomLeft: Radius.circular(4), topLeft: Radius.circular(4));
+      bottomLeft: Radius.circular(4 * devicePR / 2),
+      topLeft: Radius.circular(4 * devicePR / 2));
   var buttonBodrerRadius = BorderRadius.only(
-      bottomRight: Radius.circular(4), topRight: Radius.circular(4));
+      bottomRight: Radius.circular(4 * devicePR / 2),
+      topRight: Radius.circular(4 * devicePR / 2));
 
   var buttonFontWeight = FontWeight.w200;
   var buttonFontWeight2 = FontWeight.w300;
@@ -243,7 +245,7 @@ class _PageOfProjectState extends State<PageOfProject> {
         child: Scaffold(
             backgroundColor: newBackgroundWhite,
             //AppBar
-            appBar: OftenAppBar().create(shortName),
+            appBar: OftenAppBar().mainAppBar(shortName),
 
             //Body
             body: SafeArea(
@@ -259,11 +261,13 @@ class _PageOfProjectState extends State<PageOfProject> {
                     margin: EdgeInsets.only(
                         top: 10, left: 10, right: 10, bottom: 10),
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(5))),
+                        borderRadius: BorderRadius.all(
+                            Radius.circular(10 * devicePR / 2))),
                     child: Container(
                         decoration: BoxDecoration(
                             color: white,
-                            borderRadius: BorderRadius.all(Radius.circular(5))),
+                            borderRadius: BorderRadius.all(
+                                Radius.circular(10 * devicePR / 2))),
                         child: Column(children: <Widget>[
                           Container(
                               height: 26 * devicePR / 2,
@@ -343,13 +347,13 @@ class _PageOfProjectState extends State<PageOfProject> {
                                             "Зафиксировать нарушение");
                                       },
                                       textColor: white,
-                                      color: newMstroyBlue,
+                                      color: newButtonMstroyBlue,
                                       child: Container(
                                         padding: buttonPadding,
                                         child: Text(
                                           "Зафиксировать нарушение",
                                           style: TextStyle(
-                                              fontWeight: FontWeight.w300,
+                                              fontWeight: FontWeight.normal,
                                               fontSize: fixButtonSize),
                                         ),
                                       ))),
@@ -363,11 +367,13 @@ class _PageOfProjectState extends State<PageOfProject> {
                     margin: EdgeInsets.only(
                         top: 10, left: 10, right: 10, bottom: 10),
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(5))),
+                        borderRadius: BorderRadius.all(
+                            Radius.circular(10 * devicePR / 2))),
                     child: Container(
                         decoration: BoxDecoration(
                             color: white,
-                            borderRadius: BorderRadius.all(Radius.circular(5))),
+                            borderRadius: BorderRadius.all(
+                                Radius.circular(10 * devicePR / 2))),
                         child: Column(children: <Widget>[
                           Container(
                               height: 26 * devicePR / 2,
@@ -451,13 +457,13 @@ class _PageOfProjectState extends State<PageOfProject> {
                                         _onButtonPressed("Создать инспекцию");
                                       },
                                       textColor: white,
-                                      color: newMstroyBlue,
+                                      color: newButtonMstroyBlue,
                                       child: Container(
                                         padding: buttonPadding,
                                         child: Text(
                                           "Создать заявку на инспекцию",
                                           style: TextStyle(
-                                              fontWeight: FontWeight.w300,
+                                              fontWeight: FontWeight.normal,
                                               fontSize: fixButtonSize),
                                         ),
                                       ))),
@@ -588,8 +594,6 @@ class _PageOfProjectState extends State<PageOfProject> {
         builder: (QueryResult result,
             {VoidCallback refetch, FetchMore fetchMore}) {
           if (result.hasException) {
-            Timer(Duration(seconds: 5), () async {});
-
             print(result.exception);
             return Text(
               "?1",
@@ -599,7 +603,6 @@ class _PageOfProjectState extends State<PageOfProject> {
           }
 
           if (result.loading) {
-            Timer(Duration(seconds: 5), () async {});
             return loadIndicator();
           }
           List allIncidentsJson = result.data['allIncidents'];

@@ -59,7 +59,7 @@ class _AllIncidentsEditPageState extends State<AllIncidentsEditPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: OftenAppBar().create("Нарушения"),
+        appBar: OftenAppBar().mainAppBar("Нарушения"),
         body: SingleChildScrollView(
           child: SafeArea(
               child: Column(

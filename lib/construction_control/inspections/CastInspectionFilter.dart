@@ -142,7 +142,7 @@ class CastInspectionFilterState extends State<CastInspectionFilter> {
     return GraphQLProvider(
         client: client,
         child: Scaffold(
-            appBar: OftenAppBar().create("Инспекции"),
+            appBar: OftenAppBar().mainAppBar("Инспекции"),
             body: Container(
                 color: backgroundWhite,
                 child: Column(

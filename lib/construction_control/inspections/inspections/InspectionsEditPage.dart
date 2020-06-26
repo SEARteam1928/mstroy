@@ -55,7 +55,7 @@ class _InspectionsEditPageState extends State<InspectionsEditPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: OftenAppBar().create("Инспекции"),
+        appBar: OftenAppBar().mainAppBar("Инспекции"),
         body: SingleChildScrollView(
           child: SafeArea(
               child: Column(

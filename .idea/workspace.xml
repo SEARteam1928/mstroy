@@ -10,8 +10,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="169d8321-fc3f-45d4-9f98-3006ea6f6fd7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/43ae2cba878ea8b4a9953aa0d9f4f993/.filecache" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/43ae2cba878ea8b4a9953aa0d9f4f993/.filecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/43ae2cba878ea8b4a9953aa0d9f4f993/app.dill" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/43ae2cba878ea8b4a9953aa0d9f4f993/app.dill" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/.gradle/5.6.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/5.6.2/executionHistory/executionHistory.bin" afterDir="false" />
@@ -20,17 +18,17 @@
       <change beforePath="$PROJECT_DIR$/android/.gradle/5.6.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/5.6.2/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/android/local.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_assets/kernel_blob.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_assets/kernel_blob.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/app/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/app/intermediates/merged_assets/debug/out/flutter_assets/kernel_blob.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/merged_assets/debug/out/flutter_assets/kernel_blob.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/app/outputs/apk/app.apk" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/outputs/apk/app.apk" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/app/outputs/apk/app.apk.sha1" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/outputs/apk/app.apk.sha1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/app/outputs/apk/debug/app-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/outputs/apk/debug/app-debug.apk" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app-debug.apk" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/cache.dill" beforeDir="false" afterPath="$PROJECT_DIR$/build/cache.dill" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/construction_control/PageOfProject.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/construction_control/PageOfProject.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/construction_control/ProjectList.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/construction_control/ProjectList.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/construction_control/incidents/AllIncidentsEditPage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/construction_control/incidents/AllIncidentsEditPage.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/construction_control/incidents/CastIncidentFilter.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/construction_control/incidents/CastIncidentFilter.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/construction_control/incidents/CreateIncident.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/construction_control/incidents/CreateIncident.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/construction_control/inspections/CastInspectionFilter.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/construction_control/inspections/CastInspectionFilter.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/construction_control/inspections/inspections/CreateInspection.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/construction_control/inspections/inspections/CreateInspection.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/construction_control/inspections/inspections/InspectionsEditPage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/construction_control/inspections/inspections/InspectionsEditPage.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/construction_control/inspections/requests_of_inspections/RequestsEditPage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/construction_control/inspections/requests_of_inspections/RequestsEditPage.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/mainclasses/constants/MSColors.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/mainclasses/constants/MSColors.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/mainclasses/constants/OftenAppBar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/mainclasses/constants/OftenAppBar.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,6 +87,10 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
+    <state x="790" y="375" key="#com.intellij.debugger.actions.ViewTextAction" timestamp="1593143248971">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="790" y="375" key="#com.intellij.debugger.actions.ViewTextAction/0.0.1920.1040@0.0.1920.1040" timestamp="1593143248971" />
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1592982556864">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -107,34 +109,34 @@
     </state>
     <state x="2660" y="274" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1592278981561" />
     <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1592478141279" />
-    <state width="1877" height="187" key="GridCell.Tab.0.bottom" timestamp="1593078953514">
+    <state width="1877" height="299" key="GridCell.Tab.0.bottom" timestamp="1593154665576">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1236" height="272" key="GridCell.Tab.0.bottom/0.0.1280.1024@0.0.1280.1024" timestamp="1592147096226" />
     <state width="1877" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1592384162852" />
     <state width="1877" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1592476015256" />
-    <state width="1877" height="187" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1593078953514" />
-    <state width="1877" height="187" key="GridCell.Tab.0.center" timestamp="1593078953514">
+    <state width="1877" height="299" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1593154665576" />
+    <state width="1877" height="299" key="GridCell.Tab.0.center" timestamp="1593154665576">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1236" height="272" key="GridCell.Tab.0.center/0.0.1280.1024@0.0.1280.1024" timestamp="1592147096226" />
     <state width="1877" height="281" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1592384162852" />
     <state width="1877" height="281" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1592476015256" />
-    <state width="1877" height="187" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1593078953514" />
-    <state width="1877" height="187" key="GridCell.Tab.0.left" timestamp="1593078953514">
+    <state width="1877" height="299" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1593154665576" />
+    <state width="1877" height="299" key="GridCell.Tab.0.left" timestamp="1593154665576">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1236" height="272" key="GridCell.Tab.0.left/0.0.1280.1024@0.0.1280.1024" timestamp="1592147096226" />
     <state width="1877" height="281" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1592384162852" />
     <state width="1877" height="281" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1592476015256" />
-    <state width="1877" height="187" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1593078953514" />
-    <state width="1877" height="187" key="GridCell.Tab.0.right" timestamp="1593078953514">
+    <state width="1877" height="299" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1593154665576" />
+    <state width="1877" height="299" key="GridCell.Tab.0.right" timestamp="1593154665576">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1236" height="272" key="GridCell.Tab.0.right/0.0.1280.1024@0.0.1280.1024" timestamp="1592147096226" />
     <state width="1877" height="281" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1592384162852" />
     <state width="1877" height="281" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1592476015256" />
-    <state width="1877" height="187" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1593078953514" />
+    <state width="1877" height="299" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1593154665576" />
     <state x="2460" y="263" key="IDE.errors.dialog" timestamp="1592190893477">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
@@ -148,12 +150,12 @@
     </state>
     <state x="2381" y="162" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1592388700098" />
     <state x="461" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1592478151057" />
-    <state x="503" y="339" key="com.intellij.ide.util.TipDialog" timestamp="1593054516180">
+    <state x="503" y="339" key="com.intellij.ide.util.TipDialog" timestamp="1593141388714">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="335" y="334" key="com.intellij.ide.util.TipDialog/0.0.1280.1024@0.0.1280.1024" timestamp="1592152750554" />
     <state x="2423" y="339" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1592450189676" />
-    <state x="503" y="339" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1593054516180" />
+    <state x="503" y="339" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1593141388714" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1593072882223">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -163,5 +165,186 @@
     </state>
     <state x="2543" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1592461750680" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1592974701182" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/construction_control/PageOfProject.dart</url>
+          <line>497</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/construction_control/PageOfProject.dart</url>
+          <line>498</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/construction_control/PageOfProject.dart</url>
+          <line>499</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/construction_control/PageOfProject.dart</url>
+          <line>500</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/construction_control/PageOfProject.dart</url>
+          <line>502</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/construction_control/PageOfProject.dart</url>
+          <line>501</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/construction_control/PageOfProject.dart</url>
+          <line>503</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/construction_control/PageOfProject.dart</url>
+          <line>505</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/construction_control/PageOfProject.dart</url>
+          <line>504</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/construction_control/PageOfProject.dart</url>
+          <line>509</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/construction_control/PageOfProject.dart</url>
+          <line>508</line>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/construction_control/PageOfProject.dart</url>
+          <line>510</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/construction_control/PageOfProject.dart</url>
+          <line>512</line>
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/construction_control/PageOfProject.dart</url>
+          <line>511</line>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/construction_control/PageOfProject.dart</url>
+          <line>513</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/construction_control/PageOfProject.dart</url>
+          <line>514</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/construction_control/PageOfProject.dart</url>
+          <line>516</line>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/construction_control/PageOfProject.dart</url>
+          <line>518</line>
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/construction_control/PageOfProject.dart</url>
+          <line>519</line>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/construction_control/PageOfProject.dart</url>
+          <line>520</line>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/construction_control/PageOfProject.dart</url>
+          <line>522</line>
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/construction_control/PageOfProject.dart</url>
+          <line>523</line>
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/construction_control/PageOfProject.dart</url>
+          <line>526</line>
+          <option name="timeStamp" value="41" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/construction_control/PageOfProject.dart</url>
+          <line>525</line>
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/construction_control/PageOfProject.dart</url>
+          <line>524</line>
+          <option name="timeStamp" value="43" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/construction_control/PageOfProject.dart</url>
+          <line>528</line>
+          <option name="timeStamp" value="44" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/construction_control/PageOfProject.dart</url>
+          <line>527</line>
+          <option name="timeStamp" value="45" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/construction_control/PageOfProject.dart</url>
+          <line>529</line>
+          <option name="timeStamp" value="46" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/construction_control/PageOfProject.dart</url>
+          <line>530</line>
+          <option name="timeStamp" value="47" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/construction_control/PageOfProject.dart</url>
+          <line>531</line>
+          <option name="timeStamp" value="48" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/construction_control/PageOfProject.dart</url>
+          <line>532</line>
+          <option name="timeStamp" value="49" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/construction_control/PageOfProject.dart</url>
+          <line>533</line>
+          <option name="timeStamp" value="50" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/construction_control/PageOfProject.dart</url>
+          <line>534</line>
+          <option name="timeStamp" value="52" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/construction_control/PageOfProject.dart</url>
+          <line>535</line>
+          <option name="timeStamp" value="53" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://D:/FlutterSDK/flutter_windows_1.17.2-stable/flutter/.pub-cache/hosted/pub.dartlang.org/graphql-3.0.2/lib/src/exceptions/_base_exceptions.dart</url>
+          <line>16</line>
+          <option name="timeStamp" value="70" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

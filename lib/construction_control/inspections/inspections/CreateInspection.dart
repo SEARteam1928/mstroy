@@ -34,7 +34,7 @@ class _CreateInspectionState extends State<CreateInspection> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: OftenAppBar().create("Создать заявку"),
+        appBar: OftenAppBar().mainAppBar("Создать заявку"),
         body: SingleChildScrollView(
           child: SafeArea(
               child: Column(

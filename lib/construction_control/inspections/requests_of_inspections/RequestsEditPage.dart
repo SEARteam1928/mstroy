@@ -50,7 +50,7 @@ class _RequestsEditPageState extends State<RequestsEditPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: OftenAppBar().create("Заявки на инспекции"),
+        appBar: OftenAppBar().mainAppBar("Заявки на инспекции"),
         body: SingleChildScrollView(
           child: SafeArea(
               child: Column(
