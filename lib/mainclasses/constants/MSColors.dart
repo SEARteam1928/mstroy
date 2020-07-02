@@ -33,3 +33,4 @@ var filterInspectionUnSelectedColor = const Color(0xFF2F7194);
 var leadingYellow = const Color(0xFFFFC94D);
 var inspectionEditPageButtonYellow = const Color(0xFFFFAA00);
 var inspectionEditPageButtonGreen = const Color(0xFF06C019);
+var inspectionEditPageRequestsGreen = const Color(0xFFDFFAE1);

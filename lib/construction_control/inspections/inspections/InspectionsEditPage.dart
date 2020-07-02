@@ -62,8 +62,7 @@ class _InspectionsEditPageState extends State<InspectionsEditPage> {
     });
     var trailingTextSize = 14.toDouble() * devicePR;
     trailingTextSize = 14.toDouble() * devicePR / 2;
-    var fixButtonMargin = EdgeInsets.only(
-        left: 10, right: 10, top:  5 * devicePR / 2, bottom: 5 * devicePR / 2);
+    var fixButtonMargin = EdgeInsets.only(bottom: 10 * devicePR / 2);
     var buttonHeight = 35.toDouble() * devicePR / 2 + 2;
     var buttonPadding =
         EdgeInsets.only(top: 4 * devicePR / 2, bottom: 4 * devicePR / 2);
@@ -93,40 +92,52 @@ class _InspectionsEditPageState extends State<InspectionsEditPage> {
                               child: Column(
                                 children: <Widget>[
                                   Text("№ $incidentIndex"),
-                                  Text("Заявка на инспекцию"),
                                   Text("Проект"),
                                   Text(projectName),
-                                  Text("Тип инспекции"),
-                                  Text("Конструктив"),
-                                  Text("Вид работ"),
-                                  Text("Ответственный"),
-                                  Text("Температура"),
                                 ],
                               ),
                             ),
                             Container(
-                              margin: EdgeInsets.all(10),
+                              width: MediaQuery.of(context).size.width,
+                              margin: EdgeInsets.all(10 * devicePR / 2),
+                              padding: EdgeInsets.all(11 * devicePR / 2),
                               decoration: BoxDecoration(
-                                  border: Border.all(color: Colors.blueAccent)),
+                                  color: inspectionEditPageRequestsGreen,
+                                  borderRadius: BorderRadius.all(
+                                      Radius.circular(10 * devicePR / 2))),
                               child: Column(
-                                children: <Widget>[
-                                  Text("Заключение"),
-                                ],
+                                children: <Widget>[Text("Заявка")],
                               ),
                             ),
                             Container(
-                              margin: EdgeInsets.all(10),
-                              height: 1000,
+                              width: MediaQuery.of(context).size.width,
+                              margin: EdgeInsets.all(10 * devicePR / 2),
+                              padding: EdgeInsets.all(11 * devicePR / 2),
                               decoration: BoxDecoration(
-                                  border: Border.all(color: Colors.blueAccent)),
+                                  color: white,
+                                  borderRadius: BorderRadius.all(
+                                      Radius.circular(10 * devicePR / 2))),
                               child: Column(
                                 children: <Widget>[
-                                  Row(
+                                  Container(
+                                      width: MediaQuery.of(context).size.width,
+                                      child: Text(
+                                        "РЕЗУЛЬТАТЫ ИНСПЕКЦИИ",
+                                        style: TextStyle(
+                                          color: newDarkBlue,
+                                          fontSize: fixButtonSize,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                        textAlign: TextAlign.left,
+                                      )),
+                                  Container(
+                                    margin: EdgeInsets.only(top: 11* devicePR / 2),
+                                      child: Row(
                                     children: <Widget>[
                                       Text("Выполнено"),
                                       Text("Корректно"),
                                     ],
-                                  ),
+                                  )),
                                   Row(
                                     children: <Widget>[
                                       _switchesNamesColumn(),
@@ -138,9 +149,25 @@ class _InspectionsEditPageState extends State<InspectionsEditPage> {
                               ),
                             ),
                             Container(
-                              margin: EdgeInsets.all(10),
+                              width: MediaQuery.of(context).size.width,
+                              margin: EdgeInsets.all(10 * devicePR / 2),
+                              padding: EdgeInsets.all(11 * devicePR / 2),
                               decoration: BoxDecoration(
-                                  border: Border.all(color: Colors.blueAccent)),
+                                  color: white,
+                                  borderRadius: BorderRadius.all(
+                                      Radius.circular(10 * devicePR / 2))),
+                              child: Column(
+                                children: <Widget>[Text("Photo")],
+                              ),
+                            ),
+                            Container(
+                              width: MediaQuery.of(context).size.width,
+                              margin: EdgeInsets.all(10 * devicePR / 2),
+                              padding: EdgeInsets.all(11 * devicePR / 2),
+                              decoration: BoxDecoration(
+                                  color: white,
+                                  borderRadius: BorderRadius.all(
+                                      Radius.circular(10 * devicePR / 2))),
                               child: Column(
                                 children: <Widget>[
                                   Container(
@@ -151,7 +178,8 @@ class _InspectionsEditPageState extends State<InspectionsEditPage> {
                                           elevation: 0.0,
                                           shape: RoundedRectangleBorder(
                                             borderRadius: BorderRadius.all(
-                                                Radius.circular(5* devicePR/2)),
+                                                Radius.circular(
+                                                    5 * devicePR / 2)),
                                           ),
                                           onPressed: () {},
                                           textColor: white,
@@ -183,7 +211,7 @@ class _InspectionsEditPageState extends State<InspectionsEditPage> {
                                             child: Text(
                                               "Готово к проверке",
                                               style: TextStyle(
-                                                  fontWeight: FontWeight.normal,
+                                                  fontWeight: FontWeight.bold,
                                                   fontSize: fixButtonSize),
                                             ),
                                           ))),
@@ -205,12 +233,10 @@ class _InspectionsEditPageState extends State<InspectionsEditPage> {
                                             child: Text(
                                               "Подтвердить устранение",
                                               style: TextStyle(
-                                                  fontWeight: FontWeight.normal,
+                                                  fontWeight: FontWeight.bold,
                                                   fontSize: fixButtonSize),
                                             ),
                                           ))),
-                                  Text("Инспекция принята/не принята"),
-                                  Text("Виза ОКС"),
                                 ],
                               ),
                             ),
