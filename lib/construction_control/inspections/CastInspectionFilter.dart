@@ -3,6 +3,7 @@ import 'dart:core';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/widgets.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:mstroy/construction_control/inspections/inspections/InspectionsEditPage.dart';
 import 'package:mstroy/mainclasses/constants/OftenAppBar.dart';
 import 'package:mstroy/construction_control/inspections/requests_of_inspections/RequestsEditPage.dart';
 import 'package:mstroy/mainclasses/constants/GraphQLQueries.dart';
@@ -76,10 +77,11 @@ class CastInspectionFilterState extends State<CastInspectionFilter> {
   });
 
   final List<CardFilterEntry> _cast = <CardFilterEntry>[
-    const CardFilterEntry('Заявки'),
-    const CardFilterEntry('Непринятые'),
-    const CardFilterEntry('На проверке'),
     const CardFilterEntry('Все'),
+    const CardFilterEntry('Принятые'),
+    const CardFilterEntry('Непринятые'),
+    const CardFilterEntry('В работе'),
+    const CardFilterEntry('На проверке'),
   ];
 
   List<String> _filters = <String>[];
@@ -104,7 +106,13 @@ class CastInspectionFilterState extends State<CastInspectionFilter> {
       yield Padding(
         padding: const EdgeInsets.all(2.0),
         child: FilterChip(
-          label: Text(actor.name),
+          label: Text(
+            actor.name,
+            style: TextStyle(color: white),
+          ),
+          selectedColor: filterInspectionSelectedColor,
+          backgroundColor: filterInspectionUnSelectedColor,
+          showCheckmark: false,
           selected: _filters.contains(actor.name),
           onSelected: (bool value) {
             setState(() {
@@ -142,16 +150,19 @@ class CastInspectionFilterState extends State<CastInspectionFilter> {
     return GraphQLProvider(
         client: client,
         child: Scaffold(
-            appBar: OftenAppBar().mainAppBar("Инспекции"),
+            appBar: OftenAppBar().inspectionAppBar("Инспекции"),
             body: Container(
                 color: backgroundWhite,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Wrap(
-                      alignment: WrapAlignment.start,
-                      children: actorWidgets.toList(),
-                    ),
+                    Container(
+                        width: MediaQuery.of(context).size.width,
+                        color: newButtonMstroyBlue,
+                        child: Wrap(
+                          alignment: WrapAlignment.start,
+                          children: actorWidgets.toList(),
+                        )),
                     SingleChildScrollView(
                       child: SafeArea(
                           child: Column(
@@ -163,7 +174,8 @@ class CastInspectionFilterState extends State<CastInspectionFilter> {
   }
 
   Widget loadInspectionsRequests() {
-    double screenHeight = MediaQuery.of(context).size.height - 136 - 58;
+    double screenHeight =
+        (MediaQuery.of(context).size.height - 136 - 7) * devicePR - 1325;
     try {
       return Query(
         options: QueryOptions(
@@ -176,25 +188,11 @@ class CastInspectionFilterState extends State<CastInspectionFilter> {
             return Text("Запрос еще не настроен");
           }
           if (result.hasException) {
-            return Visibility(
-                maintainSize: true,
-                maintainAnimation: true,
-                maintainState: true,
-                visible: true,
-                child: Container(
-                    margin: EdgeInsets.only(top: 50, bottom: 30),
-                    child: CircularProgressIndicator()));
+            return loadingIndicator();
           }
 
           if (result.loading) {
-            return Visibility(
-                maintainSize: true,
-                maintainAnimation: true,
-                maintainState: true,
-                visible: true,
-                child: Container(
-                    margin: EdgeInsets.only(top: 50, bottom: 30),
-                    child: CircularProgressIndicator()));
+            return loadingIndicator();
           }
 
           List inspections = result.data['allInspectionRequests'];
@@ -214,48 +212,54 @@ class CastInspectionFilterState extends State<CastInspectionFilter> {
                               .reDate("${inspections[index]["planDate"]}");
                           return Center(
                               child: card(
-                                  "${inspections[index]["comment"]}",
-                                  "$index",
-                                  "${inspections[index]["rowId"]}",
-                                  normalDate));
+                            "${inspections[index]["name"]}",
+                            "$index",
+                            "${inspections[index]["rowId"]}",
+                            normalDate,
+                            "",
+                            "",
+                            "",
+                          ));
                         } catch (e) {
                           var normalDate = "--.--.----";
                           return Center(
                               child: card(
-                                  "${inspections[index]["comment"]}",
-                                  "$index",
-                                  "${inspections[index]["rowId"]}",
-                                  normalDate));
+                            "${inspections[index]["name"]}",
+                            "$index",
+                            "${inspections[index]["rowId"]}",
+                            normalDate,
+                            "",
+                            "",
+                            "",
+                          ));
                         }
                       }, childCount: inspections.length),
                     )
                   ],
                 ));
           } catch (e) {
-            return Visibility(
-                maintainSize: true,
-                maintainAnimation: true,
-                maintainState: true,
-                visible: true,
-                child: Container(
-                    margin: EdgeInsets.only(top: 50, bottom: 30),
-                    child: CircularProgressIndicator()));
+            return loadingIndicator();
           }
         },
       );
     } catch (e) {
       print(e);
-      return Visibility(
-          maintainSize: true,
-          maintainAnimation: true,
-          maintainState: true,
-          visible: true,
-          child: Container(
-              margin: EdgeInsets.only(top: 50, bottom: 30),
-              child: CircularProgressIndicator()));
+      return loadingIndicator();
     }
   }
 
+  Widget loadingIndicator() {
+    return Visibility(
+        maintainSize: true,
+        maintainAnimation: true,
+        maintainState: true,
+        visible: true,
+        child: Container(
+            margin: EdgeInsets.only(top: 50, bottom: 30),
+            child: CircularProgressIndicator()));
+  }
+
+/*
   Widget card(String text, String index, String id, String datetime) =>
       Container(
           constraints: BoxConstraints(minHeight: 100),
@@ -280,6 +284,69 @@ class CastInspectionFilterState extends State<CastInspectionFilter> {
                       trailing: Text(datetime, style: TextStyle(fontSize: 12)),
                     )
                   ]))));
+*/
+
+  Widget card(String comment, String index, String rowId, String datetime,
+          String incidentType, incidentName, recommendation) =>
+      Container(
+          margin: EdgeInsets.only(
+              top: 2.5 * devicePR / 2, bottom: 2.5 * devicePR / 2),
+          decoration: BoxDecoration(
+            color: white,
+            borderRadius: BorderRadius.all(Radius.circular(10 * devicePR / 2)),
+          ),
+          width: 339 / devicePR * 3,
+          height: 55 * devicePR / 2,
+          alignment: Alignment.centerLeft,
+          child: MaterialButton(
+              padding: EdgeInsets.all(0),
+              onPressed: () {
+                _startEditPage(InspectionsEditPage(
+                  graphQLtoken: graphQLtoken,
+                  index: "$index",
+                  projectName: projectName,
+                ));
+              },
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(10 * devicePR / 2),
+                          bottomLeft: Radius.circular(10 * devicePR / 2)),
+                      color: newLeadingRed,
+                    ),
+                    alignment: Alignment.centerLeft,
+                    width: 13 * devicePR / 3,
+                  ),
+                  Container(
+                      margin: EdgeInsets.only(
+                          left: 11 * devicePR / 2,
+                          top: 7 * devicePR / 2,
+                          right: 14 * devicePR / 2),
+                      child: Text(
+                        "777",
+                        style: TextStyle(
+                            color: newDarkBlue,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 14 * devicePR / 2),
+                      )),
+                  Container(
+                    width: 265 * devicePR / 2.5,
+                    margin: EdgeInsets.only(top: 7 * devicePR / 2),
+                    child: Text(
+                      incidentName,
+                      style: TextStyle(
+                          fontWeight: FontWeight.normal,
+                          color: newDarkBlue,
+                          fontSize: 14 * devicePR / 2),
+                      maxLines: 5,
+                    ),
+                  )
+                ],
+              )));
 
   void _startEditPage(StatefulWidget statefulWidget) {
     Navigator.of(context)

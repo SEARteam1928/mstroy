@@ -77,10 +77,15 @@ class CastIncidentFilterState extends State<CastIncidentFilter> {
   });
 
   final List<CardFilterEntry> _cast = <CardFilterEntry>[
-    const CardFilterEntry('Просрочено'),
-    const CardFilterEntry('Неустранённые'),
-    const CardFilterEntry('На проверке'),
     const CardFilterEntry('Все'),
+    const CardFilterEntry('Устранённые'),
+    const CardFilterEntry('Неустранённые'),
+    const CardFilterEntry('В работе'),
+    const CardFilterEntry('На проверке'),
+    const CardFilterEntry('Просроченные'),
+    const CardFilterEntry('Замечания'),
+    const CardFilterEntry('Предписания'),
+    const CardFilterEntry('Предписания о приостановке работ'),
   ];
 
   List<String> _filters = <String>[];
@@ -118,8 +123,14 @@ class CastIncidentFilterState extends State<CastIncidentFilter> {
       yield Padding(
         padding: const EdgeInsets.all(2.0),
         child: FilterChip(
-          backgroundColor: newMstroyBlue,
-          label: Text(actor.name),
+          selectedColor: filterIncidentSelectedColor,
+          disabledColor: filterIncidentUnSelectedColor,
+          showCheckmark: false,
+          backgroundColor: filterIncidentUnSelectedColor,
+          label: Text(
+            actor.name,
+            style: TextStyle(color: white),
+          ),
           selected: _filters.contains(actor.name),
           onSelected: (bool value) {
             setState(() {
@@ -179,7 +190,7 @@ class CastIncidentFilterState extends State<CastIncidentFilter> {
         EdgeInsets.only(top: 4 * devicePR / 2, bottom: 4 * devicePR / 2);
 
     var buttonWidth = 318.toDouble() / devicePR * 3;
-    var buttonHeight = 35.toDouble() * devicePR / 2 + 2;
+    var buttonHeight = 35.toDouble() * devicePR / 2 ;
     var trailingWidth = 36.toDouble() * devicePR / 2;
     var trailingHeight = 23.toDouble() * devicePR / 2;
     var leadingHeight = buttonHeight;
@@ -212,7 +223,8 @@ class CastIncidentFilterState extends State<CastIncidentFilter> {
   }
 
   Widget loadInspectionsRequests() {
-    double screenHeight = MediaQuery.of(context).size.height - 136 - 79;
+    double screenHeight =
+        (MediaQuery.of(context).size.height - 136 - 7) * devicePR - 1325;
     try {
       return Query(
         options: QueryOptions(
@@ -246,6 +258,7 @@ class CastIncidentFilterState extends State<CastIncidentFilter> {
             print(incidents.length);
             return Container(
                 height: screenHeight,
+                margin: EdgeInsets.only(top: 2.5 * devicePR / 2, bottom: 2.5 * devicePR / 2),
                 child: CustomScrollView(
                   shrinkWrap: true,
                   slivers: <Widget>[
@@ -309,7 +322,7 @@ class CastIncidentFilterState extends State<CastIncidentFilter> {
   Widget card(String comment, String index, String rowId, String datetime,
           String incidentType, incidentName, recommendation) =>
       Container(
-          margin: EdgeInsets.only(bottom: 5 * devicePR / 2),
+          margin: EdgeInsets.only(top: 2.5 * devicePR / 2, bottom: 2.5 * devicePR / 2),
           decoration: BoxDecoration(
             color: white,
             borderRadius: BorderRadius.all(Radius.circular(10 * devicePR / 2)),

@@ -193,6 +193,8 @@ class _MyHomePageState extends State<ProjectList> {
           ),
           body: Center(
             child: Container(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height,
                 decoration: BoxDecoration(color: newBackgroundWhite),
                 child: _widgetOptions.elementAt(_selectedIndex)),
           ),
@@ -320,6 +322,7 @@ class _MyHomePageState extends State<ProjectList> {
         builder: (QueryResult result,
             {VoidCallback refetch, FetchMore fetchMore}) {
           if (result.hasException) {
+            print(result.exception.toString());
             return Text(
               "0",
               style: TextStyle(fontSize: 20, color: white),
@@ -328,6 +331,7 @@ class _MyHomePageState extends State<ProjectList> {
           }
 
           if (result.loading) {
+            print("Loading");
             return loadIndicator();
           }
 

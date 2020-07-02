@@ -2,6 +2,7 @@ import 'dart:core';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:mstroy/mainclasses/constants/MSColors.dart';
 import 'package:mstroy/mainclasses/constants/OftenAppBar.dart';
 
 class InspectionsEditPage extends StatefulWidget {
@@ -44,6 +45,8 @@ class _InspectionsEditPageState extends State<InspectionsEditPage> {
   bool _regulatoryDocumentationFirst = false;
   bool _regulatoryDocumentationSecond = false;
 
+  double devicePR = 0.0;
+
   _InspectionsEditPageState(
       {this.projectName, this.incidentIndex, this.graphQLtoken});
 
@@ -54,13 +57,26 @@ class _InspectionsEditPageState extends State<InspectionsEditPage> {
 
   @override
   Widget build(BuildContext context) {
+    setState(() {
+      devicePR = MediaQuery.of(context).devicePixelRatio;
+    });
+    var trailingTextSize = 14.toDouble() * devicePR;
+    trailingTextSize = 14.toDouble() * devicePR / 2;
+    var fixButtonMargin = EdgeInsets.only(
+        left: 10, right: 10, top:  5 * devicePR / 2, bottom: 5 * devicePR / 2);
+    var buttonHeight = 35.toDouble() * devicePR / 2 + 2;
+    var buttonPadding =
+        EdgeInsets.only(top: 4 * devicePR / 2, bottom: 4 * devicePR / 2);
+    var fixButtonSize = 14.toDouble() * devicePR / 2.1;
+
     return Scaffold(
-        appBar: OftenAppBar().mainAppBar("Инспекции"),
+        appBar: OftenAppBar().inspectionAppBar("Инспекции"),
         body: SingleChildScrollView(
           child: SafeArea(
               child: Column(
             children: <Widget>[
               Container(
+                  color: inspectionEditPageBackground,
                   height: MediaQuery.of(context).size.height - 100,
                   child: CustomScrollView(
                     shrinkWrap: true,
@@ -127,6 +143,72 @@ class _InspectionsEditPageState extends State<InspectionsEditPage> {
                                   border: Border.all(color: Colors.blueAccent)),
                               child: Column(
                                 children: <Widget>[
+                                  Container(
+                                      height: buttonHeight,
+                                      margin: fixButtonMargin,
+                                      width: MediaQuery.of(context).size.width,
+                                      child: MaterialButton(
+                                          elevation: 0.0,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(5* devicePR/2)),
+                                          ),
+                                          onPressed: () {},
+                                          textColor: white,
+                                          color: inspectionEditPageButtonYellow,
+                                          child: Container(
+                                            padding: buttonPadding,
+                                            child: Text(
+                                              "Принять в работу",
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: fixButtonSize),
+                                            ),
+                                          ))),
+                                  Container(
+                                      height: buttonHeight,
+                                      margin: fixButtonMargin,
+                                      width: MediaQuery.of(context).size.width,
+                                      child: MaterialButton(
+                                          elevation: 0.0,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(7)),
+                                          ),
+                                          onPressed: () {},
+                                          textColor: white,
+                                          color: newButtonMstroyBlue,
+                                          child: Container(
+                                            padding: buttonPadding,
+                                            child: Text(
+                                              "Готово к проверке",
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.normal,
+                                                  fontSize: fixButtonSize),
+                                            ),
+                                          ))),
+                                  Container(
+                                      height: buttonHeight,
+                                      margin: fixButtonMargin,
+                                      width: MediaQuery.of(context).size.width,
+                                      child: MaterialButton(
+                                          elevation: 0.0,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(7)),
+                                          ),
+                                          onPressed: () {},
+                                          textColor: white,
+                                          color: inspectionEditPageButtonGreen,
+                                          child: Container(
+                                            padding: buttonPadding,
+                                            child: Text(
+                                              "Подтвердить устранение",
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.normal,
+                                                  fontSize: fixButtonSize),
+                                            ),
+                                          ))),
                                   Text("Инспекция принята/не принята"),
                                   Text("Виза ОКС"),
                                 ],

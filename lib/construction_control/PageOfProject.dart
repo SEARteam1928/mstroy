@@ -490,7 +490,7 @@ class _PageOfProjectState extends State<PageOfProject> {
           idOfProject: idOfProject,
           graphQLtoken: graphQLtoken,
           buttonName: buttonName,
-          selectFilter: 0,
+          selectFilter: 5,
         ));
         break;
       case "Неустранённые":
@@ -500,7 +500,7 @@ class _PageOfProjectState extends State<PageOfProject> {
           idOfProject: idOfProject,
           graphQLtoken: graphQLtoken,
           buttonName: buttonName,
-          selectFilter: 1,
+          selectFilter: 2,
         ));
         break;
       case "На проверке incident":
@@ -510,7 +510,7 @@ class _PageOfProjectState extends State<PageOfProject> {
           idOfProject: idOfProject,
           graphQLtoken: graphQLtoken,
           buttonName: "На проверке",
-          selectFilter: 2,
+          selectFilter: 4,
         ));
         break;
       case "Все incident":
@@ -520,7 +520,7 @@ class _PageOfProjectState extends State<PageOfProject> {
           idOfProject: idOfProject,
           graphQLtoken: graphQLtoken,
           buttonName: "Все",
-          selectFilter: 3,
+          selectFilter: 0,
         ));
         break;
       case "Создать инспекцию":
@@ -544,7 +544,7 @@ class _PageOfProjectState extends State<PageOfProject> {
           projectName: projectName,
           buttonName: buttonName,
           graphQLtoken: graphQLtoken,
-          selectFilter: 1,
+          selectFilter: 2,
           idOfProject: idOfProject,
           rowIdOfProject: rowIdOfProject,
         ));
@@ -554,7 +554,7 @@ class _PageOfProjectState extends State<PageOfProject> {
           projectName: projectName,
           buttonName: "На проверке",
           graphQLtoken: graphQLtoken,
-          selectFilter: 2,
+          selectFilter: 4,
           idOfProject: idOfProject,
           rowIdOfProject: rowIdOfProject,
         ));
@@ -564,7 +564,7 @@ class _PageOfProjectState extends State<PageOfProject> {
           projectName: projectName,
           buttonName: "Все",
           graphQLtoken: graphQLtoken,
-          selectFilter: 3,
+          selectFilter: 0,
           idOfProject: idOfProject,
           rowIdOfProject: rowIdOfProject,
         ));

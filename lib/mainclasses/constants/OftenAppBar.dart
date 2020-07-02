@@ -24,4 +24,15 @@ class OftenAppBar {
       backgroundColor: newLeadingRed,
     );
   }
+
+  AppBar inspectionAppBar(title) {
+    return AppBar(
+      elevation: 0.0,
+      title: Text(
+        title,
+        style: TextStyle(color: white),
+      ),
+      backgroundColor: newButtonMstroyBlue,
+    );
+  }
 }
