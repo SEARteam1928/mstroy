@@ -23,7 +23,7 @@
         "apollo-link-error": "^1.1.12",
         "apollo-link-http": "^1.5.16",
         "apollo-link-ws": "^1.0.20",
-        "axios": "^0.19.0",
+        "axios": "^0.21.1",
         "babel-plugin-graphql-tag": "^2.5.0",
         "bimserverapi": "0.0.167",
         "chart.js": "^2.9.3",
