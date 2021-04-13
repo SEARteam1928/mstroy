@@ -41,7 +41,7 @@
         "portal-vue": "^2.1.7",
         "quasar": "^1.9.11",
         "subscriptions-transport-ws": "^0.9.16",
-        "vis-timeline": "^6.2.10",
+        "vis-timeline": "^7.4.4",
         "vue-json-viewer": "^2.2.8",
         "vue2-leaflet": "^2.2.1",
         "vuex-router-sync": "^5.0.0"
