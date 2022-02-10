@@ -52,7 +52,7 @@
         "copy-webpack-plugin": "^5.0.4",
         "cross-env": "^5.2.0",
         "ftp-deploy": "^2.3.3",
-        "node-sass": "^4.13.1"
+        "node-sass": "^7.0.0"
     },
     "engines": {
         "node": ">= 8.9.0",
